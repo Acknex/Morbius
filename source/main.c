@@ -1,5 +1,7 @@
 #include <acknex.h>
 
+#include "src/morbius.h"
+
 function main()
 {
 	video_set(1280, 720, 0, 2);
