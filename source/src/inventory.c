@@ -315,8 +315,8 @@ void inv_on_click(PANEL* _pan) {
 }
 
 void inv_loop() {
-	if (mouse_right) {
-		while(mouse_right) wait(1);
+	if (mouse_right || key_esc) {
+		while(mouse_right || key_esc) wait(1);
 		if (itemInHand != NULL) {
 			if (itemInHand.inv != NULL) {
 				
