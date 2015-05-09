@@ -13,16 +13,28 @@ var level_change_transition(var in)
 void level_change(var level_id, var gate_id)
 {
 	// Always reset camera to NOT use the spline function during level transitions
+	level_loaded = 0;
 	activeCameraType = CAMERA_TYPE_FIXED_FOLLOW;
 	
 	gate_entry_id = gate_id;
 	input_fetch = 0;
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
+	if(!isCameraInitialized())
+	{
+		cameraInit();
+		cameraLoop();
+	}
 	if(!smd_level) smd_level = smartwalkdata_create();
 	smartwalkdata_fill(smd_level);
 	while(level_change_transition(-1) > 0) wait(1);
 	input_fetch = 1;
+	level_loaded = 1;
+}
+
+var is_level_loaded()
+{
+	return level_loaded;
 }
 
 //skill1: blue 0
