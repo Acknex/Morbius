@@ -15,7 +15,8 @@
 	Klavier/Keyboard
 
 = Simon
-
+	(Einfalls)pinsel
+	Raumschiff (X)
 
 = Superku
 	Superku-Wackelfigur auf Schreibtisch
@@ -27,16 +28,16 @@
 	- Buch, welches rumliegt
 	
 = MQ32
-
+	"Analyse"-Brett mit Pushpins
 
 = Kitsu
 	- Zusammengerollte Katze(Modell woher?)
 
 = Lemming
-	
+	DAS Handbuch
 
 = Achim
-
+	Rohrbruch, weil wegen Warmwasser
 
 = Kanal 21
 	Karte an Wand oder auf Schreibtisch
