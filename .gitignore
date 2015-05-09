@@ -1,4 +1,9 @@
 acklog.txt
 /source/test.c
+<<<<<<< HEAD
 Thumbs.db
 *.bak
+=======
+*.blend*
+!*.blend
+>>>>>>> 77b0158136fb7b98cb9597218dfd6ea763e7ae4c
