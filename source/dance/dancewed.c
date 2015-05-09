@@ -18,6 +18,18 @@ TEXT* gdp = {
 
 var sndvol = 100;
 
+ENTITY* e_ddrad_morbius = NULL;
+action ddrad_morbius () {
+	set(my, INVISIBLE);
+	e_ddrad_morbius = my;
+}
+
+ENTITY* e_ddrad_babe = NULL;
+action ddrad_babe () {
+	set(my, INVISIBLE);
+	e_ddrad_babe = my;
+}
+
 void snd_dd_init (TEXT* snd_dd, SOUND** snd_dd_p) {
 
 	int i;
@@ -95,7 +107,13 @@ var camlerpfac = 0.7;
 
 int dd_cam_type = 0; // 0 = intro // 1 = start // 2 = play
 
+VECTOR spawnorigin;
+
 action spawnkeyac () {
+
+	VECTOR delta;
+	vec_diff (&delta, my->x, &spawnorigin);
+	vec_normalize(&delta, 3);
 
 	set(my,ZNEAR|UNLIT);
 	my->ambient = 200;
@@ -108,9 +126,9 @@ action spawnkeyac () {
 	my->roll = 2;
 	
 	while (xx > 0) {
-		var t = 3 * time_step;
-		my->z += t;
-		xx -= t;
+		vec_normalize(&delta, 3 * time_step);
+		vec_add(my->x, &delta);
+		xx -= vec_length(&delta);
 		my->scale_x = my->scale_y = my->scale_z = my->scale_z+0.01 * time_step;
 		wait(1);
 	}
@@ -120,27 +138,51 @@ action spawnkeyac () {
 
 int spawni = 0;
 
-void spawnkey (ENTITY* ent, char* str) {
-	
+STRING* strspawnkey = "32";
+
+void spawnkey (ENTITY* ent, STRING* filen, STRING* str) {
+
 	VECTOR vv;
-	vec_set(&vv, ent->x);
-	vec_to_screen(vv, camera);
+	vec_for_bone(&vv,ent,str);
 	
-	spawni++;
+	str_cpy(strspawnkey, filen);
+	str_cat(strspawnkey, str);
+	str_cat(strspawnkey, ".tga");
 	
-	var gg = minv((screen_size.x - vv.x) / 3, vv.x / 3);
+	ent_create(strspawnkey, &vv, spawnkeyac);
 	
-	vv.x += gg;
-	
-	vv.z = vec_dist(ent->x, camera->x);
-   vec_for_screen(vv,camera);
-	
-	ent_create(str, &vv, spawnkeyac);
+	vec_set(&spawnorigin, ent->x);
 }
 
+void crosskey (ENTITY* ent, STRING* filen, STRING* str) {
+
+	VECTOR vv;
+	vec_for_bone(&vv,ent,str);
+	
+	str_cpy(strspawnkey, filen);
+	str_cat(strspawnkey, ".tga");
+	
+	ent_create(strspawnkey, &vv, spawnkeyac);
+	
+	vec_set(&spawnorigin, ent->x);
+}
+
+//"dd_arr_"
+void spawnkey_babe (ENTITY* ent, STRING* str) {
+	spawnkey(ent, "dd_arr_", str);
+}
+
+//"dd_m_arr_"
+void spawnkey_morbius (ENTITY* ent, STRING* str) {
+	spawnkey(ent, "dd_m_arr_", str);
+}
+
+void crosskey_morbius(ENTITY* ent, STRING* str) {
+	crosskey(ent, "dd_cross", str);
+}
 
 action esnd_song () {
-	ent_playsound(my, snd_dd_song, 500);
+	ent_playloop(my, snd_dd_song, 500);
 }
 
 // skill1: CAM_INDEX 0
@@ -212,8 +254,6 @@ action dd_intro ()
 		camera->arc = gg_arc;
 		
 		camera->roll = 0;
-		
-		draw_text(my->type, 100, 100, COLOR_WHITE);
 		
 		wait(1);
 	}
@@ -292,14 +332,12 @@ action dd_play ()
 			
 			ent_animate(my, "", (1 - (absv(p - 100) / 100)) * 100, 0);
 			
-			p = (p + (DD_FPS / 16) * DD_FAC * time_step);
+			p = (p + (DD_FPS / 16) * 1 * time_step);
 			p %= 200;
 			
 			camera->arc = gg_arc;
 			
 			camera->roll = 0;
-			
-			draw_text(my->type, 100, 100, COLOR_WHITE);
 			
 			wait(1);
 		}
@@ -389,8 +427,6 @@ action dd_play2 ()
 			
 			camera->roll = 0;
 			
-			draw_text(my->type, 100, 100, COLOR_WHITE);
-			
 			wait(1);
 		}
 		
@@ -456,24 +492,19 @@ action ee_play ()
 				
 				snd_dd_tauntb_play ();
 				
-				// keys
-				str_cpy(strspwawnkey, "dd_arr_");
-				str_cat(strspwawnkey, gg_playstr);
-				str_cat(strspwawnkey, ".tga");				
-				spawnkey(my, strspwawnkey);
+				// key sprites
+				spawnkey_babe(e_ddrad_babe, gg_playstr);
 			
 				var p = 0;
 				
 				// play anim str
 				while (p < 100 && !isfailed) {
 				
-					p = clamp(p + 5 * time_step, 0, 100);
-					DEBUG_VAR(p, 200);
+					p = clamp(p + 7 * time_step, 0, 100);
 					
 					// ent_animate... switch!
 					ent_animate(my, "jump", p, 0);
 					//ent_animate(my, gg_playanim, p, 0);
-					draw_text(gg_playanim, 100, 300, COLOR_RED);
 					
 					wait(1);
 				}	
@@ -567,7 +598,7 @@ action dd_switch ()
 			vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
 			
 			ent_animate(my, "", p, 0);
-			p = clamp(p + (DD_FPS / 16) * DD_FAC * time_step, 0, 100);
+			p = clamp(p + (DD_FPS / 16) * 4 * time_step, 0, 100);
 			
 			if (p >= 100) {
 				break;
@@ -576,8 +607,6 @@ action dd_switch ()
 			camera->arc = gg_arc;
 			
 			camera->roll = 0;
-			
-			draw_text(my->type, 100, 100, COLOR_WHITE);
 			
 			wait(1);
 		}
@@ -617,7 +646,7 @@ action dd_switch ()
 				vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
 				
 				ent_animate(my, "", p, 0);
-				p = clamp(p - (DD_FPS / 16) * DD_FAC * time_step, 0, 100);
+				p = clamp(p - (DD_FPS / 16) * 4 * time_step, 0, 100);
 				
 				if (p <= 0) {
 					break;
@@ -626,8 +655,6 @@ action dd_switch ()
 				camera->arc = gg_arc;
 				
 				camera->roll = 0;
-				
-				draw_text(my->type, 100, 100, COLOR_WHITE);
 				
 				wait(1);
 			}			
@@ -720,7 +747,6 @@ action ee_morbius ()
 		
 			while ((!tt_waitforplayer || !switch_go) && !isfailed) {
 				ent_animate(my, male_anim_waitafterplay, (total_ticks * 10) % 100, ANM_CYCLE);
-				draw_text("LL-664",500,100,vector(100,100,255));
 				wait(1);
 			}
 		
@@ -745,8 +771,6 @@ action ee_morbius ()
 				gg_isdone = 0;			
 				while (!gg_isdone && !isfailed) {
 					ent_animate(my, male_anim_waitforkey, (total_ticks * 10) % 100, ANM_CYCLE);
-					draw_text(gg_playstr, 100, 300, COLOR_WHITE);
-					draw_text(str_printf(NULL, "gg_playlen = %d", gg_playlen), 100, 350, COLOR_WHITE);
 					wait(1);
 				}
 				
@@ -756,8 +780,10 @@ action ee_morbius ()
 					snd_dd_shit_play ();
 					fails++;
 					total_fails++;
+					crosskey_morbius(e_ddrad_morbius, gg_playstr);
 				} else {
 					snd_dd_tauntm_play ();
+					spawnkey_morbius(e_ddrad_morbius, gg_playstr);
 				}
 				
 				var p = 0;
@@ -765,17 +791,13 @@ action ee_morbius ()
 				// play anim str
 				while (p < 100 && !isfailed) {
 				
-					p = clamp(p + 5 * time_step, 0, 100);
-					DEBUG_VAR(p, 200);
+					p = clamp(p + 10 * time_step, 0, 100);
 					
 					if (gg_isgood) {				
 						ent_animate(my, "jump", p, 0);
 						//ent_animate(my, gg_playanim, p, 0);
-						draw_text(gg_playanim, 100, 300, COLOR_RED);
-						draw_text("OK", 100, 350, COLOR_RED);
 					} else {
 						ent_animate(my, male_anim_fail, p, ANM_CYCLE);
-						draw_text("FAIL", 100, 300, COLOR_RED);
 					}
 					
 					wait(1);
@@ -831,7 +853,6 @@ action ee_morbius ()
 				while (tt_timer > 0 && !isfailed) {	
 					ent_animate(my, male_anim_waitafterplay, (total_ticks * 10) % 100, ANM_CYCLE);
 					tt_timer -= time_step;
-					draw_text("LL-775",500,100,vector(100,100,255));
 					wait(1);
 				}
 			}
@@ -840,7 +861,6 @@ action ee_morbius ()
 		}
 		
 		while (gg_stepcomplete) {
-			draw_text("LL-785",500,100,vector(100,100,255));
 			wait(1);
 		}
 		
