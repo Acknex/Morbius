@@ -5,8 +5,8 @@
 version 710
 
 blocks 1
-entities 8
-objects 9
+entities 9
+objects 10
 
 wed {
 	palette {
@@ -154,9 +154,22 @@ model 7 {   // fails_exceed_016
 	ndef
 }
 
+model 8 {   // cam_play2_mdl_014
+	1 1 1
+	<cam_play2.mdl>
+	cam_play2_mdl_014
+	dd_play2
+	88 80 80 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	0000
+	0
+	50
+	ndef
+	ndef
+}
+
 object 0 {  // Root
 	(0 0 0) (0 0 0) (1 1 1)
-	object 1, 2, 3, 4, 5, 6, 7, 8
+	object 1, 2, 3, 4, 5, 6, 7, 8, 9
 	level 0
 }
 
@@ -198,5 +211,10 @@ object 7 {  // cam_switch_mdl_014
 object 8 {  // fails_exceed_016
 	(0 0 0) (-0 0 0) (1 1 1)
 	model 7
+}
+
+object 9 {  // cam_play2_mdl_014
+	(0 0 0) (-0 0 0) (1 1 1)
+	model 8
 }
 

@@ -1,7 +1,12 @@
 #ifndef dancewed_c
 #define dancewed_c
 
-var iwannaplay = 0;
+var iwannaplay = 1;
+
+var gg_arc = 70;
+
+ENTITY* ge_morbius = NULL;
+ENTITY* ge_babe = NULL;
 
 TEXT* gdp = {
 	string ("LRUD","UUDD");
@@ -57,7 +62,7 @@ action dd_intro ()
 		str_cpy(gdp_puzzle, (gdp->pstring)[gdp_index]);
 	}
 	
-	camera->arc = my->DD_CAM_ARC_START;
+	camera->arc = gg_arc;
 	
 	var p = 0;
 	
@@ -96,7 +101,7 @@ action dd_intro ()
 			
 		}
 		
-		camera->arc = my->DD_CAM_ARC_START + (p / 100 * (my->DD_CAM_ARC_END - my->DD_CAM_ARC_START));
+		camera->arc = gg_arc;
 		
 		camera->roll = 0;
 		
@@ -105,7 +110,7 @@ action dd_intro ()
 		wait(1);
 	}
 	
-	camera->arc = my->DD_CAM_ARC_END;
+	camera->arc = gg_arc;
 	
 	if (type == 0) {	
 		if (is(my, FLAG1)) {
@@ -146,61 +151,144 @@ action dd_play ()
 		wait(1);
 	}
 	
-	while (dd_cam_index < my->DD_CAM_INDEX && type == dd_cam_type) {
-		wait(1);
-	}
-	
-	if (dd_cam_type == 2) {
-		str_cpy(gdp_puzzle, (gdp->pstring)[gdp_index]);
-	}
-	
-	camera->arc = my->DD_CAM_ARC_START;
-	
-	var p = 0;
-	
-	var firstFrame = 1;
-	
-	while (tt_waitforplayer == 0) {	
-		
-		VECTOR vCam, vTarget;
-		
-		vec_for_bone(&vCam, my, "Camera");
-		if (firstFrame) {
-			vec_set(camera->x, &vCam);
-			firstFrame = 0;
-		} else {
-			vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
+	while (1)
+	{	
+		while (dd_cam_index < my->DD_CAM_INDEX && type == dd_cam_type) {
+			wait(1);
 		}
 		
-		vec_for_bone(&vTarget, my, "Target");
-		vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
+		if (dd_cam_type == 2) {
+			str_cpy(gdp_puzzle, (gdp->pstring)[gdp_index]);
+		}	
+	
+		camera->arc = gg_arc;
 		
-		ent_animate(my, "", (1 - (absv(p - 100) / 100)) * 100, 0);
+		var p = 0;
 		
-		p = (p + (DD_FPS / 16) * DD_FAC * time_step);
-		p %= 200;
+		var firstFrame = 1;
 		
-		camera->arc = my->DD_CAM_ARC_START + (p / 100 * (my->DD_CAM_ARC_END - my->DD_CAM_ARC_START));
+		while (tt_waitforplayer == 0) {	
+			
+			VECTOR vCam, vTarget;
+			
+			vec_for_bone(&vCam, my, "Camera");
+			if (firstFrame) {
+				vec_set(camera->x, &vCam);
+				firstFrame = 0;
+			} else {
+				vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
+			}
+			
+			vec_for_bone(&vTarget, my, "Target");
+			vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
+			
+			ent_animate(my, "", (1 - (absv(p - 100) / 100)) * 100, 0);
+			
+			p = (p + (DD_FPS / 16) * DD_FAC * time_step);
+			p %= 200;
+			
+			camera->arc = gg_arc;
+			
+			camera->roll = 0;
+			
+			draw_text(my->type, 100, 100, COLOR_WHITE);
+			
+			wait(1);
+		}
 		
-		camera->roll = 0;
+		camera->arc = gg_arc;
 		
-		draw_text(my->type, 100, 100, COLOR_WHITE);
+		if (type == 0) {	
+			if (is(my, FLAG1)) {
+				dd_cam_index = 0;
+				dd_cam_type++;
+			} else {
+				dd_cam_index++;
+			}	
+		} else if (type == 1) {
+			dd_cam_index = 0;
+			dd_cam_type++;
+		}
 		
+		while (tt_waitforplayer == 1) {
+			wait(1);
+		}
+		
+		dd_cam_index = 0;
+	
+		wait(1);	
+	}
+}
+
+// skill1: CAM_INDEX 0
+// skill2: ArcStart 80
+// skill3: ArcEnd 80
+// skill4: Type 0
+action dd_play2 ()
+{
+	set(my, INVISIBLE);
+	
+	int type = my->DD_CAM_TYPE;	
+	
+	if (my->DD_CAM_INDEX == 0 && my->DD_CAM_TYPE == 0) {
+		gdp_index = 0;
+		dd_cam_index = 0;		
+	}
+	
+	while (type != dd_cam_type) {
 		wait(1);
 	}
 	
-	camera->arc = my->DD_CAM_ARC_END;
-	
-	if (type == 0) {	
-		if (is(my, FLAG1)) {
-			dd_cam_index = 0;
-			dd_cam_type++;
-		} else {
-			dd_cam_index++;
-		}	
-	} else if (type == 1) {
-		dd_cam_index = 0;
-		dd_cam_type++;
+	while (1)
+	{	
+		while (tt_waitforplayer == 0) {
+			wait(1);
+		}
+		
+		wait(1);
+		
+		while (switch_go == 0) {
+			wait(1);
+		}		
+		
+		camera->arc = gg_arc;
+		
+		var p = 0;
+		
+		var firstFrame = 1;
+		
+		while (tt_waitforplayer == 1) {	
+			
+			VECTOR vCam, vTarget;
+			
+			vec_for_bone(&vCam, my, "Camera");
+			if (firstFrame) {
+				vec_set(camera->x, &vCam);
+				firstFrame = 0;
+			} else {
+				vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
+			}
+			
+			vec_for_bone(&vTarget, my, "Target");
+			vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
+			
+			ent_animate(my, "", (1 - (absv(p - 100) / 100)) * 100, 0);
+			
+			p = (p + (DD_FPS / 16) * DD_FAC * time_step);
+			p %= 200;
+			
+			camera->arc = gg_arc;
+			
+			camera->roll = 0;
+			
+			draw_text(my->type, 100, 100, COLOR_WHITE);
+			
+			wait(1);
+		}
+		
+		camera->arc = gg_arc;
+		
+		wait(1);	
 	}
 }
 
@@ -213,6 +301,8 @@ STRING* fem_anim_waitfor = "stand";
 
 action ee_play ()
 {
+	ge_babe = my;
+
 	while (dd_cam_type != 2 && !isfailed) {
 		ent_animate(my, fem_anim_intro, (total_ticks * 10) % 100, ANM_CYCLE);
 		wait(1);
@@ -228,7 +318,7 @@ action ee_play ()
 	
 		int i;
 		
-		for (i = 0; i < gg_playlen; i++) {
+		for (i = 0; i < gg_playlen && !isfailed; i++) {
 		
 			// get char for LRUD
 			var c = str_getchr(gdp_puzzle, i+1);
@@ -285,6 +375,8 @@ action ee_play ()
 	}
 }
 
+
+
 // skill1: CAM_INDEX 0
 // skill2: ArcStart 80
 // skill3: ArcEnd 80
@@ -304,7 +396,7 @@ action dd_switch ()
 			wait(1);
 		}
 	
-		camera->arc = my->DD_CAM_ARC_START;
+		camera->arc = gg_arc;
 		
 		var p = 0;
 		
@@ -334,7 +426,7 @@ action dd_switch ()
 				break;
 			}
 				
-			camera->arc = my->DD_CAM_ARC_START + (p / 100 * (my->DD_CAM_ARC_END - my->DD_CAM_ARC_START));
+			camera->arc = gg_arc;
 			
 			camera->roll = 0;
 			
@@ -343,7 +435,7 @@ action dd_switch ()
 			wait(1);
 		}
 		
-		camera->arc = my->DD_CAM_ARC_END;
+		camera->arc = gg_arc;
 		
 		while (tt_waitforplayer && !isfailed) {
 			switch_go = 1;
@@ -377,7 +469,7 @@ action dd_switch ()
 				break;
 			}
 				
-			camera->arc = my->DD_CAM_ARC_START + (p / 100 * (my->DD_CAM_ARC_END - my->DD_CAM_ARC_START));
+			camera->arc = gg_arc;
 			
 			camera->roll = 0;
 			
@@ -386,7 +478,7 @@ action dd_switch ()
 			wait(1);
 		}	
 		
-		camera->arc = my->DD_CAM_ARC_START;
+		camera->arc = gg_arc;
 		
 		switch_go = 1;
 	}
@@ -457,6 +549,8 @@ STRING* male_anim_notgood = "die";
 
 action ee_morbius ()
 {
+	ge_morbius = my;
+
 	int len = str_len(gdp_puzzle);	
 
 	while (gg_playlen <= len && !isfailed) {
@@ -470,7 +564,7 @@ action ee_morbius ()
 		
 		int fails = 0;
 		
-		for (i = 0; i < gg_playlen;) {
+		for (i = 0; i < gg_playlen && !isfailed;) {
 		
 			// get char for LRUD
 			var c = str_getchr(gdp_puzzle, i+1);
@@ -562,6 +656,40 @@ action ee_morbius ()
 	}
 }
 
+void sync_babe (ENTITY* cammdl)
+{
+	if (ge_babe != NULL) {
+	
+		VECTOR bxyz;
+		vec_for_bone(&bxyz, cammdl, "Babe");
+		ge_babe->x = bxyz.x;
+		ge_babe->y = bxyz.y;
+		
+		VECTOR toy;
+		vec_for_bone(&toy, cammdl, "Sex");
+		toy.z = bxyz.z;
+		
+		vec_to_angle(ge_babe->pan, vec_diff(NULL, &toy, &bxyz));
+	}
+}
+
+void sync_morbius (ENTITY* cammdl)
+{
+	if (ge_morbius != NULL) {
+	
+		VECTOR bxyz;
+		vec_for_bone(&bxyz, cammdl, "Morbius");
+		ge_morbius->x = bxyz.x;
+		ge_morbius->y = bxyz.y;
+		
+		VECTOR toy;
+		vec_for_bone(&toy, cammdl, "Pop");
+		toy.z = bxyz.z;
+		
+		vec_to_angle(ge_morbius->pan, vec_diff(NULL, &toy, &bxyz));
+	}
+}
+
 action ee_exceed ()
 {
 	set(my, INVISIBLE);
@@ -587,6 +715,9 @@ action ee_exceed ()
 		} else {
 			vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
 		}
+		
+		sync_babe(my);
+		sync_morbius(my);
 		
 		vec_for_bone(&vTarget, my, "Target");
 		vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));

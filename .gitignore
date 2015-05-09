@@ -2,3 +2,6 @@ acklog.txt
 /source/test.c
 Thumbs.db
 *.bak
+/source/dance/c4d/*.fbx
+/source/dance/*.$$M
+/source/dance/*.$$w
