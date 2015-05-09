@@ -1,0 +1,21 @@
+<Dialog>
+	<NPC id="0" file="sounds\\speech\\003Erade03_01.ogg" name="Erade">Vielen Dank Finn, genau diesen Pilz habe ich gebraucht! Gut, erzähle ich dir etwas über Worldsend.</NPC>
+	<Player id="1" file="sounds\\speech\\003Erade03_02.ogg" name="Finn">Worldsend?</Player>
+	<NPC id="2" file="sounds\\speech\\003Erade03_03.ogg" name="Erade">Die Welt in der wir leben! Im Moment bist du in Chiby, im Nord-Westen. In der Umgebung gibt es noch eine verlassene Kirche im Süden und einen alten verlassenen Altar im Nord-Osten.</NPC>
+	<NPC id="3" file="sounds\\speech\\003Erade03_04.ogg" name="Erade">Im Süden befindet sich außerdem der alte Eingang zum Schloss, doch er wurde schon lang nicht mehr geöffnet. Der einzige der sich noch daran erinnert, dass das Tor offen Stand ist Bert.</NPC>
+	<NPC id="4" file="sounds\\speech\\003Erade03_05.ogg" name="Erade">Allerdings ist der arme alte Mann schon etwas wirr im Kopf, ich würde mich von ihm fernhalten wenn du kannst. Er wohnt in einer Hütte neben dem Schloss.</NPC>
+	<NPC id="5" file="sounds\\speech\\003Erade03_06.ogg" name="Erade">Hast du noch irgendwelche Fragen?</NPC>
+	<Choice id="6">
+		<ChoiceItem target="7" returnvalue="2">Wer kann mir helfen herauszufinden wo ich herkomme?</ChoiceItem>
+		<ChoiceItem target="9" returnvalue="2">Erzähl mir was über dich!</ChoiceItem>
+		<ChoiceItem target="11" returnvalue="2">Nein, keine Fragen!</ChoiceItem>		
+	</Choice>
+	<NPC id="7" file="sounds\\speech\\003Erade03_07.ogg" name="Erade">Seit einigen Tagen ist ein Ritter hier in der Gegend. Er heißt Osunt. Vielleicht kann er dir etwas sagen. Das letzte mal hab ich ihn südlich von hier gesehen.</NPC>
+	<Goto id="8" target="6"/>
+	<NPC id="9" file="sounds\\speech\\003Erade03_08.ogg" name="Erade">Über mich? (lacht) Ich bin nur eine einfache Magt. Ich lebe hier in Chiby seit ich geboren wurde. Mein Leben ist also nicht besonder spannend.</NPC>
+	<Goto id="10" target="6"/>
+	<NPC id="11" file="sounds\\speech\\003Erade03_09.ogg" name="Erade">Gut, pass auf, hier in der Gegend ist es nicht ganz ungefährlich.</NPC>
+	<Player id="12" file="sounds\\speech\\003Erade03_10.ogg" name="Finn">Danke, dann mach ich mich jetzt auf um herauszufinden wer ich bin!</Player>
+	<NPC id="13" file="sounds\\speech\\003Erade03_11.ogg" name="Erade">Viel Glück kleiner Mann!</NPC>
+	<End id="14"/>
+</Dialog>
