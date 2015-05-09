@@ -1,9 +1,9 @@
 Chapter 1: Morbius' Büro
 
 Verschlossene Schublade
-    "Verdammt, die schublade ist abgeschlossen"
+    "Verdammt, die Schublade ist abgeschlossen"
     "Die schublade ist immernoch abgeschlossen"
-    "Wenn ich nichts versuche, dann bleibt die schublade auch weiterhin abgeschlossen"
+    "Wenn ich nichts versuche, dann bleibt die Schublade auch weiterhin abgeschlossen"
     "Vielleicht sollte ich den schlüssel finden mit dem ich diese ABGESCHLOSSENE schublade öffnen kann"
     
 Unzugänglichen Schlüssel
@@ -12,7 +12,7 @@ Unzugänglichen Schlüssel
     "Irgendwie muss ich meinen Gecko ablenken um an die schlüssel zu kommen"#
     
 Gecko
-    "Das ist mein Gecko, er war eine sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen kunden gepfändet habe"
+    "Das ist mein Gecko, er war eine Sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen kunden gepfändet habe"
     "Schau mich nicht so verzweifelnd an du reptil"
     
 Leere Taschenlampe
