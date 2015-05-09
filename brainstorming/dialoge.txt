@@ -134,3 +134,61 @@ MATHIAS N STRASSE 211
 11. AUGUST
 }
 
+"Das ist also der hauptsitz der Flight Embassy and Service Ground. Ich bin zwar kein Experte in Großunternehmen, aber das sieht mir nicht nach dem Ansitz eines Multi-Millionen unternehmens aus."
+
+"Ist das... eine Leiche?!"
+"Armer kerl, wen hast du bloß verärgert um so zu enden?"
+"GALEP Security... hmm war er ein bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen."
+
+"Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach"
+"Irgendwie sollte sich diese tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist."
+
+"Wasserverdrängugsspray-40, der alltägliche helfer für alles. Wird mir bestimmt gelegen kommen."
+
+"Eine Brechstange, kein wunder dass ich in dieser abgestandenen schabracke sowas finde."
+
+"Ein bisschen Wasserverdrängugsspray-40 anwenden und abracadabra....! Sesam öffne dich!"
+
+"Eine Brechstange ist meist genauso gut wie ein schlüssel, wenn nicht sogar noch besser!"
+
+"War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die aufgabe der Informationssuche aufdrücken muss."
+
+"Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können"
+
+"Also ich glaube nicht dass ich bei einer Leiche nach Geld suchen werde"
+"[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
+"ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen"
+
+"Okay Fritz, ich hoffe du bist deine Gadge immernoch wert..."
+
+FRITZ: [schnauf] Yop?
+
+    1. "Hi Fritz, Morbius hier"
+        ->
+    2. "Ich brauche deine hilfe"
+        FRITZ: Wer bist du überhaupt?
+        
+        1. "Ich bins, Morbius"
+            FRITZ: Warum sagst du das nicht gleich?! ->
+            
+        2. "Unwichtig!"
+            FRITZ: Morbius...? Bist du das? ->
+            
+FRITZ: Was brauchst du?
+MORBIUS: Ich brauche informationen zu einem Namen. Gibt sogar wieder honorar.
+FRITZ: Yop, gib mir den Namen ich ruf dich dann morgen wieder an.
+MORBIUS: Ich brauch die information jetzt, es geht um leben und tot... sozusagen.
+FRITZ: [seuftz] okay Morbius, aber nur weil du es bist, wie heißt der Übeltäter?
+MORBIUS: GALEP Security, sollte irgendwo in Zürich sein.
+FRITZ: Zürich? Morbius, wo treibst du dich wieder rum... moment... [tippen] [schnauf] ja komm meine kleine, du kannst das... [tippen] Aaaaah, hier ist es: GALEP Security, eine Personenschutz Firma aus Zürich. 
+MORBIUS: Soviel weis ich schon, Fritz. Ich brauch ne nummer!
+FRITZ: Beruhig dich, hab ich alles hier, was glaubst du wer ich bin? [tippen] Hier: 388 520 909 8
+MORBIUS: Danke Fritz, was würde ich nur ohne dich tun?
+FRITZ: Yop, vergiss nur nicht mir das Geld zu überweisen.
+MORBIUS: Wieviel schulde ich dir?
+FRITZ: Das Übliche ist in ordnung.
+MORBIUS: Alles klar, bekommst du. Ich hab diesmal einen guten Vorschuss bekommen!
+FRITZ: Sag bloß du wirst langsam richtig profesionell?
+MORBIUS: Haha, sehr lustig. Naja danke nochmal, ich muss jetzt los!
+FRITZ: Yop, kein problem. Log-Off!
+
