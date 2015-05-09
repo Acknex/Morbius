@@ -1,1 +1,2 @@
 PATH "..\\sounds";
+PATH "..\\src";
