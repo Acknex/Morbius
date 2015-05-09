@@ -3,6 +3,7 @@
 
 #define itemType skill1
 #define itemId skill2
+#define itemSequence skill3
 #define itemHover FLAG1
 #define itemRemove FLAG2
 
@@ -24,6 +25,7 @@ TEXT* interActionItem__txt =
 }
 
 void interactionItem__eventHandler();
+ENTITY* interactionItem__find(int id);
 
 
 //skill1: ItemType 0
@@ -33,6 +35,7 @@ action interactionItem()
 	mouse_map = cursor_point;
 
 	my->itemType = TYPE_INTERACTIONITEM;
+	my->itemSequence = 0;
 	
 	if (my->itemId == -1)
 	{
@@ -64,23 +67,28 @@ action interactionItem()
 void interactionItem__eventHandler()
 {
 	ITEM* item = ITEM_get(my->itemId);
+	int resultId;
+	
 	if (item == NULL)
 		return;
 		
 	if (event_type == EVENT_CLICK)
 	{
-		if (item->collectable != 0)
-		{
-			//TODO: interaction
-		}
-		else
-		{
-			//TODO: interaction
-		}
+		resultId = ITEM_interaction(item, &my->itemSequence);
 		
-		if (item->destroyable != 0)
+		//error(str_for_num(NULL, my->itemSequence));
+		if (ITEM_isLastSequence(item, my->itemSequence) != 0) 
 		{
-			set(my, itemRemove);
+			if (item->collectable != 0)
+			{
+				//TODO: interaction
+				//add item to inventory here
+			}
+			
+			if (item->destroyable != 0)
+			{
+				set(my, itemRemove);
+			}
 		}
 	}
 	
@@ -111,4 +119,38 @@ void interactionItem__eventHandler()
 		}
 	}
 	
+}
+
+
+//untested
+void interactionItem_morph(int targetId, int morphId)
+{
+	ENTITY* ent;
+	ITEM* item;
+	
+	ent = interactionItem__find(targetId);
+	item = ITEM_get(morphId);
+	
+	if (item->entfile != NULL)
+	{
+		ent_morph(ent, item->entfile);
+	}
+	ent->itemId = morphId;
+}
+
+//untested
+ENTITY* interactionItem__find(int id)
+{
+	ENTITY* ent = NULL;
+	
+	while (ent_next(ent) != NULL)
+	{
+		if (ent != NULL)
+		{
+			if (ent->itemType == TYPE_INTERACTIONITEM && ent->itemId == id)
+				break;
+		}
+	}
+	
+	return ent;
 }

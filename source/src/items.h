@@ -32,7 +32,8 @@ typedef struct sequence
 
 
 ITEM* ITEM_get(int id);
-int ITEM_interaction(int id, var step);
+var ITEM_isLastSequence(ITEM* item, var step);
+int ITEM_interaction(ITEM* item, var* step);
 //void ITEM_sndrnd(ITEM* item);
 //void ITEM_snd(ITEM* item, var soundnum);
 
