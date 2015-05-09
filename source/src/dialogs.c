@@ -235,6 +235,8 @@ int dlgStart(STRING* _dialogFile)
 	
 	nIsDialogActive = 1;
 	
+	int nCancelDialog = 0;
+	
 	// 2 schwarze Balken oben und unten werden eingeblendet
 	panDialogBar1.alpha = 0;
 	panDialogBar2.alpha = 0;
@@ -347,8 +349,11 @@ int dlgStart(STRING* _dialogFile)
 				else
 				{
 					// Wenn die Maus irgendwo geklickt und losgelassen wurde machen wir weiter
-					while(mouse_left) wait(1);
-					while(!mouse_left) wait(1);
+					while(!mouse_left && !key_esc) {
+						wait(1);
+					}
+					if (key_esc) nCancelDialog = 1;
+					while((mouse_left) || (key_esc)) wait(1);
 				}
 			}
 			
@@ -399,13 +404,23 @@ int dlgStart(STRING* _dialogFile)
 				// Dialog fortsetzen
 				if (snd_playing(vDialogSpeechHandle) > 0)
 				{
-					while(snd_playing(vDialogSpeechHandle) > 0) wait(1);
+					while(snd_playing(vDialogSpeechHandle) > 0) {
+						if (key_esc) {
+							while(key_esc) wait(1);
+							nCancelDialog = 1;
+							snd_stop(vDialogSpeechHandle);
+						}
+						wait(1);
+					}
 				}
 				else
 				{
 					// Wenn die Maus irgendwo geklickt und losgelassen wurde machen wir weiter
-					while(mouse_left) wait(1);
-					while(!mouse_left) wait(1);
+					while(!mouse_left && !key_esc) {
+						wait(1);
+					}
+					if (key_esc) nCancelDialog = 1;
+					while((mouse_left) || (key_esc)) wait(1);
 				}
 			}
 			
@@ -567,9 +582,13 @@ int dlgStart(STRING* _dialogFile)
 				i = getDialogItemId(pPar);
 			}
 			
-			XMLPAR_getTag(pPar, strXMLTag);	
-			
+			if (nCancelDialog == 1) {
+				str_cpy(returnValue, "");
+				break;
+			}
 			wait(1);
+			
+			XMLPAR_getTag(pPar, strXMLTag);
 		}
 
 		// Der Dialog ist abgearbeitet, räumen wir auf

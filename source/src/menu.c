@@ -7,19 +7,25 @@
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
 BMAP *bmpMenuLogo = "graphics\\textures\\logo.png";
 FONT *fontCalibri48 = "Calibri#48b";
+SOUND *sndMenuClick = "sounds\\menu-click.wav";
 
 typedef struct {
 	VECTOR position;
+	VECTOR positionText;
 	ANGLE rotation;
 	VECTOR positionFade;
 	ANGLE rotationFade;
 	char title[128];
 	void *trigger;
+	BMAP *textMap;
 } MenuStop;
 
 typedef struct {
     var music;
 	void *on_ent_remove;
+	void *on_space;
+	void *on_cul;
+	void *on_cur;
 	ENTITY *core;
 	int currentStop;
 	int nextStop;
@@ -95,6 +101,9 @@ void menu_close()
 	_menu.music = 0;
 	
 	_menu.on_ent_remove = on_ent_remove;
+	on_space = _menu.on_space;
+	on_cul = _menu.on_cul;
+	on_cur = _menu.on_cur;
 }
 
 void menu_ent_remove(ENTITY *ent)
@@ -114,16 +123,20 @@ void menu_core()
 	var textBlinkTime = 0;
 	while(1)
 	{
+#ifdef MENU_DEBUG
 		draw_text(_menu_stops[_menu.currentStop].title, 16, 16, COLOR_RED);
+#endif
 		
 		if(_menu.fade <= 0.0)
 		{
 			// Only do camera movement if we are not fading out right now
 			if(_menu.currentStop != _menu.nextStop)
 			{
+#ifdef MENU_DEBUG
 				draw_text(str_for_float(NULL, _menu.lerp), 16, 32, COLOR_RED);
 				draw_text(str_for_int(NULL, _menu.currentStop), 128, 32, COLOR_RED);
 				draw_text(str_for_int(NULL, _menu.nextStop), 160, 32, COLOR_RED);
+#endif
 				
 				float f = smootherstep(0.0, 1.0, _menu.lerp);
 				
@@ -244,21 +257,161 @@ void menu_core()
 			100 * _menu.fade,
 			0);
 		
+#ifdef MENU_DEBUG
 		draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, idleTime), 72, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, textBlinkTime), 128, 48, COLOR_RED);
+#endif
 		
 		wait(1);
 	}
 }
 
+void _menu_look_at(ENTITY *ent, VECTOR *position)
+{
+	vec_diff(ent.pan, position, ent.x);
+	vec_to_angle(ent.pan, ent.pan);
+	ent.roll = 0;
+}
+
+void _menu_item_init()
+{
+	my.flags = DECAL | LIGHT | TRANSLUCENT;
+	vec_set(my.blue, COLOR_WHITE);
+	
+	var down = 0;
+	var active = 0;
+	float blend = 0;
+	while(1)
+	{
+		VECTOR from, to;
+		vec_set(from, mouse_pos);
+		vec_set(to, mouse_pos);
+		from.z = 0;
+		to.z = 1000;
+		vec_for_screen(from, camera);
+		vec_for_screen(to, camera);
+		
+		var p = active;
+		active = 0;
+		vec_set(my.blue, COLOR_WHITE);
+		if(c_trace(from, to, IGNORE_MODELS | IGNORE_PASSABLE | USE_POLYGON))
+		{
+			if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
+			{
+				vec_set(my.blue, COLOR_RED);
+				active = 1;
+				if((mouse_left != down) && mouse_left && (my.event != NULL))
+				{
+					void fn();
+					fn = my.event;
+					fn();
+				}		
+			}
+		}
+		if((p != active) && active)
+		{
+			snd_play(sndMenuClick, 100, 0);
+		}
+		down = mouse_left;
+		
+		float blendSpeed = 0.1;
+		if(((_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop)) || (_menu.nextStop == my.skill1))
+		{
+			blend = clamp(blend + blendSpeed * time_step, 0, 1);
+		}
+		else
+		{
+			blend = clamp(blend - blendSpeed * time_step, 0, 1);
+		}
+		
+		my.alpha = 100 * smootherstep(0, 1, blend);
+		
+		wait(1);
+	}
+}
+
+void menu_entity_trigger()
+{
+	menu_fade_and_trigger(_menu_stops[my.skill1]);
+}
+
+void menu_nav_next()
+{
+	menu_switch(1);
+}
+
+void menu_nav_prev()
+{
+	menu_switch(-1);
+}
+
+void menu_trigger()
+{
+	if(_menu.currentStop != _menu.nextStop)
+		return;
+	menu_fade_and_trigger(_menu_stops[_menu.currentStop]);
+}
+
 void menu_open()
 {
 	_menu.on_ent_remove = on_ent_remove;
+	_menu.on_space = on_space;
+	_menu.on_cur = on_cur;
+	_menu.on_cul = on_cul;
 	on_ent_remove = menu_ent_remove;
+	on_space = menu_trigger;
+	on_cur = menu_nav_prev;
+	on_cul = menu_nav_next;
     level_load("level\\disco.wmb");
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
+	wait(1);
+	// Create main menu text entries
+	int i;
+	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
+	{
+		ENTITY *menuItem = ent_create("graphics\\textures\\stub.png", _menu_stops[i].positionText, _menu_item_init);
+		ent_clone(menuItem);
+		
+		vec_fill(menuItem.scale_x, 0.03);
+		menuItem.scale_x *= bmap_width(_menu_stops[i].textMap);
+		menuItem.scale_y *= bmap_height(_menu_stops[i].textMap);
+		menuItem.scale_z = 0.5;
+		
+		_menu_look_at(menuItem, _menu_stops[i].position);
+		
+		ent_setskin(menuItem, _menu_stops[i].textMap, 1);
+		
+		menuItem.flags2 |= UNTOUCHABLE;
+		menuItem.skill1 = i;
+		menuItem.event = menu_entity_trigger;
+		
+		VECTOR dir;
+		vec_diff(dir, _menu_stops[i].position, _menu_stops[i].positionText);
+		
+		var size = menuItem.scale_x * 32;
+		
+		VECTOR left, right;
+		vec_cross(left, dir, vector(0, 0, 1));
+		vec_cross(right, dir, vector(0, 0, -1));
+		vec_normalize(left, size + 24);
+		vec_normalize(right, size + 24);
+		vec_add(left, _menu_stops[i].positionText);
+		vec_add(right, _menu_stops[i].positionText);
+		
+		ENTITY *navLeft = ent_create("graphics\\textures\\navigate-left.png", left, _menu_item_init);
+		vec_fill(navLeft.scale_x, 0.3);
+		vec_set(navLeft.pan, menuItem.pan);
+		navLeft.event = menu_nav_next;
+		navLeft.skill1 = i;
+		
+		ENTITY *navRight = ent_create("graphics\\textures\\navigate-right.png", right, _menu_item_init);
+		vec_fill(navRight.scale_x, 0.3);
+		vec_set(navRight.pan, menuItem.pan);
+		navRight.event = menu_nav_prev;
+		navRight.skill1 = i;
+	}
 }
 
 void menu_trigger_start()
@@ -287,35 +440,63 @@ void menu_startup()
 	vec_set(_menu_stops[0].rotation, vector(317, -18, 0));
 	strcpy(_menu_stops[0].title, "<IDLE MENU>");
 	
-	vec_set(_menu_stops[1].position, vector(-366, 357, 55));
-	vec_set(_menu_stops[1].rotation, vector(317, -14, 0));
+	vec_set(_menu_stops[1].position, vector(-334, 273, 78));
+	vec_set(_menu_stops[1].rotation, vector(314, -30, 0));
+	vec_set(_menu_stops[1].positionText, vector(-224, 160, 0));
 	strcpy(_menu_stops[1].title, "Start Game");
 	_menu_stops[1].trigger = menu_trigger_start;
 	
-	vec_set(_menu_stops[2].position, vector(-112, 244, 50));
-	vec_set(_menu_stops[2].rotation, vector(271, -14, 0));
+	vec_set(_menu_stops[2].position, vector(-101, 276, 57));
+	vec_set(_menu_stops[2].rotation, vector(281, -23, 0));
+	vec_set(_menu_stops[2].positionText, vector(-48, 144, 0));
 	strcpy(_menu_stops[2].title, "Load Game");
 	
-	vec_set(_menu_stops[3].position, vector(269, 276, 71));
-	vec_set(_menu_stops[3].rotation, vector(228, -19, 0));
+	vec_set(_menu_stops[3].position, vector(320, 288, 60));
+	vec_set(_menu_stops[3].rotation, vector(227, -17, 0));
+	vec_set(_menu_stops[3].positionText, vector(224, 128, 0));
 	strcpy(_menu_stops[3].title, "Options");
 	
-	vec_set(_menu_stops[4].position, vector(346, -208, 62));
-	vec_set(_menu_stops[4].rotation, vector(138, -16, 0));
+	vec_set(_menu_stops[4].position, vector(390, -259, 40));
+	vec_set(_menu_stops[4].rotation, vector(150, -12, 0));
+	vec_set(_menu_stops[4].positionText, vector(192, -192, 0));
 	strcpy(_menu_stops[4].title, "Credits");
 	
-	vec_set(_menu_stops[5].position, vector(-291, -289, 62));
-	vec_set(_menu_stops[5].rotation, vector(45, -16, 0));
+	vec_set(_menu_stops[5].position, vector(-326, -350, 64));
+	vec_set(_menu_stops[5].rotation, vector(41, -19, 0));
+	vec_set(_menu_stops[5].positionText, vector(-160, -272, 0));
 	strcpy(_menu_stops[5].title, "Quit Game");
 	_menu_stops[5].trigger = menu_trigger_quit;
 	
 	int i;
 	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
-	{
+	{	
 		vec_set(_menu_stops[i].positionFade, vector(0, 0, 16));
 		vec_add(_menu_stops[i].positionFade, _menu_stops[i].position);
 		
 		vec_set(_menu_stops[i].rotationFade, vector(15, -10, 0));
 		vec_add(_menu_stops[i].rotationFade, _menu_stops[i].rotation);
 	}
+	
+	// Wait for video mode to get active
+	wait(1);
+	
+	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
+	{
+		var width = 1.2 * str_width(_menu_stops[i].title, fontCalibri48);
+		var height = 1.2 * fontCalibri48.dy;
+		
+		_menu_stops[i].textMap = bmap_createblack(width, height, 8888);
+		
+		bmap_rendertarget(_menu_stops[i].textMap, 0, 0);
+		
+		_menuPen.alpha = 100;
+		_menuPen.pos_x = 0.5 * width;
+		_menuPen.pos_y = 0.5 * height;
+		str_cpy(_menuText, _menu_stops[i].title);
+		draw_obj(_menuPen);
+		
+		bmap_rendertarget(NULL, 0, 0);
+	}
+	
+	bmap_rendertarget(NULL, 0, 0);
 }
