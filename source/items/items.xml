@@ -20,6 +20,7 @@
 	
 	<!--Schublade//-->
 	<item id="4" name="Schublade">
+		<sequence description="Die Schublade ist offen." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Gecko//-->

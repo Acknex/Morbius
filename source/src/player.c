@@ -2,6 +2,7 @@
 #include "smartwalk.h"
 #include "level_transition.h"
 #include "itemmgr.h"
+#include "inventory.h"
 
 action player_act()
 {
@@ -27,7 +28,9 @@ action player_act()
 		mouse_map = bmp_cursor_array[TYPE_ITEM_DEFAULT];
 		if(you)
 		{
-			if(your.ENTITY_TYPE == TYPE_ITEM || your.ENTITY_TYPE == TYPE_LEVEL_GATE) mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
+			if (itemInHand == NULL) { 
+				if(your.ENTITY_TYPE == TYPE_ITEM || your.ENTITY_TYPE == TYPE_LEVEL_GATE) mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
+			}
 		}
 		if(mouse_left)
 		{

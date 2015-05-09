@@ -1,5 +1,6 @@
 #include <acknex.h>
 #include "items.h"
+#include "combine.h"
 #include "types.h"
 #include "inventory.h"
 #include "hud.h"
@@ -11,9 +12,9 @@
 #define itemRemove FLAG2
 
 
-BMAP* cursor_grab = "cursor_grab.tga";
-BMAP* cursor_look = "cursor_look.tga";
-BMAP* cursor_point = "cursor_point.tga";
+//BMAP* cursor_grab = "cursor_grab.tga";
+//BMAP* cursor_look = "cursor_look.tga";
+//BMAP* cursor_point = "cursor_point.tga";
 
 TEXT* interActionItem__txt;
 
@@ -22,7 +23,6 @@ ENTITY* interactionItem__find(int id);
 
 void itemmgr_init()
 {
-	mouse_map = cursor_point;
 	interActionItem__txt = HUD_getItemText();
 
 	bmp_cursor_array[TYPE_ITEM_DEFAULT] = NULL; //bmap_create(".tga");
@@ -30,9 +30,11 @@ void itemmgr_init()
 	bmp_cursor_array[TYPE_ITEM_LOOK] = bmap_create("cursor_look.tga");
 	bmp_cursor_array[TYPE_ITEM_POINT] = bmap_create("cursor_point.tga");
 	bmp_cursor_array[TYPE_ITEM_EXIT] = bmap_create("cursor_exit.tga");
-	bmp_cursor_array[TYPE_ITEM_TALK] = NULL; //bmap_create(".tga");
+	bmp_cursor_array[TYPE_ITEM_TALK] = bmap_create("cursor_talk.tga");
 	bmp_cursor_array[TYPE_ITEM_USE] = bmap_create("cursor_use.tga");
 	bmp_cursor_array[TYPE_ITEM_SEARCH] = NULL; //bmap_create(".tga");
+
+	mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 }
 
 //skill1: ItemType 0
@@ -63,7 +65,7 @@ action interactionItem()
 	if (is(my, itemHover))
 	{
 		reset (interActionItem__txt, SHOW);
-		mouse_map = cursor_point;
+		mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 	}
 	ptr_remove(me);
 }
@@ -79,13 +81,58 @@ void interactionItem__eventHandler()
 		
 	if (event_type == EVENT_CLICK)
 	{
-		resultId = ITEM_interaction(item, &my->itemSequence);
 		
+		// If we have an item in hand
+		if (itemInHand != NULL) 
+		{
+			int targetId;
+			resultId = COMBINATION_combine(itemInHand->id, item->id, &targetId);
+			ITEM* handItem = ITEM_get(itemInHand->id);
+
+			//item in inventory
+			if(handItem->destroyable != 0)
+			{
+				//remove from inventory
+			}				
+
+			if (resultId != ITEM_NONE)
+			{
+				itemInHand = NULL;
+				mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+			}
+
+			//morph defined target item
+			if (targetId != ITEM_NONE)
+			{
+				//World morph
+				interactionItem_morph(targetId, resultId);
+				//TODO inventory morph?
+			}
+			else
+			{
+				//create new inventory item with resultId;
+			}			
+
+			//item in world
+			ITEM* myItem = ITEM_get(my->itemId);
+			if(myItem->destroyable != 0)
+			{
+				set(my, itemRemove);
+			}
+			return;
+			
+			//TODO: use inventory item on inventory item. This is not handled here!!				
+		}
+		else
+		{
+			resultId = ITEM_interaction(item, &my->itemSequence);
+		}
+
 		if (resultId != ITEM_NONE)
 		{
 			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, cursor_grab);
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmp_cursor_array[TYPE_ITEM_GRAB]);
 			inv_add_item(inventory, resultIdItem);
 		}
 		
@@ -95,7 +142,7 @@ void interactionItem__eventHandler()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, cursor_grab);
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmp_cursor_array[TYPE_ITEM_GRAB]);
 				inv_add_item(inventory, newItem);
 				set(my, itemRemove);
 			}
@@ -117,10 +164,11 @@ void interactionItem__eventHandler()
 			set (my, itemHover);	
 			str_cpy((interActionItem__txt->pstring)[0], item->name);
 			set (interActionItem__txt, SHOW);
-			if (ITEM_isLastSequence(item, my->itemSequence) != 0 && item->collectable != 0)
-				mouse_map = cursor_grab;
+			//if (ITEM_isLastSequence(item, my->itemSequence) != 0 && item->collectable != 0)
+			if (itemInHand != NULL)
+				mouse_map = bmp_cursor_array[TYPE_ITEM_USE];
 			else
-				mouse_map = cursor_look;
+				mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
 		}
 	}
 
@@ -130,14 +178,20 @@ void interactionItem__eventHandler()
 		{
 			reset (my,itemHover);			
 			reset (interActionItem__txt, SHOW);
-			mouse_map = cursor_point;
+			if (itemInHand != NULL)
+			{
+				mouse_map = itemInHand->panel->bmap;
+				//TODO
+			}
+			else
+			{
+				mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
+			}
 		}
 	}
 	
 }
 
-
-//untested
 void interactionItem_morph(int targetId, int morphId)
 {
 	ENTITY* ent;
@@ -146,26 +200,29 @@ void interactionItem_morph(int targetId, int morphId)
 	ent = interactionItem__find(targetId);
 	item = ITEM_get(morphId);
 	
-	if (item->entfile != NULL)
+	if ((item->entfile != NULL) && (ent != NULL))
 	{
 		ent_morph(ent, item->entfile);
 	}
 	ent->itemId = morphId;
 }
 
-//untested
 ENTITY* interactionItem__find(int id)
 {
 	ENTITY* ent = NULL;
 	
-	while (ent_next(ent) != NULL)
+	while (ent = ent_next(ent))
 	{
 		if (ent != NULL)
 		{
-			if (ent->itemType == TYPE_ITEM && ent->itemId == id)
-				break;
+			if (ent->itemType == TYPE_ITEM)
+			{
+				if (ent->itemId == id)
+				{
+					break;
+				}
+			}
 		}
 	}
-	
 	return ent;
 }
