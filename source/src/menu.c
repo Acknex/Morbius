@@ -261,34 +261,63 @@ void _menu_look_at(ENTITY *ent, VECTOR *position)
 	ent.roll = 0;
 }
 
-void _menu_item_event()
+void _menu_item_init()
 {
-	switch(event_type)
+	my.flags = DECAL | LIGHT | TRANSLUCENT;
+	vec_set(my.blue, COLOR_WHITE);
+	
+	var down = 0;
+	float blend = 0;
+	while(1)
 	{
-		case EVENT_TOUCH:
+		VECTOR from, to;
+		vec_set(from, mouse_pos);
+		vec_set(to, mouse_pos);
+		from.z = 0;
+		to.z = 1000;
+		vec_for_screen(from, camera);
+		vec_for_screen(to, camera);
+		
+		vec_set(my.blue, COLOR_WHITE);
+		if(c_trace(from, to, IGNORE_MODELS | IGNORE_PASSABLE | USE_POLYGON))
 		{
-			vec_set(my.blue, COLOR_RED);
-			break;
+			if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
+			{
+				vec_set(my.blue, COLOR_RED);
+				if((mouse_left != down) && mouse_left && (my.event != NULL))
+				{
+					void fn();
+					fn = my.event;
+					fn();
+				}		
+			}
 		}
-		case EVENT_RELEASE:
+		down = mouse_left;
+		
+		float blendSpeed = 0.1;
+		if(((_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop)) || (_menu.nextStop == my.skill1))
 		{
-			vec_set(my.blue, COLOR_WHITE);
-			break;
+			blend = clamp(blend + blendSpeed * time_step, 0, 1);
 		}
-		case EVENT_CLICK:
+		else
 		{
-			beep();
-			break;
+			blend = clamp(blend - blendSpeed * time_step, 0, 1);
 		}
+		
+		my.alpha = 100 * smootherstep(0, 1, blend);
+		
+		wait(1);
 	}
 }
 
-void _menu_item_init()
+void menu_nav_next()
 {
-	my.event = _menu_item_event;
-	my.emask = ENABLE_TOUCH | ENABLE_RELEASE | ENABLE_CLICK;
-	my.flags = DECAL | BRIGHT | LIGHT;
-	vec_set(my.blue, COLOR_WHITE);
+	menu_switch(1);
+}
+
+void menu_nav_prev()
+{
+	menu_switch(-1);
 }
 
 void menu_open()
@@ -315,6 +344,7 @@ void menu_open()
 		ent_setskin(menuItem, _menu_stops[i].textMap, 1);
 		
 		menuItem.flags2 |= UNTOUCHABLE;
+		menuItem.skill1 = i;
 		
 		VECTOR dir;
 		vec_diff(dir, _menu_stops[i].position, _menu_stops[i].positionText);
@@ -332,10 +362,14 @@ void menu_open()
 		ENTITY *navLeft = ent_create("graphics\\textures\\navigate-left.png", left, _menu_item_init);
 		vec_fill(navLeft.scale_x, 0.3);
 		vec_set(navLeft.pan, menuItem.pan);
+		navLeft.event = menu_nav_next;
+		navLeft.skill1 = i;
 		
 		ENTITY *navRight = ent_create("graphics\\textures\\navigate-right.png", right, _menu_item_init);
 		vec_fill(navRight.scale_x, 0.3);
 		vec_set(navRight.pan, menuItem.pan);
+		navRight.event = menu_nav_prev;
+		navRight.skill1 = i;
 	}
 }
 
