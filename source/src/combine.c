@@ -20,7 +20,7 @@ void COMBINATION__cleanup(COMBINATION* combination);
 int COMBINATION_load(STRING* file)
 {
 	XMLPAR* hndl;
-	XMLPAR* xmlItem;
+	XMLPAR* xmlCombination;
 	XMLPAR* xmlList;
 	COMBINATION* combination;
 	var count;
@@ -38,7 +38,7 @@ int COMBINATION_load(STRING* file)
 		{
 			xmlItem = XMLPAR_getElementByIndex(xmlList, i);
 			combination = (ITEM*)malloc(sizeof(COMBINATION));
-			COMBINATION__copyFromXml(combination, xmlItem);
+			COMBINATION__copyFromXml(combination, xmlCombination);
 			LIST_append(COMBINATION__combinationList, (void*)combination);
 		}
 		return 1;
@@ -57,8 +57,7 @@ void COMBINATION_close()
 	{
 		for (i = 0; i < LIST_items(COMBINATION__combinationList); i++)
 		{
-			tmpCombination = (ITEM*)LIST_getItem(COMBINATION__combinationList, i);
-			COMBINATION__cleanup(tmpItem);
+			tmpCombination = (COMBINATION*)LIST_getItem(COMBINATION__combinationList, i);
 			LIST_removeItem(COMBINATION__combinationList, i);
 		}
 		LIST_remove(ITEMS__itemList);
@@ -73,3 +72,34 @@ void COMBINATION_close()
 int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 {
 }
+
+void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
+{
+	XMLATTRIB* attrib;
+
+	attrib = XMLATTRIB_getElementByAttribute(tag, "id1");
+	if (attrib != NULL)
+		item->id1 = str_to_int(XMLATTRIB_getPContent(attrib));
+	else
+		item->id1 = -1;
+
+	attrib = XMLATTRIB_getElementByAttribute(tag, "id2");
+	if (attrib != NULL)
+		item->id2 = str_to_int(XMLATTRIB_getPContent(attrib));
+	else
+		item->id2 = -1;
+
+	attrib = XMLATTRIB_getElementByAttribute(tag, "morphtarget");
+	if (attrib != NULL)
+		item->morphtargetId = str_to_int(XMLATTRIB_getPContent(attrib));
+	else
+		item->morphtargetId = -1;
+
+	attrib = XMLATTRIB_getElementByAttribute(tag, "target");
+	if (attrib != NULL)
+		item->resultId = str_to_int(XMLATTRIB_getPContent(attrib));
+	else
+		item->resultId = -1;
+
+}
+
