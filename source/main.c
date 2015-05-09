@@ -13,10 +13,7 @@
 #include <default.c>
 #endif
 
-
-
-void main()
-{
+void main() {
 	sys_init();
 	menu_open();
 }
