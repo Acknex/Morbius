@@ -88,34 +88,40 @@ ITEM* ITEM_get(int id)
 	return NULL;
 }
 
-int ITEM_interaction(int id, var* step)
+var ITEM_isLastSequence(ITEM* item, var step)
 {
-	int i;
-	ITEM* tmpItem;
+	if (item == NULL)
+		return;
+	
+	if (step == LIST_items(item->sequences))
+		return 1;
+	else
+		return 0;
+}
+
+int ITEM_interaction(ITEM* item, var* step)
+{
 	SEQUENCE* tmpSequence;
 	
-	for (i = 0; i < LIST_items(ITEMS__itemList); i++)
+	if (item == NULL)
+		return;
+	
+	*step = minv(*step, LIST_items(item->sequences) - 1);
+	if (*step >= 0)
 	{
-		tmpItem = (ITEM*)LIST_getItem(ITEMS__itemList, i);
-		if (tmpItem->id == id)
+		tmpSequence = (SEQUENCE*)LIST_getItem(item->sequences, *step);
+		if (tmpSequence->snd_interact != NULL)
 		{
-			if (*step >= 0 && *step < LIST_items(tmpItem->sequences))
-			{
-				tmpSequence = (SEQUENCE*)LIST_getItem(tmpItem->sequences, *step);
-				if (tmpSequence->snd_interact != NULL)
-				{
-					snd_play(tmpSequence->snd_interact, ITEM_VOLUME, 0);
-				}
-				//TODO: description handling
-
-				//get stuck on last step
-				if (*step < LIST_items(tmpItem->sequences) - 1)
-					*step++;
-				
-				return tmpSequence->resultId;
-			}	
+			snd_play(tmpSequence->snd_interact, ITEM_VOLUME, 0);
 		}
-	}
+		//TODO: description handling
+
+		//get stuck on last step
+		if (*step < LIST_items(item->sequences))
+			*step++;
+		
+		return tmpSequence->resultId;
+	}	
 	
 	return ITEM_NONE;
 }
