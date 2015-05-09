@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="518.94"
-   height="810.64001"
-   viewBox="0 0 518.93999 810.64001"
+   height="867.25659"
+   viewBox="0 0 518.93999 867.25659"
    id="svg3347"
    version="1.1"
    inkscape:version="0.48.5 r10040"
@@ -30,7 +30,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
      inkscape:cx="465.4884"
-     inkscape:cy="487.7807"
+     inkscape:cy="544.39725"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -60,14 +60,14 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-327.26774,37.127354)">
+     transform="translate(-327.26774,37.127361)">
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none"
        id="rect3811"
        width="518.94"
-       height="810.64001"
+       height="867.26001"
        x="327.26773"
-       y="-37.127361"
+       y="-37.130768"
        rx="4.9594507" />
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:none"
@@ -138,11 +138,23 @@
        rx="4.9594507"
        transform="matrix(0.94943159,-0.31397398,0.31397398,0.94943159,0,0)" />
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:3.99999998;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#ffffff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="M 135.71429,209.92573 C 67.857147,169.21144 122.52305,131.41164 101.42857,115.64001 80.334094,99.868381 39.130305,111.82129 35,103.49716 30.869695,95.173031 100.73162,74.627822 95.714286,64.925729 90.696956,55.223636 38.571429,56.3543 38.571429,56.3543"
        id="path3819"
        inkscape:connector-curvature="0"
        transform="translate(327.26774,-37.127354)"
        sodipodi:nodetypes="czzzc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:sans-serif"
+       x="336.4613"
+       y="822.1015"
+       id="text3821"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3823"
+         x="336.4613"
+         y="822.1015"
+         style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:'Mom´sTypewriter';-inkscape-font-specification:'Mom´sTypewriter'">The Utopia  Conspiracy</tspan></text>
   </g>
 </svg>
