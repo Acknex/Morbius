@@ -5,7 +5,7 @@
 #define MENU_IDLE_TICKS 128
 
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
-BMAP *bmpMenuLogo = "textures\\logo.png";
+BMAP *bmpMenuLogo = "graphics\\textures\\logo.png";
 FONT *fontCalibri48 = "Calibri#48b";
 
 typedef struct {
