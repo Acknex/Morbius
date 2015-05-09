@@ -1,10 +1,10 @@
 Robert Jäger : Items(XML) Story
 Korbinian Kaulfuß : Credits
-Michael Schwarz : Dialoge Story Rätsel, Leveldesign Dunkle Gasse
+Michael Schwarz : Dialoge Story Rätsel Leveldesign Dunkle Gasse
 Simon Trümpler : Leveldesign Ruine
-Felix Pohl : Movement 
+Felix Pohl : Movement
 Christian Behrenberg: Dance Instructor
-Jonas Freiknecht: Kamera
+Jonas Freiknecht: Kamera Story Items
 Marius Kappes : Musik und Sounds Story Rätel
 Felix Queißner : Hauptmenü Credits
 Kitsu: Leveldesign Büro
