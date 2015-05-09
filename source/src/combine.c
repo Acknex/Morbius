@@ -101,6 +101,7 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 {
 	XMLATTRIB* attrib;
+	STRING* str;
 
 	attrib = XMLATTRIB_getElementByAttribute(tag, "id1");
 	if (attrib != NULL)
@@ -133,6 +134,12 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 		combination->snd_interact = snd_create(XMLATTRIB_getPContent(attrib));
 	}
 
+	str = str_create("");
+	attrib = XMLATTRIB_getElementByAttribute(tag, "description");
+	if (attrib != NULL)
+		XMLATTRIB_getContent(attrib, str);
+	combination->description = str;
+	
 }
 
 void COMBINATION__cleanup(COMBINATION* combination)
@@ -144,4 +151,7 @@ void COMBINATION__cleanup(COMBINATION* combination)
 	
 	if (combination->snd_interact != NULL)
 		ptr_remove(combination->snd_interact);
+
+	if (combination->description != NULL)
+		ptr_remove(combination->description);
 }

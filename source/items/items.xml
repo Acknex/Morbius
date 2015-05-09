@@ -42,7 +42,10 @@
 	</item>
 
 	<!--Fernbedienung//-->
-	<item id="9" name="Fernbedienung" collectable="yes">
+	<item id="9" name="Fernbedienung">
+		<sequence description="Eine Fernbedienung, den dazugehörigen Fernseher musste ich verramschen um mir eine Taschenlampe zu kaufen." sound="achievement1.wav"/>
+		<sequence description="Schau mal einer an, wer hätte da gedacht, da sind Batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können." sound="achievement1.wav" result="8"/>
+		<sequence description="Eine Fernbedienung ohne Batterien. Toll." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Laptop//-->
