@@ -1,14 +1,14 @@
-Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weitere Leichen im Stadtteil Bockenheim welche auf brutale weise ermodet wurden. Der Serienmörder welcher den Opfern nach dem Tod ein Z zeichen auf die Brust markierte wurde bisher noch nicht gefasst.
+Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weitere Leichen im Stadtteil Bockenheim, welche auf brutale weise ermodet wurden. Der Serienmörder, welcher den Opfern nach dem Tod ein Z Zeichen auf die Brust markierte, wurde bisher noch nicht gefasst.
 
-"Wir versuchen alles darauf den Übeltäter auf die spur zu kommen. Leider ist er sehr sorgfältig und es gibt wenig spuren an den Tatorten zu finden" so Oberkommisar Seiffrig der Kriminalpolizei. "Wir bitten dass alle Einwohner welche hinweise oder augenzeugen zu den Morden haben sich umgehend beim nähesten Polizeirevier zu melden."
+"Wir setzen alles darauf, den Übeltäter auf die spur zu kommen. Leider ist er sehr sorgfältig und es gibt wenig Spuren an den Tatorten zu finden", so Oberkommisar Seiffrig der Kriminalpolizei. "Wir bitten, dass alle Einwohner welche Hinweise oder Augenzeugen zu den Morden haben, sich umgehend beim nähesten Polizeirevier zu melden."
 
-Die Umstände unter welchen die Opfer zu tode gekommen sind werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.
+Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.
 
 -----------
 
 {
 FRANKFURT
-MORBIU'S BÜRO
+MORBIUS' BÜRO
 10. AUGUST
 }
 
@@ -225,4 +225,119 @@ MORBIUS: Ich danke ihnen für ihre hilfe!
 GALEP: Einen schönen-
 [Aufgelegt]
 
+"Dieser Fall wurde immer ungewöhnlicher, das mulmige gefühl in meinem bauch wurde immer stärker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloß eingelassen? Und warum hat der Z Mörder ein opfer in Zürich? Fragen über fragen häuften sich, und die spur blieb nicht kalt - im gegensatz zu meinem büro weil ich meine Gasrechnung diesen monat nicht bezahlt hatte."
 
+--------------
+
+{
+FRANKFURT
+DRAUGSTRASSE 4
+13. AUGUST
+}
+
+"Hier wohnt der Herr Emdayelle also. Verdient man als Bodyguard nicht viel geld? Warum wohnt er dann in dieser abgerannten gegend?"
+
+"Warum sollte ich an der Tür klopfen? Ich weis dass Emdayelle tot ist. Ich habe persönlich von seiner kalten Leiche kleingeld entwendet."
+"Vielleicht sollte ich versuchen mich nach einer Alternativen zugangsmethode umzuschauen"
+
+"Hier sollte es definitiv einen hintereinga- ist das eine Leiche?! Schon wieder?! Was ist bloß mit diesem fall los?"
+
+"Wer ist dieser Mann? Ich sollte irgendwelche hinweise finden sollen"
+"Nichts an seiner person, vielleicht finde ich in der umgebung etwas"
+
+"Ein stock? Gehört der zu ihm? Könnte auf jeden fall hilfreich sein"
+
+"Eine Mülltonne. Ein standartmodell für die Frankfurter Grosstadt"
+"Ein Angelhaken? Komisch dass jemand sowas hier mitten in der stadt haben sollte"
+
+"Sieht ja schlimmer als mein auto aus."
+"Hmm, das nummernschild ist mit gaffer tape befestigt"
+"Ich glaube das tape kann ich irgendwie verwenden, ist ja nicht so als ob dass jetzt noch auffallen würde wenn ich das entwende"
+
+"Hmmm... für irgendwas sollte das nützlich sein... aber irgendwie sollte ich das noch etwas stabiler bekommen"
+
+"Perfekt, jetzt hält der haken auch stabil am stock"
+
+"Da scheint entwas den gulli heruntergefallen zu sein"
+"Wenn ich bloß etwas hätte um das da herauszufischen"
+
+"Gute idee morbius, aber der haken hält nicht stabil genug"
+"Ich sollte den haken erst noch stabiler am stock befestigen bevor ich versuche etwas damit anzuheben"
+
+"Ah ha, eine geldbörse!"
+
+"Was haben wir hier? Honorar für Personenschutz - das muss wohl die person sein die Emdayelle beschützen sollte - und... nein, das kann nicht sein... was hast DU mit IHM zu tun? Warum bist du in dieser sache involviert?!"
+
+"Ein rechnungsdurchdruck für die Griechin... für etwas dass sich 'Motion Capture' nennt... für... 'Utopia'?"
+"Warum hast du nur etwas mit diesem fall zu tun, Griechin?"
+
+"Der fall spitzte sich weiter zu. Jetzt war auch noch einer meiner besten freunde in der ganzen situatuion verzwickt. Verzwickt war zwar gut, aber eigentlich meinte ich damit nicht sie und meine fälle sonder eher sie und mich. Es wurde zeit sie zu der situation zu befragen..."
+
+---
+
+{
+FRANKFURT
+MORBIUS' BÜRO
+14. AUGUST
+}
+
+[Enter Griechin]
+MORBIUS: Hallo, schön das du kommen konntest.
+GRIECHIN: [kichern] Kein problem. Ist schon ne weile her seit dem lezten mal. Wie geht es deinem Keilbeinknochen?
+MORBIUS: Ich weis zwar noch immer nicht wo oder was der ist, aber es geht im besser!
+GRIECHIN: Also erzähl mal, was brauchst du von mir?
+MORBIUS: Warum nimmst du immer an das ich was von dir will?
+GRIECHIN: Weil du jedes mal was von mir willst wenn du mich anrufst.
+MORBIUS: Mag ja sein, aber du musst ja nicht immer davon ausgehen.
+GRIECHIN: Also, ja, du brauchst was von mir?
+MORBIUS: .... ja.
+GRIECHIN: Dann sei doch wenigstens so ein schatz und füll mir einen Kaffee ein
+[schenkt kaffee ein]
+[griechen wartet erwartungsvoll]
+MORBIUS: Thermoskannenkaffee nicht gut genug?
+GRIECHIN: Also wirklich, morbius, wie lange kennen wir uns schon? Du weißt doch das ich meinen kaffe mit zucker trinke!
+MORBIUS: Oh... ja... ääh... wart eben einen moment...
+
+"Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilrettarium."
+"Vielleicht kann ich aus diesem Zuckerrohr zucker herstellen"
+
+"Ein standart elektroherd"
+
+"Ein Topf"
+
+"Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium"
+"Wenn ich mich jetzt noch errinnern würde wie man aus Zuckerrohr zucker herstellt, dann wäre ich ganz klar im vorteil"
+"Ich glaube der muss etwas erhitzt werden, oder so?"
+
+"Ein gelungenes experiment der Zuckerherstellung aus Biologischem anbau! Garantiert ohne gluten. Oder doch. Keine ahnung."
+
+"Jetzt hab ich Zuckerrohr in einen Topf gelegt. Das hast du toll gemacht Morbius."
+
+"Ah genau, wir kochen das Zuckerrohr zu einer rohen masse und lassen die flüssigkeit verdampfen... und was übrig bleibt ist... Zucker!"
+
+MORBIUS: Hier, hab ich extra für dich gemacht.
+GRIECHIN: Mein güte Morbius, du bist ja voller überraschungen. Als nächstes wirst du mir nopch sagen dass du bei deinem neuen Fall sogar einen Vorschuss bekommen hast!
+MORBIUS: Habe ich sogar tatsächlich. Ist das so verwunderlich? Ich bin immerhin ein profesioneller detektiv!
+GRIECHIN: [lacht] Selbstverständlich, tut mir leid, das war dumm von mir!
+MORBIUS: Es sei dir vergeben!
+GRIECHIN: Also, wie kann ich dir helfen mein kleiner?
+MORBIUS: Ich komme direkt zum punkt: Was weißt du über Utopia?
+GRIECHIN: Oh-ho! Auf *solche* schmuddelspielchen stehst du also?
+MORBIUS: Sehr lustig, es hat mit meinem fall zu tun. Ich nehme also an du weißt was das ist?
+GRIECHIN: Ja, aber warum weißt du dass ich damit etwas zu tun hatte?
+MORBIUS: Ich bin den spuren gefolgt und habe eine rechnung gefunden bei der du für deine arbeit an Utopia bezahlt wurdest.
+GRIECHIN: Ist doch nichts illegales dabei! Das war alles legitime arbeit!
+MORBIUS: Jetzt hör auf mit den späßen! Zwei leute sind tot! Ich habe in den letzten tagen mit mehr leichen zu tun gehabt als ich möchte. Wenn ich nicht herausfinde was hier los ist, dann kann es gut sein dass du bald auch einer der leichen bist.
+GRIECHIN: T-t-tot?! Was? Nein, warum sollten leute tot sein?
+MORBIUS: Ich habe erst Herrn Emdayelle tot vorgefunden beim angeblichen firmenstammsitz in zürich und als ich dann versucht habe mehr über ihn herauszufinden, stoße ich direkt auf eine zweite leiche in einer dunklen gasse neben seinem Wohnsitz. Hier in Frankfurt! Soweit ich weis ist der zweite tote der mann der von Emdayelle beschützt werden sollte.
+GRIECHIN: Herr M. Dayle ist... tot? Emdayelle ist tot?!
+MORBIUS: Jetzt erklär mir doch bitte warum zwei leute tot sind wegen irgend einem schmuddelspielchen von einer firma die es nicht gibt die angeblich in zürich ist und was du mit dem ganzen zu tun hast?!
+GRIECHIN: Ich habe nur ein paar akrobatische bewegungen vor kameras gemacht, nichts explizites, nichts illegales!! ICh weis nicht warum die leute tot sind!
+MORBIUS: WEißt du sonst wer etwas wissen könnte? DU musst doch irgend jemand anderes gesehen haben während du da gearbeitet hast?
+GRIECHIN: Ich... ich weis nich- Doch! CBabe! Sie war auch immer da als ich dort gearbeitet hatte, sie war noch viel länger an Utopia beschäftigt, wenn Emdayelle und M. Doyle tot sind, dann ist sie definitiv die person die du fragen solltest.
+MORBIUS: Weißt du auch wo ich Sie finden kann?
+GRIECHIN: Ich meine dass sie sich oft in der Babec Disco rumtreibt. Da solltest du die finden können.
+
+[Fade to black]
+
+"Ich war der lösung heiß auf der spur, ich hoffte dass ich jetzt von CBabe erfahren könnte was des rätsels lösung ist."

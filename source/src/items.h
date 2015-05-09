@@ -3,26 +3,39 @@
 
 #define ITEM_NONE -1
 
+#include "list.h"
+
 typedef struct item 
 {
 	int id;
 	STRING* name;
-	STRING* description;
-
 	STRING* imgfile;
 	STRING* entfile; 
 
 	int collectable;
 	int destroyable;
-	SOUND* snd_interact[3]; 
-	var snd_count;	
+
+	LIST* sequences;
+	//STRING* description[3];
+	//var desc_count;
+
+	//SOUND* snd_interact[3]; 
+	//var snd_count;	
 } ITEM;
 
+typedef struct sequence
+{
+	SOUND* snd_interact;
+	STRING* description;
+	int resultId;
+} SEQUENCE;
 
 
 ITEM* ITEM_get(int id);
-void ITEM_sndrnd(ITEM* item);
-void ITEM_snd(ITEM* item, var soundnum);
+var ITEM_isLastSequence(ITEM* item, var step);
+int ITEM_interaction(ITEM* item, var* step);
+//void ITEM_sndrnd(ITEM* item);
+//void ITEM_snd(ITEM* item, var soundnum);
 
 int ITEM_load(STRING* file);
 void ITEM_close();

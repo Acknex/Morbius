@@ -9,7 +9,7 @@
 
 // Defines für die Bewegung des Spielers
 #define WALK_SPEED 2
-#define RUN_SPEED 4
+#define RUN_SPEED 8
 #define MOUSE_SENSITIVITY 20
 #define PLAYER_HEIGHT 6
 
@@ -38,19 +38,41 @@ action actPlayer() {
 	// Aktualisieren der Kollisionshülle
 	c_setminmax(player);
 	wait(1);
-	vec_set(player.min_x,vector(-25,-25,-35)); 
-	vec_set(player.max_x,vector(25,25,55));
 	
 	// Bewegen der Kamera und der Entity
 	movePlayer();
 	cameraInit();
 	
-	while(1) {
-		cameraLoop();
-		wait(1);
-	}
+	activeCameraType = CAMERA_TYPE_MULTIPLE_FOLLOW;
 }
 
 void main() {
-	level_load("..//maps//camera_test.wmb");
+	// level_load("..//maps//camera_test.wmb");
+	level_load("..//..//models//arcade//wmp//kingmorph.wmb");
+	
+	while(1) {
+		cameraLoop();
+		
+		if (key_1) {
+			while(key_1) wait(1);
+			activeCameraType = CAMERA_TYPE_FIXED_FOLLOW;
+		}
+		
+		if (key_2) {
+			while(key_2) wait(1);
+			activeCameraType = CAMERA_TYPE_SPLINE;
+		}
+		
+		if (key_3) {
+			while(key_3) wait(1);
+			activeCameraType = CAMERA_TYPE_AXIS;
+		}
+		
+		if (key_4) {
+			while(key_4) wait(1);
+			activeCameraType = CAMERA_TYPE_MULTIPLE_FOLLOW;
+		}
+		
+		wait(1);
+	}
 }
