@@ -119,6 +119,8 @@ MORBIUS: [interner monolog] Ein Schmuddelspiel, ein Italienischer Spieleentwickl
 
 "A4, das erste programm das ich mit für meinen Laptop gekauft habe."
 
+"Mein Laptop, digital soll angeblich die zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen platz"
+
 "Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown"
 
 "Alles dabei! Dann mal auf nach Zürich!"
@@ -191,4 +193,36 @@ MORBIUS: Alles klar, bekommst du. Ich hab diesmal einen guten Vorschuss bekommen
 FRITZ: Sag bloß du wirst langsam richtig profesionell?
 MORBIUS: Haha, sehr lustig. Naja danke nochmal, ich muss jetzt los!
 FRITZ: Yop, kein problem. Log-Off!
+
+"Perfekt, jetzt muss ich nur noch die GALEP leute überzeugen mir zu sagen wo der Herr Guard Emdayelle wohnt... Denk nach Morbius... aha! Ich habs, ich wollte ihm sein Portmonnai zurück geben. Hab ich irgendwo gefunden - ist ja auch wahr. Morbius, du bist ein Genie!"
+
+"Meine letzte münze, lass es gelten Morbius!"
+
+GALEP: GALEP Security?
+MORBIUS: Hallo, Morbius mein name. Ich hätte da gerne mal ein problem.
+GALEP: Wie kann ich ihnen weiter helfen?
+MORBIUS: Folgendes... ich habe vor ein paar tagen die geldbörse einer ihrer mitarbeiter gefunden, leider habe ich da nur eine visitenkarte von ihnen, also GALEP Security gefunden und den namen.
+GALEP: Sie können das Portemonnai am besten zu uns in büro-
+MORBIUS: Ich würde mich wesentlich erleichtert fühlen wenn ich die Geldbörse persönlich bei dem herren Emdayelle abgeben könnte. Ich bräuchte nur die adresse
+GALEP: Wir können leider keine persönlichen daten zu unseren angestellten herausgeben, es wäre wirklich am einfachsten wenn sie einfach zu uns ins büro-
+MORBIUS: Tut mir leid, aber da habe ich keine garantie dass dort nicht weiter etwas entwendet wird.
+GALEP: Sie haben meine garantie dass-
+MORBIUS: Ich habe ja nichts persönlich gegen sie, aber sehen sie es mal aus meiner perspektive, wenn da noch mehr geld fehlt, dann wird das alles auf mich zurück fallen.
+GALEP: Ich versichere ihnen, wir werden kein geld-
+MORBIUS: So sind doch Rezeptionist, ja?
+GALEP: Ja?
+MORBIUS: Sehen Sie, ich kann nicht mit klarem gewissen ihnen eine Gelbörse voller geld geben und einfach hoffen dass sie sich nicht vielleicht daran bedienen werden. Ich war auch mal Rezeptionist, ich kenne die langen stunden und die kleinen gehälter.
+GALEP: Herr Morbius, ich weis nicht wie ich ihnen noch weiter versichern kann das wird nicht-
+MORBIUS: Sagen sie mir einfach wo ich den Herren Emdayelle finden kann, ich gebe ihm einfach persönlich die Geldbörse und mein gewissen ist erleichtert und alle risiken sind nichtig.
+GALEP: Selbst wenn ich ihnen sagen würde wo der Herr Emdayelle wohnt, wäre das ein Problem, sehen sie: Herr Emdayelle wohnt nicht hier in der Schweiz sondern ist für seinen Kunden nach Deutschland gezogen.
+MORBIUS: Das Trifft sich doch gut, ich bin morgen wieder auf dem weg nach Deutschland.
+GALEP: [seuftz] na gut herr morbius, wenn sie sich sonst weigern das persönliche eigentum eines unserer mitarbeiter zurück zu geben, kann ich mal eine ausnahme machen.
+MORBIUS: Ich wusste doch dass sie schlau sind! Sehen sie: Ich habe das direkt in ihrer stimme gehört, sie haben das gewisse 'etwas', sie werden es noch groß bringen! Das haben sie ja soeben bewiesen!
+GALEP: Haben sie was zu schreiben? Herr Emdayelle wohnt in der Draugstraße 4 in Frankfurt.
+MORBIUS: Draugstraße 4, Frankfurt. Was für ein zufall, ich wohne auch in Frankfurt!
+GALEP: Fast schon zu viele zufälle für einen tag....
+MORBIUS: Ich danke ihnen für ihre hilfe!
+GALEP: Einen schönen-
+[Aufgelegt]
+
 
