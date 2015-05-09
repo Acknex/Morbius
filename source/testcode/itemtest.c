@@ -32,5 +32,5 @@ void main()
 	}
 	
 	ITEM_close();
-	sys_exit("");
+	sys_exit(""); 
 }
