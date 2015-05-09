@@ -5,10 +5,12 @@ var iwannaplay = 0;
 
 var gg_arc = 70;
 
-SOUND* snd_dd_song = "dd_song.OGG";
+SOUND* snd_dd_song = "Sumik_dj_-_wigi.ogg";
 
 ENTITY* ge_morbius = NULL;
 ENTITY* ge_babe = NULL;
+
+var waitfornextgdp = 0;
 
 TEXT* gdp = {
 	string ("LRUD","UUDD");
@@ -50,6 +52,7 @@ TEXT* snd_dd_exceeded = {string ("dd_exceeded_0.ogg","dd_exceeded_1.ogg");} SOUN
 TEXT* snd_dd_letsplay = {string ("dd_letsplay_0.ogg","dd_letsplay_1.ogg");} SOUND* snd_dd_letsplay_p[5];
 TEXT* snd_dd_soso = {string ("dd_soso_0.ogg","dd_soso_1.ogg");} SOUND* snd_dd_soso_p[5];
 TEXT* snd_dd_success = {string ("dd_success_0.ogg","dd_success_1.ogg");} SOUND* snd_dd_success_p[5];
+TEXT* snd_dd_nextstep = {string ("dd_nextstep_0.ogg","dd_nextstep_1.ogg");} SOUND* snd_dd_nextstep_p[5];
 
 void snd_dd_shit_play () {snd_dd_play(snd_dd_shit, snd_dd_shit_p);}
 void snd_dd_tauntb_play () {snd_dd_play(snd_dd_tauntb, snd_dd_tauntb_p);}
@@ -58,6 +61,7 @@ void snd_dd_exceeded_play () {snd_dd_play(snd_dd_exceeded, snd_dd_exceeded_p);}
 void snd_dd_letsplay_play () {snd_dd_play(snd_dd_letsplay, snd_dd_letsplay_p);}
 void snd_dd_soso_play () {snd_dd_play(snd_dd_soso, snd_dd_soso_p);}
 void snd_dd_success_play () {snd_dd_play(snd_dd_success, snd_dd_success_p);}
+void snd_dd_nextstep_play () {snd_dd_play(snd_dd_nextstep, snd_dd_nextstep_p);}
 
 void snd_dd_startup () {
 	snd_dd_init(snd_dd_shit, snd_dd_shit_p);
@@ -67,6 +71,7 @@ void snd_dd_startup () {
 	snd_dd_init(snd_dd_letsplay, snd_dd_letsplay_p);
 	snd_dd_init(snd_dd_soso, snd_dd_soso_p);
 	snd_dd_init(snd_dd_success, snd_dd_success_p);
+	snd_dd_init(snd_dd_nextstep, snd_dd_nextstep_p);
 }
 
 STRING* gdp_puzzle = NULL;
@@ -89,6 +94,50 @@ int max_fails = 8;
 var camlerpfac = 0.7;
 
 int dd_cam_type = 0; // 0 = intro // 1 = start // 2 = play
+
+action spawnkeyac () {
+
+	set(my,ZNEAR|UNLIT);
+	my->ambient = 200;
+	my->material = mtl_unlit;
+	my->scale_x = my->scale_y = my->scale_z = 0.1;
+	
+	var xx = 25;
+	
+	//If pan and tilt both are 0, but the roll angle is nonzero
+	my->roll = 2;
+	
+	while (xx > 0) {
+		var t = 3 * time_step;
+		my->z += t;
+		xx -= t;
+		my->scale_x = my->scale_y = my->scale_z = my->scale_z+0.01 * time_step;
+		wait(1);
+	}
+	
+	ptr_remove(my);
+}
+
+int spawni = 0;
+
+void spawnkey (ENTITY* ent, char* str) {
+	
+	VECTOR vv;
+	vec_set(&vv, ent->x);
+	vec_to_screen(vv, camera);
+	
+	spawni++;
+	
+	var gg = minv((screen_size.x - vv.x) / 3, vv.x / 3);
+	
+	vv.x += gg;
+	
+	vv.z = vec_dist(ent->x, camera->x);
+   vec_for_screen(vv,camera);
+	
+	ent_create(str, &vv, spawnkeyac);
+}
+
 
 action esnd_song () {
 	ent_playsound(my, snd_dd_song, 500);
@@ -360,9 +409,16 @@ STRING* fem_anim_waitfor = "stand";
 
 var gg_stepcomplete = 0;
 
+VECTOR ee_babe_pos;
+VECTOR ee_babe_ang;
+
+STRING* strspwawnkey = "#32";
+
 action ee_play ()
 {
 	ge_babe = my;
+	vec_set(&ee_babe_pos, my->x);
+	vec_set(&ee_babe_ang, my->pan);
 	
 	gg_stepcomplete = 0;
 
@@ -371,75 +427,97 @@ action ee_play ()
 		wait(1);
 	}
 	
-	tt_waitforplayer = 0;
-	switch_go = 1;
-	
-	wait(1);
-	
-	gg_playlen = clamp(gg_startlen, 1, 	str_len(gdp_puzzle));
-	
-	while (gg_playlen <= str_len(gdp_puzzle) && !isfailed) {
-	
-		int i;
-		
-		for (i = 0; i < gg_playlen && !isfailed; i++) {
-		
-			// get char for LRUD
-			var c = str_getchr(gdp_puzzle, i+1);
-			str_cpy(gg_playstr, " ");
-			str_setchr(gg_playstr, 1, c);
-			
-			// build anim str
-			str_cpy(gg_playanim, "anim");
-			str_cat(gg_playanim, gg_playstr);
-			
-			snd_dd_tauntb_play ();
-		
-			var p = 0;
-			
-			// play anim str
-			while (p < 100 && !isfailed) {
-			
-				p = clamp(p + 5 * time_step, 0, 100);
-				DEBUG_VAR(p, 200);
-				
-				// ent_animate... switch!
-				ent_animate(my, "jump", p, 0);
-				//ent_animate(my, gg_playanim, p, 0);
-				draw_text(gg_playanim, 100, 300, COLOR_RED);
-				
-				wait(1);
-			}	
-		}
-		
-		// make a pause a little bit
-		
-		snd_dd_letsplay_play();
-		
-		var tt_timer = 1.5 * 16;
-		while (tt_timer > 0 && !isfailed) {	
-			ent_animate(my, fem_anim_finishplay, (total_ticks * 10) % 100, ANM_CYCLE);
-			tt_timer -= time_step;
-			wait(1);
-		}
-		
-		// wait for player
-	
-		tt_waitforplayer = 1;
-		
-		while (tt_waitforplayer && !isfailed) {
-			ent_animate(my, fem_anim_waitfor, (total_ticks * 10) % 100, ANM_CYCLE);
-			wait(1);
-		}
+	while (gdp_index < gdp->strings)
+	{
+		tt_waitforplayer = 0;
+		switch_go = 1;
 		
 		wait(1);
 		
-		while (!switch_go && !isfailed) {
-			ent_animate(my, fem_anim_waitfor, (total_ticks * 10) % 100, ANM_CYCLE);
-			wait(1);
-		}
+		vec_set(my->x, &ee_babe_pos);
+		vec_set(my->pan, &ee_babe_ang);
 		
-		gg_playlen++;
+		gg_playlen = clamp(gg_startlen, 1, 	str_len(gdp_puzzle));
+		
+		while (gg_playlen <= str_len(gdp_puzzle) && !isfailed) {
+		
+			int i;
+			
+			for (i = 0; i < gg_playlen && !isfailed; i++) {
+			
+				// get char for LRUD
+				var c = str_getchr(gdp_puzzle, i+1);
+				str_cpy(gg_playstr, " ");
+				str_setchr(gg_playstr, 1, c);
+				
+				// build anim str
+				str_cpy(gg_playanim, "anim");
+				str_cat(gg_playanim, gg_playstr);
+				
+				snd_dd_tauntb_play ();
+				
+				// keys
+				str_cpy(strspwawnkey, "dd_arr_");
+				str_cat(strspwawnkey, gg_playstr);
+				str_cat(strspwawnkey, ".tga");				
+				spawnkey(my, strspwawnkey);
+			
+				var p = 0;
+				
+				// play anim str
+				while (p < 100 && !isfailed) {
+				
+					p = clamp(p + 5 * time_step, 0, 100);
+					DEBUG_VAR(p, 200);
+					
+					// ent_animate... switch!
+					ent_animate(my, "jump", p, 0);
+					//ent_animate(my, gg_playanim, p, 0);
+					draw_text(gg_playanim, 100, 300, COLOR_RED);
+					
+					wait(1);
+				}	
+			}
+			
+			// make a pause a little bit
+			
+			snd_dd_letsplay_play();
+			
+			var tt_timer = 1.5 * 16;
+			while (tt_timer > 0 && !isfailed) {	
+				ent_animate(my, fem_anim_finishplay, (total_ticks * 10) % 100, ANM_CYCLE);
+				tt_timer -= time_step;
+				wait(1);
+			}
+			
+			// wait for player
+		
+			tt_waitforplayer = 1;
+			
+			while (tt_waitforplayer && !isfailed && !waitfornextgdp) {
+				ent_animate(my, fem_anim_waitfor, (total_ticks * 10) % 100, ANM_CYCLE);
+				wait(1);
+			}
+			
+			wait(1);
+			
+			while (!switch_go && !isfailed && !waitfornextgdp) {
+				ent_animate(my, fem_anim_waitfor, (total_ticks * 10) % 100, ANM_CYCLE);
+				wait(1);
+			}
+			
+			if (waitfornextgdp) {
+				
+				while (waitfornextgdp) {
+					wait(1);
+				}
+				
+				break;
+				
+			} else {
+				gg_playlen++;
+			}
+		}
 	}
 }
 
@@ -461,7 +539,7 @@ action dd_switch ()
 	
 	while (gg_playlen <= str_len(gdp_puzzle) && !isfailed) {
 	
-		while (tt_waitforplayer == 0 && !isfailed) {
+		while ((tt_waitforplayer == 0 && !isfailed) || waitfornextgdp) {
 			wait(1);
 		}
 	
@@ -507,6 +585,11 @@ action dd_switch ()
 		camera->arc = gg_arc;
 		
 		while (tt_waitforplayer && !isfailed) {
+		
+			if (waitfornextgdp) {
+				break;
+			}
+		
 			switch_go = 1;
 			wait(1);
 		}
@@ -514,38 +597,41 @@ action dd_switch ()
 		p = 100;
 		firstFrame = 1;
 		
-		while (!isfailed) {	
-		
-			switch_go = 0;
+		if (!waitfornextgdp)
+		{
+			while (!isfailed) {	
 			
-			VECTOR vCam, vTarget;
-			
-			vec_for_bone(&vCam, my, "Camera");
-			if (firstFrame) {
-				vec_set(camera->x, &vCam);
-				firstFrame = 0;
-			} else {
-				vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
-			}
-			
-			vec_for_bone(&vTarget, my, "Target");
-			vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
-			
-			ent_animate(my, "", p, 0);
-			p = clamp(p - (DD_FPS / 16) * DD_FAC * time_step, 0, 100);
-			
-			if (p <= 0) {
-				break;
-			}
+				switch_go = 0;
 				
-			camera->arc = gg_arc;
-			
-			camera->roll = 0;
-			
-			draw_text(my->type, 100, 100, COLOR_WHITE);
-			
-			wait(1);
-		}	
+				VECTOR vCam, vTarget;
+				
+				vec_for_bone(&vCam, my, "Camera");
+				if (firstFrame) {
+					vec_set(camera->x, &vCam);
+					firstFrame = 0;
+				} else {
+					vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
+				}
+				
+				vec_for_bone(&vTarget, my, "Target");
+				vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
+				
+				ent_animate(my, "", p, 0);
+				p = clamp(p - (DD_FPS / 16) * DD_FAC * time_step, 0, 100);
+				
+				if (p <= 0) {
+					break;
+				}
+					
+				camera->arc = gg_arc;
+				
+				camera->roll = 0;
+				
+				draw_text(my->type, 100, 100, COLOR_WHITE);
+				
+				wait(1);
+			}			
+		}
 		
 		camera->arc = gg_arc;
 		
@@ -616,130 +702,149 @@ STRING* male_anim_perfect = "jump";
 STRING* male_anim_okok = "puke";
 STRING* male_anim_notgood = "die";
 
+VECTOR ee_morbius_pos;
+VECTOR ee_morbius_ang;
+
 action ee_morbius ()
 {
 	ge_morbius = my;
-
-	while (gg_playlen <= str_len(gdp_puzzle) && !isfailed && !gg_stepcomplete) {
+	vec_set(&ee_morbius_pos, my->x);
+	vec_set(&ee_morbius_ang, my->pan);
 	
-		while ((!tt_waitforplayer || !switch_go) && !isfailed) {
-			ent_animate(my, male_anim_waitafterplay, (total_ticks * 10) % 100, ANM_CYCLE);
-			wait(1);
-		}
-	
-		int i;
+	while (gdp_index < gdp->strings)
+	{
+		while (gg_playlen <= str_len(gdp_puzzle) && !isfailed && !gg_stepcomplete) {
 		
-		int fails = 0;
+			vec_set(my->x, &ee_morbius_pos);
+			vec_set(my->pan, &ee_morbius_ang);
 		
-		for (i = 0; i < gg_playlen && !isfailed;) {
-		
-			// get char for LRUD
-			var c = str_getchr(gdp_puzzle, i+1);
-			str_cpy(gg_playstr, " ");
-			str_setchr(gg_playstr, 1, c);
-			
-			// build anim str
-			str_cpy(gg_playanim, "anim");
-			str_cat(gg_playanim, gg_playstr);
-			
-			gdp_resetkeys();
-			gdp_setkeys(gdp_puzzle, i);
-			
-			gg_isdone = 0;			
-			while (!gg_isdone && !isfailed) {
-				ent_animate(my, male_anim_waitforkey, (total_ticks * 10) % 100, ANM_CYCLE);
-				draw_text(gg_playstr, 100, 300, COLOR_WHITE);
-				draw_text(str_printf(NULL, "gg_playlen = %d", gg_playlen), 100, 350, COLOR_WHITE);
+			while ((!tt_waitforplayer || !switch_go) && !isfailed) {
+				ent_animate(my, male_anim_waitafterplay, (total_ticks * 10) % 100, ANM_CYCLE);
+				draw_text("LL-664",500,100,vector(100,100,255));
 				wait(1);
 			}
+		
+			int i;
 			
-			gdp_resetkeys();
+			int fails = 0;
 			
-			if (!gg_isgood) {
-				snd_dd_shit_play ();
-				fails++;
-				total_fails++;
-			} else {
-				snd_dd_tauntm_play ();
+			for (i = 0; i < gg_playlen && !isfailed;) {
+			
+				// get char for LRUD
+				var c = str_getchr(gdp_puzzle, i+1);
+				str_cpy(gg_playstr, " ");
+				str_setchr(gg_playstr, 1, c);
+				
+				// build anim str
+				str_cpy(gg_playanim, "anim");
+				str_cat(gg_playanim, gg_playstr);
+				
+				gdp_resetkeys();
+				gdp_setkeys(gdp_puzzle, i);
+				
+				gg_isdone = 0;			
+				while (!gg_isdone && !isfailed) {
+					ent_animate(my, male_anim_waitforkey, (total_ticks * 10) % 100, ANM_CYCLE);
+					draw_text(gg_playstr, 100, 300, COLOR_WHITE);
+					draw_text(str_printf(NULL, "gg_playlen = %d", gg_playlen), 100, 350, COLOR_WHITE);
+					wait(1);
+				}
+				
+				gdp_resetkeys();
+				
+				if (!gg_isgood) {
+					snd_dd_shit_play ();
+					fails++;
+					total_fails++;
+				} else {
+					snd_dd_tauntm_play ();
+				}
+				
+				var p = 0;
+				
+				// play anim str
+				while (p < 100 && !isfailed) {
+				
+					p = clamp(p + 5 * time_step, 0, 100);
+					DEBUG_VAR(p, 200);
+					
+					if (gg_isgood) {				
+						ent_animate(my, "jump", p, 0);
+						//ent_animate(my, gg_playanim, p, 0);
+						draw_text(gg_playanim, 100, 300, COLOR_RED);
+						draw_text("OK", 100, 350, COLOR_RED);
+					} else {
+						ent_animate(my, male_anim_fail, p, ANM_CYCLE);
+						draw_text("FAIL", 100, 300, COLOR_RED);
+					}
+					
+					wait(1);
+				}	
+				
+				if (total_fails >= max_fails) {
+					isfailed = 1;
+				}			
+				
+				if (gg_isgood) {
+					i++;
+				}
 			}
 			
 			var p = 0;
 			
-			// play anim str
+			if (fails == 0) {
+				// perfect
+				snd_dd_success_play();
+			} else if (fails <= 2) {
+				snd_dd_soso_play ();
+			}
+			
+			// celebrate
 			while (p < 100 && !isfailed) {
 			
 				p = clamp(p + 5 * time_step, 0, 100);
-				DEBUG_VAR(p, 200);
 				
-				if (gg_isgood) {				
-					ent_animate(my, "jump", p, 0);
-					//ent_animate(my, gg_playanim, p, 0);
-					draw_text(gg_playanim, 100, 300, COLOR_RED);
-					draw_text("OK", 100, 350, COLOR_RED);
+				if (fails == 0) {
+					// perfect
+					ent_animate(my, male_anim_perfect, p, 0);
+				} else if (fails <= 2) {
+					ent_animate(my, male_anim_okok, p, 0);
 				} else {
-					ent_animate(my, male_anim_fail, p, ANM_CYCLE);
-					draw_text("FAIL", 100, 300, COLOR_RED);
-				}
+					// too much fails
+					ent_animate(my, male_anim_notgood, p, 0);
+				}			
 				
 				wait(1);
 			}	
 			
-			if (total_fails >= max_fails) {
-				isfailed = 1;
-			}			
-			
-			if (gg_isgood) {
-				i++;
-			}
-		}
-		
-		var p = 0;
-		
-		if (fails == 0) {
-			// perfect
-			snd_dd_success_play();
-		} else if (fails <= 2) {
-			snd_dd_soso_play ();
-		}
-		
-		// celebrate
-		while (p < 100 && !isfailed) {
-		
-			p = clamp(p + 5 * time_step, 0, 100);
-			
-			if (fails == 0) {
-				// perfect
-				ent_animate(my, male_anim_perfect, p, 0);
-			} else if (fails <= 2) {
-				ent_animate(my, male_anim_okok, p, 0);
+			if (gg_playlen == str_len(gdp_puzzle)) {		
+				
+				gg_stepcomplete = 1;
+				break;
+				
 			} else {
-				// too much fails
-				ent_animate(my, male_anim_notgood, p, 0);
-			}			
 			
-			wait(1);
-		}	
-		
-		if (gg_playlen == str_len(gdp_puzzle)) {		
-			
-			gg_stepcomplete = 1;
-			break;
-			
-		} else {
-		
-			// make a pause a little bit
-			
-			var tt_timer = 1.5 * 16;
-			
-			while (tt_timer > 0 && !isfailed) {	
-				ent_animate(my, male_anim_waitafterplay, (total_ticks * 10) % 100, ANM_CYCLE);
-				tt_timer -= time_step;
-				wait(1);
+				// make a pause a little bit
+				
+				var tt_timer = 1.5 * 16;
+				
+				while (tt_timer > 0 && !isfailed) {	
+					ent_animate(my, male_anim_waitafterplay, (total_ticks * 10) % 100, ANM_CYCLE);
+					tt_timer -= time_step;
+					draw_text("LL-775",500,100,vector(100,100,255));
+					wait(1);
+				}
 			}
+			
+			tt_waitforplayer = 0;		
 		}
 		
-		tt_waitforplayer = 0;
+		while (gg_stepcomplete) {
+			draw_text("LL-785",500,100,vector(100,100,255));
+			wait(1);
+		}
 		
+		wait(1);
 	}
 }
 
@@ -818,17 +923,29 @@ action ee_exceed ()
 	}
 }
 
+void gdp_next ()
+{
+	gdp_index++;
+	gdp_puzzle = (gdp->pstring)[gdp_index];
+}
+
 action ee_stepcompl ()
 {
 	set(my, INVISIBLE);
+	
+	waitfornextgdp = 0;
 	
 	while (!gg_stepcomplete) {
 		wait(1);
 	}	
 	
+	waitfornextgdp = 1;
+	
 	var p = 0;
 	
 	var firstFrame = 1;
+	
+	snd_dd_nextstep_play ();
 
 	while (p < 100) {
 		
@@ -853,6 +970,11 @@ action ee_stepcompl ()
 		
 		wait(1);
 	}
+	
+	gdp_next();
+	
+	waitfornextgdp = 0;
+	gg_stepcomplete = 0;
 }
 
 #endif /*dancewed_c*/
