@@ -2,7 +2,7 @@
 
 #define MENU_BASE_STOP 1
 #define MENU_NUM_STOPS 6
-#define MENU_IDLE_TICKS 16
+#define MENU_IDLE_TICKS 128
 
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
 BMAP *bmpMenuLogo = "textures\\logo.png";
@@ -87,6 +87,7 @@ void menu_core()
 	
 	var idleTime = 0;
 	var logoAlpha = 100;
+	var textBlinkTime = 0;
 	while(1)
 	{
 		draw_text(_menu_stops[_menu.currentStop].title, 16, 16, COLOR_RED);
@@ -131,7 +132,7 @@ void menu_core()
 		}
 		
 		// Check for mouse movement
-		if(vec_length(mickey) > 0)
+		if((vec_length(mickey) > 0) || key_any)
 		{
 			idleTime = 0;
 		}
@@ -174,15 +175,29 @@ void menu_core()
 				logoAlpha,
 				0);
 			
-			_menuPen.alpha = logoAlpha;
+			var blinkAngle = cycle(20 * textBlinkTime, 0, 720);
+			var blinkAlpha = 100;
+			if(blinkAngle > 360)
+			{
+				blinkAlpha = 50 + 50 * cosv(blinkAngle - 360);
+			}
 			
+			_menuPen.alpha = 0.01 * blinkAlpha * logoAlpha;
 			_menuPen.pos_x = 0.5 * screen_size.x;
 			_menuPen.pos_y = 0.5 * (screen_size.y + height) + 0;
 			str_cpy(_menuText, "Press any key");
 			draw_obj(_menuPen);
+			
+			textBlinkTime += time_step;
+		}
+		else
+		{
+			textBlinkTime = 0;
 		}
 		
 		draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
+		draw_text(str_for_num(NULL, idleTime), 72, 48, COLOR_RED);
+		draw_text(str_for_num(NULL, textBlinkTime), 128, 48, COLOR_RED);
 		
 		wait(1);
 	}
