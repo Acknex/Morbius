@@ -9,3 +9,4 @@ Thumbs.db
 *.blend*
 !*.blend
 /source/dance/c4d/*.fbx
+*.pla/**
