@@ -4,6 +4,7 @@
 var level_change_transition_progress = 0;
 var gate_entry_id = -1;
 var input_fetch = 1;
+var level_loaded = 1;
 
 TEXT* txt_level_wmbs =
 {
@@ -27,6 +28,8 @@ action sky_color_fog_act();
 action level_gate();
 
 void level_change_set_player_position(ENTITY* ent_pl);
+
+var is_level_loaded();
 
 #include "level_transition.c"
 #endif

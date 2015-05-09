@@ -2,66 +2,209 @@
 <items>
 	<!--Visitenkarte//-->
 	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes">
-		<sequence description="ein blabla" sound="achievement1.wav"/>
+		<sequence description="Die Visitenkarte wird bestimmt noch wichtig sein." sound="achievement1.wav"/>
 	</item>
 	
-	<item id="2" name="Revolver" collectable="yes">Revolver</item>
-	<item id="3" name="Schublade">Abgeschlossene Schublade</item>
-	<item id="4" name="Schublade" sound1="achievement1.wav" sound2="collect.wav">Schublade</item>
-	<item id="5" name="Gecko">Gecko</item>
-	<item id="6" name="Futter" collectable="yes">Futter</item>
-	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes" sound1="achievement1.wav" sound2="collect.wav">Leere Taschenlampe</item>
-	<item id="8" name="Batterien" collectable="yes">Batterien</item>
-	<item id="9" name="Fernbedienung" collectable="yes">Fernbedienung</item>
-	<item id="10" name="Laptop" sound1="achievement1.wav" sound2="collect.wav">Laptop</item>
-	<item id="11" name="Schubladenschlüssel">Beschützter Schubladenschlüssel</item>
-	<item id="12" name="Schubladenschlüssel" collectable="yes" destroyable="yes">Schubladenschlüssel</item>
-	<item id="13" name="IKEA Regal" sound1="achievement1.wav" sound2="collect.wav">IKEA Regal</item>
-	<item id="14" name="Rosa Telefon">Rosa Telefon</item>
-	<item id="15" name="Gamestudio Packung">A3 Box</item>
-	<item id="16" name="Taschenlampe" sound1="achievement1.wav" sound2="collect.wav">Taschenlampe</item>
+	<!--Revolver//-->
+	<item id="2" name="Revolver" collectable="yes">
+		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt" sound="achievement1.wav"/>
+	</item>
+	
+	<!--Abgeschlossene Schublade//-->
+	<item id="3" name="Schublade">
+		<sequence description="Verdammt, die Schublade ist abgeschlossen." sound="achievement1.wav"/>
+		<sequence description="Die Schublade ist immernoch abgeschlossen." sound="achievement1.wav"/>
+		<sequence description="Wenn ich nichts versuche, dann bleibt die Schublade auch weiterhin abgeschlossen." sound="achievement1.wav"/>
+		<sequence description="Vielleicht sollte ich den Schlüssel finden mit dem ich diese ABGESCHLOSSENE Schublade öffnen kann." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Schublade//-->
+	<item id="4" name="Schublade">
+	</item>
+	
+	<!--Gecko//-->
+	<item id="5" name="Gecko">
+		<sequence description="Das ist mein Gecko, er war eine Sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen Kunden gepfändet habe." sound="achievement1.wav"/>
+		<sequence description="Schau mich nicht so verzweifelnd an du Reptil." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Futter//-->
+	<item id="6" name="Futter" collectable="yes">
+		<sequence description="DA habe ich also mein Reptilfutter gelassen. Macht irgendwie Sinn, in einer Küche." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Leere Taschenlampe//-->
+	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes">
+		<sequence description="Aha, meine Taschenlampe! Wichtig für allerlei Detektivarbeiten bei Nacht und Dunkelheit. Verdammt... die Batterien sind leer" sound="achievement1.wav"/>
+		<sequence description="Die Taschenlampe braucht neue Batterien." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Batterien//-->
+	<item id="8" name="Batterien" collectable="yes">
+	</item>
 
+	<!--Fernbedienung//-->
+	<item id="9" name="Fernbedienung">
+		<sequence description="Eine Fernbedienung, den dazugehörigen Fernseher musste ich verramschen um mir eine Taschenlampe zu kaufen." sound="achievement1.wav"/>
+		<sequence description="Schau mal einer an, wer hätte da gedacht, da sind Batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können." sound="achievement1.wav" result="8"/>
+		<sequence description="Eine Fernbedienung ohne Batterien. Toll." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Laptop//-->
+	<item id="10" name="Laptop">
+		<sequence description="Mein Laptop, digital soll angeblich die Zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen Platz." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Beschützter Schubladenschlüssel//-->
+	<item id="11" name="Schubladenschlüssel">
+		<sequence description="Wie sind meine Schlüssel nur da drin gelandet?" sound="achievement1.wav"/>
+		<sequence description="Mein Gecko wird mich nicht an die Schlüssel lassen." sound="achievement1.wav"/>
+		<sequence description="Irgendwie muss ich meinen Gecko ablenken um an die Schlüssel zu kommen." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Schubladenschlüssel//-->
+	<item id="12" name="Schubladenschlüssel" collectable="yes" destroyable="yes">
+		<sequence description="Mein Schreibtischschubladenschlüssel!" sound="achievement1.wav"/>
+	</item>
+	
+	<!--IKEA Regal//-->
+	<item id="13" name="IKEA Regal">
+		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Rosa Telefon//-->
+	<item id="14" name="Rosa Telefon">
+		<sequence description="Das ist mein Patentiertes Rosa Designertelefon." sound="achievement1.wav"/>
+	</item>
+	
+	<!--A3 Box//-->
+	<item id="15" name="Gamestudio Packung">
+		<sequence description="A3, das erste programm das ich mit für meinen Laptop gekauft habe." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Taschenlampe//-->
+	<item id="16" name="Taschenlampe">
+	</item>
+	
 	<!--Toter Guard//-->
 	<item id="17" name="Guard">
-		<sequence description="endblabla" sound="achievement1.wav"/>
-		<sequence description="zwei blabla" sound="collect.wav"/>
-		<sequence description="endblabla" sound="achievement1.wav"/ result="40">
-		<sequence description="zwei blabla" sound="collect.wav"/>
+		<sequence description="Ist das... eine Leiche?!" sound="achievement1.wav"/>
+		<sequence description="Armer Kerl, wen hast du bloß verärgert um so zu enden?" sound="collect.wav"/>
+		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen." sound="collect.wav"/>
+		<sequence description="Also ich glaube nicht dass ich so eine Leiche anfassen werde." sound="collect.wav"/>
+		<sequence description="[stöhn] ... na gut, manchmal muss auch ein profesioneller Detektiv in der Not etwas unethisches tun.... hmmm in der linken Hosentasche ist nichts." sound="collect.wav"/>
+		<sequence description="ÜÜüääähh... in der rechten Hosentasche sind ein paar Münzen, gottseidank muss ich nicht noch weiter suchen." sound="achievement1.wav" result="40"/>
+		<sequence description="Der hat nichts mehr." sound="collect.wav"/>
 	</item>
 	
-	<item id="18" name="Telefonzelle" destroyable="yes">Unzugängliche Telefonzelle</item>
-	<item id="19" name="Telefonzelle" sound1="achievement1.wav" sound2="collect.wav">Telefonzelle</item>
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes">Wasserverdrängungsspray-40</item>
-	<item id="21" name="Verrostete Telefonzellentür" destroyable="yes">Verrostete Telefonzellentür</item>
-	<item id="22" name="Brechstange" collectable="yes" sound1="achievement1.wav" sound2="collect.wav">Brechstange</item>
-	<item id="23" name="Gulli">Gulli</item>
-	<item id="24" name="Mülltonne">Mülltonne</item>
-	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" sound1="achievement1.wav" sound2="collect.wav">Stock des Warlocks</item>
-	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes">Angelhaken</item>
-	<item id="27" name="Gaffer Tape" collectable="yes" destroyable="yes">Gaffer Tape</item>
-	<item id="28" name="Nummernschild" sound1="achievement1.wav" sound2="collect.wav">Nummernschild</item>
-	<item id="29" name="Stock mit Angelhaken" collectable="yes" destroyable="yes">Wackliger Stock mit Angelhaken</item>
-	<item id="30" name="Stock mit Angelhaken" collectable="yes" destroyable="yes">Geklebter Stock mit Angelhaken</item>
-	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" sound1="achievement1.wav" sound2="collect.wav">Versiffte Geldbörse</item>
-	<item id="32" name="Rechnungsdurchdruck">Rechnungs Durchdruck</item>
-	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes">Bonzai Zuckerrohr</item>
-	<item id="34" name="Topf" destroyable="yes" sound1="achievement1.wav" sound2="collect.wav">Topf</item>
-	<item id="35" name="Topf" destroyable="yes">Topf mit Zuckerrohr</item>
-	<item id="36" name="Topf" collectable="yes" destroyable="yes">Topf mit Zucker</item>
-	<item id="37" name="Herd" sound1="achievement1.wav" sound2="collect.wav">Herd</item>
-	<item id="38" name="Griechin">Griechin</item>
-	<item id="39" name="Thermoskanne" collectable="yes" destroyable="yes">Thermoskanne</item>
-	<item id="40" name="Münzen" collectable="yes">Münzen</item>
+	<!--Unzugängliche Telefonzelle//-->
+	<item id="18" name="Telefonzelle" destroyable="yes">
+	</item>
+	
+	<!--Telefonzelle//-->
+	<item id="19" name="Telefonzelle">
+		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Wasserverdrängungsspray-40//-->
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes">
+		<sequence description="Wasserverdrängugsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Verrostete Telefonzellentür//-->
+	<item id="21" name="Verrostete Telefonzellentür" destroyable="yes">
+		<sequence description="Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach." sound="achievement1.wav"/>
+		<sequence description="Irgendwie sollte sich diese Tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Brechstange//-->
+	<item id="22" name="Brechstange" collectable="yes">
+		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Gulli//-->
+	<item id="23" name="Gulli">
+	</item>
+	
+	<!--Mülltonne//-->
+	<item id="24" name="Mülltonne">
+	</item>
+	
+	<!--Stock des Warlocks//-->
+	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Angelhaken//-->
+	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Gaffer Tape//-->
+	<item id="27" name="Gaffer Tape" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Nummernschild//-->
+	<item id="28" name="Nummernschild">
+	</item>
+	
+	<!--Wackliger Stock mit Angelhaken//-->
+	<item id="29" name="Stock mit Angelhaken" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Geklebter Stock mit Angelhaken//-->
+	<item id="30" name="Stock mit Angelhaken" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Versiffte Geldbörse//-->
+	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Rechnungs Durchdruck//-->
+	<item id="32" name="Rechnungsdurchdruck">
+	</item>
+	
+	<!--Bonzai Zuckerrohr//-->
+	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Topf//-->
+	<item id="34" name="Topf" destroyable="yes">
+	</item>
+	
+	<!--Topf mit Zuckerrohr//-->
+	<item id="35" name="Topf" destroyable="yes">
+	</item>
+	
+	<!--Topf mit Zucker//-->
+	<item id="36" name="Topf" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Herd//-->
+	<item id="37" name="Herd">
+	</item>
+	
+	<!--Griechin//-->
+	<item id="38" name="Griechin">
+	</item>
+	
+	<!--Thermoskanne//-->
+	<item id="39" name="Thermoskanne" collectable="yes" destroyable="yes">
+	</item>
+	
+	<!--Münzen//-->
+	<item id="40" name="Münzen" collectable="yes">
+		<sequence description="Geiles Geld" sound="achievement1.wav"/>
+	</item>
 </items>
 <combinations>
-	<combination id1="12" id2="3" morphtarget="3" result="4">Schubladenschlüssel mit Abgeschlossene Schublade</combination>
-	<combination id1="6" id2="5" morphtarget="11" result="12">Futter mit Gecko</combination>
-	<combination id1="8" id2="7" morphtarget="7" result="16" sound="achievement1.wav">Batterien mit Leere Taschenlampe</combination>
-	<combination id1="22" id2="21" morphtarget="18" result="19">Brechstange mit Verrostete Telefonzellentür</combination>
-	<combination id1="20" id2="21" morphtarget="18" result="19">Wasserverdrängungsspray-40 mit Verrostete Telefonzellentür</combination>
+	<combination id1="12" id2="3" morphtarget="3" description="Sesam öffne dich!" result="4">Schubladenschlüssel mit Abgeschlossene Schublade</combination>
+	<combination id1="6" id2="5" morphtarget="11" description="Du denkst du fängst dir dein Futter selbst, dabei verdankst du es nur meiner Großzügigkeit. Aber jetzt lässt du mich wenigstens wieder an meine Schlüssel" result="12">Futter mit Gecko</combination>
+	<combination id1="8" id2="7" morphtarget="7" result="16" description="Abracadabra, und schon funktioniert meine Taschenlampe wieder." sound="achievement1.wav">Batterien mit Leere Taschenlampe</combination>
+	<combination id1="22" id2="21" morphtarget="18" description="Eine Brechstange ist meist genauso gut wie ein Schlüssel, wenn nicht sogar noch besser!" result="19">Brechstange mit Verrostete Telefonzellentür</combination>
+	<combination id1="20" id2="21" morphtarget="18" description="Ein bisschen Wasserverdrängugsspray-40 anwenden und abracadabra....! Sesam öffne dich!" result="19">Wasserverdrängungsspray-40 mit Verrostete Telefonzellentür</combination>
 	<combination id1="25" id2="26" result="29">Stock des Warlocks mit Angelhaken</combination>
 	<combination id1="29" id2="27" result="30">Stock mit Angelhaken mit Gaffer Tape</combination>
 	<combination id1="30" id2="23" result="31">Stock mit Angelhaken mit Gulli</combination>
 	<combination id1="33" id2="34" morphtarget="34" result="35">Bonzai Zuckerrohr mit Topf</combination>
 	<combination id1="35" id2="37" morphtarget="35" result="36">Topf mit Zuckerrohr mit Herd</combination>
+	<combination id1="40" id2="19" description="[Ring Ring]">Topf mit Zuckerrohr mit Herd</combination>
 </combinations>

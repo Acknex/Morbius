@@ -1,19 +1,21 @@
 #include <acknex.h>
 
-#define PRAGMA_POINTER
+//#define PRAGMA_POINTER
 #define PRAGMA_PATH "..\src\"
 
 #include "items.h"
 #include "combine.h"
+#include "inventory.h"
 #include "itemmgr.h"
 #include <default.c>
 
 void main()
 {
 	mouse_mode = 4;
+	video_mode = 10;
 	
 	//random_seed(0);
-	
+itemmgr_init();	
 	level_load("itemtest.wmb");
 	if (ITEM_load("..\\items\\items.xml"))
 	{
@@ -44,6 +46,11 @@ void main()
 		error("item kaputt");
 	}
 	
+	// Create inventory
+	inventory = inv_create(NULL, screen_size.x, 50);
+	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
+	inv_show(inventory);
+		
 	while(key_esc == 0)
 	{
 		wait(1);

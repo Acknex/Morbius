@@ -4,23 +4,27 @@
 #include "types.h"
 
 void cameraLoop() {
-	
+
 	while(player == NULL) wait(1);
-	
-	switch(activeCameraType) {
-		case CAMERA_TYPE_FIXED_FOLLOW:
-		case CAMERA_TYPE_MULTIPLE_FOLLOW:
-			moveCameraFixedFollow();
-		break;
-		
-		case CAMERA_TYPE_SPLINE:
-			moveCameraSpline();
-		break;
-		
-		case CAMERA_TYPE_AXIS:
-			moveCameraAxis(0);
-		break;
+
+	while(player) {
+		switch(activeCameraType) {
+			case CAMERA_TYPE_FIXED_FOLLOW:
+			case CAMERA_TYPE_MULTIPLE_FOLLOW:
+				moveCameraFixedFollow();
+			break;
+			
+			case CAMERA_TYPE_SPLINE:
+				moveCameraSpline();
+			break;
+			
+			case CAMERA_TYPE_AXIS:
+				moveCameraAxis(0);
+			break;
+		}
+		wait(1);
 	}
+	error("aha3");
 }
 
 void actSplineCamMin() {
@@ -32,10 +36,16 @@ void actSplineCamMax() {
 }
 
 void cameraInit() {
+	camera_initialized = 1;
 	entCameraPathEntity = ent_create(NULL, nullvector, NULL);
 	path_set(entCameraPathEntity, "path_000");
 	cameraPathLength = path_length(entCameraPathEntity);
 	cameraPathPlayerPos = 0;	
+}
+
+var isCameraInitialized()
+{
+	return camera_initialized;
 }
 
 void moveCameraFixedFollow() {
@@ -47,10 +57,14 @@ void moveCameraFixedFollow() {
 void moveCameraSpline() {
 	// Calculate procentual difference between level min/max
 	cameraPathPlayerPos = player.x - vecSplineCamMin.x;
-	cameraPathPlayerPos = cameraPathPlayerPos / ((vecSplineCamMax.x - vecSplineCamMin.x) + 0.0001); // Avoid 0 division
+	cameraPathPlayerPos = cameraPathPlayerPos / (vec_dist(vecSplineCamMax.x, vecSplineCamMin.x) + 0.0001); // Avoid 0 division
 	cameraPathPlayerPos = cameraPathPlayerPos * cameraPathLength;
 	
-	path_spline(entCameraPathEntity,camera.x,cameraPathPlayerPos);
+	if (cameraPathPlayerPos < 0) {
+		cameraPathPlayerPos = cameraPathPlayerPos * -1;
+	}
+	
+	path_spline(entCameraPathEntity, camera.x, cameraPathPlayerPos);
 	
 	// Look at the player
 	vec_set(vecCameraTemp.x, player.x);
@@ -87,6 +101,18 @@ void actDynamicCamera() {
 		}
 		wait(1);
 	}
+}
+
+void actSetCameraType() {
+	if (my.skill2 == 1) {
+		cameraInit();
+	}
+	
+	if ((my.skill2 == 0) || (my.skill2 > 1)) {
+		vec_set(camera.x, my.x);
+	}
+	
+	activeCameraType = my.skill2;
 }
 
 #endif

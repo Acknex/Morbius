@@ -2,20 +2,28 @@
 #define _SYSTEM_C_
 
 #include "inventory.h"
+#include "camera.h"
 
 void itemmgr_init();
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
+var is_level_loaded();
 
 void startGame()
 {
+	me = NULL;
+	proc_mode = PROC_GLOBAL;
 	level_change(0,-1);
+	while(!is_level_loaded()) wait(1);
+	Inventory* inventory = inv_create(NULL, screen_size.x, 50);
 	inv_show(inventory);
+	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
 }
 
 void sys_init() {
 	
 	// rendering
+	fps_min = 30;
 	fps_max = 60;
 	mip_flat = 2;
 	d3d_antialias = 4;
@@ -36,7 +44,6 @@ void sys_init() {
 	
 	random_seed((sys_seconds % sys_month) * sys_hours - 42);
 	
-	Inventory* inventory = inv_create(NULL);
 	itemmgr_init();
 	smartwalk_init();
 	menuConfig.startGame = startGame;

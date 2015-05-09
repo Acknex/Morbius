@@ -1,6 +1,8 @@
 #include <acknex.h>
 #include "items.h"
+#include "types.h"
 #include "inventory.h"
+#include "hud.h"
 
 #define itemType skill1
 #define itemId skill2
@@ -8,28 +10,21 @@
 #define itemHover FLAG1
 #define itemRemove FLAG2
 
-#define TYPE_INTERACTIONITEM 1
 
 BMAP* cursor_grab = "cursor_grab.tga";
 BMAP* cursor_look = "cursor_look.tga";
 BMAP* cursor_point = "cursor_point.tga";
 
-FONT* interActionItem__font = "Arial#20b";
-TEXT* interActionItem__txt = 
-{
-	font = interActionItem__font;
-	layer = 1;	
-	pos_x = 0;
-	pos_y = 0;
-	flags |= CENTER_X, CENTER_Y;
-	string ("");
-}
+TEXT* interActionItem__txt;
 
 void interactionItem__eventHandler();
 ENTITY* interactionItem__find(int id);
 
 void itemmgr_init()
 {
+	mouse_map = cursor_point;
+	interActionItem__txt = HUD_getItemText();
+
 	bmp_cursor_array[TYPE_ITEM_DEFAULT] = NULL; //bmap_create(".tga");
 	bmp_cursor_array[TYPE_ITEM_GRAB] = bmap_create("cursor_grab.tga");
 	bmp_cursor_array[TYPE_ITEM_LOOK] = bmap_create("cursor_look.tga");
@@ -44,9 +39,7 @@ void itemmgr_init()
 //skill2: ItemId -1
 action interactionItem()
 {
-	mouse_map = cursor_point;
-
-	my->itemType = TYPE_INTERACTIONITEM;
+	my->itemType = TYPE_ITEM;
 	my->itemSequence = 0;
 	
 	if (my->itemId == -1)
@@ -92,7 +85,7 @@ void interactionItem__eventHandler()
 		{
 			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL);
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, cursor_grab);
 			inv_add_item(inventory, resultIdItem);
 		}
 		
@@ -102,11 +95,12 @@ void interactionItem__eventHandler()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL);
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, cursor_grab);
 				inv_add_item(inventory, newItem);
+				set(my, itemRemove);
 			}
 			
-			if (item->destroyable != 0)
+			else if (item->destroyable != 0)
 			{
 				set(my, itemRemove);
 			}
@@ -168,7 +162,7 @@ ENTITY* interactionItem__find(int id)
 	{
 		if (ent != NULL)
 		{
-			if (ent->itemType == TYPE_INTERACTIONITEM && ent->itemId == id)
+			if (ent->itemType == TYPE_ITEM && ent->itemId == id)
 				break;
 		}
 	}
