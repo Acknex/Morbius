@@ -7,6 +7,7 @@
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
 BMAP *bmpMenuLogo = "graphics\\textures\\logo.png";
 FONT *fontCalibri48 = "Calibri#48b";
+SOUND *sndMenuClick = "sounds\\menu-click.wav";
 
 typedef struct {
 	VECTOR position;
@@ -267,6 +268,7 @@ void _menu_item_init()
 	vec_set(my.blue, COLOR_WHITE);
 	
 	var down = 0;
+	var active = 0;
 	float blend = 0;
 	while(1)
 	{
@@ -278,12 +280,15 @@ void _menu_item_init()
 		vec_for_screen(from, camera);
 		vec_for_screen(to, camera);
 		
+		var p = active;
+		active = 0;
 		vec_set(my.blue, COLOR_WHITE);
 		if(c_trace(from, to, IGNORE_MODELS | IGNORE_PASSABLE | USE_POLYGON))
 		{
 			if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
 			{
 				vec_set(my.blue, COLOR_RED);
+				active = 1;
 				if((mouse_left != down) && mouse_left && (my.event != NULL))
 				{
 					void fn();
@@ -291,6 +296,10 @@ void _menu_item_init()
 					fn();
 				}		
 			}
+		}
+		if((p != active) && active)
+		{
+			snd_play(sndMenuClick, 100, 0);
 		}
 		down = mouse_left;
 		
@@ -442,8 +451,6 @@ void menu_startup()
 		vec_set(_menu_stops[i].rotationFade, vector(15, -10, 0));
 		vec_add(_menu_stops[i].rotationFade, _menu_stops[i].rotation);
 	}
-	
-	
 	
 	// Wait for video mode to get active
 	wait(1);
