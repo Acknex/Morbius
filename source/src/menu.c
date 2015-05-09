@@ -23,6 +23,9 @@ typedef struct {
 typedef struct {
     var music;
 	void *on_ent_remove;
+	void *on_space;
+	void *on_cul;
+	void *on_cur;
 	ENTITY *core;
 	int currentStop;
 	int nextStop;
@@ -98,6 +101,9 @@ void menu_close()
 	_menu.music = 0;
 	
 	_menu.on_ent_remove = on_ent_remove;
+	on_space = _menu.on_space;
+	on_cul = _menu.on_cul;
+	on_cur = _menu.on_cur;
 }
 
 void menu_ent_remove(ENTITY *ent)
@@ -117,16 +123,20 @@ void menu_core()
 	var textBlinkTime = 0;
 	while(1)
 	{
+#ifdef MENU_DEBUG
 		draw_text(_menu_stops[_menu.currentStop].title, 16, 16, COLOR_RED);
+#endif
 		
 		if(_menu.fade <= 0.0)
 		{
 			// Only do camera movement if we are not fading out right now
 			if(_menu.currentStop != _menu.nextStop)
 			{
+#ifdef MENU_DEBUG
 				draw_text(str_for_float(NULL, _menu.lerp), 16, 32, COLOR_RED);
 				draw_text(str_for_int(NULL, _menu.currentStop), 128, 32, COLOR_RED);
 				draw_text(str_for_int(NULL, _menu.nextStop), 160, 32, COLOR_RED);
+#endif
 				
 				float f = smootherstep(0.0, 1.0, _menu.lerp);
 				
@@ -247,9 +257,11 @@ void menu_core()
 			100 * _menu.fade,
 			0);
 		
+#ifdef MENU_DEBUG
 		draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, idleTime), 72, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, textBlinkTime), 128, 48, COLOR_RED);
+#endif
 		
 		wait(1);
 	}
@@ -334,10 +346,23 @@ void menu_nav_prev()
 	menu_switch(-1);
 }
 
+void menu_trigger()
+{
+	if(_menu.currentStop != _menu.nextStop)
+		return;
+	menu_fade_and_trigger(_menu_stops[_menu.currentStop]);
+}
+
 void menu_open()
 {
 	_menu.on_ent_remove = on_ent_remove;
+	_menu.on_space = on_space;
+	_menu.on_cur = on_cur;
+	_menu.on_cul = on_cul;
 	on_ent_remove = menu_ent_remove;
+	on_space = menu_trigger;
+	on_cur = menu_nav_prev;
+	on_cul = menu_nav_next;
     level_load("level\\disco.wmb");
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
