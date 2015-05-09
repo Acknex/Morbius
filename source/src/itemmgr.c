@@ -76,6 +76,11 @@ void interactionItem__eventHandler()
 	{
 		resultId = ITEM_interaction(item, &my->itemSequence);
 		
+		if (resultId != ITEM_NONE)
+		{
+			//TODO add item with resultId to inventory
+		}
+		
 		//error(str_for_num(NULL, my->itemSequence));
 		if (ITEM_isLastSequence(item, my->itemSequence) != 0) 
 		{
