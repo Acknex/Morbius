@@ -10,7 +10,9 @@ void level_change(var level_id, var gate_id);
 void startGame()
 {
 	level_change(0,-1);
+	Inventory* inventory = inv_create(NULL, screen_size.x, 50);
 	inv_show(inventory);
+	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
 }
 
 void sys_init() {
@@ -36,7 +38,6 @@ void sys_init() {
 	
 	random_seed((sys_seconds % sys_month) * sys_hours - 42);
 	
-	Inventory* inventory = inv_create(NULL);
 	itemmgr_init();
 	smartwalk_init();
 	menuConfig.startGame = startGame;
