@@ -5,6 +5,8 @@
 #define MENU_IDLE_TICKS 16
 
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
+BMAP *bmpMenuLogo = "textures\\logo.png";
+FONT *fontCalibri48 = "Calibri#48b";
 
 typedef struct {
 	VECTOR position;
@@ -24,6 +26,9 @@ typedef struct {
 
 MenuData _menu;
 MenuStop _menu_stops[MENU_NUM_STOPS];
+
+STRING *_menuText = "#256";
+TEXT *_menuPen = { string = _menuText; flags = CENTER_X | CENTER_Y | TRANSLUCENT; font = fontCalibri48; }
 
 var ang_lerp_single(var a1, var a2, var f)
 {
@@ -81,16 +86,10 @@ void menu_core()
 	_menu.music = media_loop(msDiscoMusic, NULL, 100);
 	
 	var idleTime = 0;
+	var logoAlpha = 100;
 	while(1)
 	{
 		draw_text(_menu_stops[_menu.currentStop].title, 16, 16, COLOR_RED);
-		
-		// Go from idle to first entry
-		if(_menu.isIdle && key_any)
-		{
-			_menu.nextStop = MENU_BASE_STOP;
-			_menu.isIdle = 0;
-		}
 		
 		if(_menu.currentStop != _menu.nextStop)
 		{
@@ -120,6 +119,13 @@ void menu_core()
 		}
 		else
 		{
+			// Go from idle to first entry
+			if(_menu.isIdle && key_any)
+			{
+				_menu.nextStop = MENU_BASE_STOP;
+				_menu.isIdle = 0;
+			}
+			
 			vec_set(camera.x, _menu_stops[_menu.currentStop].position);
 			vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
 		}
@@ -137,8 +143,47 @@ void menu_core()
 				_menu.isIdle = 1;
 				_menu.nextStop = 0; // Return to idle stop
 				_menu.lerp = 0;
-			}	
+			}
 		}
+		
+		var logoBlendSpeed = 20;
+		if(_menu.isIdle)
+		{
+			// Blend logo in
+			logoAlpha = minv(100, logoAlpha + logoBlendSpeed * time_step);
+		}
+		else
+		{
+			// Blend logo out
+			logoAlpha = maxv(0, logoAlpha - logoBlendSpeed * time_step);
+		}
+		
+		// Draw logo scaled and centered
+		if(logoAlpha > 0)
+		{
+			var width = 0.7 * screen_size.x;
+			var height = width * bmap_height(bmpMenuLogo) / bmap_width(bmpMenuLogo);
+			var scale = width / bmap_width(bmpMenuLogo);
+			draw_quad(
+				bmpMenuLogo,
+				vector(0.5 * (screen_size.x - width), 0.5 * (screen_size.y - height), 0),
+				NULL, // Offset
+				NULL, // Size,
+				vector(scale, scale, 0),
+				COLOR_WHITE,
+				logoAlpha,
+				0);
+			
+			_menuPen.alpha = logoAlpha;
+			
+			_menuPen.pos_x = 0.5 * screen_size.x;
+			_menuPen.pos_y = 0.5 * (screen_size.y + height) + 0;
+			str_cpy(_menuText, "Press any key");
+			draw_obj(_menuPen);
+		}
+		
+		draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
+		
 		wait(1);
 	}
 }
