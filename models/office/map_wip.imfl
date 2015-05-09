@@ -1,0 +1,456 @@
+obj {
+	name = "Würfel_3"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 8
+	faces = 6
+	vminpos = -151.699005,-181.424927,-0.000008
+	vmaxpos = 151.698975,-161.424896,200.000000
+	vcenter = -0.000015,-171.424927,100.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Null"
+	importstate = 0
+	mesh = 0
+	group = 0
+	mgroup = 0
+	vertices = 0
+	faces = 0
+	vminpos = 0.000000,0.000000,0.000000
+	vmaxpos = 0.000000,0.000000,0.000000
+	vcenter = 0.000000,0.000000,0.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 0
+}
+
+obj {
+	name = "Würfel_2"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 8
+	faces = 6
+	vminpos = -10.000000,-559.182495,0.000000
+	vmaxpos = 10.000000,-175.393616,200.000000
+	vcenter = 0.000000,-367.288025,100.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Würfel_1"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 8
+	faces = 6
+	vminpos = -350.095276,-549.674561,-1.000000
+	vmaxpos = 350.095276,549.674561,1.000000
+	vcenter = 0.000000,0.000000,0.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Würfel"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 8
+	faces = 6
+	vminpos = -147.648514,-26.360628,0.000000
+	vmaxpos = 52.351482,84.605614,100.000000
+	vcenter = -47.648514,29.122494,50.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "door_1_1"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 156
+	faces = 168
+	vminpos = 273.325470,-277.211914,-0.000031
+	vmaxpos = 340.793976,-170.831497,199.999985
+	vcenter = 314.451263,-239.607544,99.217728
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "shelf_1"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 104
+	faces = 89
+	vminpos = 275.000000,-113.598969,0.163666
+	vmaxpos = 325.000000,53.598938,200.000000
+	vcenter = 297.241333,-30.003359,77.371498
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Symmetrie_1"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 228
+	faces = 191
+	vminpos = -37.905701,217.916351,0.177405
+	vmaxpos = 122.707146,370.791992,92.607559
+	vcenter = 45.184406,290.051697,36.184292
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "phoine"
+	importstate = 1
+	mesh = 0
+	group = 1
+	mgroup = 1
+	vertices = 0
+	faces = 0
+	vminpos = 0.000000,0.000000,0.000000
+	vmaxpos = 0.000000,0.000000,0.000000
+	vcenter = 0.000000,0.000000,0.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 0
+}
+
+obj {
+	name = "Scheibe_1"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 117
+	faces = 76
+	vminpos = -2.784824,16.614798,102.447380
+	vmaxpos = 6.986317,26.139284,105.989624
+	vcenter = 1.937208,21.760969,104.610855
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Würfel_1_2"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 40
+	faces = 42
+	vminpos = 3.994258,8.266618,100.816841
+	vmaxpos = 19.826254,26.457541,108.784187
+	vcenter = 11.826982,17.246864,105.191101
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Würfel_21"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 63
+	faces = 64
+	vminpos = -6.666647,6.417628,99.991119
+	vmaxpos = 24.158806,36.338055,107.955833
+	vcenter = 10.479160,18.752054,103.596046
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Laptop"
+	importstate = 1
+	mesh = 0
+	group = 1
+	mgroup = 1
+	vertices = 0
+	faces = 0
+	vminpos = 0.000000,0.000000,0.000000
+	vmaxpos = 0.000000,0.000000,0.000000
+	vcenter = 0.000000,0.000000,0.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 0
+}
+
+obj {
+	name = "upper_half"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 12
+	faces = 10
+	vminpos = -151.088196,30.533003,100.461792
+	vmaxpos = -85.895981,78.449203,150.046906
+	vcenter = -118.180779,53.951900,126.148689
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "lower_half"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 16
+	faces = 14
+	vminpos = -144.300919,-9.107964,99.999992
+	vmaxpos = -63.009262,66.693298,105.000008
+	vcenter = -102.621017,27.001617,103.750000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "door_1"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 156
+	faces = 168
+	vminpos = -340.293274,-272.293091,-0.000038
+	vmaxpos = -272.824738,-165.912704,199.999985
+	vcenter = -313.950470,-234.688904,99.217697
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "door_0"
+	importstate = 1
+	mesh = 0
+	group = 1
+	mgroup = 1
+	vertices = 0
+	faces = 0
+	vminpos = 0.000000,0.000000,0.000000
+	vmaxpos = 0.000000,0.000000,0.000000
+	vcenter = 0.000000,0.000000,0.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 0
+}
+
+obj {
+	name = "Polygon_3"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 8
+	faces = 2
+	vminpos = 310.000000,282.500000,106.356491
+	vmaxpos = 310.000000,357.500000,188.356491
+	vcenter = 310.000000,320.000000,147.356491
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Polygon_2"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 278
+	faces = 392
+	vminpos = 298.272186,260.000000,0.000000
+	vmaxpos = 321.727814,380.000000,200.000000
+	vcenter = 310.010071,293.687683,97.837914
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Bed"
+	importstate = 1
+	mesh = 0
+	group = 1
+	mgroup = 1
+	vertices = 0
+	faces = 0
+	vminpos = 0.000000,0.000000,0.000000
+	vmaxpos = 0.000000,0.000000,0.000000
+	vcenter = 0.000000,0.000000,0.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 0
+}
+
+obj {
+	name = "Würfel_3_2"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 16
+	faces = 4
+	vminpos = -138.277390,-393.324402,20.216438
+	vmaxpos = -19.681309,-193.004257,59.783562
+	vcenter = -78.979355,-293.164398,40.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Zylinder_6"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 176
+	faces = 156
+	vminpos = -140.723755,-395.762421,0.000000
+	vmaxpos = -17.234940,-190.566254,80.000000
+	vcenter = -79.047516,-293.222260,37.136364
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Würfel_2_2"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 24
+	faces = 26
+	vminpos = -138.723755,-393.164337,20.000000
+	vmaxpos = -19.234940,-193.164337,40.000000
+	vcenter = -78.979355,-293.164429,30.000000
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "Symmetrie"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 228
+	faces = 191
+	vminpos = -212.707153,217.916351,0.177407
+	vmaxpos = -52.094307,370.532135,92.607552
+	vcenter = -132.489655,291.032532,36.184296
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "shelf"
+	importstate = 1
+	mesh = 1
+	group = 0
+	mgroup = 0
+	vertices = 104
+	faces = 89
+	vminpos = 275.000000,56.401031,0.163673
+	vmaxpos = 325.000000,223.598938,200.000000
+	vcenter = 297.241333,139.996674,77.371506
+	entity = 0
+	mdl7group = 0
+	mdl7num = -1
+	lightmap = 1
+}
+
+obj {
+	name = "colorlibrary.tga"
+	material = 1
+	importstate = 1
+	used_by_mesh = 1
+	used_by_mdl = 0
+}
+
+obj {
+	name = "colorlibrary.tga"
+	material = 1
+	importstate = 1
+	used_by_mesh = 1
+	used_by_mdl = 0
+}
+
+
+scalefactor=1.000000;
+importpos=0.000000,0.000000,0.000000;
+addTexToWad=0;
+useCurrGroup=1;
+destFolderName="MeshTex";
+createGroup=0;
+addBlocksAuto=0;
+light_intensity_to_radius=1000;
+extern_skins=1;
+checkFacesLevel=5;
+importAtCameraPos=1;
+importAtNullPos=0;
+importAtCustomPos=0;
+autoCenter=0;
