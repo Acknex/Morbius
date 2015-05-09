@@ -1,11 +1,72 @@
 Itemliste
 =========
-ID		Name		Collectable
+ID      Name                            C   D
+1       Visitenkarte                    x   x
+2       Revolver                        x   
+3       Abgeschlossene Schublade                   
+4       Schublade                               
+5       Gecko                                   
+6       Futter                          x   x            
+7       Leere Taschenlampe              x   x   
+8       Batterien                       x   x            
+9       Fernbedienung                   x   x           
+10      Laptop
+11      Beschützter Schubladenschlüssel 
+12      Schubladenschlüssel             x   x
+13      IKEA Regal                      
+14      Rosa Telefon
+15      A3 Box          
+16      Taschenlampe
 
+17      Toter Guard
+18      Unzugängliche Telefonzelle          x
+19      Telefonzelle                    
+20      Wasserverdrängungsspray-40      x   x
+21      Verrostete Telefonzellentür         x
+22      Brechstange                     x   x        
+
+23      Gulli
+24      Mülltonne                             
+25      Stock des Warlocks+1           x   x
+26      Angelhaken                     x   x
+27      Gaffer Tape                    x   x
+28      Nummernschild
+29      Wackliger Stock mit Angelhaken x   x
+30      Geklebter Stock mit Angelhaken x   x
+31      Versiffte Geldbörse            x   x
+32      Rechnungs Durchdruck
+
+33      Bonzai Zuckerrohr              x   x
+34      Topf                               x
+35      Topf mit Zuckerrohr                x
+36      Topf mit Zucker                x   x
+37      Herd
+38      Griechin
+39      Thermoskanne                   x   x
 
 
 
 
 Kombinationsliste
 =================
-ID1 ID2 ResultID
+ID1 ID2     TargetID    ResultID
+12  3       3           4   
+6   5       11          12
+8   7       7           16
+
+22  21      18          19
+20  21      18          19    
+
+25  26      -1          29
+29  27      -1          30
+30  23      -1          31
+
+33  34      34          35
+35  37      35          36
+
+
+
+
+Kombinationsfall Problem:
+
+Schlüssel in Gecko Terrarium. Gecko muss gefüttert werden damit man den schlüssel aufheben kann
