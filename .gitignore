@@ -4,6 +4,7 @@ Thumbs.db
 *.bak
 *.$$M
 *.$$w
+*.$$p
 *.wed
 *.blend*
 !*.blend

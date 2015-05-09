@@ -238,6 +238,7 @@ void menu_core()
 			_menuPen.alpha = 0.01 * textAlpha * 0.01 * blinkAlpha * logoAlpha;
 			_menuPen.pos_x = 0.5 * screen_size.x;
 			_menuPen.pos_y = 0.5 * (screen_size.y + height) + 0;
+			_menuPen.flags |= OUTLINE;
 			str_cpy(_menuText, "Press any key");
 			draw_obj(_menuPen);
 		
@@ -261,6 +262,28 @@ void menu_core()
 		draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, idleTime), 72, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, textBlinkTime), 128, 48, COLOR_RED);
+		
+		if(mouse_left)
+		{
+			VECTOR from, to;
+			vec_set(from, mouse_pos);
+			vec_set(to, mouse_pos);
+			from.z = 0;
+			to.z = 1000;
+			vec_for_screen(from, camera);
+			vec_for_screen(to, camera);
+			
+			if(c_trace(from, to, IGNORE_PASSABLE | USE_POLYGON))
+			{
+				diag(str_printf(
+					NULL, 
+					"\n%d: %d %d %d", 
+					(int)_menu.currentStop, 
+					(int)target.x, 
+					(int)target.y, 
+					(int)target.z));
+			}
+		}
 #endif
 		
 		wait(1);
@@ -368,6 +391,7 @@ void menu_regenerate_bitmaps()
 		_menuPen.alpha = 100;
 		_menuPen.pos_x = 0.5 * width;
 		_menuPen.pos_y = 0.5 * height;
+		_menuPen.flags &= ~OUTLINE;
 		str_cpy(_menuText, _menu_stops[i].title);
 		draw_obj(_menuPen);
 		
@@ -391,7 +415,7 @@ void menu_open()
 	on_cul = menu_nav_next;
     
 	
-	level_load("level\\disco.wmb");
+	level_load("level\\kingmorph.wmb");
 	
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
@@ -478,35 +502,35 @@ void menu_trigger_quit()
 
 void menu_startup()
 {
-	vec_set(_menu_stops[0].position, vector(-621, 579, 209));
-	vec_set(_menu_stops[0].rotation, vector(317, -18, 0));
+	vec_set(_menu_stops[0].position, vector(1056, -280, 334));
+	vec_set(_menu_stops[0].rotation, vector(203, -12, 0));
 	strcpy(_menu_stops[0].title, "<IDLE MENU>");
 	
-	vec_set(_menu_stops[1].position, vector(-334, 273, 78));
-	vec_set(_menu_stops[1].rotation, vector(314, -30, 0));
-	vec_set(_menu_stops[1].positionText, vector(-224, 160, 0));
+	vec_set(_menu_stops[1].position, vector(-92, -1348, 443));
+	vec_set(_menu_stops[1].rotation, vector(52, -36, 0));
+	vec_set(_menu_stops[1].positionText, vector(276, -821, -20));
 	strcpy(_menu_stops[1].title, "Start Game");
 	_menu_stops[1].trigger = menu_trigger_start;
 	
-	vec_set(_menu_stops[2].position, vector(-101, 276, 57));
-	vec_set(_menu_stops[2].rotation, vector(281, -23, 0));
-	vec_set(_menu_stops[2].positionText, vector(-48, 144, 0));
+	vec_set(_menu_stops[2].position, vector(-84, -1098, 322));
+	vec_set(_menu_stops[2].rotation, vector(154, -15, 0));
+	vec_set(_menu_stops[2].positionText, vector(-540, -935, 130));
 	strcpy(_menu_stops[2].title, "Load Game");
 	
-	vec_set(_menu_stops[3].position, vector(320, 288, 60));
-	vec_set(_menu_stops[3].rotation, vector(227, -17, 0));
-	vec_set(_menu_stops[3].positionText, vector(224, 128, 0));
+	vec_set(_menu_stops[3].position, vector(-407, -1090, 217));
+	vec_set(_menu_stops[3].rotation, vector(242, -26, 0));
+	vec_set(_menu_stops[3].positionText, vector(-485, -1310, 100));
 	strcpy(_menu_stops[3].title, "Options");
 	
-	vec_set(_menu_stops[4].position, vector(390, -259, 40));
-	vec_set(_menu_stops[4].rotation, vector(150, -12, 0));
-	vec_set(_menu_stops[4].positionText, vector(192, -192, 0));
+	vec_set(_menu_stops[4].position, vector(611, -625, 226));
+	vec_set(_menu_stops[4].rotation, vector(340, -13, 0));
+	vec_set(_menu_stops[4].positionText, vector(959, -650, 100));
 	strcpy(_menu_stops[4].title, "Credits");
 	_menu_stops[4].trigger = menu_trigger_credits;
 	
-	vec_set(_menu_stops[5].position, vector(-326, -350, 64));
-	vec_set(_menu_stops[5].rotation, vector(41, -19, 0));
-	vec_set(_menu_stops[5].positionText, vector(-160, -272, 0));
+	vec_set(_menu_stops[5].position, vector(215, -562, 224));
+	vec_set(_menu_stops[5].rotation, vector(155, -18, 0));
+	vec_set(_menu_stops[5].positionText, vector(-136, -425, 110));
 	strcpy(_menu_stops[5].title, "Quit Game");
 	_menu_stops[5].trigger = menu_trigger_quit;
 	
