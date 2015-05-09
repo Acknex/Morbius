@@ -1,5 +1,6 @@
 #include <acknex.h>
 #include "items.h"
+#include "inventory.h"
 
 #define itemType skill1
 #define itemId skill2
@@ -91,8 +92,8 @@ void interactionItem__eventHandler()
 		{
 			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, int ITEM_TYPE_NEUTRAL);
-			inv_add_item(inv, resultIdItem);
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL);
+			inv_add_item(inventory, resultIdItem);
 		}
 		
 		//error(str_for_num(NULL, my->itemSequence));
@@ -101,8 +102,8 @@ void interactionItem__eventHandler()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, int ITEM_TYPE_NEUTRAL);
-				inv_add_item(inv, newItem);
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL);
+				inv_add_item(inventory, newItem);
 			}
 			
 			if (item->destroyable != 0)
