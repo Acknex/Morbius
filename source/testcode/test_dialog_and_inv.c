@@ -1,8 +1,7 @@
 #include <acknex.h>
 #include <default.c>
 
-#define PRAGMA_PATH "include";
-#define PRAGMA_PATH "src";
+#define PRAGMA_PATH "..//src";
 
 #include "dialogs.h"
 #include "sounds.h"
@@ -19,9 +18,9 @@ void main() {
 	
 	dlgInit();
 	mouse_mode = 4;
-	// dlgStart("dialogs//003erade_03.xml");
+	dlgStart("..//dialogs//003erade_03.xml");
 	
-	random_seed(0);
+	/*random_seed(0);
 	mouse_mode = 4;
 	Inventory* inv = inv_create(NULL);
 	Item* i1 = inv_create_item(1, "Leather boots", "Some cheap leather boots", 3, ITEM_TYPE_CLOTH, bmap_create("graphics\\items\\th_A_Shoes01.tga"));
@@ -52,5 +51,5 @@ void main() {
 	while(1) {
 		inv_loop();
 		wait(1);
-	}
+	}*/
 }
