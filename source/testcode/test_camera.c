@@ -45,6 +45,8 @@ action actPlayer() {
 	movePlayer();
 	cameraInit();
 	
+	activeCameraType = CAMERA_TYPE_MULTIPLE_FOLLOW;
+	
 	while(1) {
 		cameraLoop();
 		wait(1);
