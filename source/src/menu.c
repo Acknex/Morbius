@@ -508,7 +508,7 @@ void menu_startup()
 	
 	vec_set(_menu_stops[1].position, vector(-92, -1348, 443));
 	vec_set(_menu_stops[1].rotation, vector(52, -36, 0));
-	vec_set(_menu_stops[1].positionText, vector(276, -821, -20));
+	vec_set(_menu_stops[1].positionText, vector(55, -1137, 257));
 	strcpy(_menu_stops[1].title, "Start Game");
 	_menu_stops[1].trigger = menu_trigger_start;
 	
@@ -533,6 +533,11 @@ void menu_startup()
 	vec_set(_menu_stops[5].positionText, vector(-136, -425, 110));
 	strcpy(_menu_stops[5].title, "Quit Game");
 	_menu_stops[5].trigger = menu_trigger_quit;
+	
+	
+	VECTOR p;
+	vec_lerp(p, _menu_stops[1].positionText, _menu_stops[1].position, 0.6);
+	diag(str_printf(NULL, "\n%d %d %d", (int)p.x, (int)p.y, (int)p.z));
 	
 	int i;
 	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
