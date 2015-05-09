@@ -167,8 +167,10 @@ void menu_core()
 					_menu.isIdle = 0;
 				}
 				
+#ifndef MENU_DEBUG
 				vec_set(camera.x, _menu_stops[_menu.currentStop].position);
 				vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
+#endif
 			}
 		}
 		
@@ -322,7 +324,7 @@ void _menu_item_init()
 		{
 			if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
 			{
-				vec_set(my.blue, COLOR_RED);
+				vec_set(my.blue, COLOR_BLUE);
 				active = 1;
 				if((mouse_left != down) && mouse_left && (my.event != NULL))
 				{
@@ -391,7 +393,7 @@ void menu_regenerate_bitmaps()
 		_menuPen.alpha = 100;
 		_menuPen.pos_x = 0.5 * width;
 		_menuPen.pos_y = 0.5 * height;
-		_menuPen.flags &= ~OUTLINE;
+		_menuPen.flags |= OUTLINE;
 		str_cpy(_menuText, _menu_stops[i].title);
 		draw_obj(_menuPen);
 		
@@ -508,9 +510,9 @@ void menu_startup()
 	vec_set(_menu_stops[0].rotation, vector(203, -12, 0));
 	strcpy(_menu_stops[0].title, "<IDLE MENU>");
 	
-	vec_set(_menu_stops[1].position, vector(-92, -1348, 443));
-	vec_set(_menu_stops[1].rotation, vector(52, -36, 0));
-	vec_set(_menu_stops[1].positionText, vector(276, -821, -20));
+	vec_set(_menu_stops[1].position, vector(-76, -1379, 310));
+	vec_set(_menu_stops[1].rotation, vector(52, -21, 0));
+	vec_set(_menu_stops[1].positionText, vector(120, -1108, 230));
 	strcpy(_menu_stops[1].title, "Start Game");
 	_menu_stops[1].trigger = menu_trigger_start;
 	
@@ -544,5 +546,85 @@ void menu_startup()
 		
 		vec_set(_menu_stops[i].rotationFade, vector(15, -10, 0));
 		vec_add(_menu_stops[i].rotationFade, _menu_stops[i].rotation);
+	}
+}
+
+
+
+
+var lerp(var v1, var v2, var f)
+{ return ((1-f)*v1 + f*v2); }
+
+action king_dancer(void)
+{
+	MATERIAL* dancemat = mtl_create();
+	dancemat.ambient_red = random(255);
+	dancemat.ambient_green = random(255);
+	dancemat.ambient_blue = random(255);
+
+	ent_morph(me, "humanoid.mdl");
+	wait(1);
+	c_setminmax(my);
+	my.material = dancemat;
+	my.z -= c_trace(my.x, _vec(my.x, my.y, my.z - 1000), USE_POLYGON) + my.min_z;
+
+	var anm = random(200);
+	var cyc = 0;
+	var spd = random(5)/10.0 + 0.85;
+	
+	while (1)
+	{
+		anm = (anm + time_step * spd) % 200;
+		
+		if (anm > 100)
+		{
+			cyc = 100 - (anm - 100);
+		}
+		else
+		{
+			cyc = anm;
+		}
+		
+		ent_animate(me, "punch", cyc * 0.6, 0);
+		wait(1);
+	}
+}
+
+action king_cbabe(void)
+{
+	while (1)
+	{
+		my.pan -= time_step * 16;
+		wait(1);
+	}
+}
+
+action king_light(void)
+{
+	set(me, PASSABLE | INVISIBLE);
+	
+	VECTOR clr;
+	
+	my.lightrange = 300;
+	
+	while(1)
+	{
+		clr.x = random(255);
+		clr.y = random(255);
+		clr.z = random(255);
+
+		var cyc = random(4);
+		var fade = 0;
+
+		while(fade < 1)
+		{
+			my.red = lerp(my.red, clr.x, fade);
+			my.green = lerp(my.green, clr.y, fade);
+			my.blue = lerp(my.blue, clr.z, fade);
+			fade += time_step/5.0;
+			wait(1);
+		}
+		
+		wait(-cyc);
 	}
 }
