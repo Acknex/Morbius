@@ -197,6 +197,9 @@ void inv_item_leave(var _buttonNumber, PANEL* _panel);
 // Temp item to be held in hand
 Item *itemInHand = NULL;
 
+// The player's inventory
+Inventory* inventory = NULL;
+
 #include "inventory.c"
 
 #endif

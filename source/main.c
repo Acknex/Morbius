@@ -14,6 +14,7 @@
 #include "materials.h"
 #include "level_transition.h"
 #include "player.h"
+#include "inventory.h"
 
 #ifdef DEBUG
 #include <default.c>
