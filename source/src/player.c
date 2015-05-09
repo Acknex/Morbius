@@ -1,6 +1,7 @@
 #include "types.h"
 #include "smartwalk.h"
 #include "level_transition.h"
+#include "itemmgr.h"
 
 action player_act()
 {
@@ -17,16 +18,23 @@ action player_act()
 	vec_set(my.target_x,my.x);
 	while(1)
 	{
+		VECTOR temp;
+		vec_set(temp,mouse_dir3d);
+		vec_scale(temp,9000);
+		vec_add(temp,camera.x);
+		c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
+		mouse_map = bmp_cursor_array[TYPE_ITEM_DEFAULT];
+		if(you)
+		{
+			if(your.ENTITY_TYPE == TYPE_ITEM || your.ENTITY_TYPE == TYPE_LEVEL_GATE) mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
+		}
 		if(mouse_left)
 		{
 			if(mouse_left_off && input_fetch)
 			{
 				mouse_left_off = 0;
-				VECTOR temp;
-				vec_set(temp,mouse_dir3d);
-				vec_scale(temp,9000);
-				vec_add(temp,camera.x);
-				c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
+		c_ignore(GROUP_CURSOR_HELPER,0);
+		c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 				if(trace_hit)
 				{
 					if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
@@ -71,3 +79,5 @@ action player_act()
 		wait(1);
 	}
 }
+
+

@@ -1,5 +1,6 @@
 #include <acknex.h>
 
+#define PRAGMA_PATH "graphics\\cursors";
 #define PRAGMA_PATH "src";
 #define PRAGMA_PATH "models";
 #define PRAGMA_PATH "textures";

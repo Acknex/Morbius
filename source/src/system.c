@@ -1,12 +1,12 @@
 #ifndef _SYSTEM_C_
 #define _SYSTEM_C_
 
+void itemmgr_init();
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
 
 void startGame()
 {
-	
 	level_change(0,-1);
 }
 
@@ -33,8 +33,8 @@ void sys_init() {
 
    random_seed((sys_seconds % sys_month) * sys_hours - 42);
  
+ itemmgr_init();
 	smartwalk_init();
-
    menuConfig.startGame = startGame;
 }
 

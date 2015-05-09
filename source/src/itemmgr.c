@@ -25,6 +25,17 @@ TEXT* interActionItem__txt =
 
 void interactionItem__eventHandler();
 
+void itemmgr_init()
+{
+	bmp_cursor_array[TYPE_ITEM_DEFAULT] = NULL; //bmap_create(".tga");
+	bmp_cursor_array[TYPE_ITEM_GRAB] = bmap_create("cursor_grab.tga");
+	bmp_cursor_array[TYPE_ITEM_LOOK] = bmap_create("cursor_look.tga");
+	bmp_cursor_array[TYPE_ITEM_POINT] = bmap_create("cursor_point.tga");
+	bmp_cursor_array[TYPE_ITEM_EXIT] = bmap_create("cursor_exit.tga");
+	bmp_cursor_array[TYPE_ITEM_TALK] = NULL; //bmap_create(".tga");
+	bmp_cursor_array[TYPE_ITEM_USE] = bmap_create("cursor_use.tga");
+	bmp_cursor_array[TYPE_ITEM_SEARCH] = NULL; //bmap_create(".tga");
+}
 
 //skill1: ItemType 0
 //skill2: ItemId -1

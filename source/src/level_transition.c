@@ -42,6 +42,8 @@ action sky_color_fog_act()
 action level_gate()
 {
 	my.ENTITY_TYPE = TYPE_LEVEL_GATE;
+	my.SUB_TYPE = TYPE_ITEM_EXIT;
+	my.group = GROUP_CURSOR_HELPER;
 	vec_set(my.skill20,vector(32,0,0));
 	vec_rotate(my.skill20,my.pan);
 	vec_add(my.skill20,my.x);
@@ -57,7 +59,7 @@ action level_gate()
 	my.skill11 = minv(temp.y,temp2.y);
 	my.skill12 = maxv(temp.x,temp2.x);
 	my.skill13 = maxv(temp.y,temp2.y);
-	set(my,INVISIBLE | PASSABLE); //TRANSLUCENT
+	set(my,INVISIBLE | POLYGON); //TRANSLUCENT
 	while(1)
 	{
 		if(player)
