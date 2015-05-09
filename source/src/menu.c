@@ -367,49 +367,49 @@ void _menu_item_init()
 		else
 		{
 			reset(my,INVISIBLE);
-		VECTOR from, to;
-		vec_set(from, mouse_pos);
-		vec_set(to, mouse_pos);
-		from.z = 0;
-		to.z = 1000;
-		vec_for_screen(from, camera);
-		vec_for_screen(to, camera);
-		
-		var p = active;
-		active = 0;
-		vec_set(my.blue, COLOR_WHITE);
-		if(c_trace(from, to, IGNORE_MODELS | IGNORE_PASSABLE | USE_POLYGON))
-		{
-			if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
+			VECTOR from, to;
+			vec_set(from, mouse_pos);
+			vec_set(to, mouse_pos);
+			from.z = 0;
+			to.z = 1000;
+			vec_for_screen(from, camera);
+			vec_for_screen(to, camera);
+			
+			var p = active;
+			active = 0;
+			vec_set(my.blue, COLOR_WHITE);
+			if(c_trace(from, to, IGNORE_MODELS | IGNORE_PASSABLE | USE_POLYGON))
 			{
-				vec_set(my.blue, COLOR_BLUE);
-				active = 1;
-				if((mouse_left != down) && mouse_left && (my.event != NULL))
+				if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
 				{
-					void fn();
-					fn = my.event;
-					fn();
-				}		
+					vec_set(my.blue, COLOR_BLUE);
+					active = 1;
+					if((mouse_left != down) && mouse_left && (my.event != NULL))
+					{
+						void fn();
+						fn = my.event;
+						fn();
+					}		
+				}
 			}
+			if((p != active) && active)
+			{
+				snd_play(sndMenuClick, 100, 0);
+			}
+			down = mouse_left;
+			
+			float blendSpeed = 0.1;
+			if(((_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop)) || (_menu.nextStop == my.skill1))
+			{
+				blend = clamp(blend + blendSpeed * time_step, 0, 1);
+			}
+			else
+			{
+				blend = clamp(blend - blendSpeed * time_step, 0, 1);
+			}
+			
+			my.alpha = 100 * smootherstep(0, 1, blend);
 		}
-		if((p != active) && active)
-		{
-			snd_play(sndMenuClick, 100, 0);
-		}
-		down = mouse_left;
-		
-		float blendSpeed = 0.1;
-		if(((_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop)) || (_menu.nextStop == my.skill1))
-		{
-			blend = clamp(blend + blendSpeed * time_step, 0, 1);
-		}
-		else
-		{
-			blend = clamp(blend - blendSpeed * time_step, 0, 1);
-		}
-		
-		my.alpha = 100 * smootherstep(0, 1, blend);
-	}
 		wait(1);
 	}
 }
@@ -543,18 +543,6 @@ void menu_trigger_start()
 	}
 }
 
-void menu_trigger_options()
-{
-	error("huhu");
-	/*	if(menuConfig.Options != NULL)
-	{
-		void fn();
-		fn = menuConfig.Options;
-		fn();
-	}*/
-}
-
-
 void menu_trigger_credits()
 {
 	if(menuConfig.startCredits != NULL)
@@ -596,7 +584,6 @@ void menu_startup()
 	vec_set(_menu_stops[3].rotation, vector(242, -26, 0));
 	vec_set(_menu_stops[3].positionText, vector(-485, -1310, 100));
 	strcpy(_menu_stops[3].title, "Options");
-	_menu_stops[3].trigger = menu_trigger_options;
 	
 	vec_set(_menu_stops[4].position, vector(611, -625, 226));
 	vec_set(_menu_stops[4].rotation, vector(340, -13, 0));

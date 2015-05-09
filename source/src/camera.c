@@ -4,9 +4,9 @@
 #include "types.h"
 
 void cameraLoop() {
-	
+
 	while(player == NULL) wait(1);
-	
+
 	while(player) {
 		switch(activeCameraType) {
 			case CAMERA_TYPE_FIXED_FOLLOW:
@@ -24,6 +24,7 @@ void cameraLoop() {
 		}
 		wait(1);
 	}
+	error("aha3");
 }
 
 void actSplineCamMin() {
@@ -35,10 +36,16 @@ void actSplineCamMax() {
 }
 
 void cameraInit() {
+	camera_initialized = 1;
 	entCameraPathEntity = ent_create(NULL, nullvector, NULL);
 	path_set(entCameraPathEntity, "path_000");
 	cameraPathLength = path_length(entCameraPathEntity);
 	cameraPathPlayerPos = 0;	
+}
+
+var isCameraInitialized()
+{
+	return camera_initialized;
 }
 
 void moveCameraFixedFollow() {
@@ -97,7 +104,6 @@ void actDynamicCamera() {
 }
 
 void actSetCameraType() {
-	
 	if (my.skill2 == 1) {
 		cameraInit();
 	}

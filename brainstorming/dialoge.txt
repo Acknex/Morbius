@@ -376,7 +376,7 @@ MORBIUS: Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn d
 CBABE: S...sie.. Sie sind TOT?!
 MORBIUS: Ach komm, alle spuren führen zu dir, jetzt tu nicht so als ob du nichts davon weißt!
 CBABE: WIE WAGST DU ES?! Natürlich weis ich nichts davon! Wie kannst du nur so taktlos sein??
-MORBIUS: [seuftz] Tut mir leid. So meinte ich das nicht. Sie verstehen dass ich antworten brauche.
+MORBIUS: [seuftz] Tut mir leid. So meinte ich das nicht. Du verstehst, dass ich antworten brauche.
 CBABE: Lass mich jetzt bitte in ruhe...
 
 COMBINE: Visitenkarte + Cbabe

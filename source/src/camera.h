@@ -35,6 +35,9 @@ ENTITY* entCameraPathEntity = NULL;
 // Active camera type
 int activeCameraType = CAMERA_TYPE_FIXED_FOLLOW;
 
+var camera_initialized = 0;
+var isCameraInitialized();
+
 #include "camera.c"
 
 #endif

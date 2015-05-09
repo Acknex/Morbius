@@ -7,17 +7,17 @@
 void itemmgr_init();
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
+var is_level_loaded();
 
 void startGame()
 {
+	me = NULL;
+	proc_mode = PROC_GLOBAL;
 	level_change(0,-1);
-	
-	wait_for(level_change);
+	while(!is_level_loaded()) wait(1);
 	Inventory* inventory = inv_create(NULL, screen_size.x, 50);
 	inv_show(inventory);
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
-	cameraInit();
-	cameraLoop();
 }
 
 void sys_init() {
