@@ -2,3 +2,6 @@ acklog.txt
 /source/test.c
 Thumbs.db
 *.bak
+*.$$M
+*.$$w
+*.wed
