@@ -12,6 +12,9 @@ var level_change_transition(var in)
 
 void level_change(var level_id, var gate_id)
 {
+	// Always reset camera to NOT use the spline function during level transitions
+	activeCameraType = CAMERA_TYPE_FIXED_FOLLOW;
+	
 	gate_entry_id = gate_id;
 	input_fetch = 0;
 	while(level_change_transition(1) < 100) wait(1);
