@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<items>
+	<item id="1" name="first item" sound1="achievement1.wav" sound2="collect.wav">ClickItem</item>
+	<item id="2" name="second item"></item>
+	<item id="3" name="third item"></item>
+</items>
