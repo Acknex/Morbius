@@ -87,6 +87,7 @@ void menu_core()
 	
 	var idleTime = 0;
 	var logoAlpha = 100;
+	var textAlpha = 100;
 	var textBlinkTime = 0;
 	while(1)
 	{
@@ -175,6 +176,7 @@ void menu_core()
 				logoAlpha,
 				0);
 			
+			// Blink cycle of the key-press text.
 			var blinkAngle = cycle(20 * textBlinkTime, 0, 720);
 			var blinkAlpha = 100;
 			if(blinkAngle > 360)
@@ -182,13 +184,23 @@ void menu_core()
 				blinkAlpha = 50 + 50 * cosv(blinkAngle - 360);
 			}
 			
-			_menuPen.alpha = 0.01 * blinkAlpha * logoAlpha;
+			// Only draw key press text if transition is finished
+			if(_menu.currentStop == _menu.nextStop)
+			{
+				textAlpha = minv(100, textAlpha + 15 * time_step);
+				textBlinkTime += time_step;
+			}
+			else
+			{
+				textAlpha = maxv(0, textAlpha - 15 * time_step);
+			}
+			// Draw key press text
+			_menuPen.alpha = 0.01 * textAlpha * 0.01 * blinkAlpha * logoAlpha;
 			_menuPen.pos_x = 0.5 * screen_size.x;
 			_menuPen.pos_y = 0.5 * (screen_size.y + height) + 0;
 			str_cpy(_menuText, "Press any key");
 			draw_obj(_menuPen);
-			
-			textBlinkTime += time_step;
+		
 		}
 		else
 		{
