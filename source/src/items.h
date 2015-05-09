@@ -21,8 +21,8 @@ typedef struct item
 
 
 ITEM* ITEM_get(int id);
-void ITEM_sndrnd(int id);
-void ITEM_snd(int id, var soundnum);
+void ITEM_sndrnd(ITEM* item);
+void ITEM_snd(ITEM* item, var soundnum);
 
 int ITEM_load(STRING* file);
 void ITEM_close();

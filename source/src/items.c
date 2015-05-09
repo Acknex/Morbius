@@ -86,32 +86,18 @@ ITEM* ITEM_get(int id)
 	return NULL;
 }
 
-void ITEM_snd(int id, var soundnum)
+void ITEM_snd(ITEM* item, var soundnum)
 {
-	ITEM* tmpItem;
-	if (id < LIST_items(ITEMS__itemList) && id >= 0)
+	if (soundnum >= 0 && soundnum < item->snd_count)
 	{
-		tmpItem = ITEM_get(id);
-		if (soundnum > 0 && soundnum < tmpItem->snd_count)
-		{
-			snd_play(tmpItem->snd_interact[soundnum], ITEM_VOLUME, 0);
-		}
+		snd_play(item->snd_interact[soundnum], ITEM_VOLUME, 0);
 	}
 }
 
-void ITEM_sndrnd(int id)
+void ITEM_sndrnd(ITEM* item)
 {
-	ITEM* tmpItem;
-	var soundnum;
-	if (id < LIST_items(ITEMS__itemList) && id >= 0)
-	{
-		tmpItem = ITEM_get(id);
-		if (soundnum > 0 && soundnum < tmpItem->snd_count)
-		{
-			soundnum = integer(random(tmpItem->snd_count));
-			snd_play(tmpItem->snd_interact[soundnum], ITEM_VOLUME, 0);
-		}
-	}
+	var soundnum = integer(random(item->snd_count));
+	snd_play(item->snd_interact[soundnum], ITEM_VOLUME, 0);
 }
 
 void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
@@ -172,21 +158,25 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 	if (attrib != NULL)
 	{
 		item->snd_interact[item->snd_count] = snd_create(XMLATTRIB_getPContent(attrib));
-		item->snd_count++;
+		//snd_play(item->snd_interact[item->snd_count],100,0);
+		if (item->snd_interact[item->snd_count] != NULL)
+			item->snd_count++;
 	}
 
 	attrib = XMLATTRIB_getElementByAttribute(tag, "sound2");
 	if (attrib != NULL)
 	{
 		item->snd_interact[item->snd_count] = snd_create(XMLATTRIB_getPContent(attrib));
-		item->snd_count++;
+		if (item->snd_interact[item->snd_count] != NULL)
+			item->snd_count++;
 	}
 
 	attrib = XMLATTRIB_getElementByAttribute(tag, "sound3");
 	if (attrib != NULL)
 	{
 		item->snd_interact[item->snd_count] = snd_create(XMLATTRIB_getPContent(attrib));
-		item->snd_count++;
+		if (item->snd_interact[item->snd_count] != NULL)
+			item->snd_count++;
 	}
 
 			//printf("tag %s id %s", _chr(XMLPAR_getPTag(tag)), _chr(XMLATTRIB_getPContent(attrib)));
