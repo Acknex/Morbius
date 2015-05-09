@@ -7,3 +7,4 @@ Thumbs.db
 *.wed
 *.blend*
 !*.blend
+/source/dance/c4d/*.fbx

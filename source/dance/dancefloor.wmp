@@ -5,8 +5,8 @@
 version 710
 
 blocks 1
-entities 9
-objects 10
+entities 10
+objects 11
 
 wed {
 	palette {
@@ -167,9 +167,22 @@ model 8 {   // cam_play2_mdl_014
 	ndef
 }
 
+model 9 {   // stepcomplete_018
+	1 1 1
+	<stepcomplete.mdl>
+	stepcomplete_018
+	ee_stepcompl
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	0000
+	0
+	50
+	ndef
+	ndef
+}
+
 object 0 {  // Root
 	(0 0 0) (0 0 0) (1 1 1)
-	object 1, 2, 3, 4, 5, 6, 7, 8, 9
+	object 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 	level 0
 }
 
@@ -216,5 +229,10 @@ object 8 {  // fails_exceed_016
 object 9 {  // cam_play2_mdl_014
 	(0 0 0) (-0 0 0) (1 1 1)
 	model 8
+}
+
+object 10 {  // stepcomplete_018
+	(0 0 0) (-0 0 0) (1 1 1)
+	model 9
 }
 
