@@ -17,8 +17,8 @@
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="morbius.svg"
    inkscape:export-filename="C:\Users\mk.1\Desktop\ackcon15\Morbius\logo\morbius.png"
-   inkscape:export-xdpi="160"
-   inkscape:export-ydpi="160">
+   inkscape:export-xdpi="120.01628"
+   inkscape:export-ydpi="120.01628">
   <defs
      id="defs3349" />
   <sodipodi:namedview
@@ -29,8 +29,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="483.78544"
-     inkscape:cy="341.59742"
+     inkscape:cx="465.4884"
+     inkscape:cy="487.7807"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -128,5 +128,21 @@
        x="327.9581"
        y="758.51263"
        rx="5.0393429" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3813"
+       width="56.568542"
+       height="3.7880716"
+       x="395.26443"
+       y="313.04749"
+       rx="4.9594507"
+       transform="matrix(0.94943159,-0.31397398,0.31397398,0.94943159,0,0)" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:3.99999998;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 135.71429,209.92573 C 67.857147,169.21144 122.52305,131.41164 101.42857,115.64001 80.334094,99.868381 39.130305,111.82129 35,103.49716 30.869695,95.173031 100.73162,74.627822 95.714286,64.925729 90.696956,55.223636 38.571429,56.3543 38.571429,56.3543"
+       id="path3819"
+       inkscape:connector-curvature="0"
+       transform="translate(327.26774,-37.127354)"
+       sodipodi:nodetypes="czzzc" />
   </g>
 </svg>
