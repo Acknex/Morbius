@@ -1,10 +1,11 @@
 #include <acknex.h>
 
-#define PRAGMA_POINTER
+//#define PRAGMA_POINTER
 #define PRAGMA_PATH "..\src\"
 
 #include "items.h"
 #include "combine.h"
+#include "inventory.h"
 #include "itemmgr.h"
 #include <default.c>
 
@@ -13,7 +14,7 @@ void main()
 	mouse_mode = 4;
 	
 	//random_seed(0);
-	
+itemmgr_init();	
 	level_load("itemtest.wmb");
 	if (ITEM_load("..\\items\\items.xml"))
 	{

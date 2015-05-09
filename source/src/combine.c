@@ -1,5 +1,6 @@
 #include <acknex.h>
 #include "combine.h"
+#include "hud.h"
 #include "xmlreader.h"
 #include "list.h"
 
@@ -87,6 +88,7 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 			if (tmpCombination->snd_interact != NULL)
 				snd_play(tmpCombination->snd_interact, COMBINE_VOLUME, 0);
 
+			HUD_showDescription(tmpCombination->description);
 			//TODO: description handling				
 			*morphtargetId = tmpCombination->morphtargetId;
 			return tmpCombination->resultId;
@@ -101,6 +103,7 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 {
 	XMLATTRIB* attrib;
+	STRING* str;
 
 	attrib = XMLATTRIB_getElementByAttribute(tag, "id1");
 	if (attrib != NULL)
@@ -133,6 +136,12 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 		combination->snd_interact = snd_create(XMLATTRIB_getPContent(attrib));
 	}
 
+	str = str_create("");
+	attrib = XMLATTRIB_getElementByAttribute(tag, "description");
+	if (attrib != NULL)
+		XMLATTRIB_getContent(attrib, str);
+	combination->description = str;
+	
 }
 
 void COMBINATION__cleanup(COMBINATION* combination)
@@ -144,4 +153,7 @@ void COMBINATION__cleanup(COMBINATION* combination)
 	
 	if (combination->snd_interact != NULL)
 		ptr_remove(combination->snd_interact);
+
+	if (combination->description != NULL)
+		ptr_remove(combination->description);
 }

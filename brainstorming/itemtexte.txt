@@ -1,0 +1,111 @@
+Chapter 1: Morbius' Büro
+
+Verschlossene Schublade
+    "Verdammt, die Schublade ist abgeschlossen"
+    "Die schublade ist immernoch abgeschlossen"
+    "Wenn ich nichts versuche, dann bleibt die Schublade auch weiterhin abgeschlossen"
+    "Vielleicht sollte ich den schlüssel finden mit dem ich diese ABGESCHLOSSENE schublade öffnen kann"
+    
+Unzugänglichen Schlüssel
+    "Wie sind meine Schlüssel nur da drin gelandet?"
+    "Mein Gecko wird mich nicht an die schlüssel lassen"
+    "Irgendwie muss ich meinen Gecko ablenken um an die schlüssel zu kommen"#
+    
+Gecko
+    "Das ist mein Gecko, er war eine Sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen kunden gepfändet habe"
+    "Schau mich nicht so verzweifelnd an du reptil"
+    
+Leere Taschenlampe
+    "Aha, meine taschenlampe! Wichtig für allerlei Detektivarbeiten bei nacht und dunkelheit. Verdammt die batterien sind leer"
+    "Die Taschenlampe braucht neue batterien"
+    
+Fernbedienung
+    (Pickup)"Eine fernbedienung, den dazugehörigen fernseher musste ich verramschen um mir eine Taschenlampe zu kaufen"
+    (use)"Schau mal einer an, wer hätte da gedacht, da sind batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können" (result=8)
+    
+COMBINE: Batterien + Leere Taschenlampe
+    "Abracadabra, und schon funktioniert meine Taschenlampe wieder"
+    
+ENTER: Dunkelkammer
+    "Michael Morbius und die Kammer der Dunkelheit. [kichern]"
+    
+Reptilfutter (pickup)
+    "DA habe ich also mein Reptilfutter gelassen. Macht irgendwie sinn, in einer küche."
+    
+COMBINE: Futter + Gecko
+    "Du denkst du fängst dir dein futter selbst, dabei verdankst du es nur meiner großzügigkeit. Aber jetzt lässt du mich wenigstens wieder an meine schlüssel"
+    
+Pickup: Schlüssel
+    "Mein Schreibtischschubladenschlüssel"
+    
+COMBINE: Schlüssel + Schublade
+    "Sesam öffne dich!"
+    
+Open: Schublade Szene
+    "Revolver und Visitenkarte. Alles was ich brauche."
+    
+Pickup: Revolver
+    "Ich habe zwar keine Munition mehr für den revolver, aber um jemanden einzuschüchtern ist er perfekt"
+    
+Pickup: Visitenkarte
+    "Die Visitenkarte wird bestimmt noch wichtig sein"
+    
+Designertelefon
+    "Das ist mein Patentiertes Rosa Designertelefon"
+    
+A4 Box
+    "A4, das erste programm das ich mit für meinen Laptop gekauft habe."
+    
+Laptop
+    "Mein Laptop, digital soll angeblich die zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen platz"
+    
+IKEA Regal
+    "Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown"
+    
+Leave
+    (OnHatAlles) "Alles dabei! Dann mal auf nach Zürich!"
+    (OnOhneVisitenkarte)
+        "Irgendwas habe ich vergessen. Ohne Visitenkarte verlasse ich ungerne das Büro."
+        "Ich möchte echt nicht ohne Visitenkarte gehen..."
+        "Na gut, ich sollte mich auf den weg machen. Hoffentlich bereue ich es nicht meine visitenkarte mitzunehmen"
+        [leave]
+    
+----------------------
+
+Chapter 2: Utopia HQ
+
+ENTER SCENE
+    "Das ist also der hauptsitz der Flight Embassy and Service Ground. Ich bin zwar kein Experte in Großunternehmen, aber das sieht mir nicht nach dem Ansitz eines Multi-Millionen unternehmens aus."
+    
+Leiche
+    "Ist das... eine Leiche?!"
+    "Armer kerl, wen hast du bloß verärgert um so zu enden?"
+    "GALEP Security... hmm war er ein bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen."
+    "Also ich glaube nicht dass ich so eine Leiche anfassen werde"
+    "[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
+    "ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen" (get münzen)
+    "Der hat nichts mehr"
+    
+Verrostete Tür
+    "Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach"
+    "Irgendwie sollte sich diese tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist."
+    
+WD40
+    "Wasserverdrängugsspray-40, der alltägliche helfer für alles. Wird mir bestimmt gelegen kommen."
+    
+Brechstange
+    "Eine Brechstange, kein wunder dass ich in dieser abgestandenen schabracke sowas finde."
+    
+COMBINE: wd40 + verrostete tür
+    "Ein bisschen Wasserverdrängugsspray-40 anwenden und abracadabra....! Sesam öffne dich!"
+    
+COMBINE: brechstange + verrostete tür
+    "Eine Brechstange ist meist genauso gut wie ein schlüssel, wenn nicht sogar noch besser!"
+    
+USE: Telefonzelle
+    "Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können"
+        
+COMBINE: Münze + Zugängliche Telefonzelle
+    First use: Dialog 1
+    Second use Dialog 2 -> Dann END SCENE
+    

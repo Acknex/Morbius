@@ -1,14 +1,14 @@
-Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weitere Leichen im Stadtteil Bockenheim welche auf brutale weise ermodet wurden. Der Serienmörder welcher den Opfern nach dem Tod ein Z zeichen auf die Brust markierte wurde bisher noch nicht gefasst.
+Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weitere Leichen im Stadtteil Bockenheim, welche auf brutale weise ermodet wurden. Der Serienmörder, welcher den Opfern nach dem Tod ein Z Zeichen auf die Brust markierte, wurde bisher noch nicht gefasst.
 
-"Wir versuchen alles darauf den Übeltäter auf die spur zu kommen. Leider ist er sehr sorgfältig und es gibt wenig spuren an den Tatorten zu finden" so Oberkommisar Seiffrig der Kriminalpolizei. "Wir bitten dass alle Einwohner welche hinweise oder augenzeugen zu den Morden haben sich umgehend beim nähesten Polizeirevier zu melden."
+"Wir setzen alles darauf, den Übeltäter auf die spur zu kommen. Leider ist er sehr sorgfältig und es gibt wenig Spuren an den Tatorten zu finden", so Oberkommisar Seiffrig der Kriminalpolizei. "Wir bitten, dass alle Einwohner welche Hinweise oder Augenzeugen zu den Morden haben, sich umgehend beim nähesten Polizeirevier zu melden."
 
-Die Umstände unter welchen die Opfer zu tode gekommen sind werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.
+Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.
 
 -----------
 
 {
 FRANKFURT
-MORBIU'S BÜRO
+MORBIUS' BÜRO
 10. AUGUST
 }
 
@@ -141,6 +141,10 @@ MATHIAS N STRASSE 211
 "Ist das... eine Leiche?!"
 "Armer kerl, wen hast du bloß verärgert um so zu enden?"
 "GALEP Security... hmm war er ein bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen."
+"Also ich glaube nicht dass ich so eine Leiche anfassen werde"
+"[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
+"ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen"
+"Der hat nichts mehr"
 
 "Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach"
 "Irgendwie sollte sich diese tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist."
@@ -153,16 +157,14 @@ MATHIAS N STRASSE 211
 
 "Eine Brechstange ist meist genauso gut wie ein schlüssel, wenn nicht sogar noch besser!"
 
-"War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die aufgabe der Informationssuche aufdrücken muss."
-
 "Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können"
 
-"Also ich glaube nicht dass ich bei einer Leiche nach Geld suchen werde"
-"[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
-"ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen"
 
-"Okay Fritz, ich hoffe du bist deine Gadge immernoch wert..."
 
+
+MORBIUS: [interner monolog]  War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die aufgabe der Informationssuche aufdrücken muss.
+MORBIUS: [interner monolog] Okay Fritz, ich hoffe du bist deine Gadge immernoch wert...
+[tuuut]
 FRITZ: [schnauf] Yop?
 
     1. "Hi Fritz, Morbius hier"
@@ -193,11 +195,11 @@ MORBIUS: Alles klar, bekommst du. Ich hab diesmal einen guten Vorschuss bekommen
 FRITZ: Sag bloß du wirst langsam richtig profesionell?
 MORBIUS: Haha, sehr lustig. Naja danke nochmal, ich muss jetzt los!
 FRITZ: Yop, kein problem. Log-Off!
+MORBIUS: [interner monolog] Perfekt, jetzt muss ich nur noch die GALEP leute überzeugen mir zu sagen wo der Herr Guard Emdayelle wohnt... Denk nach Morbius... aha! Ich habs, ich wollte ihm sein Portmonnai zurück geben. Hab ich irgendwo gefunden - ist ja auch wahr. Morbius, du bist ein Genie!
 
-"Perfekt, jetzt muss ich nur noch die GALEP leute überzeugen mir zu sagen wo der Herr Guard Emdayelle wohnt... Denk nach Morbius... aha! Ich habs, ich wollte ihm sein Portmonnai zurück geben. Hab ich irgendwo gefunden - ist ja auch wahr. Morbius, du bist ein Genie!"
 
-"Meine letzte münze, lass es gelten Morbius!"
 
+MORBIUS: [interner monolog] Meine letzte münze, lass es gelten Morbius!
 GALEP: GALEP Security?
 MORBIUS: Hallo, Morbius mein name. Ich hätte da gerne mal ein problem.
 GALEP: Wie kann ich ihnen weiter helfen?
@@ -224,8 +226,7 @@ GALEP: Fast schon zu viele zufälle für einen tag....
 MORBIUS: Ich danke ihnen für ihre hilfe!
 GALEP: Einen schönen-
 [Aufgelegt]
-
-"Dieser Fall wurde immer ungewöhnlicher, das mulmige gefühl in meinem bauch wurde immer stärker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloß eingelassen? Und warum hat der Z Mörder ein opfer in Zürich? Fragen über fragen häuften sich, und die spur blieb nicht kalt - im gegensatz zu meinem büro weil ich meine Gasrechnung diesen monat nicht bezahlt hatte."
+MORBIUS: [interner monolog] Dieser Fall wurde immer ungewöhnlicher, das mulmige gefühl in meinem bauch wurde immer stärker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloß eingelassen? Und warum hat der Z Mörder ein opfer in Zürich? Fragen über fragen häuften sich, und die spur blieb nicht kalt - im gegensatz zu meinem büro weil ich meine Gasrechnung diesen monat nicht bezahlt hatte.
 
 --------------
 
@@ -291,7 +292,7 @@ GRIECHIN: Weil du jedes mal was von mir willst wenn du mich anrufst.
 MORBIUS: Mag ja sein, aber du musst ja nicht immer davon ausgehen.
 GRIECHIN: Also, ja, du brauchst was von mir?
 MORBIUS: .... ja.
-GRIECHIN: Dein sei doch wenigstens so ein schatz und füll mir einen Kaffee ein
+GRIECHIN: Dann sei doch wenigstens so ein schatz und füll mir einen Kaffee ein
 [schenkt kaffee ein]
 [griechen wartet erwartungsvoll]
 MORBIUS: Thermoskannenkaffee nicht gut genug?

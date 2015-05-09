@@ -8,8 +8,6 @@
  * Lets player collect items in an inventory.
  */
 
-#define INV_SIZE_X 800
-#define INV_SIZE_Y 50
 #define INV_PANEL_LAYER 10
 
 // Settings for item placement
@@ -71,7 +69,7 @@ typedef struct {
  * \param	BMAP*	Inventory background (May be NULL -> Background is drawn within the function)
  * \return			The inventory pointer
  */
-Inventory* inv_create(BMAP* _bg);
+Inventory* inv_create(BMAP* _bg, int width, int height);
 
 /**
  * Frees an inventory
@@ -196,6 +194,9 @@ void inv_item_leave(var _buttonNumber, PANEL* _panel);
 
 // Temp item to be held in hand
 Item *itemInHand = NULL;
+
+// The player's inventory
+Inventory* inventory = NULL;
 
 #include "inventory.c"
 

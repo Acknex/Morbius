@@ -14,12 +14,13 @@
 #include "materials.h"
 #include "level_transition.h"
 #include "player.h"
+#include "inventory.h"
 
 #ifdef DEBUG
 #include <default.c>
 #endif
 
 void main() {
-	sys_init();
-	menu_open();
+	sys_init(); // system.c
+	menu_open(); // menu.c
 }
