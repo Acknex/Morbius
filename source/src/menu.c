@@ -11,7 +11,10 @@ FONT *fontCalibri48 = "Calibri#48b";
 typedef struct {
 	VECTOR position;
 	ANGLE rotation;
+	VECTOR positionFade;
+	ANGLE rotationFade;
 	char title[128];
+	void *trigger;
 } MenuStop;
 
 typedef struct {
@@ -22,6 +25,7 @@ typedef struct {
 	int nextStop;
 	float lerp;
 	int isIdle;
+	float fade;
 } MenuData;
 
 MenuData _menu;
@@ -55,6 +59,25 @@ float smootherstep(float edge0, float edge1, float x)
     x = clamp((x - edge0)/(edge1 - edge0), 0.0, 1.0);
     // Evaluate polynomial
     return x*x*x*(x*(x*6 - 15) + 10);
+}
+
+void menu_fade_and_trigger(MenuStop *stop)
+{
+	for(_menu.fade = 0; _menu.fade <= 1.0; _menu.fade += 0.05 * time_step)
+	{
+		// Fade camera movement
+		vec_lerp(camera.x, stop.position, stop.positionFade, _menu.fade);
+		ang_lerp(camera.pan, stop.rotation, stop.rotationFade, _menu.fade );
+		media_tune(_menu.music, maxv(1, 100 - 120 * _menu.fade), 0, 0);
+		wait(1);
+	}
+	media_pause(_menu.music);
+	if(stop.trigger != NULL)
+	{
+		void fn();
+		fn = stop.trigger;
+		fn();
+	}
 }
 
 void menu_switch(int dir)
@@ -93,43 +116,47 @@ void menu_core()
 	{
 		draw_text(_menu_stops[_menu.currentStop].title, 16, 16, COLOR_RED);
 		
-		if(_menu.currentStop != _menu.nextStop)
+		if(_menu.fade <= 0.0)
 		{
-			draw_text(str_for_float(NULL, _menu.lerp), 16, 32, COLOR_RED);
-			draw_text(str_for_int(NULL, _menu.currentStop), 128, 32, COLOR_RED);
-			draw_text(str_for_int(NULL, _menu.nextStop), 160, 32, COLOR_RED);
-			
-			float f = smootherstep(0.0, 1.0, _menu.lerp);
-			
-			vec_lerp(camera.x, _menu_stops[_menu.currentStop].position, _menu_stops[_menu.nextStop].position, f);
-			ang_lerp(camera.pan, _menu_stops[_menu.currentStop].rotation, _menu_stops[_menu.nextStop].rotation, f);
-			
-			float lerpSpeed = 0.07;
-			if(_menu.nextStop == 0)
+			// Only do camera movement if we are not fading out right now
+			if(_menu.currentStop != _menu.nextStop)
 			{
-				lerpSpeed = 0.03;
+				draw_text(str_for_float(NULL, _menu.lerp), 16, 32, COLOR_RED);
+				draw_text(str_for_int(NULL, _menu.currentStop), 128, 32, COLOR_RED);
+				draw_text(str_for_int(NULL, _menu.nextStop), 160, 32, COLOR_RED);
+				
+				float f = smootherstep(0.0, 1.0, _menu.lerp);
+				
+				vec_lerp(camera.x, _menu_stops[_menu.currentStop].position, _menu_stops[_menu.nextStop].position, f);
+				ang_lerp(camera.pan, _menu_stops[_menu.currentStop].rotation, _menu_stops[_menu.nextStop].rotation, f);
+				
+				float lerpSpeed = 0.07;
+				if(_menu.nextStop == 0)
+				{
+					lerpSpeed = 0.03;
+				}
+				_menu.lerp += lerpSpeed * time_step;
+				if(_menu.lerp > 1.0)
+				{
+					_menu.currentStop = _menu.nextStop;
+					_menu.lerp = 0.0;
+				}
+				
+				// Reset idle on swap
+				idleTime = 0;
 			}
-			_menu.lerp += lerpSpeed * time_step;
-			if(_menu.lerp > 1.0)
+			else
 			{
-				_menu.currentStop = _menu.nextStop;
-				_menu.lerp = 0.0;
+				// Go from idle to first entry
+				if(_menu.isIdle && key_any)
+				{
+					_menu.nextStop = MENU_BASE_STOP;
+					_menu.isIdle = 0;
+				}
+				
+				vec_set(camera.x, _menu_stops[_menu.currentStop].position);
+				vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
 			}
-			
-			// Reset idle on swap
-			idleTime = 0;
-		}
-		else
-		{
-			// Go from idle to first entry
-			if(_menu.isIdle && key_any)
-			{
-				_menu.nextStop = MENU_BASE_STOP;
-				_menu.isIdle = 0;
-			}
-			
-			vec_set(camera.x, _menu_stops[_menu.currentStop].position);
-			vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
 		}
 		
 		// Check for mouse movement
@@ -207,6 +234,16 @@ void menu_core()
 			textBlinkTime = 0;
 		}
 		
+		draw_quad(
+			NULL,
+			vector(0, 0, 0),
+			NULL,
+			screen_size,
+			NULL,
+			COLOR_BLACK,
+			100 * _menu.fade,
+			0);
+		
 		draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, idleTime), 72, 48, COLOR_RED);
 		draw_text(str_for_num(NULL, textBlinkTime), 128, 48, COLOR_RED);
@@ -224,6 +261,26 @@ void menu_open()
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
 }
 
+void menu_trigger_start()
+{
+	if(menuConfig.startGame != NULL)
+	{
+		void fn();
+		fn = menuConfig.startGame;
+		fn();
+	}
+}
+
+void menu_trigger_quit()
+{
+	if(menuConfig.quitGame != NULL)
+	{
+		void fn();
+		fn = menuConfig.quitGame;
+		fn();
+	}
+}
+
 void menu_startup()
 {
 	vec_set(_menu_stops[0].position, vector(-621, 579, 209));
@@ -233,6 +290,7 @@ void menu_startup()
 	vec_set(_menu_stops[1].position, vector(-366, 357, 55));
 	vec_set(_menu_stops[1].rotation, vector(317, -14, 0));
 	strcpy(_menu_stops[1].title, "Start Game");
+	_menu_stops[1].trigger = menu_trigger_start;
 	
 	vec_set(_menu_stops[2].position, vector(-112, 244, 50));
 	vec_set(_menu_stops[2].rotation, vector(271, -14, 0));
@@ -249,4 +307,15 @@ void menu_startup()
 	vec_set(_menu_stops[5].position, vector(-291, -289, 62));
 	vec_set(_menu_stops[5].rotation, vector(45, -16, 0));
 	strcpy(_menu_stops[5].title, "Quit Game");
+	_menu_stops[5].trigger = menu_trigger_quit;
+	
+	int i;
+	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
+	{
+		vec_set(_menu_stops[i].positionFade, vector(0, 0, 16));
+		vec_add(_menu_stops[i].positionFade, _menu_stops[i].position);
+		
+		vec_set(_menu_stops[i].rotationFade, vector(15, -10, 0));
+		vec_add(_menu_stops[i].rotationFade, _menu_stops[i].rotation);
+	}
 }
