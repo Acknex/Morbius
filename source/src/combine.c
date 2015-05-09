@@ -86,7 +86,8 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 			//found
 			if (tmpCombination->snd_interact != NULL)
 				snd_play(tmpCombination->snd_interact, COMBINE_VOLUME, 0);
-				
+
+			//TODO: description handling				
 			*morphtargetId = tmpCombination->morphtargetId;
 			return tmpCombination->resultId;
 		}
