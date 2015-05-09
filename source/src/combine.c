@@ -58,6 +58,7 @@ void COMBINATION_close()
 		for (i = 0; i < LIST_items(COMBINATION__combinationList); i++)
 		{
 			tmpCombination = (COMBINATION*)LIST_getItem(COMBINATION__combinationList, i);
+			COMBINATION__cleanup(tmpCombination);
 			LIST_removeItem(COMBINATION__combinationList, i);
 		}
 		LIST_remove(COMBINATION__combinationList);
@@ -83,6 +84,9 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 		)
 		{
 			//found
+			if (tmpCombination->snd_interact != NULL)
+				snd_play(tmpCombination->snd_interact, COMBINE_VOLUME, 0);
+				
 			*morphtargetId = tmpCombination->morphtargetId;
 			return tmpCombination->resultId;
 		}
@@ -120,5 +124,23 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 		combination->resultId = str_to_int(XMLATTRIB_getPContent(attrib));
 	else
 		combination->resultId = -1;
+
+	attrib = XMLATTRIB_getElementByAttribute(tag, "sound");
+	combination->snd_interact = NULL;
+	if (attrib != NULL)
+	{
+		combination->snd_interact = snd_create(XMLATTRIB_getPContent(attrib));
+	}
+
 }
 
+void COMBINATION__cleanup(COMBINATION* combination)
+{
+	int i;
+	
+	if (combination == NULL)
+		return;
+	
+	if (combination->snd_interact != NULL)
+		ptr_remove(combination->snd_interact);
+}

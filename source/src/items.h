@@ -13,6 +13,7 @@ typedef struct item
 	int collectable;
 	int destroyable;
 
+	//LIST* sequences;
 	STRING* description[3];
 	var desc_count;
 
@@ -20,6 +21,11 @@ typedef struct item
 	var snd_count;	
 } ITEM;
 
+typedef struct sequence
+{
+	SOUND* snd_interact;
+	STRING* description;
+} SEQUENCE;
 
 
 ITEM* ITEM_get(int id);

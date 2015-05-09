@@ -8,6 +8,7 @@ typedef struct combination
 	int id2;
 	int morphtargetId;
 	int resultId;
+	SOUND* snd_interact;
 	
 }COMBINATION;
 

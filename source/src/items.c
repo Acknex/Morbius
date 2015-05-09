@@ -14,7 +14,8 @@ XMLFILE* ITEMS__xml;
 
 void ITEM__copyFromXml(ITEM* item, XMLPAR* tag);
 void ITEM__cleanup(ITEM* item);
-
+void ITEM__loadSequences(ITEM* item, XMLPAR* tag);
+void ITEM__copySequqenceFromXml(SEQUENCE* sequence, XMLPAR* tag);
 
 int ITEM_load(STRING* file)
 {
@@ -38,6 +39,7 @@ int ITEM_load(STRING* file)
 			xmlItem = XMLPAR_getElementByIndex(xmlList, i);
 			item = (ITEM*)malloc(sizeof(ITEM));
 			ITEM__copyFromXml(item, xmlItem);
+			ITEM__loadSequences(item, xmlItem);
 			LIST_append(ITEMS__itemList, (void*)item);
 		}
 		return 1;
@@ -232,5 +234,12 @@ void ITEM__cleanup(ITEM* item)
 	}
 }
 
+void ITEM__loadSequences(ITEM* item, XMLPAR* tag)
+{
+}
+
+void ITEM__copySequqenceFromXml(SEQUENCE* sequence, XMLPAR* tag)
+{
+}
 
 

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <items>
-	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" sound1="achievement1.wav" sound2="collect.wav">Visitenkarte</item>
+	<!--Visitenkarte//-->
+	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" sound1="achievement1.wav" sound2="collect.wav">
+		<sequence description="" sound="" result=""/>
+	</item>
+	
 	<item id="2" name="Revolver" collectable="yes">Revolver</item>
 	<item id="3" name="Schublade">Abgeschlossene Schublade</item>
 	<item id="4" name="Schublade" sound1="achievement1.wav" sound2="collect.wav">Schublade</item>
@@ -43,7 +47,7 @@
 <combinations>
 	<combination id1="12" id2="3" morphtarget="3" result="4">Schubladenschlüssel mit Abgeschlossene Schublade</combination>
 	<combination id1="6" id2="5" morphtarget="11" result="12">Futter mit Gecko</combination>
-	<combination id1="8" id2="7" morphtarget="7" result="16">Batterien mit Leere Taschenlampe</combination>
+	<combination id1="8" id2="7" morphtarget="7" result="16" sound="achievement1.wav">Batterien mit Leere Taschenlampe</combination>
 	<combination id1="22" id2="21" morphtarget="18" result="19">Brechstange mit Verrostete Telefonzellentür</combination>
 	<combination id1="20" id2="21" morphtarget="18" result="19">Wasserverdrängungsspray-40 mit Verrostete Telefonzellentür</combination>
 	<combination id1="25" id2="26" result="29">Stock des Warlocks mit Angelhaken</combination>
