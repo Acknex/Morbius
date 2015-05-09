@@ -5,8 +5,8 @@
 version 710
 
 blocks 1
-entities 10
-objects 11
+entities 12
+objects 13
 
 wed {
 	palette {
@@ -180,9 +180,36 @@ model 9 {   // stepcomplete_018
 	ndef
 }
 
+model 10 {   // ddrad_mdl_021
+	1 1 1
+	<ddrad.mdl>
+	ddrad_mdl_021
+	ddrad_morbius
+	0 0 0 0 0 0 0 0
+	0000
+	0
+	50
+	ndef
+	ndef
+}
+
+model 11 {   // ddrad_mdl_021
+	1 1 1
+	<ddrad.mdl>
+	ddrad_mdl_021
+	ddrad_babe
+	0 0 0 0 0 0 0 0
+	0000
+	0
+	50
+	ndef
+	ndef
+}
+
 object 0 {  // Root
 	(0 0 0) (0 0 0) (1 1 1)
 	object 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+	object 11, 12
 	level 0
 }
 
@@ -234,5 +261,15 @@ object 9 {  // cam_play2_mdl_014
 object 10 {  // stepcomplete_018
 	(0 0 0) (-0 0 0) (1 1 1)
 	model 9
+}
+
+object 11 {  // ddrad_mdl_021
+	(-54.893002 -0.697 42) (-0.279253 0 0) (1 1 1)
+	model 10
+}
+
+object 12 {  // ddrad_mdl_021
+	(55.417927 3.609737 42) (-2.86234 -0 -0) (1 1 1)
+	model 11
 }
 
