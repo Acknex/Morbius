@@ -324,7 +324,7 @@ void _menu_item_init()
 		{
 			if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
 			{
-				vec_set(my.blue, COLOR_RED);
+				vec_set(my.blue, COLOR_BLUE);
 				active = 1;
 				if((mouse_left != down) && mouse_left && (my.event != NULL))
 				{
@@ -393,7 +393,7 @@ void menu_regenerate_bitmaps()
 		_menuPen.alpha = 100;
 		_menuPen.pos_x = 0.5 * width;
 		_menuPen.pos_y = 0.5 * height;
-		_menuPen.flags &= ~OUTLINE;
+		_menuPen.flags |= OUTLINE;
 		str_cpy(_menuText, _menu_stops[i].title);
 		draw_obj(_menuPen);
 		
@@ -512,7 +512,7 @@ void menu_startup()
 	
 	vec_set(_menu_stops[1].position, vector(-76, -1379, 310));
 	vec_set(_menu_stops[1].rotation, vector(52, -21, 0));
-	vec_set(_menu_stops[1].positionText, vector(276, -821, -20));
+	vec_set(_menu_stops[1].positionText, vector(120, -1108, 230));
 	strcpy(_menu_stops[1].title, "Start Game");
 	_menu_stops[1].trigger = menu_trigger_start;
 	
