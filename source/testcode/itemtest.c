@@ -17,8 +17,10 @@ void main()
 	level_load("itemtest.wmb");
 	if (ITEM_load("..\\items\\items.xml"))
 	{
-		/*ITEM* item = ITEM_get(1);
-		ITEM_snd(item, 0);
+		//ITEM* item = ITEM_get(1);
+		//SEQUENCE* seq = (SEQUENCE*)LIST_getItem(item->sequences,1);
+		//snd_play(seq->snd_interact, 100, 0);
+/*		ITEM_snd(item, 0);
 		wait(-1);
 		ITEM_snd(item, 1);
 		wait(-1);
@@ -32,10 +34,10 @@ void main()
 	if (COMBINATION_load("..\\items\\items.xml"))
 	{
 		int targetid;
-		int resultid = COMBINATION_combine(8,7, &targetid);
+		//int resultid = COMBINATION_combine(8,7, &targetid);
 
-		error(str_for_num(NULL, targetid));
-		error(str_for_num(NULL, resultid));
+		//error(str_for_num(NULL, targetid));
+		//error(str_for_num(NULL, resultid));
 	}
 	else
 	{

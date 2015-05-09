@@ -2,7 +2,8 @@
 <items>
 	<!--Visitenkarte//-->
 	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" sound1="achievement1.wav" sound2="collect.wav">
-		<sequence description="" sound="" result=""/>
+		<sequence description="ein blabla" sound="achievement1.wav" result=""/>
+		<sequence description="zwei blabla" sound="collect.wav" result=""/>
 	</item>
 	
 	<item id="2" name="Revolver" collectable="yes">Revolver</item>

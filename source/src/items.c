@@ -88,7 +88,7 @@ ITEM* ITEM_get(int id)
 	return NULL;
 }
 
-void ITEM_snd(ITEM* item, var soundnum)
+/*void ITEM_snd(ITEM* item, var soundnum)
 {
 	if (soundnum >= 0 && soundnum < item->snd_count)
 	{
@@ -100,7 +100,7 @@ void ITEM_sndrnd(ITEM* item)
 {
 	var soundnum = integer(random(item->snd_count));
 	snd_play(item->snd_interact[soundnum], ITEM_VOLUME, 0);
-}
+}*/
 
 void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 {
@@ -111,7 +111,7 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 	if (attrib != NULL)
 		item->id = str_to_int(XMLATTRIB_getPContent(attrib));
 	else
-		item->id = -1;
+		item->id = ITEM_NONE;
 
 	str = str_create("");
 	attrib = XMLATTRIB_getElementByAttribute(tag, "name");
@@ -144,7 +144,7 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 	else
 		item->destroyable = 0;
 
-	/* load descriptions */
+	/* load descriptions 
 	item->desc_count = 0;
 	item->description[0] = NULL;
 	item->description[1] = NULL;
@@ -175,10 +175,10 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 		XMLATTRIB_getContent(attrib, str);
 		item->description = str;
 		item->desc_count++;
-	}
+	}*/
 	
 	
-	/* load sounds */
+	/* load sounds 
 	item->snd_count = 0;
 	item->snd_interact[0] = NULL;
 	item->snd_interact[1] = NULL;
@@ -206,40 +206,97 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 		item->snd_interact[item->snd_count] = snd_create(XMLATTRIB_getPContent(attrib));
 		if (item->snd_interact[item->snd_count] != NULL)
 			item->snd_count++;
-	}
+	}*/
 }
 
 void ITEM__cleanup(ITEM* item)
 {
 	int i;
+	SEQUENCE* sequence;
 	
 	if (item == NULL)
 		return;
 	
 	if (item->name != NULL)
 		ptr_remove(item->name);
-	for (i = 0; i < item->desc_count; i++)
+	/*for (i = 0; i < item->desc_count; i++)
 	{
 		if (item->description != NULL)
 			ptr_remove(item->description);
-	}
+	}*/
 	if (item->imgfile != NULL)
 		ptr_remove(item->imgfile);
 	if (item->entfile != NULL)
 		ptr_remove(item->entfile);
 		
-	for (i = 0; i < item->snd_count; i++)
+	/*for (i = 0; i < item->snd_count; i++)
 	{
 		ptr_remove(item->snd_interact[i]);
+	}*/
+	
+	if (item->sequences != NULL)
+	{
+		for (i = 0; i < LIST_items(item->sequences); i++)
+		{
+			sequence = (SEQUENCE*)LIST_getItem(item->sequences, i);
+			if (sequence->snd_interact != NULL)
+				ptr_remove(sequence->snd_interact);
+			if (sequence->description != NULL)
+				ptr_remove(sequence->description);
+			LIST_removeItem(item->sequences, i);
+		}		
 	}
 }
 
 void ITEM__loadSequences(ITEM* item, XMLPAR* tag)
 {
+	XMLPAR* xmlSequence;
+	XMLPAR* xmlList;
+	SEQUENCE* sequence;
+	var count;
+	var i;
+		
+	if (tag != NULL)
+	{
+		item->sequences = LIST_create();	
+		count = XMLPAR_getTagElements(tag);
+		for (i = 0; i < count; i++)
+		{
+			xmlSequence = XMLPAR_getElementByIndex(tag, i);
+			sequence = (SEQUENCE*)malloc(sizeof(SEQUENCE));
+			ITEM__copySequqenceFromXml(sequence, xmlSequence);
+			LIST_append(item->sequences, (void*)sequence);
+		}
+	}
 }
 
 void ITEM__copySequqenceFromXml(SEQUENCE* sequence, XMLPAR* tag)
 {
+	XMLATTRIB* attrib;
+	STRING* str;
+
+	attrib = XMLATTRIB_getElementByAttribute(tag, "sound");
+	sequence->snd_interact = NULL;
+	if (attrib != NULL)
+	{
+		sequence->snd_interact = snd_create(XMLATTRIB_getPContent(attrib));
+	}
+	
+	sequence->description = NULL;
+	attrib = XMLATTRIB_getElementByAttribute(tag, "description");
+	if (attrib != NULL)
+	{
+		str = str_create("");
+		XMLATTRIB_getContent(attrib, str);
+		sequence->description = str;
+	}
+	
+	attrib = XMLATTRIB_getElementByAttribute(tag, "result");
+	if (attrib != NULL)
+		sequence->resultId = str_to_int(XMLATTRIB_getPContent(attrib));
+	else
+		sequence->resultId = ITEM_NONE;
+
 }
 
 
