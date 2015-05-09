@@ -1,5 +1,6 @@
 #include <acknex.h>
 #include "combine.h"
+#include "hud.h"
 #include "xmlreader.h"
 #include "list.h"
 
@@ -87,6 +88,7 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 			if (tmpCombination->snd_interact != NULL)
 				snd_play(tmpCombination->snd_interact, COMBINE_VOLUME, 0);
 
+			HUD_showDescription(tmpCombination->description);
 			//TODO: description handling				
 			*morphtargetId = tmpCombination->morphtargetId;
 			return tmpCombination->resultId;
