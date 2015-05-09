@@ -271,3 +271,73 @@ DRAUGSTRASSE 4
 "Ein rechnungsdurchdruck für die Griechin... für etwas dass sich 'Motion Capture' nennt... für... 'Utopia'?"
 "Warum hast du nur etwas mit diesem fall zu tun, Griechin?"
 
+"Der fall spitzte sich weiter zu. Jetzt war auch noch einer meiner besten freunde in der ganzen situatuion verzwickt. Verzwickt war zwar gut, aber eigentlich meinte ich damit nicht sie und meine fälle sonder eher sie und mich. Es wurde zeit sie zu der situation zu befragen..."
+
+---
+
+{
+FRANKFURT
+MORBIUS' BÜRO
+14. AUGUST
+}
+
+[Enter Griechin]
+MORBIUS: Hallo, schön das du kommen konntest.
+GRIECHIN: [kichern] Kein problem. Ist schon ne weile her seit dem lezten mal. Wie geht es deinem Keilbeinknochen?
+MORBIUS: Ich weis zwar noch immer nicht wo oder was der ist, aber es geht im besser!
+GRIECHIN: Also erzähl mal, was brauchst du von mir?
+MORBIUS: Warum nimmst du immer an das ich was von dir will?
+GRIECHIN: Weil du jedes mal was von mir willst wenn du mich anrufst.
+MORBIUS: Mag ja sein, aber du musst ja nicht immer davon ausgehen.
+GRIECHIN: Also, ja, du brauchst was von mir?
+MORBIUS: .... ja.
+GRIECHIN: Dein sei doch wenigstens so ein schatz und füll mir einen Kaffee ein
+[schenkt kaffee ein]
+[griechen wartet erwartungsvoll]
+MORBIUS: Thermoskannenkaffee nicht gut genug?
+GRIECHIN: Also wirklich, morbius, wie lange kennen wir uns schon? Du weißt doch das ich meinen kaffe mit zucker trinke!
+MORBIUS: Oh... ja... ääh... wart eben einen moment...
+
+"Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilrettarium."
+"Vielleicht kann ich aus diesem Zuckerrohr zucker herstellen"
+
+"Ein standart elektroherd"
+
+"Ein Topf"
+
+"Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium"
+"Wenn ich mich jetzt noch errinnern würde wie man aus Zuckerrohr zucker herstellt, dann wäre ich ganz klar im vorteil"
+"Ich glaube der muss etwas erhitzt werden, oder so?"
+
+"Ein gelungenes experiment der Zuckerherstellung aus Biologischem anbau! Garantiert ohne gluten. Oder doch. Keine ahnung."
+
+"Jetzt hab ich Zuckerrohr in einen Topf gelegt. Das hast du toll gemacht Morbius."
+
+"Ah genau, wir kochen das Zuckerrohr zu einer rohen masse und lassen die flüssigkeit verdampfen... und was übrig bleibt ist... Zucker!"
+
+MORBIUS: Hier, hab ich extra für dich gemacht.
+GRIECHIN: Mein güte Morbius, du bist ja voller überraschungen. Als nächstes wirst du mir nopch sagen dass du bei deinem neuen Fall sogar einen Vorschuss bekommen hast!
+MORBIUS: Habe ich sogar tatsächlich. Ist das so verwunderlich? Ich bin immerhin ein profesioneller detektiv!
+GRIECHIN: [lacht] Selbstverständlich, tut mir leid, das war dumm von mir!
+MORBIUS: Es sei dir vergeben!
+GRIECHIN: Also, wie kann ich dir helfen mein kleiner?
+MORBIUS: Ich komme direkt zum punkt: Was weißt du über Utopia?
+GRIECHIN: Oh-ho! Auf *solche* schmuddelspielchen stehst du also?
+MORBIUS: Sehr lustig, es hat mit meinem fall zu tun. Ich nehme also an du weißt was das ist?
+GRIECHIN: Ja, aber warum weißt du dass ich damit etwas zu tun hatte?
+MORBIUS: Ich bin den spuren gefolgt und habe eine rechnung gefunden bei der du für deine arbeit an Utopia bezahlt wurdest.
+GRIECHIN: Ist doch nichts illegales dabei! Das war alles legitime arbeit!
+MORBIUS: Jetzt hör auf mit den späßen! Zwei leute sind tot! Ich habe in den letzten tagen mit mehr leichen zu tun gehabt als ich möchte. Wenn ich nicht herausfinde was hier los ist, dann kann es gut sein dass du bald auch einer der leichen bist.
+GRIECHIN: T-t-tot?! Was? Nein, warum sollten leute tot sein?
+MORBIUS: Ich habe erst Herrn Emdayelle tot vorgefunden beim angeblichen firmenstammsitz in zürich und als ich dann versucht habe mehr über ihn herauszufinden, stoße ich direkt auf eine zweite leiche in einer dunklen gasse neben seinem Wohnsitz. Hier in Frankfurt! Soweit ich weis ist der zweite tote der mann der von Emdayelle beschützt werden sollte.
+GRIECHIN: Herr M. Dayle ist... tot? Emdayelle ist tot?!
+MORBIUS: Jetzt erklär mir doch bitte warum zwei leute tot sind wegen irgend einem schmuddelspielchen von einer firma die es nicht gibt die angeblich in zürich ist und was du mit dem ganzen zu tun hast?!
+GRIECHIN: Ich habe nur ein paar akrobatische bewegungen vor kameras gemacht, nichts explizites, nichts illegales!! ICh weis nicht warum die leute tot sind!
+MORBIUS: WEißt du sonst wer etwas wissen könnte? DU musst doch irgend jemand anderes gesehen haben während du da gearbeitet hast?
+GRIECHIN: Ich... ich weis nich- Doch! CBabe! Sie war auch immer da als ich dort gearbeitet hatte, sie war noch viel länger an Utopia beschäftigt, wenn Emdayelle und M. Doyle tot sind, dann ist sie definitiv die person die du fragen solltest.
+MORBIUS: Weißt du auch wo ich Sie finden kann?
+GRIECHIN: Ich meine dass sie sich oft in der Babec Disco rumtreibt. Da solltest du die finden können.
+
+[Fade to black]
+
+"Ich war der lösung heiß auf der spur, ich hoffte dass ich jetzt von CBabe erfahren könnte was des rätsels lösung ist."

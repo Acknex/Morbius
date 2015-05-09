@@ -1,6 +1,15 @@
 #ifndef _SYSTEM_C_
 #define _SYSTEM_C_
 
+void smartwalk_init();
+void level_change(var level_id, var gate_id);
+
+void startGame()
+{
+	
+	level_change(0,-1);
+}
+
 void sys_init() {
 	
 	// rendering
@@ -13,6 +22,7 @@ void sys_init() {
    preload_mode = 7;
    // mouse_pointer = 0;
    mouse_mode = 4;
+   mouse_range = 10000;
 
    double resFac = 0.85; //%
    long resX = (double) sys_metrics(SM_CXSCREEN) * resFac;
@@ -22,7 +32,10 @@ void sys_init() {
    video_window(NULL, NULL, 0, "Morbius - Die Utopia-Verschwörung");
 
    random_seed((sys_seconds % sys_month) * sys_hours - 42);
-   
+ 
+	smartwalk_init();
+
+   menuConfig.startGame = startGame;
 }
 
 #endif
