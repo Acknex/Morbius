@@ -1,3 +1,8 @@
+#ifndef ITEMS_H
+#define ITEMS_H
+
+#define ITEM_NONE -1
+
 typedef struct item 
 {
 	int id;
@@ -7,13 +12,20 @@ typedef struct item
 	STRING* imgfile;
 	STRING* entfile; 
 
-	char collectable;
-	SOUND** snd_interact 
-	int snd_count;	
+	int collectable;
+	int destroyable;
+	SOUND* snd_interact[3]; 
+	var snd_count;	
 } ITEM;
 
 
 
-ITEM* Item_get(int id);
-void Item_sndrnd(int id);
-void Item_snd(int id, int soundnum);
+ITEM* ITEM_get(int id);
+void ITEM_sndrnd(int id);
+void ITEM_snd(int id, var soundnum);
+
+int ITEM_load(STRING* file);
+void ITEM_close();
+
+#include "items.c"
+#endif
