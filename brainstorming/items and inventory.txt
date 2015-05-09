@@ -1,0 +1,32 @@
+Item List
+==============================
+
+id
+name
+desc
+img
+mdl
+
+
+collectable
+snd_interact1 (take or use)
+(snd_interact2
+snd_interact3
+count_interact)
+
+
+Itemverwaltung n struct array
+Item Suchfunktion nach id - gibt ptr auf struct zurück
+
+Item Combine
+=============================
+snd_combine
+id1
+id2
+result_id
+del1
+del2
+morph1
+morph2
+
+Combine Überprüfung mit 2 ids, Rückgabe neues item id oder -1
