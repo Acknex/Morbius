@@ -4,9 +4,12 @@
 #define CAMERA_TYPE_FIXED_FOLLOW 0
 #define CAMERA_TYPE_SPLINE 1
 #define CAMERA_TYPE_AXIS 2
+#define CAMERA_TYPE_MULTIPLE_FOLLOW 3
 
 action actSplineCamMin();
 action actSplineCamMax();
+
+action actDynamicCamera();
 
 void cameraInit();
 void cameraLoop();

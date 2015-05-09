@@ -2,9 +2,9 @@
 
 #define PRAGMA_PATH "src";
 
-#include "src/morbius.h"
-#include "src/system.h"
-#include "src/game.h"
+#include "morbius.h"
+#include "system.h"
+#include "game.h"
 
 function main()
 {

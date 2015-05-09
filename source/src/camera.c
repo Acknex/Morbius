@@ -1,9 +1,12 @@
 #ifndef DIALOGS_C
 #define DIALOGS_C
 
+#include "types.h"
+
 void cameraLoop() {
 	switch(activeCameraType) {
 		case CAMERA_TYPE_FIXED_FOLLOW:
+		case CAMERA_TYPE_MULTIPLE_FOLLOW:
 			moveCameraFixedFollow();
 		break;
 		
@@ -61,6 +64,30 @@ void moveCameraAxis(int axis) {
 	vec_set(vecCameraTemp.x, player.x);
 	vec_sub(vecCameraTemp.x, camera.x);
 	vec_to_angle(camera.pan, vecCameraTemp);
+}
+
+void actDynamicCamera() {
+	my.ENTITY_TYPE = TYPE_DYNAMIC_CAMERA;
+	set(me,PASSABLE);
+	set(me,INVISIBLE);
+	while(1) {
+		if (activeCameraType == CAMERA_TYPE_MULTIPLE_FOLLOW) {
+			
+			draw_line3d(my.x,NULL, 100);
+			draw_line3d(player.x, COLOR_RED, 100);
+			
+			var dist = c_trace(my.x,player.x,IGNORE_SPRITES|USE_BOX|IGNORE_ME);
+			if (dist < 200)  {
+				
+				if (vec_dist(camera.x,player.x) >
+						vec_dist(my.x, player.x)) {
+					
+					vec_set(camera.x,	my.x);
+				}
+			}
+		}
+		wait(1);
+	}
 }
 
 #endif
