@@ -97,9 +97,10 @@ void interactionItem__eventHandler()
 				//TODO: interaction
 				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL);
 				inv_add_item(inventory, newItem);
+				set(my, itemRemove);
 			}
 			
-			if (item->destroyable != 0)
+			else if (item->destroyable != 0)
 			{
 				set(my, itemRemove);
 			}

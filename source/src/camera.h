@@ -11,6 +11,8 @@ action actSplineCamMax();
 
 action actDynamicCamera();
 
+action actSetCameraType();
+
 void cameraInit();
 void cameraLoop();
 
@@ -32,5 +34,7 @@ ENTITY* entCameraPathEntity = NULL;
 
 // Active camera type
 int activeCameraType = CAMERA_TYPE_FIXED_FOLLOW;
+
+#include "camera.c"
 
 #endif
