@@ -26,7 +26,7 @@ int COMBINATION_load(STRING* file)
 	var count;
 	var i;
 	
-	COMBINATION__itemList = LIST_create();	
+	COMBINATION__combinationList = LIST_create();	
 	COMBINATION__xml = XMLFILE_create(_chr(file));	
 	hndl = XMLFILE_parse(COMBINATION__xml); 
 	
@@ -36,8 +36,8 @@ int COMBINATION_load(STRING* file)
 		count = XMLPAR_getTagElements(xmlList);
 		for (i = 0; i < count; i++)
 		{
-			xmlItem = XMLPAR_getElementByIndex(xmlList, i);
-			combination = (ITEM*)malloc(sizeof(COMBINATION));
+			xmlCombination = XMLPAR_getElementByIndex(xmlList, i);
+			combination = (COMBINATION*)malloc(sizeof(COMBINATION));
 			COMBINATION__copyFromXml(combination, xmlCombination);
 			LIST_append(COMBINATION__combinationList, (void*)combination);
 		}
@@ -53,14 +53,14 @@ void COMBINATION_close()
 	int i;
 	COMBINATION* tmpCombination;
 
-	if (ITEMS__itemList != NULL)
+	if (COMBINATION__combinationList != NULL)
 	{
 		for (i = 0; i < LIST_items(COMBINATION__combinationList); i++)
 		{
 			tmpCombination = (COMBINATION*)LIST_getItem(COMBINATION__combinationList, i);
 			LIST_removeItem(COMBINATION__combinationList, i);
 		}
-		LIST_remove(ITEMS__itemList);
+		LIST_remove(COMBINATION__combinationList);
 	}
 
 	if (COMBINATION__xml != NULL)
@@ -71,6 +71,26 @@ void COMBINATION_close()
 
 int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 {
+	int i;
+	COMBINATION* tmpCombination;
+
+	for (i = 0; i < LIST_items(COMBINATION__combinationList); i++)
+	{
+		tmpCombination = (COMBINATION*)LIST_getItem(COMBINATION__combinationList, i);
+		if (
+			(tmpCombination->id1 == id1 && tmpCombination->id2 == id2) ||
+			(tmpCombination->id1 == id2 && tmpCombination->id2 == id1)
+		)
+		{
+			//found
+			*morphtargetId = tmpCombination->morphtargetId;
+			return tmpCombination->resultId;
+		}
+	}
+
+	//not found
+	*morphtargetId = -1;
+	return -1;
 }
 
 void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
@@ -79,27 +99,26 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 
 	attrib = XMLATTRIB_getElementByAttribute(tag, "id1");
 	if (attrib != NULL)
-		item->id1 = str_to_int(XMLATTRIB_getPContent(attrib));
+		combination->id1 = str_to_int(XMLATTRIB_getPContent(attrib));
 	else
-		item->id1 = -1;
+		combination->id1 = -1;
 
 	attrib = XMLATTRIB_getElementByAttribute(tag, "id2");
 	if (attrib != NULL)
-		item->id2 = str_to_int(XMLATTRIB_getPContent(attrib));
+		combination->id2 = str_to_int(XMLATTRIB_getPContent(attrib));
 	else
-		item->id2 = -1;
+		combination->id2 = -1;
 
 	attrib = XMLATTRIB_getElementByAttribute(tag, "morphtarget");
 	if (attrib != NULL)
-		item->morphtargetId = str_to_int(XMLATTRIB_getPContent(attrib));
+		combination->morphtargetId = str_to_int(XMLATTRIB_getPContent(attrib));
 	else
-		item->morphtargetId = -1;
+		combination->morphtargetId = -1;
 
-	attrib = XMLATTRIB_getElementByAttribute(tag, "target");
+	attrib = XMLATTRIB_getElementByAttribute(tag, "result");
 	if (attrib != NULL)
-		item->resultId = str_to_int(XMLATTRIB_getPContent(attrib));
+		combination->resultId = str_to_int(XMLATTRIB_getPContent(attrib));
 	else
-		item->resultId = -1;
-
+		combination->resultId = -1;
 }
 
