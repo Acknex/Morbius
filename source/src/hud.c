@@ -27,11 +27,25 @@ TEXT* HUD_getItemText()
 	return HUD_ItemTxt;
 }
 
+void HUD_hideDescription();
+
+var HUD_descriptionTimer;
 void HUD_showDescription(STRING* description)
 {
-	proc_kill(HUD_showDescription);
 	str_cpy((HUD_DescriptionTxt->pstring)[0], description);
 	set(HUD_DescriptionTxt, SHOW);
-	wait(-5);
+
+//clumsy
+	HUD_descriptionTimer = 5* 16;
+	HUD_hideDescription();
+}
+
+void HUD_hideDescription()
+{
+	while(HUD_descriptionTimer > 0)
+	{
+		HUD_descriptionTimer -= time_step;
+		wait(1);
+	}
 	reset(HUD_DescriptionTxt, SHOW);
 }
