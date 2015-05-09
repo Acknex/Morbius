@@ -4,25 +4,22 @@
 #define PRAGMA_PATH "..\src\"
 
 #include "items.h"
+#include "itemmgr.h"
 
 void main()
 {
-	var i;
-	var cnt;
-	STRING* str;
-	ITEM* item;
+	mouse_mode = 4;
 	
-	random_seed(0);
+	//random_seed(0);
 	
 	if (ITEM_load("..\\items\\items.xml"))
 	{
-		item = ITEM_get(1);
-		if (item == NULL) error("möp");
+		/*ITEM* item = ITEM_get(1);
 		ITEM_snd(item, 0);
 		wait(-1);
 		ITEM_snd(item, 1);
 		wait(-1);
-		ITEM_sndrnd(item);		
+		ITEM_sndrnd(item);*/		
 	}
 	else
 	{

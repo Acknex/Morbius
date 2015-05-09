@@ -158,7 +158,6 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 	if (attrib != NULL)
 	{
 		item->snd_interact[item->snd_count] = snd_create(XMLATTRIB_getPContent(attrib));
-		//snd_play(item->snd_interact[item->snd_count],100,0);
 		if (item->snd_interact[item->snd_count] != NULL)
 			item->snd_count++;
 	}
@@ -178,9 +177,6 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 		if (item->snd_interact[item->snd_count] != NULL)
 			item->snd_count++;
 	}
-
-			//printf("tag %s id %s", _chr(XMLPAR_getPTag(tag)), _chr(XMLATTRIB_getPContent(attrib)));
-	//printf("id %d name %s", item->id, _chr(item->name));
 }
 
 void ITEM__cleanup(ITEM* item)
