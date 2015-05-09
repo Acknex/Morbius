@@ -1,17 +1,22 @@
 #include <acknex.h>
 
 #define PRAGMA_PATH "src";
+#define PRAGMA_PATH "models";
+#define PRAGMA_PATH "textures";
 
 #include "morbius.h"
 #include "system.h"
 #include "game.h"
+#include "menu.h"
 
-function main()
+#ifdef DEBUG
+#include <default.c>
+#endif
+
+
+
+void main()
 {
-	video_set(1280, 720, 0, 2);
-	video_window(NULL, NULL, 0, "Morbius");
-	
 	sys_init();
-	
-	game_loop();
+	menu_open();
 }

@@ -403,6 +403,8 @@ void menu_regenerate_bitmaps()
 
 void menu_open()
 {
+	wait(1); // Using graphic functions
+	
 	// Initialize menuData
 	memset(_menu, 0, sizeof(MenuData));
 	_menu.on_ent_remove = on_ent_remove;
