@@ -20,6 +20,6 @@
 #endif
 
 void main() {
-	sys_init();
-	menu_open();
+	sys_init(); // system.c
+	menu_open(); // menu.c
 }

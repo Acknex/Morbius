@@ -90,6 +90,9 @@ void interactionItem__eventHandler()
 		if (resultId != ITEM_NONE)
 		{
 			//TODO add item with resultId to inventory
+			ITEM* itemToAdd = ITEM_get(resultId);
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, int ITEM_TYPE_NEUTRAL);
+			inv_add_item(inv, resultIdItem);
 		}
 		
 		//error(str_for_num(NULL, my->itemSequence));
@@ -98,7 +101,8 @@ void interactionItem__eventHandler()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				//add item to inventory here
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, int ITEM_TYPE_NEUTRAL);
+				inv_add_item(inv, newItem);
 			}
 			
 			if (item->destroyable != 0)
