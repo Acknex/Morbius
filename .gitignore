@@ -2,3 +2,5 @@ acklog.txt
 /source/test.c
 Thumbs.db
 *.bak
+*.blend*
+!*.blend
