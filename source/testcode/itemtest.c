@@ -5,6 +5,7 @@
 
 #include "items.h"
 #include "itemmgr.h"
+#include <default.c>
 
 void main()
 {
@@ -12,6 +13,7 @@ void main()
 	
 	//random_seed(0);
 	
+	level_load("itemtest.wmb");
 	if (ITEM_load("..\\items\\items.xml"))
 	{
 		/*ITEM* item = ITEM_get(1);

@@ -8,8 +8,11 @@
 
 #define TYPE_INTERACTIONITEM 1
 
+BMAP* cursor_grab = "cursor_grab.tga";
+BMAP* cursor_look = "cursor_look.tga";
+BMAP* cursor_point = "cursor_point.tga";
 
-FONT* interActionItem__font = "Arial#12b";
+FONT* interActionItem__font = "Arial#20b";
 TEXT* interActionItem__txt = 
 {
 	font = interActionItem__font;
@@ -27,6 +30,8 @@ void interactionItem__eventHandler();
 //skill2: ItemId -1
 action interactionItem()
 {
+	mouse_map = cursor_point;
+
 	my->itemType = TYPE_INTERACTIONITEM;
 	
 	if (my->itemId == -1)
@@ -37,8 +42,13 @@ action interactionItem()
 	my->event = interactionItem__eventHandler;
 	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
 	
-	while(is(my, itemRemove))
+	while(!is(my, itemRemove))
 	{
+		if (is(my, itemHover))
+		{
+			interActionItem__txt->pos_x = mouse_pos.x;
+			interActionItem__txt->pos_y = mouse_pos.y - 10;
+		}
 		wait(1);
 	}
 	ptr_remove(me);
@@ -71,13 +81,17 @@ void interactionItem__eventHandler()
 	if (event_type == EVENT_TOUCH)
 	{
 		interActionItem__txt->pos_x = mouse_pos.x;
-		interActionItem__txt->pos_x = mouse_pos.y;
+		interActionItem__txt->pos_y = mouse_pos.y - 10;
 
 		if (!is(my, itemHover))
 		{
 			set (my, itemHover);	
 			str_cpy((interActionItem__txt->pstring)[0], item->name);
 			set (interActionItem__txt, SHOW);
+			if (item->collectable != 0)
+				mouse_map = cursor_grab;
+			else
+				mouse_map = cursor_look;
 		}
 	}
 
@@ -87,6 +101,7 @@ void interactionItem__eventHandler()
 		{
 			reset (my,itemHover);			
 			reset (interActionItem__txt, SHOW);
+			mouse_map = cursor_point;
 		}
 	}
 	

@@ -530,6 +530,7 @@ int dlgStart(STRING* _dialogFile)
 				{
 					wait(1);
 				}
+				while(mouse_left) wait(1);
 				reset(panDecisionBg, SHOW);
 				reset(txtDecisions, SHOW);
 				
