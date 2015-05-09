@@ -1,16 +1,14 @@
-Robert Jäger
+Robert Jäger : Items(XML) Story
 Korbinian Kaulfuß : Credits
-Janes Nagel
-Michael Schwarz
-Simon Trümpler
-Felix Pohl
-Christian Behrenberg:
-Jonas Freiknecht
-Marius Kappes
-Felix Queißner
-Kitsu
-Andreas Schmiedt
+Michael Schwarz : Dialoge Story Rätsel, Leveldesign Dunkle Gasse
+Simon Trümpler : Leveldesign Ruine
+Felix Pohl : Movement 
+Christian Behrenberg: Dance Instructor
+Jonas Freiknecht: Kamera
+Marius Kappes : Musik und Sounds Story Rätel
+Felix Queißner : Hauptmenü Credits
+Kitsu: Leveldesign Büro
+Andreas Schmidt : Leveldesign Disco
 Achim Lübbeke : Bielefeld Connections
-Hummel :
-Kanal 21 : Internet Provider, Room Provider
-JCL :
+Kanal 21 : Internet Provider Room Provider
+JCL : beer and toilet paper Sponsor
