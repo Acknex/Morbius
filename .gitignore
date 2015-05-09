@@ -1,2 +1,4 @@
 acklog.txt
 /source/test.c
+*.blend*
+!*.blend
