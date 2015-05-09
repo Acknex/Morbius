@@ -107,7 +107,7 @@ void interactionItem__eventHandler()
 			set (my, itemHover);	
 			str_cpy((interActionItem__txt->pstring)[0], item->name);
 			set (interActionItem__txt, SHOW);
-			if (item->collectable != 0)
+			if (ITEM_isLastSequence(item, my->itemSequence) != 0 && item->collectable != 0)
 				mouse_map = cursor_grab;
 			else
 				mouse_map = cursor_look;
