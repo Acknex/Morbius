@@ -23,6 +23,7 @@ void startGame()
 void sys_init() {
 	
 	// rendering
+	fps_min = 30;
 	fps_max = 60;
 	mip_flat = 2;
 	d3d_antialias = 4;

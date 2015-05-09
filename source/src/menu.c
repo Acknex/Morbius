@@ -122,6 +122,8 @@ void menu_core()
 	var logoAlpha = 100;
 	var textAlpha = 100;
 	var textBlinkTime = 0;
+	var mouse_left_off = 0;
+	draw_textmode("Calibri",1,48,100);
 	while(1)
 	{
 		#ifdef MENU_DEBUG
@@ -130,25 +132,50 @@ void menu_core()
 		
 		if(options_show)
 		{
-			draw_quad(NULL,vector(0, 0, 0),NULL,screen_size,NULL,COLOR_BLACK,75,0);
-			draw_text("Welcome to the worst option menu ever. Enjoy your stay!",20,20,COLOR_WHITE);
-			draw_text("Toggle Fullscreen:",20,40,COLOR_WHITE);
-			draw_text("Toggle Resolution:",20,60,COLOR_WHITE);
-			draw_text("Master Volume:",20,80,COLOR_WHITE);
-			var mouse_line = floor((mouse_pos.y-40)/20.0);
-			if(mouse_line >= 0 && mouse_line <= 2)
+			draw_quad(NULL,vector(0, 0, 0),NULL,screen_size,NULL,COLOR_BLACK,80,0);
+			STRING* str_tmp = str_create("");
+			draw_text("Welcome to the worst options menu ever. Enjoy your stay!",20,20,COLOR_WHITE);
+			if(video_screen == 1) str_cpy(str_tmp,"Toggle Fullscreen: On");
+			else str_cpy(str_tmp,"Toggle Fullscreen: Off");
+			draw_text(str_tmp,20,20+48*1,COLOR_WHITE);
+			str_printf(str_tmp,"Cycle Resolutions: %d x %d",(int)screen_size.x,(int)screen_size.y);
+			draw_text(str_tmp,20,20+48*2,COLOR_WHITE);
+			str_printf(str_tmp,"Master Volume: %d",(int)midi_vol);
+			draw_text(str_tmp,20,20+48*3,COLOR_WHITE);
+			draw_text("Back",20,20+48*4,COLOR_WHITE);
+			var mouse_line = floor((mouse_pos.y-68)/48.0);
+			if(mouse_line >= 0 && mouse_line <= 3)
 			{
-				draw_quad(NULL,vector(0, 40+mouse_line*20, 0),NULL,vector(screen_size.x,20,0),NULL,COLOR_WHITE,25,0);
+				draw_quad(NULL,vector(0, 68+mouse_line*48, 0),NULL,vector(screen_size.x,48,0),NULL,COLOR_WHITE,25,0);
 				if(mouse_left)
 				{
 					if(mouse_left_off)
 					{
 						mouse_left_off = 0;
-						beep();
+						if(mouse_line == 0)
+						{
+							video_switch(0, 0, 1+(video_screen == 1));
+						}
+						if(mouse_line == 1)
+						{
+							if(video_mode > 12) video_switch(6, 0, 0);
+							else
+							{
+								if(!video_switch(video_mode+1, 0, 0)) video_switch(6, 0, 0);
+							}
+						}
+						if(mouse_line == 2)
+						{
+							midi_vol += 10;
+							if(midi_vol > 100) midi_vol = 0;
+							sound_vol = midi_vol;
+						}
+						if(mouse_line == 3) options_show = 0;
 					}
 				}
 				else mouse_left_off = 1;
 			}
+			ptr_remove(str_tmp);
 		}
 		else
 		{
@@ -336,6 +363,10 @@ void _menu_item_init()
 	float blend = 0;
 	while(1)
 	{
+		if(options_show) set(my,INVISIBLE);
+		else
+		{
+			reset(my,INVISIBLE);
 		VECTOR from, to;
 		vec_set(from, mouse_pos);
 		vec_set(to, mouse_pos);
@@ -378,7 +409,7 @@ void _menu_item_init()
 		}
 		
 		my.alpha = 100 * smootherstep(0, 1, blend);
-		
+	}
 		wait(1);
 	}
 }
