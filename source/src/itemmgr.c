@@ -51,6 +51,12 @@ action interactionItem()
 		}
 		wait(1);
 	}
+
+	if (is(my, itemHover))
+	{
+		reset (interActionItem__txt, SHOW);
+		mouse_map = cursor_point;
+	}
 	ptr_remove(me);
 }
 

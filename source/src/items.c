@@ -118,12 +118,6 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 	item->name = str;
 	
 	str = str_create("");
-	attrib = XMLATTRIB_getElementByAttribute(tag, "description");
-	if (attrib != NULL)
-		XMLATTRIB_getContent(attrib, str);
-	item->description = str;
-	
-	str = str_create("");
 	attrib = XMLATTRIB_getElementByAttribute(tag, "imgfile");
 	if (attrib != NULL)
 		XMLATTRIB_getContent(attrib, str);
@@ -148,6 +142,40 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 	else
 		item->destroyable = 0;
 
+	/* load descriptions */
+	item->desc_count = 0;
+	item->description[0] = NULL;
+	item->description[1] = NULL;
+	item->description[2] = NULL;
+
+	attrib = XMLATTRIB_getElementByAttribute(tag, "description1");
+	if (attrib != NULL)
+	{
+		str = str_create("");
+		XMLATTRIB_getContent(attrib, str);
+		item->description = str;
+		item->desc_count++;
+	}
+	
+	attrib = XMLATTRIB_getElementByAttribute(tag, "description2");
+	if (attrib != NULL)
+	{
+		str = str_create("");
+		XMLATTRIB_getContent(attrib, str);
+		item->description = str;
+		item->desc_count++;
+	}
+	
+	attrib = XMLATTRIB_getElementByAttribute(tag, "description3");
+	if (attrib != NULL)
+	{
+		str = str_create("");
+		XMLATTRIB_getContent(attrib, str);
+		item->description = str;
+		item->desc_count++;
+	}
+	
+	
 	/* load sounds */
 	item->snd_count = 0;
 	item->snd_interact[0] = NULL;
@@ -188,8 +216,11 @@ void ITEM__cleanup(ITEM* item)
 	
 	if (item->name != NULL)
 		ptr_remove(item->name);
-	if (item->description != NULL)
-		ptr_remove(item->description);
+	for (i = 0; i < item->desc_count; i++)
+	{
+		if (item->description != NULL)
+			ptr_remove(item->description);
+	}
 	if (item->imgfile != NULL)
 		ptr_remove(item->imgfile);
 	if (item->entfile != NULL)

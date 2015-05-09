@@ -16,4 +16,6 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId);
 int COMBINATION_load(STRING* file);
 void COMBINATION_close();
 
+#include "combination.c"
+
 #endif

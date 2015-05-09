@@ -7,13 +7,15 @@ typedef struct item
 {
 	int id;
 	STRING* name;
-	STRING* description;
-
 	STRING* imgfile;
 	STRING* entfile; 
 
 	int collectable;
 	int destroyable;
+
+	STRING* description[3];
+	var desc_count;
+
 	SOUND* snd_interact[3]; 
 	var snd_count;	
 } ITEM;
