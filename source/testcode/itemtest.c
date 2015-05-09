@@ -12,6 +12,7 @@
 void main()
 {
 	mouse_mode = 4;
+	video_mode = 10;
 	
 	//random_seed(0);
 itemmgr_init();	
@@ -45,6 +46,11 @@ itemmgr_init();
 		error("item kaputt");
 	}
 	
+	// Create inventory
+	inventory = inv_create(NULL, screen_size.x, 50);
+	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
+	inv_show(inventory);
+		
 	while(key_esc == 0)
 	{
 		wait(1);

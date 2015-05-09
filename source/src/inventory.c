@@ -120,6 +120,11 @@ void inv_add_item(Inventory* _inv, Item* _item) {
    // an item description
    _item.inv = _inv;
 	_inv.count += 1;
+	
+	if (inv_is_visible(_inv) == 1) {
+		inv_hide(_inv);
+		inv_show(_inv);
+	}
 }
 
 void inv_remove_item(Inventory* _inv, Item* _item) {
@@ -276,7 +281,7 @@ void inv_item_enter(var _buttonNumber, PANEL* _panel) {
 					if (tempInv.itemDescription != NULL) {
 						// Show item description
 						set(tempInv.itemDescription, SHOW);
-						str_cpy((tempInv.itemDescription.pstring)[0], tempItem.description);
+						str_cpy((tempInv.itemDescription.pstring)[0], tempItem.name);
 					}
 				}
 			}

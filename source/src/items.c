@@ -106,7 +106,7 @@ int ITEM_interaction(ITEM* item, var* step)
 	
 	if (item == NULL)
 		return;
-	
+
 	*step = minv(*step, LIST_items(item->sequences) - 1);
 	if (*step >= 0)
 	{

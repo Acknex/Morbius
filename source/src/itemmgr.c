@@ -85,7 +85,7 @@ void interactionItem__eventHandler()
 		{
 			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL);
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, cursor_grab);
 			inv_add_item(inventory, resultIdItem);
 		}
 		
@@ -95,7 +95,7 @@ void interactionItem__eventHandler()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL);
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, cursor_grab);
 				inv_add_item(inventory, newItem);
 				set(my, itemRemove);
 			}

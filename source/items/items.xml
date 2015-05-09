@@ -93,7 +93,7 @@
 		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen." sound="collect.wav"/>
 		<sequence description="Also ich glaube nicht dass ich so eine Leiche anfassen werde." sound="collect.wav"/>
 		<sequence description="[stöhn] ... na gut, manchmal muss auch ein profesioneller Detektiv in der Not etwas unethisches tun.... hmmm in der linken Hosentasche ist nichts." sound="collect.wav"/>
-		<sequence description="ÜÜüääähh... in der rechten Hosentasche sind ein paar Münzen, gottseidank muss ich nicht noch weiter suchen." sound="achievement1.wav"/ result="40">
+		<sequence description="ÜÜüääähh... in der rechten Hosentasche sind ein paar Münzen, gottseidank muss ich nicht noch weiter suchen." sound="achievement1.wav" result="40"/>
 		<sequence description="Der hat nichts mehr." sound="collect.wav"/>
 	</item>
 	
@@ -192,6 +192,7 @@
 	
 	<!--Münzen//-->
 	<item id="40" name="Münzen" collectable="yes">
+		<sequence description="Geiles Geld" sound="achievement1.wav"/>
 	</item>
 </items>
 <combinations>
