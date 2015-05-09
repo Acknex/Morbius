@@ -76,7 +76,7 @@ void actDynamicCamera() {
 	while(1) {
 		if (activeCameraType == CAMERA_TYPE_MULTIPLE_FOLLOW) {
 			var dist = c_trace(my.x,player.x,IGNORE_SPRITES|USE_BOX|IGNORE_ME);
-			if (dist < 200)  {
+			if (you == player)  {
 				
 				if (vec_dist(camera.x,player.x) >
 						vec_dist(my.x, player.x)) {

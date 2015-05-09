@@ -9,7 +9,7 @@
 
 // Defines für die Bewegung des Spielers
 #define WALK_SPEED 2
-#define RUN_SPEED 4
+#define RUN_SPEED 8
 #define MOUSE_SENSITIVITY 20
 #define PLAYER_HEIGHT 6
 
@@ -38,8 +38,6 @@ action actPlayer() {
 	// Aktualisieren der Kollisionshülle
 	c_setminmax(player);
 	wait(1);
-	vec_set(player.min_x,vector(-25,-25,-35)); 
-	vec_set(player.max_x,vector(25,25,55));
 	
 	// Bewegen der Kamera und der Entity
 	movePlayer();
@@ -49,7 +47,8 @@ action actPlayer() {
 }
 
 void main() {
-	level_load("..//maps//camera_test.wmb");
+	// level_load("..//maps//camera_test.wmb");
+	level_load("..//..//models//arcade//wmp//kingmorph.wmb");
 	
 	while(1) {
 		cameraLoop();
