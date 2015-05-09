@@ -4,6 +4,9 @@
 #include "types.h"
 
 void cameraLoop() {
+	
+	while(player == NULL) wait(1);
+	
 	switch(activeCameraType) {
 		case CAMERA_TYPE_FIXED_FOLLOW:
 		case CAMERA_TYPE_MULTIPLE_FOLLOW:
@@ -72,10 +75,6 @@ void actDynamicCamera() {
 	set(me,INVISIBLE);
 	while(1) {
 		if (activeCameraType == CAMERA_TYPE_MULTIPLE_FOLLOW) {
-			
-			draw_line3d(my.x,NULL, 100);
-			draw_line3d(player.x, COLOR_RED, 100);
-			
 			var dist = c_trace(my.x,player.x,IGNORE_SPRITES|USE_BOX|IGNORE_ME);
 			if (dist < 200)  {
 				

@@ -46,13 +46,34 @@ action actPlayer() {
 	cameraInit();
 	
 	activeCameraType = CAMERA_TYPE_MULTIPLE_FOLLOW;
-	
-	while(1) {
-		cameraLoop();
-		wait(1);
-	}
 }
 
 void main() {
 	level_load("..//maps//camera_test.wmb");
+	
+	while(1) {
+		cameraLoop();
+		
+		if (key_1) {
+			while(key_1) wait(1);
+			activeCameraType = CAMERA_TYPE_FIXED_FOLLOW;
+		}
+		
+		if (key_2) {
+			while(key_2) wait(1);
+			activeCameraType = CAMERA_TYPE_SPLINE;
+		}
+		
+		if (key_3) {
+			while(key_3) wait(1);
+			activeCameraType = CAMERA_TYPE_AXIS;
+		}
+		
+		if (key_4) {
+			while(key_4) wait(1);
+			activeCameraType = CAMERA_TYPE_MULTIPLE_FOLLOW;
+		}
+		
+		wait(1);
+	}
 }
