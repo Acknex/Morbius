@@ -14,6 +14,12 @@ typedef struct {
      */
     void *loadGame;
 
+	/**
+	 * @brief Call that starts the credits.
+	 * @remarks void startCredits();
+	 */
+	void *startCredits;
+
     /**
      * @brief Callback that quits the game.
      * @remarks void quitGame();

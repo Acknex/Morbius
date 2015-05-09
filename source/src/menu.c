@@ -353,8 +353,34 @@ void menu_trigger()
 	menu_fade_and_trigger(_menu_stops[_menu.currentStop]);
 }
 
+void menu_regenerate_bitmaps()
+{
+	int i;
+	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
+	{
+		var width = 1.2 * str_width(_menu_stops[i].title, fontCalibri48);
+		var height = 1.2 * fontCalibri48.dy;
+		
+		_menu_stops[i].textMap = bmap_createblack(width, height, 8888);
+		
+		bmap_rendertarget(_menu_stops[i].textMap, 0, 0);
+		
+		_menuPen.alpha = 100;
+		_menuPen.pos_x = 0.5 * width;
+		_menuPen.pos_y = 0.5 * height;
+		str_cpy(_menuText, _menu_stops[i].title);
+		draw_obj(_menuPen);
+		
+		bmap_rendertarget(NULL, 0, 0);
+	}
+	
+	bmap_rendertarget(NULL, 0, 0);
+}
+
 void menu_open()
 {
+	// Initialize menuData
+	memset(_menu, 0, sizeof(MenuData));
 	_menu.on_ent_remove = on_ent_remove;
 	_menu.on_space = on_space;
 	_menu.on_cur = on_cur;
@@ -363,10 +389,16 @@ void menu_open()
 	on_space = menu_trigger;
 	on_cur = menu_nav_prev;
 	on_cul = menu_nav_next;
-    level_load("level\\disco.wmb");
+    
+	
+	level_load("level\\disco.wmb");
+	
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
-	wait(1);
+	
+	// Create main menu text bitmaps
+	menu_regenerate_bitmaps();
+	
 	// Create main menu text entries
 	int i;
 	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
@@ -424,6 +456,16 @@ void menu_trigger_start()
 	}
 }
 
+void menu_trigger_credits()
+{
+	if(menuConfig.startCredits != NULL)
+	{
+		void fn();
+		fn = menuConfig.startCredits;
+		fn();
+	}
+}
+
 void menu_trigger_quit()
 {
 	if(menuConfig.quitGame != NULL)
@@ -460,6 +502,7 @@ void menu_startup()
 	vec_set(_menu_stops[4].rotation, vector(150, -12, 0));
 	vec_set(_menu_stops[4].positionText, vector(192, -192, 0));
 	strcpy(_menu_stops[4].title, "Credits");
+	_menu_stops[4].trigger = menu_trigger_credits;
 	
 	vec_set(_menu_stops[5].position, vector(-326, -350, 64));
 	vec_set(_menu_stops[5].rotation, vector(41, -19, 0));
@@ -476,27 +519,4 @@ void menu_startup()
 		vec_set(_menu_stops[i].rotationFade, vector(15, -10, 0));
 		vec_add(_menu_stops[i].rotationFade, _menu_stops[i].rotation);
 	}
-	
-	// Wait for video mode to get active
-	wait(1);
-	
-	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
-	{
-		var width = 1.2 * str_width(_menu_stops[i].title, fontCalibri48);
-		var height = 1.2 * fontCalibri48.dy;
-		
-		_menu_stops[i].textMap = bmap_createblack(width, height, 8888);
-		
-		bmap_rendertarget(_menu_stops[i].textMap, 0, 0);
-		
-		_menuPen.alpha = 100;
-		_menuPen.pos_x = 0.5 * width;
-		_menuPen.pos_y = 0.5 * height;
-		str_cpy(_menuText, _menu_stops[i].title);
-		draw_obj(_menuPen);
-		
-		bmap_rendertarget(NULL, 0, 0);
-	}
-	
-	bmap_rendertarget(NULL, 0, 0);
 }
