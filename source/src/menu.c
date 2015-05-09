@@ -310,6 +310,11 @@ void _menu_item_init()
 	}
 }
 
+void menu_entity_trigger()
+{
+	menu_fade_and_trigger(_menu_stops[my.skill1]);
+}
+
 void menu_nav_next()
 {
 	menu_switch(1);
@@ -338,6 +343,7 @@ void menu_open()
 		vec_fill(menuItem.scale_x, 0.03);
 		menuItem.scale_x *= bmap_width(_menu_stops[i].textMap);
 		menuItem.scale_y *= bmap_height(_menu_stops[i].textMap);
+		menuItem.scale_z = 0.5;
 		
 		_menu_look_at(menuItem, _menu_stops[i].position);
 		
@@ -345,6 +351,7 @@ void menu_open()
 		
 		menuItem.flags2 |= UNTOUCHABLE;
 		menuItem.skill1 = i;
+		menuItem.event = menu_entity_trigger;
 		
 		VECTOR dir;
 		vec_diff(dir, _menu_stops[i].position, _menu_stops[i].positionText);
