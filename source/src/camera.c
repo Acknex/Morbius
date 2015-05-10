@@ -8,6 +8,7 @@ void cameraLoop() {
 	while(player == NULL) wait(1);
 
 	while(player) {
+		
 		switch(activeCameraType) {
 			case CAMERA_TYPE_FIXED_FOLLOW:
 			case CAMERA_TYPE_MULTIPLE_FOLLOW:
@@ -24,7 +25,6 @@ void cameraLoop() {
 		}
 		wait(1);
 	}
-	error("aha3");
 }
 
 void actSplineCamMin() {

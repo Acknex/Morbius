@@ -47,7 +47,7 @@ itemmgr_init();
 	}
 	
 	// Create inventory
-	inventory = inv_create(NULL, screen_size.x, 50);
+	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
 	inv_show(inventory);
 		

@@ -132,7 +132,7 @@ void interactionItem__eventHandler()
 		{
 			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmp_cursor_array[TYPE_ITEM_GRAB]);
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(itemToAdd->imgfile));
 			inv_add_item(inventory, resultIdItem);
 		}
 		
@@ -142,7 +142,8 @@ void interactionItem__eventHandler()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmp_cursor_array[TYPE_ITEM_GRAB]);
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(item->imgfile));
+				
 				inv_add_item(inventory, newItem);
 				set(my, itemRemove);
 			}
@@ -165,10 +166,14 @@ void interactionItem__eventHandler()
 			str_cpy((interActionItem__txt->pstring)[0], item->name);
 			set (interActionItem__txt, SHOW);
 			//if (ITEM_isLastSequence(item, my->itemSequence) != 0 && item->collectable != 0)
-			if (itemInHand != NULL)
-				mouse_map = bmp_cursor_array[TYPE_ITEM_USE];
+			if (itemInHand != NULL) {
+				// ToDo: Don't change mouse cursor
+				// mouse_map = bmp_cursor_array[TYPE_ITEM_USE];
+			}
 			else
+			{
 				mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+			}
 		}
 	}
 
@@ -180,7 +185,7 @@ void interactionItem__eventHandler()
 			reset (interActionItem__txt, SHOW);
 			if (itemInHand != NULL)
 			{
-				mouse_map = itemInHand->panel->bmap;
+				mouse_map = itemInHand->image;
 				//TODO
 			}
 			else
