@@ -26,7 +26,7 @@ void sys_init() {
 	fps_min = 30;
 	fps_max = 60;
 	mip_flat = 2;
-	d3d_antialias = 4;
+	//d3d_antialias = 4;
 	shadow_stencil = 0; // activate external shadows
 	
 	// window + system
