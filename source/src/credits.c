@@ -1,6 +1,6 @@
 #include "credits.h"
 
-STRING *msCreditsMusic = "media\\rather_code.ogg";
+STRING *msCreditsMusic = "media\\credits.ogg";
 
 typedef struct
 {
@@ -27,6 +27,6 @@ void credits_core()
 
 void credits_start()
 {
-	level_load(NULL);
+	level_load("level\\office.wmb");
 	ent_create(NULL, vector(0, 0, 0), credits_core);
 }
