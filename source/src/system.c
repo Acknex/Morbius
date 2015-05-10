@@ -57,8 +57,12 @@ void sys_init() {
 	
 	itemmgr_init();
 	smartwalk_init();
+	
 	menuConfig.startGame = startGame;
 	menuConfig.quitGame = quitGame;
+	menuConfig.startCredits = credits_start;
+	
+	creditsConfig.ended = menu_open;
 }
 
 #endif

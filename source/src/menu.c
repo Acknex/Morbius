@@ -84,7 +84,7 @@ void menu_close()
 void menu_ent_remove(ENTITY *ent)
 {
 	if(ent != _menu.core)
-	return;
+		return;
 	menu_close();
 }
 

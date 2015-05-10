@@ -8,6 +8,7 @@
 
 #include "morbius.h"
 #include "menu.h"
+#include "credits.h"
 #include "system.h"
 #include "types.h"
 #include "smartwalk.h"
