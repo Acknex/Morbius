@@ -10,6 +10,8 @@
 #define itemSequence skill3
 #define itemHover FLAG1
 #define itemRemove FLAG2
+#define itemWasClicked FLAG3
+#define itemNearPlayer FLAG4
 
 
 TEXT* interActionItem__txt;
