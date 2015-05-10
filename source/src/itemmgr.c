@@ -178,6 +178,8 @@ void interactionItem__eventHandler()
 		
 	if (event_type == EVENT_CLICK)
 	{
+		//STRING* str = str_printf(NULL,"item id %d", (int)my->itemId);
+		//error(str);
 		set(my, itemWasClicked);
 	}
 	
@@ -230,12 +232,23 @@ void interactionItem_morph(int targetId, int morphId)
 	
 	ent = interactionItem__find(targetId);
 	item = ITEM_get(morphId);
+
+	if (ent == NULL)
+	{
+		STRING* str = str_printf(NULL,"Entity with item id %d not found!", targetId);
+		error(str);
+		return;
+	}
 	
 	if ((item->entfile != NULL) && (ent != NULL))
 	{
 		ent_morph(ent, item->entfile);
 	}
+		//STRING* str = str_printf(NULL,"morph id %d", morphId);
+		//error(str);
 	ent->itemId = morphId;
+//		STRING* str = str_printf(NULL,"morph id %d", ent->itemId);
+//		error(str);
 }
 
 ENTITY* interactionItem__find(int id)
