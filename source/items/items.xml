@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <items>
 	<!--Visitenkarte//-->
-	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes">
+	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\visitenkarte.tga">
 		<sequence description="Die Visitenkarte wird bestimmt noch wichtig sein." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Revolver//-->
-	<item id="2" name="Revolver" collectable="yes">
+	<item id="2" name="Revolver" collectable="yes" imgfile="..\\graphics\\items\\revolver.tga">
 		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt" sound="achievement1.wav"/>
 	</item>
 	
 	<!--Abgeschlossene Schublade//-->
 	<item id="3" name="Schublade">
-		<sequence description="Verdammt, die Schublade ist abgeschlossen." sound="achievement1.wav"/>
+		<sequence description="Verdammt, die Schublade ist abgeschlossen." sound="achievement1.wav" />
 		<sequence description="Die Schublade ist immernoch abgeschlossen." sound="achievement1.wav"/>
 		<sequence description="Wenn ich nichts versuche, dann bleibt die Schublade auch weiterhin abgeschlossen." sound="achievement1.wav"/>
 		<sequence description="Vielleicht sollte ich den Schlüssel finden mit dem ich diese ABGESCHLOSSENE Schublade öffnen kann." sound="achievement1.wav"/>
@@ -30,18 +30,18 @@
 	</item>
 	
 	<!--Futter//-->
-	<item id="6" name="Futter" collectable="yes">
+	<item id="6" name="Futter" collectable="yes" imgfile="..\\graphics\\items\\futter.tga">
 		<sequence description="DA habe ich also mein Reptilfutter gelassen. Macht irgendwie Sinn, in einer Küche." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Leere Taschenlampe//-->
-	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes">
+	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\taschenlampe.tga">
 		<sequence description="Aha, meine Taschenlampe! Wichtig für allerlei Detektivarbeiten bei Nacht und Dunkelheit. Verdammt... die Batterien sind leer" sound="achievement1.wav"/>
 		<sequence description="Die Taschenlampe braucht neue Batterien." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Batterien//-->
-	<item id="8" name="Batterien" collectable="yes">
+	<item id="8" name="Batterien" collectable="yes" imgfile="..\\graphics\\items\\batterien.tga">
 	</item>
 
 	<!--Fernbedienung//-->
@@ -64,7 +64,7 @@
 	</item>
 	
 	<!--Schubladenschlüssel//-->
-	<item id="12" name="Schubladenschlüssel" collectable="yes" destroyable="yes">
+	<item id="12" name="Schubladenschlüssel" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\schluessel.tga">
 		<sequence description="Mein Schreibtischschubladenschlüssel!" sound="achievement1.wav"/>
 	</item>
 	
@@ -108,7 +108,7 @@
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes">
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\wd40.tga">
 		<sequence description="Wasserverdrängugsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="achievement1.wav"/>
 	</item>
 	
@@ -119,7 +119,7 @@
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes">
+	<item id="22" name="Brechstange" collectable="yes" imgfile="..\\graphics\\items\\brechstange.tga">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="achievement1.wav"/>
 	</item>
 	
@@ -132,15 +132,15 @@
 	</item>
 	
 	<!--Stock des Warlocks//-->
-	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes">
+	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\zauberstab.tga">
 	</item>
 	
 	<!--Angelhaken//-->
-	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes">
+	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\angelhaken.tga">
 	</item>
 	
 	<!--Gaffer Tape//-->
-	<item id="27" name="Gaffer Tape" collectable="yes" destroyable="yes">
+	<item id="27" name="Gaffer Tape" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\gaffertape.tga">
 	</item>
 	
 	<!--Nummernschild//-->
@@ -148,15 +148,15 @@
 	</item>
 	
 	<!--Wackliger Stock mit Angelhaken//-->
-	<item id="29" name="Stock mit Angelhaken" collectable="yes" destroyable="yes">
+	<item id="29" name="Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\zauberstab_haken_wackelig.tga">
 	</item>
 	
 	<!--Geklebter Stock mit Angelhaken//-->
-	<item id="30" name="Stock mit Angelhaken" collectable="yes" destroyable="yes">
+	<item id="30" name="Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\zaubererstab_haken_tape.tga">
 	</item>
 	
 	<!--Versiffte Geldbörse//-->
-	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes">
+	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\portemonaie.tga">
 	</item>
 	
 	<!--Rechnungs Durchdruck//-->
@@ -164,7 +164,7 @@
 	</item>
 	
 	<!--Bonzai Zuckerrohr//-->
-	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes">
+	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\zuckerrohr.tga">
 	</item>
 	
 	<!--Topf//-->
@@ -176,7 +176,7 @@
 	</item>
 	
 	<!--Topf mit Zucker//-->
-	<item id="36" name="Topf" collectable="yes" destroyable="yes">
+	<item id="36" name="Topf" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\zucker.tga">
 	</item>
 	
 	<!--Herd//-->
@@ -188,11 +188,11 @@
 	</item>
 	
 	<!--Thermoskanne//-->
-	<item id="39" name="Thermoskanne" collectable="yes" destroyable="yes">
+	<item id="39" name="Thermoskanne" collectable="yes" destroyable="yes" imgfile="..\\graphics\\items\\thermoskanne.tga">
 	</item>
 	
 	<!--Münzen//-->
-	<item id="40" name="Münzen" collectable="yes">
+	<item id="40" name="Münzen" collectable="yes" imgfile="..\\graphics\\items\\">
 		<sequence description="Geiles Geld" sound="achievement1.wav"/>
 	</item>
 </items>

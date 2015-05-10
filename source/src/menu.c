@@ -217,10 +217,11 @@ void menu_core()
 					{
 						_menu.nextStop = MENU_BASE_STOP;
 						_menu.isIdle = 0;
-					}
-					
+					}			
+#ifndef MENU_DEBUG
 					vec_set(camera.x, _menu_stops[_menu.currentStop].position);
 					vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
+#endif
 				}
 			}
 			
@@ -237,12 +238,7 @@ void menu_core()
 					_menu.isIdle = 1;
 					_menu.nextStop = 0; // Return to idle stop
 					_menu.lerp = 0;
-				}			
-				#ifndef MENU_DEBUG
-					vec_set(camera.x, _menu_stops[_menu.currentStop].position);
-					vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
-				#endif
-			}
+				}			}
 			
 			var logoBlendSpeed = 20;
 			if(_menu.isIdle)
@@ -410,6 +406,24 @@ void _menu_item_init()
 			
 			my.alpha = 100 * smootherstep(0, 1, blend);
 		}
+		
+		{
+			int i = my.skill1;
+			var width = 1.2 * str_width(_menu_stops[i].title, fontCalibri48);
+			var height = 1.2 * fontCalibri48.dy;
+			
+			bmap_rendertarget(_menu_stops[i].textMap, 0, 0);
+			
+			_menuPen.alpha = 100;
+			_menuPen.pos_x = 0.5 * width;
+			_menuPen.pos_y = 0.5 * height;
+			_menuPen.flags |= OUTLINE;
+			str_cpy(_menuText, _menu_stops[i].title);
+			draw_obj(_menuPen);
+			
+			bmap_rendertarget(NULL, 0, 0);
+		}
+		
 		wait(1);
 	}
 }
@@ -444,22 +458,8 @@ void menu_regenerate_bitmaps()
 	{
 		var width = 1.2 * str_width(_menu_stops[i].title, fontCalibri48);
 		var height = 1.2 * fontCalibri48.dy;
-		
 		_menu_stops[i].textMap = bmap_createblack(width, height, 8888);
-		
-		bmap_rendertarget(_menu_stops[i].textMap, 0, 0);
-		
-		_menuPen.alpha = 100;
-		_menuPen.pos_x = 0.5 * width;
-		_menuPen.pos_y = 0.5 * height;
-		_menuPen.flags |= OUTLINE;
-		str_cpy(_menuText, _menu_stops[i].title);
-		draw_obj(_menuPen);
-		
-		bmap_rendertarget(NULL, 0, 0);
 	}
-	
-	bmap_rendertarget(NULL, 0, 0);
 }
 
 void menu_open()
