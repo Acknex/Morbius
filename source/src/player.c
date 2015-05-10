@@ -36,8 +36,14 @@ action player_act()
 		if(you)
 		{
 			if (itemInHand == NULL) { 
-				if(your.ENTITY_TYPE == TYPE_ITEM || your.ENTITY_TYPE == TYPE_LEVEL_GATE) mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
+				if(your.ENTITY_TYPE == TYPE_ITEM || your.ENTITY_TYPE == TYPE_LEVEL_GATE) {
+					mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
+				} else {
+					mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
+				}
 			}
+		} else {
+			mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 		}
 		if(mouse_left)
 		{
