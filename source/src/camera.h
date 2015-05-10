@@ -30,6 +30,7 @@ VECTOR vecSplineCamMax;
 VECTOR vecCameraTemp;
 var cameraPathLength = 0;
 var cameraPathPlayerPos = 0;
+var cameraPathPlayerPosOld = 0;
 ENTITY* entCameraPathEntity = NULL;
 
 // Active camera type
