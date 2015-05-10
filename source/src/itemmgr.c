@@ -178,8 +178,10 @@ void interactionItem__eventHandler()
 		
 	if (event_type == EVENT_CLICK)
 	{
-		//STRING* str = str_printf(NULL,"item id %d", (int)my->itemId);
+		STRING* str = str_printf(NULL,"item id %d", (int)my->itemId);
 		//error(str);
+		draw_text(str, 50,50, vector(255,255,255));
+		wait(1);
 		set(my, itemWasClicked);
 	}
 	
@@ -239,14 +241,17 @@ void interactionItem_morph(int targetId, int morphId)
 		error(str);
 		return;
 	}
-	
+
+error(item->entfile);	
 	if ((item->entfile != NULL) && (ent != NULL))
 	{
 		ent_morph(ent, item->entfile);
 	}
-		//STRING* str = str_printf(NULL,"morph id %d", morphId);
-		//error(str);
+		STRING* str = str_printf(NULL,"morph id %d", morphId);
+		error(str);
 	ent->itemId = morphId;
+	ent->itemSequence = 0;
+	ent->itemType = TYPE_ITEM;
 //		STRING* str = str_printf(NULL,"morph id %d", ent->itemId);
 //		error(str);
 }

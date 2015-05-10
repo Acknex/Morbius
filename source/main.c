@@ -20,6 +20,7 @@
 #include "camera.h"
 #include "alley.c"
 
+#define DEBUG
 #ifdef DEBUG
 #include <default.c>
 #endif

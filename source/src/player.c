@@ -32,7 +32,7 @@ action player_act()
 		c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 		//TODO: take care of: item in hand
 		
-		mouse_map = bmp_cursor_array[TYPE_ITEM_POINT]; // was _DEFAULT
+		//mouse_map = bmp_cursor_array[TYPE_ITEM_POINT]; // was _DEFAULT
 		if(you)
 		{
 			if (itemInHand == NULL) { 
