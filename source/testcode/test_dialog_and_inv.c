@@ -18,7 +18,7 @@ void main() {
 	
 	dlgInit();
 	mouse_mode = 4;
-	dlgStart("..//dialogs//jcl-der-auftrag.xml");
+	dlgStart("..//dialogs//cbabe-information.xml");
 	
 	/*random_seed(0);
 	mouse_mode = 4;

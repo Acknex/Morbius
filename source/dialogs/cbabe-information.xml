@@ -1,0 +1,21 @@
+<Dialog>
+	<Player id="0" name="Morbius">Cbabe nehme ich an?</Player>
+	<NPC id="1" file="..\\media\\dialog_cbabe\\dlg_cbabe_01.ogg" name="CBabe">Wer will das wissen?</NPC>
+	<Player id="2" name="Morbius">Morbius, Privatdetektiv.</Player>
+	<NPC id="3" file="..\\media\\dialog_cbabe\\dlg_cbabe_03.ogg" name="CBabe">Ich nehme an, du hast Fragen für mich?</NPC>
+	<Player id="4" name="Morbius">So läuft das normalerweise mit Detektiven.</Player>
+	<NPC id="5" file="..\\media\\dialog_cbabe\\dlg_cbabe_05.ogg" name="CBabe">Direkt zum Punkt, was? ... Nagut, das kann ich respektieren. Schieß los.</NPC>
+	<Player id="6" name="Morbius">Sehr vornehmlich. Ich musste das ganze Spiel über schon irgendwelche Rätsel lösen, nur um Leute zum Reden zu bringen.</Player>
+	<NPC id="7" file="..\\media\\dialog_cbabe\\dlg_cbabe_07.ogg" name="CBabe">Kannst du bitte aufhören die 4. Wand zu brechen und den Dialog weiterführen?</NPC>
+	<Player id="8" name="Morbius">Sorry! ... Du hast am Utopia Projekt gearbeitet?</Player>
+	<NPC id="9" file="..\\media\\dialog_cbabe\\dlg_cbabe_09.ogg" name="CBabe">Das ist richtig. Warum? Willst du mich auch anheuern? Kostet dich aber extra als Privatperson...</NPC>
+	<Player id="10" name="Morbius">Sorry, kein Interesse. Ich bin viel mehr interessiert an den Herren M. Dayle und Emdayelle.</Player>
+	<NPC id="11" file="..\\media\\dialog_cbabe\\dlg_cbabe_11.ogg" name="CBabe">Guard und Warlock? Wie kommt es?</NPC>
+	<Player id="12" name="Morbius">Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn du GANZ genau weißt dass die beiden ins Gras gebissen haben.</Player>
+	<NPC id="13" file="..\\media\\dialog_cbabe\\dlg_cbabe_13.ogg" name="CBabe">S...sie.. Sie sind TOT?!</NPC>
+	<Player id="14" name="Morbius">Ach komm, alle Spuren führen zu dir, jetzt tu nicht so, als ob du nichts davon weißt!</Player>
+	<NPC id="15" file="..\\media\\dialog_cbabe\\dlg_cbabe_15.ogg" name="CBabe">WIE WAGST DU ES?! Natürlich weiß ich nichts davon! Wie kannst du nur so taktlos sein?</NPC>
+	<Player id="16" name="Morbius">[seuftz] Tut mir leid. So meinte ich das nicht. Du verstehst, dass ich Antworten brauche.</Player>
+	<NPC id="17" file="..\\media\\dialog_cbabe\\dlg_cbabe_17.ogg" name="CBabe">Lass mich jetzt bitte in Ruhe...</NPC>
+	<End id="18" />
+</Dialog>
