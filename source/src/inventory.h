@@ -11,7 +11,7 @@
 #define INV_PANEL_LAYER 10
 
 // Settings for item placement
-#define INV_ITEM_SIZE 32
+#define INV_ITEM_SIZE 64
 #define INV_ITEMS_X 12
 #define INV_ITEMS_Y 1
 #define INV_ITEMS_OFFSET_X 9

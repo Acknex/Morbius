@@ -15,9 +15,14 @@ void startGame()
 	proc_mode = PROC_GLOBAL;
 	level_change(0,-1);
 	while(!is_level_loaded()) wait(1);
-	Inventory* inventory = inv_create(NULL, screen_size.x, 50);
+	Inventory* inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
+}
+
+void quitGame()
+{
+	sys_exit(NULL);
 }
 
 void sys_init() {
@@ -47,6 +52,7 @@ void sys_init() {
 	itemmgr_init();
 	smartwalk_init();
 	menuConfig.startGame = startGame;
+	menuConfig.quitGame = quitGame;
 }
 
 #endif

@@ -10,3 +10,5 @@ Thumbs.db
 !*.blend
 /source/dance/c4d/*.fbx
 *.pla/**
+*.raw
+palette.pcx
