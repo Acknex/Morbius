@@ -15,10 +15,10 @@ void startGame()
 {
 	me = NULL;
 	proc_mode = PROC_GLOBAL;
-	level_change(0,-1);
-	while(!is_level_loaded()) wait(1);
 	ITEM_load("items\\items.xml"); // items.h
 	COMBINATION_load("items\\items.xml"); // combine.h
+	level_change(0,-1);
+	while(!is_level_loaded()) wait(1);
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));

@@ -7,7 +7,6 @@
 
 #define itemType skill1
 #define itemId skill2
-#define itemSequence skill3
 #define itemHover FLAG1
 #define itemRemove FLAG2
 #define itemWasClicked FLAG3
@@ -40,14 +39,32 @@ void itemmgr_init()
 //skill2: ItemId -1
 action interactionItem()
 {
+	set(my, INVISIBLE);
 	my->itemType = TYPE_ITEM;
-	my->itemSequence = 0;
 	
+	//restore item state: start
 	if (my->itemId == -1)
 	{
 		wait(1);
 		ptr_remove(me);
+		return;
 	}
+	
+	ITEM*	item = ITEM_get(my->itemId);
+	if (item->wasRemoved != 0)
+	{
+		wait(1);
+		ptr_remove(me);
+		return;
+	}
+	
+	if (item->wasMorphedTo != -1)
+	{
+		interactionItem_morph(item->id, item->wasMorphedTo);
+	}
+	//restore item state: end
+
+	reset(my, INVISIBLE);
 	my->event = interactionItem__eventHandler;
 	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
 	
@@ -130,6 +147,7 @@ void interactionItem__clicked()
 			ITEM* myItem = ITEM_get(my->itemId);
 			if(myItem->destroyable != 0)
 			{
+				ITEM_collect(item);
 				set(my, itemRemove);
 			}
 		}
@@ -138,7 +156,7 @@ void interactionItem__clicked()
 	}
 	else
 	{
-		resultId = ITEM_interaction(item, &my->itemSequence);
+		resultId = ITEM_interaction(item);
 	
 
 		if (resultId != ITEM_NONE)
@@ -149,8 +167,7 @@ void interactionItem__clicked()
 			inv_add_item(inventory, resultIdItem);
 		}
 		
-		//error(str_for_num(NULL, my->itemSequence));
-		if (ITEM_isLastSequence(item, my->itemSequence) != 0) 
+		if (ITEM_isLastSequence(item) != 0) 
 		{
 			if (item->collectable != 0)
 			{
@@ -158,6 +175,7 @@ void interactionItem__clicked()
 				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, bmap_create(item->imgfile));
 				
 				inv_add_item(inventory, newItem);
+				ITEM_collect(item);
 				set(my, itemRemove);
 			}
 			
@@ -232,6 +250,9 @@ void interactionItem_morph(int targetId, int morphId)
 	ENTITY* ent;
 	ITEM* item;
 	
+	ITEM* oldItem = ITEM_get(targetId);
+	oldItem->wasMorphedTo = morphId; //save morph state for level change
+	
 	ent = interactionItem__find(targetId);
 	item = ITEM_get(morphId);
 
@@ -242,15 +263,14 @@ void interactionItem_morph(int targetId, int morphId)
 		return;
 	}
 
-error(item->entfile);	
+//error(item->entfile);	
 	if ((item->entfile != NULL) && (ent != NULL))
 	{
 		ent_morph(ent, item->entfile);
 	}
-		STRING* str = str_printf(NULL,"morph id %d", morphId);
-		error(str);
+		//STRING* str = str_printf(NULL,"morph id %d", morphId);
+		//error(str);
 	ent->itemId = morphId;
-	ent->itemSequence = 0;
 	ent->itemType = TYPE_ITEM;
 //		STRING* str = str_printf(NULL,"morph id %d", ent->itemId);
 //		error(str);

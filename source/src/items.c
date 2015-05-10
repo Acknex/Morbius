@@ -43,6 +43,7 @@ int ITEM_load(STRING* file)
 			ITEM__loadSequences(item, xmlItem);
 			LIST_append(ITEMS__itemList, (void*)item);
 		}
+		ITEM_resetProgress();
 		return 1;
 	}
 	printf("ITEM_load: parse error. File content or file path invalid?");
@@ -77,6 +78,9 @@ ITEM* ITEM_get(int id)
 	int i;
 	ITEM* tmpItem;
 	
+	if (ITEMS__itemList == NULL)
+		return NULL;
+		
 	for (i = 0; i < LIST_items(ITEMS__itemList); i++)
 	{
 		tmpItem = (ITEM*)LIST_getItem(ITEMS__itemList, i);
@@ -89,28 +93,42 @@ ITEM* ITEM_get(int id)
 	return NULL;
 }
 
-var ITEM_isLastSequence(ITEM* item, var step)
+void ITEM_resetProgress()
+{
+	int i;
+	ITEM* tmpItem;
+	
+	for (i = 0; i < LIST_items(ITEMS__itemList); i++)
+	{
+		tmpItem = (ITEM*)LIST_getItem(ITEMS__itemList, i);
+		tmpItem->wasRemoved = 0;
+		tmpItem->progress = 0;
+		tmpItem->wasMorphedTo = -1;
+	}
+}
+
+var ITEM_isLastSequence(ITEM* item)
 {
 	if (item == NULL)
 		return;
 	
-	if (step == LIST_items(item->sequences))
+	if (item->progress == LIST_items(item->sequences))
 		return 1;
 	else
 		return 0;
 }
 
-int ITEM_interaction(ITEM* item, var* step)
+int ITEM_interaction(ITEM* item)
 {
 	SEQUENCE* tmpSequence;
 	
 	if (item == NULL)
 		return;
 
-	*step = minv(*step, LIST_items(item->sequences) - 1);
-	if (*step >= 0)
+	item->progress = minv(item->progress, LIST_items(item->sequences) - 1);
+	if (item->progress >= 0)
 	{
-		tmpSequence = (SEQUENCE*)LIST_getItem(item->sequences, *step);
+		tmpSequence = (SEQUENCE*)LIST_getItem(item->sequences, item->progress);
 		if (tmpSequence->snd_interact != NULL)
 		{
 			snd_play(tmpSequence->snd_interact, ITEM_VOLUME, 0);
@@ -119,8 +137,8 @@ int ITEM_interaction(ITEM* item, var* step)
 		//TODO: description handling
 
 		//get stuck on last step
-		if (*step < LIST_items(item->sequences))
-			*step++;
+		if (item->progress < LIST_items(item->sequences))
+			item->progress++;
 		
 		return tmpSequence->resultId;
 	}	
@@ -128,19 +146,13 @@ int ITEM_interaction(ITEM* item, var* step)
 	return ITEM_NONE;
 }
 
-/*void ITEM_snd(ITEM* item, var soundnum)
+void ITEM_collect(ITEM* item)
 {
-	if (soundnum >= 0 && soundnum < item->snd_count)
+	if (item != NULL)
 	{
-		snd_play(item->snd_interact[soundnum], ITEM_VOLUME, 0);
+		item->wasRemoved = 1;
 	}
 }
-
-void ITEM_sndrnd(ITEM* item)
-{
-	var soundnum = integer(random(item->snd_count));
-	snd_play(item->snd_interact[soundnum], ITEM_VOLUME, 0);
-}*/
 
 void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 {

@@ -16,11 +16,11 @@ typedef struct item
 	int destroyable;
 
 	LIST* sequences;
-	//STRING* description[3];
-	//var desc_count;
-
-	//SOUND* snd_interact[3]; 
-	//var snd_count;	
+	
+	//internal information
+	int wasRemoved;
+	int progress;
+	int wasMorphedTo;
 } ITEM;
 
 typedef struct sequence
@@ -31,14 +31,13 @@ typedef struct sequence
 } SEQUENCE;
 
 
-ITEM* ITEM_get(int id);
-var ITEM_isLastSequence(ITEM* item, var step);
-int ITEM_interaction(ITEM* item, var* step);
-//void ITEM_sndrnd(ITEM* item);
-//void ITEM_snd(ITEM* item, var soundnum);
-
 int ITEM_load(STRING* file);
 void ITEM_close();
+ITEM* ITEM_get(int id);
+void ITEM_resetProgress();
+var ITEM_isLastSequence(ITEM* item, var step);
+int ITEM_interaction(ITEM* item, var* step);
+void ITEM_collect(ITEM* item);
 
 #include "items.c"
 #endif
