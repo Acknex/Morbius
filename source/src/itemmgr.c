@@ -10,10 +10,13 @@
 #define itemSequence skill3
 #define itemHover FLAG1
 #define itemRemove FLAG2
+#define itemWasClicked FLAG3
 
+#define ITEM_MINPLAYERDIST 50
 
 TEXT* interActionItem__txt;
 
+void interactionItem__clicked();
 void interactionItem__eventHandler();
 ENTITY* interactionItem__find(int id);
 
@@ -55,6 +58,24 @@ action interactionItem()
 			interActionItem__txt->pos_x = mouse_pos.x;
 			interActionItem__txt->pos_y = mouse_pos.y - 10;
 		}
+
+		if (is(my, itemWasClicked))
+		{
+			if (player != NULL)
+			{
+				if(vec_dist(player->x, my->x) < ITEM_MINPLAYERDIST)
+				{
+					interactionItem__clicked();
+				}
+			}
+			else 
+			{
+				//only needed for levels without player, maybe remove later
+				interactionItem__clicked();
+			}
+			
+			reset(my, itemWasClicked);
+		}
 		wait(1);
 	}
 
@@ -67,88 +88,97 @@ action interactionItem()
 }
 
 
-void interactionItem__eventHandler()
+void interactionItem__clicked()
 {
 	ITEM* item = ITEM_get(my->itemId);
 	int resultId;
+
+	if (item == NULL)
+		return;
+
+	// If we have an item in hand
+	if (itemInHand != NULL) 
+	{
+		int targetId;
+		resultId = COMBINATION_combine(itemInHand->id, item->id, &targetId);
+		ITEM* handItem = ITEM_get(itemInHand->id);
+
+		if (resultId != ITEM_NONE)
+		{
+			//item in inventory
+			if(handItem->destroyable != 0)
+			{
+				//remove from inventory
+			}				
+
+			itemInHand = NULL;
+			mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+		
+
+			//morph defined target item
+			if (targetId != ITEM_NONE)
+			{
+				interactionItem_morph(targetId, resultId);
+				//TODO inventory morph
+			}
+			else
+			{
+				//create new inventory item with resultId;
+			}			
+
+			//item in world
+			ITEM* myItem = ITEM_get(my->itemId);
+			if(myItem->destroyable != 0)
+			{
+				set(my, itemRemove);
+			}
+		}
+		
+		//TODO: use inventory item on inventory item. This is not handled here!!				
+	}
+	else
+	{
+		resultId = ITEM_interaction(item, &my->itemSequence);
+	
+
+		if (resultId != ITEM_NONE)
+		{
+			//TODO add item with resultId to inventory
+			ITEM* itemToAdd = ITEM_get(resultId);
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(itemToAdd->imgfile));
+			inv_add_item(inventory, resultIdItem);
+		}
+		
+		//error(str_for_num(NULL, my->itemSequence));
+		if (ITEM_isLastSequence(item, my->itemSequence) != 0) 
+		{
+			if (item->collectable != 0)
+			{
+				//TODO: interaction
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(item->imgfile));
+				
+				inv_add_item(inventory, newItem);
+				set(my, itemRemove);
+			}
+			
+			else if (item->destroyable != 0)
+			{
+				set(my, itemRemove);
+			}
+		}
+	}
+}
+
+void interactionItem__eventHandler()
+{
+	ITEM* item = ITEM_get(my->itemId);
 	
 	if (item == NULL)
 		return;
 		
 	if (event_type == EVENT_CLICK)
 	{
-		//todo: wait until morbius is near	
-		// If we have an item in hand
-		if (itemInHand != NULL) 
-		{
-			int targetId;
-			resultId = COMBINATION_combine(itemInHand->id, item->id, &targetId);
-			ITEM* handItem = ITEM_get(itemInHand->id);
-
-			if (resultId != ITEM_NONE)
-			{
-				//item in inventory
-				if(handItem->destroyable != 0)
-				{
-					//remove from inventory
-				}				
-
-				itemInHand = NULL;
-				mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
-			
-
-				//morph defined target item
-				if (targetId != ITEM_NONE)
-				{
-					interactionItem_morph(targetId, resultId);
-					//TODO inventory morph
-				}
-				else
-				{
-					//create new inventory item with resultId;
-				}			
-	
-				//item in world
-				ITEM* myItem = ITEM_get(my->itemId);
-				if(myItem->destroyable != 0)
-				{
-					set(my, itemRemove);
-				}
-			}
-			
-			//TODO: use inventory item on inventory item. This is not handled here!!				
-		}
-		else
-		{
-			resultId = ITEM_interaction(item, &my->itemSequence);
-		
-
-			if (resultId != ITEM_NONE)
-			{
-				//TODO add item with resultId to inventory
-				ITEM* itemToAdd = ITEM_get(resultId);
-				Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(itemToAdd->imgfile));
-				inv_add_item(inventory, resultIdItem);
-			}
-			
-			//error(str_for_num(NULL, my->itemSequence));
-			if (ITEM_isLastSequence(item, my->itemSequence) != 0) 
-			{
-				if (item->collectable != 0)
-				{
-					//TODO: interaction
-					Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(item->imgfile));
-					
-					inv_add_item(inventory, newItem);
-					set(my, itemRemove);
-				}
-				
-				else if (item->destroyable != 0)
-				{
-					set(my, itemRemove);
-				}
-			}
-		}
+		set(my, itemWasClicked);
 	}
 	
 	if (event_type == EVENT_TOUCH)

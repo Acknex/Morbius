@@ -207,5 +207,5 @@
 	<combination id1="30" id2="23" result="31">Stock mit Angelhaken mit Gulli</combination>
 	<combination id1="33" id2="34" morphtarget="34" result="35">Bonzai Zuckerrohr mit Topf</combination>
 	<combination id1="35" id2="37" morphtarget="35" result="36">Topf mit Zuckerrohr mit Herd</combination>
-	<combination id1="40" id2="19" description="[Ring Ring]">Topf mit Zuckerrohr mit Herd</combination>
+	<combination id1="40" id2="19" description="[Ring Ring]">Dialog Trigger</combination>
 </combinations>
