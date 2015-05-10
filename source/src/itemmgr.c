@@ -161,10 +161,10 @@ void interactionItem__clicked()
 				set(my, itemRemove);
 			}
 			
-			else if (item->destroyable != 0)
-			{
-				set(my, itemRemove);
-			}
+			//else if (item->destroyable != 0)
+			//{
+			//	set(my, itemRemove);
+			//}
 		}
 	}
 }
