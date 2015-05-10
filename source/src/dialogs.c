@@ -344,7 +344,14 @@ int dlgStart(STRING* _dialogFile)
 				// Dialog fortsetzen
 				if (snd_playing(vDialogSpeechHandle) > 0)
 				{
-					while(snd_playing(vDialogSpeechHandle) > 0) wait(1);
+					while(snd_playing(vDialogSpeechHandle) > 0) {
+						if (key_esc) {
+							while(key_esc) wait(1);
+							nCancelDialog = 1;
+							snd_stop(vDialogSpeechHandle);
+						}
+						wait(1);
+					}
 				}
 				else
 				{
