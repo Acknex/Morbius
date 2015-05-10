@@ -20,6 +20,11 @@ void startGame()
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
 }
 
+void quitGame()
+{
+	sys_exit(NULL);
+}
+
 void sys_init() {
 	
 	// rendering
@@ -47,6 +52,7 @@ void sys_init() {
 	itemmgr_init();
 	smartwalk_init();
 	menuConfig.startGame = startGame;
+	menuConfig.quitGame = quitGame;
 }
 
 #endif
