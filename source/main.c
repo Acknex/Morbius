@@ -18,6 +18,7 @@
 #include "player.h"
 #include "inventory.h"
 #include "camera.h"
+#include "alley.c"
 
 #ifdef DEBUG
 #include <default.c>

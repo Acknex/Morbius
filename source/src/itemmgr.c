@@ -145,7 +145,7 @@ void interactionItem__clicked()
 		{
 			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(itemToAdd->imgfile));
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
 			inv_add_item(inventory, resultIdItem);
 		}
 		
@@ -155,16 +155,16 @@ void interactionItem__clicked()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(item->imgfile));
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, bmap_create(item->imgfile));
 				
 				inv_add_item(inventory, newItem);
 				set(my, itemRemove);
 			}
 			
-			else if (item->destroyable != 0)
-			{
-				set(my, itemRemove);
-			}
+			//else if (item->destroyable != 0)
+			//{
+			//	set(my, itemRemove);
+			//}
 		}
 	}
 }

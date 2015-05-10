@@ -1,6 +1,8 @@
 #ifndef _INVENTORY_C_
 #define _INVENTORY_C_
 
+#include "itemmgr.h"
+
 Inventory* inv_create(BMAP* _bg, int width, int height) {
 	Inventory* inv = sys_malloc(sizeof(Inventory));
 	
@@ -172,7 +174,7 @@ void inv_remove_item(Inventory* _inv, Item* _item) {
 	}
 }
 
-Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _type) {
+Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value) {
 	Item* item = sys_malloc(sizeof(Item));
 	item.id = _id;
 	item.name = str_create("");
@@ -180,7 +182,6 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _t
 	item.description = str_create("");
 	if (_descr != NULL) str_cpy(item.description, _descr);
 	item.value = _value;
-	item.itemType = _type;
 	item.image = bmap_createblack(INV_ITEM_SIZE, INV_ITEM_SIZE, 24);
 	bmap_fill(item.image, vector(integer(random(255)),integer(random(255)),integer(random(255))), 100);
 	item.panel = pan_create("", INV_PANEL_LAYER + 1);
@@ -192,7 +193,7 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _t
 	return item;
 }
 
-Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _type, BMAP* _bitmap) {
+Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, BMAP* _bitmap) {
 	Item* item = sys_malloc(sizeof(Item));
 	item.id = _id;
 	item.name = str_create("");
@@ -200,7 +201,6 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _t
 	item.description = str_create("");
 	if (_descr != NULL) str_cpy(item.description, _descr);
 	item.value = _value;
-	item.itemType = _type;
 	item.image = _bitmap;
 	item.panel = pan_create("", INV_PANEL_LAYER + 1);
 	item.panel.size_x = INV_ITEM_SIZE;
@@ -255,7 +255,7 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 			inv_hide(itemInHand.inv);
 			inv_show(itemInHand.inv);
 			itemInHand = NULL;
-			mouse_map = NULL;
+			mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 		} else {
 			if (_panel.skill_x != NULL) { // The reference between panel and item is created using skill_x
 				Item* tempItem = (Item*)_panel.skill_x;
@@ -314,7 +314,7 @@ void inv_on_click(PANEL* _pan) {
 			Inventory* inv = (Inventory*)_pan.skill_x;
 			inv_add_item(inv, itemInHand);
 			itemInHand = NULL;
-			mouse_map = NULL;
+			mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 			inv_hide(inv);
 			inv_show(inv);
 		}
@@ -331,7 +331,7 @@ void inv_loop() {
 				inv_hide(itemInHand.inv);
 				inv_show(itemInHand.inv);
 				itemInHand = NULL;
-				mouse_map = NULL;
+				mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 			}
 		}
 	}
