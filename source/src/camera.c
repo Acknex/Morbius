@@ -54,17 +54,48 @@ void moveCameraFixedFollow() {
 	vec_to_angle(camera.pan, vecCameraTemp);
 }
 
+var get_nearest_path_point(ENTITY* ent, char* pathname)
+{
+	ENTITY* e = ent_create(NULL, ent->x, NULL);
+	path_set(e, pathname);
+	var length = path_length(e);
+	var optDist = 0;
+	var entDist = 10000;
+	
+	var dist = 0;
+	var vLastPos[3];
+	var vDir[3];
+	while(dist <= length)
+	{
+		path_spline(e,e.x,dist);
+		dist += 5*time_step;
+		if (vec_dist(e->x, ent->x) < entDist) {
+			entDist = vec_dist(e->x, ent->x);
+			optDist = dist;
+		}
+	}
+        ptr_remove(e);
+	return optDist;
+}
+
 void moveCameraSpline() {
 	// Calculate procentual difference between level min/max
-	cameraPathPlayerPos = player.x - vecSplineCamMin.x;
+	/*cameraPathPlayerPos = player.x - vecSplineCamMin.x;
 	cameraPathPlayerPos = cameraPathPlayerPos / (vec_dist(vecSplineCamMax.x, vecSplineCamMin.x) + 0.0001); // Avoid 0 division
 	cameraPathPlayerPos = cameraPathPlayerPos * cameraPathLength;
 	
 	if (cameraPathPlayerPos < 0) {
 		cameraPathPlayerPos = cameraPathPlayerPos * -1;
-	}
+	}*/
+	
+	cameraPathPlayerPos = get_nearest_path_point(player, "path_000");
+	cameraPathPlayerPos = (cameraPathPlayerPos + cameraPathPlayerPosOld) / 2;
 	
 	path_spline(entCameraPathEntity, camera.x, cameraPathPlayerPos);
+	
+	cameraPathPlayerPosOld = cameraPathPlayerPos;
+	
+	// path_spline(entCameraPathEntity, camera.x, cameraPathPlayerPos);
 	
 	// Look at the player
 	vec_set(vecCameraTemp.x, player.x);
