@@ -22,17 +22,6 @@
 #define INV_DESC_TEXT_POS_X 500
 #define INV_DESC_TEXT_POS_Y 12
 
-
-/**
- * Fixed item types
- */
-#define ITEM_TYPE_FOOD 1
-#define ITEM_TYPE_QUEST 2
-#define ITEM_TYPE_WEAPON 3
-#define ITEM_TYPE_CLOTH 4
-#define ITEM_TYPE_USABLE 5
-#define ITEM_TYPE_NEUTRAL 6
-
 FONT* fontInventoryTitle = "Arial#18b";
 FONT* fontInventoryDescription = "Arial#12b";
 
@@ -44,7 +33,6 @@ typedef struct item {
 	STRING* name;
 	STRING* description;
 	int value;
-	int itemType;
 	BMAP* image;
 	PANEL* panel;
 	void* inv; // Pointer to Inventory - Untyped because of later typedef
@@ -133,7 +121,7 @@ void inv_remove_item(Inventory* _inv, Item* _item);
  * \param	int	An item type (see defines above)
  * \return			The item
  */
-Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _type);
+Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value);
 
 /**
  * Creates an item with a bitmap
@@ -145,7 +133,7 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _t
  * \param	BMAP*	Bitmap to illustrate the item
  * \return			The item
  */
-Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, int _type, BMAP* _bitmap);
+Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, BMAP* _bitmap);
 
 
 

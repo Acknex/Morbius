@@ -22,6 +22,7 @@ void startGame()
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
+	mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 }
 
 void quitGame()
