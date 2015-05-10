@@ -46,7 +46,7 @@ action interactionItem()
 		ptr_remove(me);
 	}
 	my->event = interactionItem__eventHandler;
-	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
+	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE | ENABLE_TRIGGER;
 	
 	while(!is(my, itemRemove))
 	{
@@ -75,6 +75,11 @@ void interactionItem__eventHandler()
 	if (item == NULL)
 		return;
 		
+	if (event_type == EVENT_TRIGGER)
+	{
+		//TODO: if morbius is not near item, don't trigger click event directly
+	}
+	
 	if (event_type == EVENT_CLICK)
 	{
 		//todo: wait until morbius is near	
