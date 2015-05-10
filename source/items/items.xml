@@ -104,7 +104,7 @@
 	
 	<!--Telefonzelle//-->
 	<item id="19" name="Telefonzelle">
-		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." sound="achievement1.wav"/>
+		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." entfile="battery.mdl" sound="achievement1.wav"/>
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->

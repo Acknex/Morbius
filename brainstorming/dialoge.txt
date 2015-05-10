@@ -383,3 +383,12 @@ COMBINE: Visitenkarte + Cbabe
     "Hier falls ihnen noch was einfällt geben sie mir bitte umgehend bescheid"
     (VICTORY CONDITION)
 
+---------------
+
+Büro
+
+VICTORY
+
+UseLaptop
+
+    

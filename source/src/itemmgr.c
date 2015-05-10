@@ -145,7 +145,7 @@ void interactionItem__clicked()
 		{
 			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(itemToAdd->imgfile));
+			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
 			inv_add_item(inventory, resultIdItem);
 		}
 		
@@ -155,7 +155,7 @@ void interactionItem__clicked()
 			if (item->collectable != 0)
 			{
 				//TODO: interaction
-				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, ITEM_TYPE_NEUTRAL, bmap_create(item->imgfile));
+				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, bmap_create(item->imgfile));
 				
 				inv_add_item(inventory, newItem);
 				set(my, itemRemove);
@@ -178,6 +178,10 @@ void interactionItem__eventHandler()
 		
 	if (event_type == EVENT_CLICK)
 	{
+		STRING* str = str_printf(NULL,"item id %d", (int)my->itemId);
+		//error(str);
+		draw_text(str, 50,50, vector(255,255,255));
+		wait(1);
 		set(my, itemWasClicked);
 	}
 	
@@ -230,12 +234,26 @@ void interactionItem_morph(int targetId, int morphId)
 	
 	ent = interactionItem__find(targetId);
 	item = ITEM_get(morphId);
-	
+
+	if (ent == NULL)
+	{
+		STRING* str = str_printf(NULL,"Entity with item id %d not found!", targetId);
+		error(str);
+		return;
+	}
+
+error(item->entfile);	
 	if ((item->entfile != NULL) && (ent != NULL))
 	{
 		ent_morph(ent, item->entfile);
 	}
+		STRING* str = str_printf(NULL,"morph id %d", morphId);
+		error(str);
 	ent->itemId = morphId;
+	ent->itemSequence = 0;
+	ent->itemType = TYPE_ITEM;
+//		STRING* str = str_printf(NULL,"morph id %d", ent->itemId);
+//		error(str);
 }
 
 ENTITY* interactionItem__find(int id)
