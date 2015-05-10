@@ -93,6 +93,7 @@ MORBIUS: [interner monolog] Ein Schmuddelspiel, ein Italienischer Spieleentwickl
 
 "Eine fernbedienung, den dazugehörigen fernseher musste ich verramschen um mir eine Taschenlampe zu kaufen"
 "Schau mal einer an, wer hätte da gedacht, da sind batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können"
+"Eine fernbedienung ohne batterien. Toll."
 
 "Abracadabra, und schon funktioniert meine Taschenlampe wieder"
 
@@ -141,6 +142,10 @@ MATHIAS N STRASSE 211
 "Ist das... eine Leiche?!"
 "Armer kerl, wen hast du bloß verärgert um so zu enden?"
 "GALEP Security... hmm war er ein bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen."
+"Also ich glaube nicht dass ich so eine Leiche anfassen werde"
+"[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
+"ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen"
+"Der hat nichts mehr"
 
 "Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach"
 "Irgendwie sollte sich diese tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist."
@@ -153,16 +158,14 @@ MATHIAS N STRASSE 211
 
 "Eine Brechstange ist meist genauso gut wie ein schlüssel, wenn nicht sogar noch besser!"
 
-"War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die aufgabe der Informationssuche aufdrücken muss."
-
 "Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können"
 
-"Also ich glaube nicht dass ich bei einer Leiche nach Geld suchen werde"
-"[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
-"ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen"
 
-"Okay Fritz, ich hoffe du bist deine Gadge immernoch wert..."
 
+
+MORBIUS: [interner monolog]  War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die aufgabe der Informationssuche aufdrücken muss.
+MORBIUS: [interner monolog] Okay Fritz, ich hoffe du bist deine Gadge immernoch wert...
+[tuuut]
 FRITZ: [schnauf] Yop?
 
     1. "Hi Fritz, Morbius hier"
@@ -193,11 +196,11 @@ MORBIUS: Alles klar, bekommst du. Ich hab diesmal einen guten Vorschuss bekommen
 FRITZ: Sag bloß du wirst langsam richtig profesionell?
 MORBIUS: Haha, sehr lustig. Naja danke nochmal, ich muss jetzt los!
 FRITZ: Yop, kein problem. Log-Off!
+MORBIUS: [interner monolog] Perfekt, jetzt muss ich nur noch die GALEP leute überzeugen mir zu sagen wo der Herr Guard Emdayelle wohnt... Denk nach Morbius... aha! Ich habs, ich wollte ihm sein Portmonnai zurück geben. Hab ich irgendwo gefunden - ist ja auch wahr. Morbius, du bist ein Genie!
 
-"Perfekt, jetzt muss ich nur noch die GALEP leute überzeugen mir zu sagen wo der Herr Guard Emdayelle wohnt... Denk nach Morbius... aha! Ich habs, ich wollte ihm sein Portmonnai zurück geben. Hab ich irgendwo gefunden - ist ja auch wahr. Morbius, du bist ein Genie!"
 
-"Meine letzte münze, lass es gelten Morbius!"
 
+MORBIUS: [interner monolog] Meine letzte münze, lass es gelten Morbius!
 GALEP: GALEP Security?
 MORBIUS: Hallo, Morbius mein name. Ich hätte da gerne mal ein problem.
 GALEP: Wie kann ich ihnen weiter helfen?
@@ -224,8 +227,7 @@ GALEP: Fast schon zu viele zufälle für einen tag....
 MORBIUS: Ich danke ihnen für ihre hilfe!
 GALEP: Einen schönen-
 [Aufgelegt]
-
-"Dieser Fall wurde immer ungewöhnlicher, das mulmige gefühl in meinem bauch wurde immer stärker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloß eingelassen? Und warum hat der Z Mörder ein opfer in Zürich? Fragen über fragen häuften sich, und die spur blieb nicht kalt - im gegensatz zu meinem büro weil ich meine Gasrechnung diesen monat nicht bezahlt hatte."
+MORBIUS: [interner monolog] Dieser Fall wurde immer ungewöhnlicher, das mulmige gefühl in meinem bauch wurde immer stärker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloß eingelassen? Und warum hat der Z Mörder ein opfer in Zürich? Fragen über fragen häuften sich, und die spur blieb nicht kalt - im gegensatz zu meinem büro weil ich meine Gasrechnung diesen monat nicht bezahlt hatte.
 
 --------------
 
@@ -341,3 +343,43 @@ GRIECHIN: Ich meine dass sie sich oft in der Babec Disco rumtreibt. Da solltest 
 [Fade to black]
 
 "Ich war der lösung heiß auf der spur, ich hoffte dass ich jetzt von CBabe erfahren könnte was des rätsels lösung ist."
+
+-------
+
+
+{
+FRANKFURT
+BABEC DISCO
+15. AUGUST
+}
+
+ENTER SCENE
+    "Die lautige, basslastige musik resonierte in meinen Knochen. Die Lichter tanzen durch den raum wie schneeflocken in einem Regenbogen und faszinierten mich fast genau so sehr wie die reizenden frauen die in einer trance durch den raum tanzten und ihre feminine figur zur schau stellten"
+    
+USE CBabe
+    -> Dialog 1
+    
+DIALOG CBabe
+MORBIUS: Cbabe nehme ich an?
+CBABE: Wer will das wissen?
+MORBIUS: Morbius, Privatdetektiv.
+CBABE: Ich nehme an du hast Fragen für mich?
+MORBIUS: So läuft das normalerweise mit Detektiven.
+CBABE: Direkt zum punkt, was? ... Nagut, das kann ich respektieren. Schieß los.
+MORBIUS: Sehr vornehmlich. Ich musste das ganze spiel über schon irgendwelche Rätsel lösen nur um leute zum reden zu bringen.
+CBABE: Kannst du bitte aufhören die 4. wand zu brechen und den dialog weiterführen?
+MORBIUS: Sorry! ... Du hast am Utopia Projekt gearbeitet?
+CBABE: Das ist richtig. Warum? Willst du mich auch anheuern? Kostet dich aber extra als privatperson...
+MORBIUS: Sorry, kein interesse. Ich bin viel mehr interessiert an den Herren M. Dayle und Emdayelle.
+CBABE: Guard und Warlock? Wie kommt es?
+MORBIUS: Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn du GANZ genau weißt dass die beiden ins Graß gebissen haben.
+CBABE: S...sie.. Sie sind TOT?!
+MORBIUS: Ach komm, alle spuren führen zu dir, jetzt tu nicht so als ob du nichts davon weißt!
+CBABE: WIE WAGST DU ES?! Natürlich weis ich nichts davon! Wie kannst du nur so taktlos sein??
+MORBIUS: [seuftz] Tut mir leid. So meinte ich das nicht. Du verstehst, dass ich antworten brauche.
+CBABE: Lass mich jetzt bitte in ruhe...
+
+COMBINE: Visitenkarte + Cbabe
+    "Hier falls ihnen noch was einfällt geben sie mir bitte umgehend bescheid"
+    (VICTORY CONDITION)
+

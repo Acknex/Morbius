@@ -15,6 +15,7 @@
 #include "level_transition.h"
 #include "player.h"
 #include "inventory.h"
+#include "camera.h"
 
 #ifdef DEBUG
 #include <default.c>

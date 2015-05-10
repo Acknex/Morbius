@@ -4,6 +4,7 @@
 #define MENU_NUM_STOPS 6
 #define MENU_IDLE_TICKS 128
 
+var options_show = 0;
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
 BMAP *bmpMenuLogo = "graphics\\textures\\logo.png";
 FONT *fontCalibri48 = "Calibri#48b";
@@ -21,7 +22,7 @@ typedef struct {
 } MenuStop;
 
 typedef struct {
-    var music;
+	var music;
 	void *on_ent_remove;
 	void *on_space;
 	void *on_cul;
@@ -54,17 +55,17 @@ ANGLE* ang_lerp(ANGLE* a, ANGLE* a1, ANGLE* a2, var f)
 	ai.roll = ang_lerp_single(a1->roll, a2->roll, f);
 	
 	if(a != NULL)
-		vec_set(a, &ai);
+	vec_set(a, &ai);
 	
 	return vector(ai.pan, ai.tilt, ai.roll);
 }
 
 float smootherstep(float edge0, float edge1, float x)
 {
-    // Scale, and clamp x to 0..1 range
-    x = clamp((x - edge0)/(edge1 - edge0), 0.0, 1.0);
-    // Evaluate polynomial
-    return x*x*x*(x*(x*6 - 15) + 10);
+	// Scale, and clamp x to 0..1 range
+	x = clamp((x - edge0)/(edge1 - edge0), 0.0, 1.0);
+	// Evaluate polynomial
+	return x*x*x*(x*(x*6 - 15) + 10);
 }
 
 void menu_fade_and_trigger(MenuStop *stop)
@@ -89,9 +90,9 @@ void menu_fade_and_trigger(MenuStop *stop)
 void menu_switch(int dir)
 {
 	if((dir != 1) && (dir != -1))
-		return;
+	return;
 	if(_menu.currentStop != _menu.nextStop)
-		return;
+	return;
 	_menu.nextStop = cycle(_menu.currentStop + dir, MENU_BASE_STOP, MENU_NUM_STOPS);
 }
 
@@ -109,7 +110,7 @@ void menu_close()
 void menu_ent_remove(ENTITY *ent)
 {
 	if(ent != _menu.core)
-		return;
+	return;
 	menu_close();
 }
 
@@ -121,87 +122,140 @@ void menu_core()
 	var logoAlpha = 100;
 	var textAlpha = 100;
 	var textBlinkTime = 0;
+	var mouse_left_off = 0;
+	draw_textmode("Calibri",1,48,100);
 	while(1)
 	{
-#ifdef MENU_DEBUG
-		draw_text(_menu_stops[_menu.currentStop].title, 16, 16, COLOR_RED);
-#endif
+		#ifdef MENU_DEBUG
+			draw_text(_menu_stops[_menu.currentStop].title, 16, 16, COLOR_RED);
+		#endif
 		
-		if(_menu.fade <= 0.0)
+		if(options_show)
 		{
-			// Only do camera movement if we are not fading out right now
-			if(_menu.currentStop != _menu.nextStop)
+			draw_quad(NULL,vector(0, 0, 0),NULL,screen_size,NULL,COLOR_BLACK,80,0);
+			STRING* str_tmp = str_create("");
+			draw_text("Welcome to the worst options menu ever. Enjoy your stay!",20,20,COLOR_WHITE);
+			if(video_screen == 1) str_cpy(str_tmp,"Toggle Fullscreen: On");
+			else str_cpy(str_tmp,"Toggle Fullscreen: Off");
+			draw_text(str_tmp,20,20+48*1,COLOR_WHITE);
+			str_printf(str_tmp,"Cycle Resolutions: %d x %d",(int)screen_size.x,(int)screen_size.y);
+			draw_text(str_tmp,20,20+48*2,COLOR_WHITE);
+			str_printf(str_tmp,"Master Volume: %d",(int)midi_vol);
+			draw_text(str_tmp,20,20+48*3,COLOR_WHITE);
+			draw_text("Back",20,20+48*4,COLOR_WHITE);
+			var mouse_line = floor((mouse_pos.y-68)/48.0);
+			if(mouse_line >= 0 && mouse_line <= 3)
 			{
-#ifdef MENU_DEBUG
-				draw_text(str_for_float(NULL, _menu.lerp), 16, 32, COLOR_RED);
-				draw_text(str_for_int(NULL, _menu.currentStop), 128, 32, COLOR_RED);
-				draw_text(str_for_int(NULL, _menu.nextStop), 160, 32, COLOR_RED);
-#endif
-				
-				float f = smootherstep(0.0, 1.0, _menu.lerp);
-				
-				vec_lerp(camera.x, _menu_stops[_menu.currentStop].position, _menu_stops[_menu.nextStop].position, f);
-				ang_lerp(camera.pan, _menu_stops[_menu.currentStop].rotation, _menu_stops[_menu.nextStop].rotation, f);
-				
-				float lerpSpeed = 0.07;
-				if(_menu.nextStop == 0)
+				draw_quad(NULL,vector(0, 68+mouse_line*48, 0),NULL,vector(screen_size.x,48,0),NULL,COLOR_WHITE,25,0);
+				if(mouse_left)
 				{
-					lerpSpeed = 0.03;
+					if(mouse_left_off)
+					{
+						mouse_left_off = 0;
+						if(mouse_line == 0)
+						{
+							video_switch(0, 0, 1+(video_screen == 1));
+						}
+						if(mouse_line == 1)
+						{
+							if(video_mode > 12) video_switch(6, 0, 0);
+							else
+							{
+								if(!video_switch(video_mode+1, 0, 0)) video_switch(6, 0, 0);
+							}
+						}
+						if(mouse_line == 2)
+						{
+							midi_vol += 10;
+							if(midi_vol > 100) midi_vol = 0;
+							sound_vol = midi_vol;
+						}
+						if(mouse_line == 3) options_show = 0;
+					}
 				}
-				_menu.lerp += lerpSpeed * time_step;
-				if(_menu.lerp > 1.0)
+				else mouse_left_off = 1;
+			}
+			ptr_remove(str_tmp);
+		}
+		else
+		{
+			if(_menu.fade <= 0.0)
+			{
+				// Only do camera movement if we are not fading out right now
+				if(_menu.currentStop != _menu.nextStop)
 				{
-					_menu.currentStop = _menu.nextStop;
-					_menu.lerp = 0.0;
+					#ifdef MENU_DEBUG
+						draw_text(str_for_float(NULL, _menu.lerp), 16, 32, COLOR_RED);
+						draw_text(str_for_int(NULL, _menu.currentStop), 128, 32, COLOR_RED);
+						draw_text(str_for_int(NULL, _menu.nextStop), 160, 32, COLOR_RED);
+					#endif
+					
+					float f = smootherstep(0.0, 1.0, _menu.lerp);
+					
+					vec_lerp(camera.x, _menu_stops[_menu.currentStop].position, _menu_stops[_menu.nextStop].position, f);
+					ang_lerp(camera.pan, _menu_stops[_menu.currentStop].rotation, _menu_stops[_menu.nextStop].rotation, f);
+					
+					float lerpSpeed = 0.07;
+					if(_menu.nextStop == 0)
+					{
+						lerpSpeed = 0.03;
+					}
+					_menu.lerp += lerpSpeed * time_step;
+					if(_menu.lerp > 1.0)
+					{
+						_menu.currentStop = _menu.nextStop;
+						_menu.lerp = 0.0;
+					}
+					
+					// Reset idle on swap
+					idleTime = 0;
 				}
-				
-				// Reset idle on swap
+				else
+				{
+					// Go from idle to first entry
+					if(_menu.isIdle && key_any)
+					{
+						_menu.nextStop = MENU_BASE_STOP;
+						_menu.isIdle = 0;
+					}
+					
+					vec_set(camera.x, _menu_stops[_menu.currentStop].position);
+					vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
+				}
+			}
+			
+			// Check for mouse movement
+			if((vec_length(mickey) > 0) || key_any)
+			{
 				idleTime = 0;
 			}
 			else
 			{
-				// Go from idle to first entry
-				if(_menu.isIdle && key_any)
+				idleTime += time_step;
+				if(idleTime >= MENU_IDLE_TICKS)
 				{
-					_menu.nextStop = MENU_BASE_STOP;
-					_menu.isIdle = 0;
-				}
-				
-#ifndef MENU_DEBUG
-				vec_set(camera.x, _menu_stops[_menu.currentStop].position);
-				vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
-#endif
+					_menu.isIdle = 1;
+					_menu.nextStop = 0; // Return to idle stop
+					_menu.lerp = 0;
+				}			
+				#ifndef MENU_DEBUG
+					vec_set(camera.x, _menu_stops[_menu.currentStop].position);
+					vec_set(camera.pan, _menu_stops[_menu.currentStop].rotation);
+				#endif
 			}
-		}
-		
-		// Check for mouse movement
-		if((vec_length(mickey) > 0) || key_any)
-		{
-			idleTime = 0;
-		}
-		else
-		{
-			idleTime += time_step;
-			if(idleTime >= MENU_IDLE_TICKS)
+			
+			var logoBlendSpeed = 20;
+			if(_menu.isIdle)
 			{
-				_menu.isIdle = 1;
-				_menu.nextStop = 0; // Return to idle stop
-				_menu.lerp = 0;
+				// Blend logo in
+				logoAlpha = minv(100, logoAlpha + logoBlendSpeed * time_step);
+			}
+			else
+			{
+				// Blend logo out
+				logoAlpha = maxv(0, logoAlpha - logoBlendSpeed * time_step);
 			}
 		}
-		
-		var logoBlendSpeed = 20;
-		if(_menu.isIdle)
-		{
-			// Blend logo in
-			logoAlpha = minv(100, logoAlpha + logoBlendSpeed * time_step);
-		}
-		else
-		{
-			// Blend logo out
-			logoAlpha = maxv(0, logoAlpha - logoBlendSpeed * time_step);
-		}
-		
 		// Draw logo scaled and centered
 		if(logoAlpha > 0)
 		{
@@ -209,14 +263,14 @@ void menu_core()
 			var height = width * bmap_height(bmpMenuLogo) / bmap_width(bmpMenuLogo);
 			var scale = width / bmap_width(bmpMenuLogo);
 			draw_quad(
-				bmpMenuLogo,
-				vector(0.5 * (screen_size.x - width), 0.5 * (screen_size.y - height), 0),
-				NULL, // Offset
-				NULL, // Size,
-				vector(scale, scale, 0),
-				COLOR_WHITE,
-				logoAlpha,
-				0);
+			bmpMenuLogo,
+			vector(0.5 * (screen_size.x - width), 0.5 * (screen_size.y - height), 0),
+			NULL, // Offset
+			NULL, // Size,
+			vector(scale, scale, 0),
+			COLOR_WHITE,
+			logoAlpha,
+			0);
 			
 			// Blink cycle of the key-press text.
 			var blinkAngle = cycle(20 * textBlinkTime, 0, 720);
@@ -243,7 +297,7 @@ void menu_core()
 			_menuPen.flags |= OUTLINE;
 			str_cpy(_menuText, "Press any key");
 			draw_obj(_menuPen);
-		
+			
 		}
 		else
 		{
@@ -251,42 +305,42 @@ void menu_core()
 		}
 		
 		draw_quad(
-			NULL,
-			vector(0, 0, 0),
-			NULL,
-			screen_size,
-			NULL,
-			COLOR_BLACK,
-			100 * _menu.fade,
-			0);
+		NULL,
+		vector(0, 0, 0),
+		NULL,
+		screen_size,
+		NULL,
+		COLOR_BLACK,
+		100 * _menu.fade,
+		0);
 		
-#ifdef MENU_DEBUG
-		draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
-		draw_text(str_for_num(NULL, idleTime), 72, 48, COLOR_RED);
-		draw_text(str_for_num(NULL, textBlinkTime), 128, 48, COLOR_RED);
-		
-		if(mouse_left)
-		{
-			VECTOR from, to;
-			vec_set(from, mouse_pos);
-			vec_set(to, mouse_pos);
-			from.z = 0;
-			to.z = 1000;
-			vec_for_screen(from, camera);
-			vec_for_screen(to, camera);
+		#ifdef MENU_DEBUG
+			draw_text(str_for_num(NULL, logoAlpha), 16, 48, COLOR_RED);
+			draw_text(str_for_num(NULL, idleTime), 72, 48, COLOR_RED);
+			draw_text(str_for_num(NULL, textBlinkTime), 128, 48, COLOR_RED);
 			
-			if(c_trace(from, to, IGNORE_PASSABLE | USE_POLYGON))
+			if(mouse_left)
 			{
-				diag(str_printf(
+				VECTOR from, to;
+				vec_set(from, mouse_pos);
+				vec_set(to, mouse_pos);
+				from.z = 0;
+				to.z = 1000;
+				vec_for_screen(from, camera);
+				vec_for_screen(to, camera);
+				
+				if(c_trace(from, to, IGNORE_PASSABLE | USE_POLYGON))
+				{
+					diag(str_printf(
 					NULL, 
 					"\n%d: %d %d %d", 
 					(int)_menu.currentStop, 
 					(int)target.x, 
 					(int)target.y, 
 					(int)target.z));
+				}
 			}
-		}
-#endif
+		#endif
 		
 		wait(1);
 	}
@@ -309,56 +363,61 @@ void _menu_item_init()
 	float blend = 0;
 	while(1)
 	{
-		VECTOR from, to;
-		vec_set(from, mouse_pos);
-		vec_set(to, mouse_pos);
-		from.z = 0;
-		to.z = 1000;
-		vec_for_screen(from, camera);
-		vec_for_screen(to, camera);
-		
-		var p = active;
-		active = 0;
-		vec_set(my.blue, COLOR_WHITE);
-		if(c_trace(from, to, IGNORE_MODELS | IGNORE_PASSABLE | USE_POLYGON))
-		{
-			if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
-			{
-				vec_set(my.blue, COLOR_BLUE);
-				active = 1;
-				if((mouse_left != down) && mouse_left && (my.event != NULL))
-				{
-					void fn();
-					fn = my.event;
-					fn();
-				}		
-			}
-		}
-		if((p != active) && active)
-		{
-			snd_play(sndMenuClick, 100, 0);
-		}
-		down = mouse_left;
-		
-		float blendSpeed = 0.1;
-		if(((_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop)) || (_menu.nextStop == my.skill1))
-		{
-			blend = clamp(blend + blendSpeed * time_step, 0, 1);
-		}
+		if(options_show) set(my,INVISIBLE);
 		else
 		{
-			blend = clamp(blend - blendSpeed * time_step, 0, 1);
+			reset(my,INVISIBLE);
+			VECTOR from, to;
+			vec_set(from, mouse_pos);
+			vec_set(to, mouse_pos);
+			from.z = 0;
+			to.z = 1000;
+			vec_for_screen(from, camera);
+			vec_for_screen(to, camera);
+			
+			var p = active;
+			active = 0;
+			vec_set(my.blue, COLOR_WHITE);
+			if(c_trace(from, to, IGNORE_MODELS | IGNORE_PASSABLE | USE_POLYGON))
+			{
+				if((you == me) && (_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop))
+				{
+					vec_set(my.blue, COLOR_BLUE);
+					active = 1;
+					if((mouse_left != down) && mouse_left && (my.event != NULL))
+					{
+						void fn();
+						fn = my.event;
+						fn();
+					}		
+				}
+			}
+			if((p != active) && active)
+			{
+				snd_play(sndMenuClick, 100, 0);
+			}
+			down = mouse_left;
+			
+			float blendSpeed = 0.1;
+			if(((_menu.currentStop == my.skill1) && (_menu.currentStop == _menu.nextStop)) || (_menu.nextStop == my.skill1))
+			{
+				blend = clamp(blend + blendSpeed * time_step, 0, 1);
+			}
+			else
+			{
+				blend = clamp(blend - blendSpeed * time_step, 0, 1);
+			}
+			
+			my.alpha = 100 * smootherstep(0, 1, blend);
 		}
-		
-		my.alpha = 100 * smootherstep(0, 1, blend);
-		
 		wait(1);
 	}
 }
 
 void menu_entity_trigger()
 {
-	menu_fade_and_trigger(_menu_stops[my.skill1]);
+	if(my.skill1 == 3) options_show = 1;
+	else menu_fade_and_trigger(_menu_stops[my.skill1]);
 }
 
 void menu_nav_next()
@@ -374,7 +433,7 @@ void menu_nav_prev()
 void menu_trigger()
 {
 	if(_menu.currentStop != _menu.nextStop)
-		return;
+	return;
 	menu_fade_and_trigger(_menu_stops[_menu.currentStop]);
 }
 
@@ -417,7 +476,7 @@ void menu_open()
 	on_space = menu_trigger;
 	on_cur = menu_nav_prev;
 	on_cul = menu_nav_next;
-    
+	
 	
 	level_load("level\\kingmorph.wmb");
 	

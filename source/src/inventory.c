@@ -1,7 +1,7 @@
 #ifndef _INVENTORY_C_
 #define _INVENTORY_C_
 
-Inventory* inv_create(BMAP* _bg) {
+Inventory* inv_create(BMAP* _bg, int width, int height) {
 	Inventory* inv = sys_malloc(sizeof(Inventory));
 	
 	int nInvItemsX = 0;
@@ -11,7 +11,7 @@ Inventory* inv_create(BMAP* _bg) {
 	inv.panel = pan_create("on_click = inv_on_click;", INV_PANEL_LAYER);
 	inv.panel.skill_x = inv;
 	if (_bg == NULL) {
-		inv.panel.bmap = bmap_createblack(INV_SIZE_X, INV_SIZE_Y, 24);
+		inv.panel.bmap = bmap_createblack(width, height, 24);
 		set(inv.panel, TRANSLUCENT);
 		inv.panel.alpha = 60;
 	} else {
@@ -87,10 +87,12 @@ void inv_hide(Inventory* _inv) {
 
 void inv_set_pos(Inventory* _inv, int _x, int _y) {
 	if (_inv != NULL) {
-		_inv.panel.pos_x = _x;
-		_inv.panel.pos_y = _y;
-		_inv.itemDescription.pos_x = _inv.panel.pos_x + INV_DESC_TEXT_POS_X;
-		_inv.itemDescription.pos_y = _inv.panel.pos_y + INV_DESC_TEXT_POS_Y;
+		if (_inv.panel != NULL) {
+			_inv.panel.pos_x = _x;
+			_inv.panel.pos_y = _y;
+			_inv.itemDescription.pos_x = _inv.panel.pos_x + INV_DESC_TEXT_POS_X;
+			_inv.itemDescription.pos_y = _inv.panel.pos_y + INV_DESC_TEXT_POS_Y;
+		}
 	}
 }
 
@@ -118,6 +120,11 @@ void inv_add_item(Inventory* _inv, Item* _item) {
    // an item description
    _item.inv = _inv;
 	_inv.count += 1;
+	
+	if (inv_is_visible(_inv) == 1) {
+		inv_hide(_inv);
+		inv_show(_inv);
+	}
 }
 
 void inv_remove_item(Inventory* _inv, Item* _item) {
@@ -274,7 +281,7 @@ void inv_item_enter(var _buttonNumber, PANEL* _panel) {
 					if (tempInv.itemDescription != NULL) {
 						// Show item description
 						set(tempInv.itemDescription, SHOW);
-						str_cpy((tempInv.itemDescription.pstring)[0], tempItem.description);
+						str_cpy((tempInv.itemDescription.pstring)[0], tempItem.name);
 					}
 				}
 			}

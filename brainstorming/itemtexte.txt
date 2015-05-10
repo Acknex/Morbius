@@ -1,9 +1,9 @@
 Chapter 1: Morbius' Büro
 
 Verschlossene Schublade
-    "Verdammt, die schublade ist abgeschlossen"
+    "Verdammt, die Schublade ist abgeschlossen"
     "Die schublade ist immernoch abgeschlossen"
-    "Wenn ich nichts versuche, dann bleibt die schublade auch weiterhin abgeschlossen"
+    "Wenn ich nichts versuche, dann bleibt die Schublade auch weiterhin abgeschlossen"
     "Vielleicht sollte ich den schlüssel finden mit dem ich diese ABGESCHLOSSENE schublade öffnen kann"
     
 Unzugänglichen Schlüssel
@@ -12,7 +12,7 @@ Unzugänglichen Schlüssel
     "Irgendwie muss ich meinen Gecko ablenken um an die schlüssel zu kommen"#
     
 Gecko
-    "Das ist mein Gecko, er war eine sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen kunden gepfändet habe"
+    "Das ist mein Gecko, er war eine Sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen kunden gepfändet habe"
     "Schau mich nicht so verzweifelnd an du reptil"
     
 Leere Taschenlampe
@@ -69,4 +69,43 @@ Leave
         "Ich möchte echt nicht ohne Visitenkarte gehen..."
         "Na gut, ich sollte mich auf den weg machen. Hoffentlich bereue ich es nicht meine visitenkarte mitzunehmen"
         [leave]
+    
+----------------------
+
+Chapter 2: Utopia HQ
+
+ENTER SCENE
+    "Das ist also der hauptsitz der Flight Embassy and Service Ground. Ich bin zwar kein Experte in Großunternehmen, aber das sieht mir nicht nach dem Ansitz eines Multi-Millionen unternehmens aus."
+    
+Leiche
+    "Ist das... eine Leiche?!"
+    "Armer kerl, wen hast du bloß verärgert um so zu enden?"
+    "GALEP Security... hmm war er ein bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen."
+    "Also ich glaube nicht dass ich so eine Leiche anfassen werde"
+    "[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
+    "ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen" (get münzen)
+    "Der hat nichts mehr"
+    
+Verrostete Tür
+    "Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach"
+    "Irgendwie sollte sich diese tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist."
+    
+WD40
+    "Wasserverdrängugsspray-40, der alltägliche helfer für alles. Wird mir bestimmt gelegen kommen."
+    
+Brechstange
+    "Eine Brechstange, kein wunder dass ich in dieser abgestandenen schabracke sowas finde."
+    
+COMBINE: wd40 + verrostete tür
+    "Ein bisschen Wasserverdrängugsspray-40 anwenden und abracadabra....! Sesam öffne dich!"
+    
+COMBINE: brechstange + verrostete tür
+    "Eine Brechstange ist meist genauso gut wie ein schlüssel, wenn nicht sogar noch besser!"
+    
+USE: Telefonzelle
+    "Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können"
+        
+COMBINE: Münze + Zugängliche Telefonzelle
+    First use: Dialog 1
+    Second use Dialog 2 -> Dann END SCENE
     

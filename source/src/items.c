@@ -1,5 +1,6 @@
 #include <acknex.h>
 #include "items.h"
+#include "hud.h"
 #include "xmlreader.h"
 #include "list.h"
 
@@ -105,7 +106,7 @@ int ITEM_interaction(ITEM* item, var* step)
 	
 	if (item == NULL)
 		return;
-	
+
 	*step = minv(*step, LIST_items(item->sequences) - 1);
 	if (*step >= 0)
 	{
@@ -114,6 +115,7 @@ int ITEM_interaction(ITEM* item, var* step)
 		{
 			snd_play(tmpSequence->snd_interact, ITEM_VOLUME, 0);
 		}
+		HUD_showDescription(tmpSequence->description);
 		//TODO: description handling
 
 		//get stuck on last step
