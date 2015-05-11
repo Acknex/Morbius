@@ -1,6 +1,6 @@
 #include <acknex.h>
 
-var EVENT__triggerId = -1;
+int EVENT__triggerId = -1;
 var EVENT__stop = 0;
 
 void EVENT__evaluate(int triggerId);
@@ -20,7 +20,7 @@ void EVENT__listener_startup()
 	/* a listener loop is used in order to decouple
 	 * every custom event trigger from any entity which
 	 * might be the trigger source.
-	 * Otherwise strang ebehaviiour may show up if the entity
+	 * Otherwise strange behaviour may show up if the entity
 	 * is removed.
 	 */
 	
@@ -45,19 +45,22 @@ void EVENT__evaluate(int triggerId)
 		{
 			//Items in drawer must be spawned or at least their position must be adapted
 			//otherwise they would be visible with locked drawer
+			//TODO: maybe solution for automation: allow parentId in XML?
 			error("TODO: trigger custom spawn revolver und visitenkarte");
-			//interActionItem_spawn(id, position);
+			//interactionItem_spawn(id, position);
+			//interactionItem_spawn(1, visitenkartepos);
+			//interactionItem_spawn(2, revolverpos);
 			break;
 		}
 		
-		//Telefonzelle -> Zugängliche benutzte Telefonzelle
+		//Zugängliche Telefonzelle -> Zugängliche benutzte Telefonzelle
 		case 41: //use existing item ids for additional functionality
 		{
 			error("TODO: custom Telefondialog1");
 			break;
 		}
 		
-		//Zugängliche benutzte Telefonzelle -> result
+		//Zugängliche benutzte Telefonzelle -> (invalid item id)
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
 			error("TODO: custom Telefondialog2");
