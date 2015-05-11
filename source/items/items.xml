@@ -75,12 +75,12 @@
 	
 	<!--Rosa Telefon//-->
 	<item id="14" name="Rosa Telefon" entfile="phone.mdl">
-		<sequence description="Das ist mein Patentiertes Rosa Designertelefon." sound="achievement1.wav"/>
+		<sequence description="Das ist mein patentiertes rosa Designertelefon." sound="achievement1.wav"/>
 	</item>
 	
 	<!--A3 Box//-->
 	<item id="15" name="Gamestudio Packung" entfile="a3_box.mdl">
-		<sequence description="A3, das erste programm das ich mir für meinen Laptop gekauft habe." sound="achievement1.wav"/>
+		<sequence description="A3, das erste Programm das ich mir für meinen Laptop gekauft habe." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Taschenlampe//-->
@@ -90,7 +90,7 @@
 	<!--Toter Guard//-->
 	<item id="17" name="Guard">
 		<sequence description="Ist das... eine Leiche?!" sound="achievement1.wav"/>
-		<sequence description="Armer Kerl, wen hast du bloß verärgert um so zu enden?" sound="collect.wav"/>
+		<sequence description="Armer Kerl, wen hast du bloß verärgert, um so zu enden?" sound="collect.wav"/>
 		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen." sound="collect.wav"/>
 		<sequence description="Also ich glaube nicht dass ich so eine Leiche anfassen werde." sound="collect.wav"/>
 		<sequence description="[stöhn] ... na gut, manchmal muss auch ein profesioneller Detektiv in der Not etwas unethisches tun.... hmmm in der linken Hosentasche ist nichts." sound="collect.wav"/>

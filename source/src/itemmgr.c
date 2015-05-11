@@ -5,6 +5,7 @@
 #include "inventory.h"
 #include "hud.h"
 #include "materials.h"
+#include "event.h"
 
 #define itemType skill1
 #define itemId skill2
@@ -44,6 +45,7 @@ action interactionItem()
 	my->itemType = TYPE_ITEM;
 	my->group = GROUP_ITEM;
 	
+	wait(1); //needed for interactionItem_spawn call to set my->itemId properly
 	//restore item state: start
 	if (my->itemId == -1)
 	{
@@ -116,6 +118,16 @@ action interactionItem()
 	ptr_remove(me);
 }
 
+//untested
+void interactionItem_spawn(int id, VECTOR* position)
+{
+	ITEM* item = ITEM_get(id);
+	if (item != NULL)	
+	{
+		you = ent_create(item->entfile, position, interactionItem);
+		your->itemId = id;
+	}
+}
 
 void interactionItem__clicked()
 {
@@ -144,6 +156,8 @@ void interactionItem__clicked()
 			//this way currently always successfully used item is destroyed. maybe set destroyable flag instead?
 			//by removing the item in hand here, items cannot be used multiple times
 			//itemInHand = NULL;
+			
+			//TODO: put itemInHand back to iventory
 			mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
 		
 
@@ -166,7 +180,7 @@ void interactionItem__clicked()
 				set(my, itemRemove);
 			}
 				
-			//TODO: trigger custom event
+			EVENT_trigger(resultId);
 		}
 		
 		//TODO: use inventory item on inventory item. This is not handled here!!				
@@ -184,7 +198,8 @@ void interactionItem__clicked()
 				Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
 				inv_add_item(inventory, resultIdItem);
 			}
-			//TODO: trigger custom event
+
+			EVENT_trigger(resultId);
 		}
 		
 		if (ITEM_isLastSequence(item) != 0) 
