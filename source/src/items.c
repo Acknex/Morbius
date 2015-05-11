@@ -133,8 +133,11 @@ int ITEM_interaction(ITEM* item)
 		{
 			snd_play(tmpSequence->snd_interact, ITEM_VOLUME, 0);
 		}
-		HUD_showDescription(tmpSequence->description);
-		//TODO: description handling
+		
+		if (tmpSequence->description != NULL)
+		{
+			HUD_showDescription(tmpSequence->description);
+		}
 
 		//get stuck on last step
 		if (item->progress < LIST_items(item->sequences))
@@ -171,17 +174,23 @@ void ITEM__copyFromXml(ITEM* item, XMLPAR* tag)
 		XMLATTRIB_getContent(attrib, str);
 	item->name = str;
 	
-	str = str_create("");
+	item->imgfile = NULL;
 	attrib = XMLATTRIB_getElementByAttribute(tag, "imgfile");
 	if (attrib != NULL)
+	{
+		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
-	item->imgfile = str;
+		item->imgfile = str;
+	}
 	
-	str = str_create("");
+	item->entfile = NULL;
 	attrib = XMLATTRIB_getElementByAttribute(tag, "entfile");
 	if (attrib != NULL)
+	{
+		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
-	item->entfile = str;
+		item->entfile = str;
+	}
 	
 	attrib = XMLATTRIB_getElementByAttribute(tag, "collectable");
 	if (attrib != NULL)

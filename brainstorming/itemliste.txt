@@ -45,6 +45,8 @@ ID      Name                            C   D
 39      Thermoskanne                   x   x
 40      Münzen                         x   
 41      Zugängliche benutzte Telefonzelle
+42      Buch Meister des Feuers
+43      Buch Downtown
 
 Custom Events
 4       Trigger Item Spawn Visitenkarte 1 und Revolver 2

@@ -126,8 +126,11 @@ void interactionItem_spawn(int id, VECTOR* position)
 	ITEM* item = ITEM_get(id);
 	if (item != NULL)	
 	{
-		you = ent_create(item->entfile, position, interactionItem);
-		your->itemId = id;
+		if (item->entfile != NULL)
+		{
+			you = ent_create(item->entfile, position, interactionItem);
+			your->itemId = id;
+		}
 	}
 }
 

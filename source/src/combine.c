@@ -88,8 +88,11 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 			if (tmpCombination->snd_interact != NULL)
 				snd_play(tmpCombination->snd_interact, COMBINE_VOLUME, 0);
 
-			HUD_showDescription(tmpCombination->description);
-			//TODO: description handling				
+			if (tmpCombination->description != NULL)
+			{
+				HUD_showDescription(tmpCombination->description);
+			}
+
 			*morphtargetId = tmpCombination->morphtargetId;
 			return tmpCombination->resultId;
 		}
@@ -136,11 +139,14 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 		combination->snd_interact = snd_create(XMLATTRIB_getPContent(attrib));
 	}
 
-	str = str_create("");
+	combination->description = NULL;
 	attrib = XMLATTRIB_getElementByAttribute(tag, "description");
 	if (attrib != NULL)
+	{
+		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
-	combination->description = str;
+		combination->description = str;
+	}
 	
 }
 
