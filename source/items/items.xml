@@ -80,7 +80,7 @@
 	
 	<!--A3 Box//-->
 	<item id="15" name="Gamestudio Packung" entfile="a3_box.mdl">
-		<sequence description="A3, das erste programm das ich mit für meinen Laptop gekauft habe." sound="achievement1.wav"/>
+		<sequence description="A3, das erste programm das ich mir für meinen Laptop gekauft habe." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Taschenlampe//-->

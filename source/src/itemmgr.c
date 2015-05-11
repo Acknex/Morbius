@@ -42,7 +42,7 @@ action interactionItem()
 {
 	set(my, INVISIBLE);
 	my->itemType = TYPE_ITEM;
-	my.group = GROUP_ITEM;
+	my->group = GROUP_ITEM;
 	
 	//restore item state: start
 	if (my->itemId == -1)
@@ -66,15 +66,16 @@ action interactionItem()
 	}
 	//restore item state: end
 
-	my.ENTITY_TYPE = TYPE_ITEM;
-	my.material = mat_item;
+	my->ENTITY_TYPE = TYPE_ITEM;
+	my->material = mat_item;
 	VECTOR vmin,vmax;
-	vec_for_min(vmin,my);
-	vec_for_max(vmax,my);
-	vec_scale(vmin,my.scale_x);
-	vec_scale(vmax,my.scale_x);
-	vec_sub(vmax,vmin);
-	my.skill41 = floatv(4.0/(1+vec_length(vmax)*0.1));
+	vec_for_min(vmin, my);
+	vec_for_max(vmax, my);
+	vec_scale(vmin, my->scale_x);
+	vec_scale(vmax, my->scale_x);
+	vec_sub(vmax, vmin);
+	my.skill41 = floatv(4.0 / (1 + vec_length(vmax) * 0.1));
+
 	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
 	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
@@ -137,7 +138,7 @@ void interactionItem__clicked()
 			if(handItem->destroyable != 0)
 			{
 				//remove from inventory
-				itemInHand = NULL;
+				itemInHand = NULL; //does this produce memory leak?
 			}				
 
 			//this way currently always successfully used item is destroyed. maybe set destroyable flag instead?
@@ -281,17 +282,12 @@ void interactionItem_morph(int targetId, int morphId)
 		return;
 	}
 
-//error(item->entfile);	
 	if ((item->entfile != NULL) && (ent != NULL))
 	{
 		ent_morph(ent, item->entfile);
 	}
-		//STRING* str = str_printf(NULL,"morph id %d", morphId);
-		//error(str);
 	ent->itemId = morphId;
 	ent->itemType = TYPE_ITEM;
-//		STRING* str = str_printf(NULL,"morph id %d", ent->itemId);
-//		error(str);
 }
 
 ENTITY* interactionItem__find(int id)
