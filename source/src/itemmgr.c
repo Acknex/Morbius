@@ -54,7 +54,7 @@ action interactionItem()
 		return;
 	}
 	
-	ITEM*	item = ITEM_get(my->itemId);
+	ITEM* item = ITEM_get(my->itemId);
 	if (item->wasRemoved != 0)
 	{
 		//wait(1);
@@ -62,9 +62,11 @@ action interactionItem()
 		return;
 	}
 	
-	if (item->wasMorphedTo != -1)
+	while (item->wasMorphedTo != -1)
 	{
+		//loop through all morph stages
 		interactionItem_morph(item->id, item->wasMorphedTo);
+		item = ITEM_get(my->itemId);
 	}
 	//restore item state: end
 
