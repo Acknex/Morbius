@@ -36,13 +36,13 @@ void itemmgr_init()
 	mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 }
 
-//skill1: ItemType 0
+//skill1: ItemType 1
 //skill2: ItemId -1
 action interactionItem()
 {
 	set(my, INVISIBLE);
 	my->itemType = TYPE_ITEM;
-	my.group = GROUP_ITEM;
+	my->group = GROUP_ITEM;
 	
 	//restore item state: start
 	if (my->itemId == -1)
@@ -66,15 +66,16 @@ action interactionItem()
 	}
 	//restore item state: end
 
-	my.ENTITY_TYPE = TYPE_ITEM;
-	my.material = mat_item;
+	my->ENTITY_TYPE = TYPE_ITEM;
+	my->material = mat_item;
 	VECTOR vmin,vmax;
-	vec_for_min(vmin,my);
-	vec_for_max(vmax,my);
-	vec_scale(vmin,my.scale_x);
-	vec_scale(vmax,my.scale_x);
-	vec_sub(vmax,vmin);
-	my.skill41 = floatv(4.0/(1+vec_length(vmax)*0.1));
+	vec_for_min(vmin, my);
+	vec_for_max(vmax, my);
+	vec_scale(vmin, my->scale_x);
+	vec_scale(vmax, my->scale_x);
+	vec_sub(vmax, vmin);
+	my.skill41 = floatv(4.0 / (1 + vec_length(vmax) * 0.1));
+
 	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
 	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
@@ -137,9 +138,12 @@ void interactionItem__clicked()
 			if(handItem->destroyable != 0)
 			{
 				//remove from inventory
+				itemInHand = NULL; //does this produce memory leak?
 			}				
 
-			itemInHand = NULL;
+			//this way currently always successfully used item is destroyed. maybe set destroyable flag instead?
+			//by removing the item in hand here, items cannot be used multiple times
+			//itemInHand = NULL;
 			mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
 		
 
@@ -161,6 +165,8 @@ void interactionItem__clicked()
 				ITEM_collect(item);
 				set(my, itemRemove);
 			}
+				
+			//TODO: trigger custom event
 		}
 		
 		//TODO: use inventory item on inventory item. This is not handled here!!				
@@ -172,17 +178,19 @@ void interactionItem__clicked()
 
 		if (resultId != ITEM_NONE)
 		{
-			//TODO add item with resultId to inventory
 			ITEM* itemToAdd = ITEM_get(resultId);
-			Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
-			inv_add_item(inventory, resultIdItem);
+			if (itemToAdd != NULL)
+			{
+				Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
+				inv_add_item(inventory, resultIdItem);
+			}
+			//TODO: trigger custom event
 		}
 		
 		if (ITEM_isLastSequence(item) != 0) 
 		{
 			if (item->collectable != 0)
 			{
-				//TODO: interaction
 				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, bmap_create(item->imgfile));
 				
 				inv_add_item(inventory, newItem);
@@ -274,17 +282,12 @@ void interactionItem_morph(int targetId, int morphId)
 		return;
 	}
 
-//error(item->entfile);	
 	if ((item->entfile != NULL) && (ent != NULL))
 	{
 		ent_morph(ent, item->entfile);
 	}
-		//STRING* str = str_printf(NULL,"morph id %d", morphId);
-		//error(str);
 	ent->itemId = morphId;
 	ent->itemType = TYPE_ITEM;
-//		STRING* str = str_printf(NULL,"morph id %d", ent->itemId);
-//		error(str);
 }
 
 ENTITY* interactionItem__find(int id)
