@@ -4,6 +4,7 @@
 #include "types.h"
 #include "inventory.h"
 #include "hud.h"
+#include "materials.h"
 
 #define itemType skill1
 #define itemId skill2
@@ -41,11 +42,12 @@ action interactionItem()
 {
 	set(my, INVISIBLE);
 	my->itemType = TYPE_ITEM;
+	my.group = GROUP_ITEM;
 	
 	//restore item state: start
 	if (my->itemId == -1)
 	{
-		wait(1);
+		//wait(1);
 		ptr_remove(me);
 		return;
 	}
@@ -53,7 +55,7 @@ action interactionItem()
 	ITEM*	item = ITEM_get(my->itemId);
 	if (item->wasRemoved != 0)
 	{
-		wait(1);
+		//wait(1);
 		ptr_remove(me);
 		return;
 	}
@@ -64,7 +66,16 @@ action interactionItem()
 	}
 	//restore item state: end
 
-	reset(my, INVISIBLE);
+	my.ENTITY_TYPE = TYPE_ITEM;
+	my.material = mat_item;
+	VECTOR vmin,vmax;
+	vec_for_min(vmin,my);
+	vec_for_max(vmax,my);
+	vec_scale(vmin,my.scale_x);
+	vec_scale(vmax,my.scale_x);
+	vec_sub(vmax,vmin);
+	my.skill41 = floatv(4.0/(1+vec_length(vmax)*0.1));
+	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
 	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
 	

@@ -79,28 +79,19 @@ var get_nearest_path_point(ENTITY* ent, char* pathname)
 }
 
 void moveCameraSpline() {
-	// Calculate procentual difference between level min/max
-	/*cameraPathPlayerPos = player.x - vecSplineCamMin.x;
-	cameraPathPlayerPos = cameraPathPlayerPos / (vec_dist(vecSplineCamMax.x, vecSplineCamMin.x) + 0.0001); // Avoid 0 division
-	cameraPathPlayerPos = cameraPathPlayerPos * cameraPathLength;
+	VECTOR temp;
 	
-	if (cameraPathPlayerPos < 0) {
-		cameraPathPlayerPos = cameraPathPlayerPos * -1;
-	}*/
-	
-	cameraPathPlayerPos = get_nearest_path_point(player, "path_000");
-	cameraPathPlayerPos = (cameraPathPlayerPos + cameraPathPlayerPosOld) / 2;
-	
-	path_spline(entCameraPathEntity, camera.x, cameraPathPlayerPos);
-	
-	cameraPathPlayerPosOld = cameraPathPlayerPos;
-	
-	// path_spline(entCameraPathEntity, camera.x, cameraPathPlayerPos);
-	
+	cameraPathPlayerPos += clamp((get_nearest_path_point(player, "path_000")-cameraPathPlayerPos)*0.25,-16,16)*time_step;
+	path_spline(entCameraPathEntity, temp, cameraPathPlayerPos);
+	vec_lerp(camera.x,camera.x,temp,0.125*time_step);
+	//cameraPathPlayerPosOld = cameraPathPlayerPos;
+
 	// Look at the player
-	vec_set(vecCameraTemp.x, player.x);
+	vec_set(vecCameraTemp.x, vector(player.x,player.y,player.z+48));
 	vec_sub(vecCameraTemp.x, camera.x);
-	vec_to_angle(camera.pan, vecCameraTemp);
+	vec_to_angle(temp, vecCameraTemp);
+	camera.pan += ang(temp.x-camera.pan)*0.35*time_step;
+	camera.tilt += ang(temp.y-camera.tilt)*0.35*time_step;
 }
 
 void moveCameraAxis(int axis) {

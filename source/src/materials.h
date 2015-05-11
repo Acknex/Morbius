@@ -1,9 +1,23 @@
+#ifndef MATERIALS_H
+#define MATERIALS_H
 ///////////////////////////////////////////
 // Materials
 
 MATERIAL* mat_cloud =
 {
 	effect = "cloud.fx";
+	flags = AUTORELOAD;
+}
+
+MATERIAL* mat_character =
+{
+	effect = "character.fx";
+	flags = AUTORELOAD;
+}
+
+MATERIAL* mat_item =
+{
+	effect = "item.fx";
 	flags = AUTORELOAD;
 }
 
@@ -24,3 +38,4 @@ VIEW* pp_level_change_transition =
 
 ///////////////////////////////////////////
 //
+#endif

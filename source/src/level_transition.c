@@ -1,11 +1,23 @@
 var level_change_transition(var in)
 {
+	VIEW* view_stage;
 	level_change_transition_progress = clamp(level_change_transition_progress+in*8*time_step,0,100);
 	if(level_change_transition_progress > 0)
 	{
+		if(camera.stage != pp_level_change_transition)
+		{
+		view_stage = camera.stage;
 		camera.stage = pp_level_change_transition;
+		pp_level_change_transition.stage = view_stage;
 	}
-	else camera.stage = NULL;
+	}
+	else
+	{
+		if(camera.stage == pp_level_change_transition)
+		{
+			camera.stage = pp_level_change_transition.stage;
+		}
+	}
 	
 	return level_change_transition_progress;
 }
