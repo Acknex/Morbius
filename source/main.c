@@ -22,10 +22,11 @@
 
 #define DEBUG
 #ifdef DEBUG
-#include <default.c>
+	#include <default.c>
 #endif
 
 void main() {
 	sys_init(); // system.c
 	menu_open(); // menu.c
+	pp_set(camera,mtl_hdr);
 }

@@ -14,7 +14,7 @@
 #define TYPE_ITEM 1
 #define TYPE_DYNAMIC_CAMERA 2
 #define TYPE_LEVEL_GATE 3
-#define TYPE_POINTEREST 4
+#define TYPE_POINTEREST 4 // (point of interest)
 
 #define TYPE_ITEM_DEFAULT 0
 #define TYPE_ITEM_GRAB 1
@@ -27,6 +27,7 @@
 
 // Groups
 #define GROUP_CURSOR_HELPER 10
+#define GROUP_ITEM 11
 
 // Macros
 #define pSMARTWALK(pointer) ((SMARTWALK*)pointer)

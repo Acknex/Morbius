@@ -18,11 +18,13 @@ action player_act()
 	c_trace(my.x,vector(my.x,my.y,my.z-256),USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 	my.z = target.z+0;
 	reset(my,INVISIBLE);
+	my.material = mat_character;
 	player = me;
 	c_setminmax(my);
 	vec_fill(my.min_x,-16);
 	vec_fill(my.max_x,16);
 	vec_set(my.target_x,my.x);
+		while(!inventory || !is_level_loaded()) wait(1);
 	while(1)
 	{
 		VECTOR temp;
@@ -38,20 +40,20 @@ action player_act()
 			if (itemInHand == NULL) { 
 				if(your.ENTITY_TYPE == TYPE_ITEM || your.ENTITY_TYPE == TYPE_LEVEL_GATE) {
 					mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
-				} else {
+					} else {
 					mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 				}
 			}
-		} else {
+			} else {
 			mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 		}
 		if(mouse_left)
 		{
-			if(mouse_left_off && input_fetch)
+			if(mouse_left_off && input_fetch && mouse_pos.y < inventory.panel.pos_y) //screen_size.y-128
 			{
 				mouse_left_off = 0;
-		c_ignore(GROUP_CURSOR_HELPER,0);
-		c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
+				c_ignore(GROUP_CURSOR_HELPER,0);
+				c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 				if(trace_hit)
 				{
 					if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
@@ -72,6 +74,7 @@ action player_act()
 			var dist = vec_limit(temp,5.25*time_step);
 			//c_move(me,nullvector,temp,IGNORE_PASSABLE | GLIDE);
 			vec_add(my.x,temp);
+				c_ignore(GROUP_CURSOR_HELPER,GROUP_ITEM,0);
 			c_trace(vector(my.x,my.y,my.z+48),vector(my.x,my.y,my.z-256),USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 			my.z += (target.z+2-my.z)*time_step;
 			my.skill20 += dist*1.41;
@@ -109,7 +112,7 @@ action player_act()
 			my.skill62 = 0;
 			for(you = ent_next(NULL); you; you = ent_next(you))
 			{
-				if(your.ENTITY_TYPE == TYPE_POINTEREST)
+				if(your.ENTITY_TYPE == TYPE_POINTEREST || your.ENTITY_TYPE == TYPE_ITEM)
 				{
 					var dist = vec_dist(vector(my.x,my.y,my.z+40),your.x);
 					if(dist < my.skill61)
@@ -120,22 +123,10 @@ action player_act()
 				}
 			}
 		}
-			VECTOR dir,vang,temp;
+		VECTOR dir,vang,temp;
 		if(my.skill62)
 		{
 			you = (ENTITY*)my.skill62;
-			/*vec_for_bone(tpos,my,"Joint_3_5");
-			ang_for_bone(tang,my,"Joint_3_5");
-			vec_diff(dir,your.x,tpos);
-			vec_to_angle(vang,dir);
-			ang_diff(dir,vang,my.pan);
-			if(abs(ang(dir.x)) < 60)
-			{
-				dir.z = 0;
-				dir.x = clamp(ang(dir.x),-45,45);
-				dir.y = clamp(-ang(dir.y),-45,45);
-				ent_bonerotate(my,"Joint_3_5",dir);
-			}*/
 			vec_set(temp,your.x);
 			vec_to_ent(temp,my);
 			if(temp.x < 0) vec_scale(my.skill36,1-0.5*time_step);
