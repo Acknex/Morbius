@@ -44,14 +44,12 @@ ID      Name                            C   D
 38      Griechin
 39      Thermoskanne                   x   x
 40      Münzen                         x   
-41      Tür Morbius Büro
-42      Zugängliche benutzte Telefonzelle
+41      Zugängliche benutzte Telefonzelle
 
 Custom Events
 4       Trigger Item Spawn Visitenkarte 1 und Revolver 2
-20      Trigger Dialog1 (Münze auf Telefonzelle 40/19)
+42      Trigger Dialog1 (Münze auf Telefonzelle 40/19)
 1001    Trigger Dialog2 (Münze auf Telefonzelle 40/19)
-1002    Trigger Leve Morbius Büro (klick auf Item 41)
 
 
 Kombinationsliste
@@ -70,8 +68,8 @@ ID1 ID2     TargetID    ResultID
 
 33  34      34          35
 35  37      35          36
-40  19      19          42
-40  42      -1          1001
+40  19      19          41
+40  41      -1          1001
 
 
 Kombinationsfall Problem:

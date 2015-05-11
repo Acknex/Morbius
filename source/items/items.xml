@@ -41,7 +41,7 @@
 	</item>
 	
 	<!--Batterien//-->
-	<item id="8" name="Batterien" collectable="yes" imgfile="batterien.tga">
+	<item id="8" name="Batterien" collectable="yes" entfile="battery.mdl" imgfile="batterien.tga">
 	</item>
 
 	<!--Fernbedienung//-->
@@ -52,7 +52,7 @@
 	</item>
 	
 	<!--Laptop//-->
-	<item id="10" name="Laptop">
+	<item id="10" name="Laptop" entfile="laptop.mdl">
 		<sequence description="Mein Laptop, digital soll angeblich die Zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen Platz." sound="achievement1.wav"/>
 	</item>
 	
@@ -69,17 +69,17 @@
 	</item>
 	
 	<!--IKEA Regal//-->
-	<item id="13" name="IKEA Regal">
+	<item id="13" name="IKEA Regal" entfile="regal.mdl">
 		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Rosa Telefon//-->
-	<item id="14" name="Rosa Telefon">
+	<item id="14" name="Rosa Telefon" entfile="phone.mdl">
 		<sequence description="Das ist mein Patentiertes Rosa Designertelefon." sound="achievement1.wav"/>
 	</item>
 	
 	<!--A3 Box//-->
-	<item id="15" name="Gamestudio Packung">
+	<item id="15" name="Gamestudio Packung" entfile="a3_box.mdl">
 		<sequence description="A3, das erste programm das ich mit für meinen Laptop gekauft habe." sound="achievement1.wav"/>
 	</item>
 	
@@ -99,36 +99,36 @@
 	</item>
 	
 	<!--Unzugängliche Telefonzelle//-->
-	<item id="18" name="Telefonzelle" destroyable="yes">
+	<item id="18" name="Telefonzelle" entfile="tardis_body.mdl" destroyable="yes">
 	</item>
 	
 	<!--Telefonzelle//-->
-	<item id="19" name="Telefonzelle">
-		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." entfile="battery.mdl" sound="achievement1.wav"/>
+	<item id="19" name="Telefonzelle" entfile="tardis_body.mdl">
+		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" imgfile="wd40.tga">
-		<sequence description="Wasserverdrängugsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="achievement1.wav"/>
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" entfile="wd40.mdl" imgfile="wd40.tga">
+		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Verrostete Telefonzellentür//-->
-	<item id="21" name="Verrostete Telefonzellentür" destroyable="yes">
+	<item id="21" name="Verrostete Telefonzellentür" entfile="tardis_door.mdl" destroyable="yes">
 		<sequence description="Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach." sound="achievement1.wav"/>
 		<sequence description="Irgendwie sollte sich diese Tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes" imgfile="brechstange.tga">
+	<item id="22" name="Brechstange" collectable="yes" entfile="crowbar.mdl" imgfile="brechstange.tga">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Gulli//-->
-	<item id="23" name="Gulli">
+	<item id="23" name="Gulli" entfile="gulli.mdl">
 	</item>
 	
 	<!--Mülltonne//-->
-	<item id="24" name="Mülltonne">
+	<item id="24" name="Mülltonne" entfile="muell.mdl">
 	</item>
 	
 	<!--Stock des Warlocks//-->
@@ -195,6 +195,11 @@
 	<item id="40" name="Münzen" collectable="yes" imgfile="muenzen.tga">
 		<sequence description="Geiles Geld" sound="achievement1.wav"/>
 	</item>
+
+	<!--Telefonzelle benutzt//-->
+	<item id="41" name="Telefonzelle" entfile="tardis_body.mdl">
+		<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..." sound="achievement1.wav"/>
+	</item>
 </items>
 <combinations>
 	<combination id1="12" id2="3" morphtarget="3" description="Sesam öffne dich!" result="4">Schubladenschlüssel mit Abgeschlossene Schublade</combination>
@@ -207,5 +212,6 @@
 	<combination id1="30" id2="23" result="31">Stock mit Angelhaken mit Gulli</combination>
 	<combination id1="33" id2="34" morphtarget="34" result="35">Bonzai Zuckerrohr mit Topf</combination>
 	<combination id1="35" id2="37" morphtarget="35" result="36">Topf mit Zuckerrohr mit Herd</combination>
-	<combination id1="40" id2="19" description="[Ring Ring]">Dialog Trigger</combination>
+	<combination id1="40" id2="19" morphtarget="19" result="41" description="[Ring Ring]">Dialog Trigger1</combination>
+	<combination id1="40" id2="41" result="1001" description="[Ring Ring]">Dialog Trigger2</combination>
 </combinations>
