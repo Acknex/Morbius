@@ -187,6 +187,13 @@ void interactionItem__clicked()
 				
 			EVENT_trigger(resultId);
 		}
+		else
+		{
+			//TODO: play random fail sound
+			//snd_play(...);
+			//TODO: show random fail message
+			//HUD_showDescription(msg);			
+		}
 		
 		//TODO: use inventory item on inventory item. This is not handled here!!				
 	}
