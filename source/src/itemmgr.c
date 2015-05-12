@@ -152,17 +152,10 @@ void interactionItem__clicked()
 		if (resultId != ITEM_NONE)
 		{
 			//item in inventory
-			if(handItem->destroyable != 0)
+			if(handItem->destroyable == 0)
 			{
-				//remove from inventory
-				itemInHand = NULL; //does this produce memory leak?
+				inv_add_item(inventory, itemInHand);
 			}				
-
-			//this way currently always successfully used item is destroyed. maybe set destroyable flag instead?
-			//by removing the item in hand here, items cannot be used multiple times
-			//itemInHand = NULL;
-			
-			//TODO: put itemInHand back to iventory
 			mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
 		
 
@@ -174,7 +167,11 @@ void interactionItem__clicked()
 			}
 			else
 			{
+				//UNTESTED
 				//create new inventory item with resultId;
+				ITEM* itemToAdd = ITEM_get(resultId);
+				Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
+				inv_add_item(inventory, resultIdItem);
 			}			
 
 			//item in world
@@ -189,11 +186,13 @@ void interactionItem__clicked()
 		}
 		else
 		{
+			inv_add_item(inventory, itemInHand);
 			//TODO: play random fail sound
 			//snd_play(...);
 			//TODO: show random fail message
 			//HUD_showDescription(msg);			
 		}
+		itemInHand = NULL;
 		
 		//TODO: use inventory item on inventory item. This is not handled here!!				
 	}
