@@ -16,7 +16,7 @@ ID      Name                            C   D
 13      IKEA Regal                      
 14      Rosa Telefon
 15      A3 Box          
-16      Taschenlampe
+16      Taschenlampe                    x
 
 17      Toter Guard
 18      Unzugängliche Telefonzelle          x
