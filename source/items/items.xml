@@ -119,7 +119,7 @@
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes" entfile="crowbar.mdl" imgfile="brechstange.tga">
+	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" entfile="crowbar.mdl" imgfile="brechstange.tga">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="achievement1.wav"/>
 	</item>
 	
