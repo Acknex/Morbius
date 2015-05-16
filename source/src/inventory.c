@@ -250,12 +250,70 @@ void inv_show_items(Inventory* _inv) {
 void inv_item_click(var _buttonNumber, PANEL* _panel) {
 	if (_panel != NULL) {
 		
-		if (itemInHand != NULL) { // Does the player carry an item in his hand?
-			inv_add_item(itemInHand.inv,itemInHand);
+		if (itemInHand != NULL) { // Does the player carry an item in his hand? -> combine
+		
+		
+			// TODO: Copy paste from itemmgr.c UNTESTED
+			Item* item = (Item*)_panel.skill_x;
+			int targetId;
+			int resultId;
+			resultId = COMBINATION_combine(itemInHand->id, item->id, &targetId);
+			ITEM* handItem = ITEM_get(itemInHand->id);
+
+			if (resultId != ITEM_NONE)
+			{
+				//item in inventory
+				if(handItem->destroyable == 0)
+				{
+					inv_add_item(inventory, itemInHand);
+				}				
+				mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+			
+	
+				//morph defined target item
+				if (targetId != ITEM_NONE)
+				{
+					interactionItem_morph(targetId, resultId);
+					//TODO inventory morph
+				}
+				else
+				{
+					//UNTESTED
+					//create new inventory item with resultId;
+					ITEM* itemToAdd = ITEM_get(resultId);
+					Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
+					inv_add_item(inventory, resultIdItem);
+				}			
+	
+				//item in world
+				ITEM* myItem = ITEM_get(my->itemId);
+				if(myItem->destroyable != 0)
+				{
+					ITEM_collect(item);
+					set(my, itemRemove);
+				}
+					
+				EVENT_trigger(resultId);
+			}
+			else
+			{
+				inv_add_item(inventory, itemInHand);
+				//TODO: play random fail sound
+				//snd_play(...);
+				//TODO: show random fail message
+				//HUD_showDescription(msg);			
+			}
 			inv_hide(itemInHand.inv);
 			inv_show(itemInHand.inv);
 			itemInHand = NULL;
 			mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
+			
+					
+			/*inv_add_item(itemInHand.inv,itemInHand);
+			inv_hide(itemInHand.inv);
+			inv_show(itemInHand.inv);
+			itemInHand = NULL;
+			mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];*/
 		} else {
 			if (_panel.skill_x != NULL) { // The reference between panel and item is created using skill_x
 				Item* tempItem = (Item*)_panel.skill_x;

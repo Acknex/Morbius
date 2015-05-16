@@ -24,9 +24,12 @@ action player_act()
 	vec_fill(my.min_x,-16);
 	vec_fill(my.max_x,16);
 	vec_set(my.target_x,my.x);
-		while(!inventory || !is_level_loaded()) wait(1);
+	while(!inventory || !is_level_loaded()) wait(1);
 	while(1)
 	{
+		
+		// If instant level change is done, wait
+		while(player_may_walk == 0) wait(1);
 		VECTOR temp;
 		vec_set(temp,mouse_dir3d);
 		vec_scale(temp,9000);
@@ -34,19 +37,7 @@ action player_act()
 		c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 		//TODO: take care of: item in hand
 		
-		// mouse_map = bmp_cursor_array[TYPE_ITEM_POINT]; // was _DEFAULT
-		if(you)
-		{
-			if (itemInHand == NULL) { 
-				if(your.ENTITY_TYPE == TYPE_ITEM || your.ENTITY_TYPE == TYPE_LEVEL_GATE) {
-					mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
-					} else {
-					mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
-				}
-			}
-			} else {
-			mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
-		}
+	
 		if(mouse_left)
 		{
 			if(mouse_left_off && input_fetch && mouse_pos.y < inventory.panel.pos_y) //screen_size.y-128

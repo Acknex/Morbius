@@ -2,6 +2,7 @@
 #define TYPES_H
 
 // Entity Skills
+#define DOUBLE_CLICK_TIME skill89 // Saves ticks to last click to simulate a double click
 #define target_x skill90
 #define target_y skill91
 #define target_z skill92

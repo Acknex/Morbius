@@ -1,3 +1,5 @@
+#include "player.h"
+
 var level_change_transition(var in)
 {
 	VIEW* view_stage;
@@ -42,6 +44,7 @@ void level_change(var level_id, var gate_id)
 	while(level_change_transition(-1) > 0) wait(1);
 	input_fetch = 1;
 	level_loaded = 1;
+	player_may_walk = 1;
 }
 
 var is_level_loaded()
@@ -62,6 +65,26 @@ action sky_color_fog_act()
 	camera.fog_end = my.skill5;
 	fog_color = my.skill6;
 	ptr_remove(me);
+}
+
+void level_gate_event() {
+	if (event_type == EVENT_TOUCH) {
+		mouse_map = bmp_cursor_array[TYPE_ITEM_EXIT];
+	}
+	
+	if (event_type == EVENT_RELEASE) {
+		mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
+	}
+	
+	if (event_type == EVENT_CLICK) {
+		if (my.DOUBLE_CLICK_TIME >= 100) {
+			// Double clicked
+			player_may_walk = 0;
+			level_change(integer(my.skill2*0.01),my.skill2); // Instant level change
+		} else {
+			my.DOUBLE_CLICK_TIME = 110;
+		}
+	}
 }
 
 //skill1: this_id 0
@@ -86,7 +109,12 @@ action level_gate()
 	my.skill11 = minv(temp.y,temp2.y);
 	my.skill12 = maxv(temp.x,temp2.x);
 	my.skill13 = maxv(temp.y,temp2.y);
-	set(my,INVISIBLE | POLYGON); //TRANSLUCENT
+	set(my, POLYGON | TRANSLUCENT); //TRANSLUCENT
+	my.alpha = 0;
+	
+	my.event = level_gate_event;
+	my.emask = ENABLE_TOUCH | ENABLE_CLICK | ENABLE_RELEASE;
+	
 	while(1)
 	{
 		if(player)
@@ -96,6 +124,10 @@ action level_gate()
 				level_change(integer(my.skill2*0.01),my.skill2);
 				break;
 			}
+		}
+		
+		if (my.DOUBLE_CLICK_TIME > 0) {
+			my.DOUBLE_CLICK_TIME -=1 * time_step;
 		}
 		wait(1);
 	}
@@ -115,5 +147,5 @@ void level_change_set_player_position(ENTITY* ent_pl)
 			}
 		}
 	}
-	
 }
+
