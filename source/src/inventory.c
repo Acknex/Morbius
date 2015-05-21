@@ -252,8 +252,6 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 		
 		if (itemInHand != NULL) { // Does the player carry an item in his hand? -> combine
 		
-		
-			// TODO: Copy paste from itemmgr.c UNTESTED
 			Item* item = (Item*)_panel.skill_x;
 			int targetId;
 			int resultId;
@@ -296,8 +294,6 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 						if (searchItem != NULL)
 						{
 							inv_remove_item(searchItem.inv,searchItem);
-							inv_hide(searchItem.inv);
-							inv_show(searchItem.inv);
 						}
 					}
 					//create new inventory item with resultId;
@@ -310,8 +306,6 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 				if(myItem->destroyable != 0)
 				{
 					inv_remove_item(item.inv,item);
-					inv_hide(item.inv);
-					inv_show(item.inv);
 				}
 					
 				EVENT_trigger(resultId);
