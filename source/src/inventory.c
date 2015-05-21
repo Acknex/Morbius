@@ -280,7 +280,6 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 						//this is only triggered if a targetId for a morph was specified
 						//for inventory normally this can be solved in the xml markup without morphing but for convenience
 						//it should be supported.
-						//TODO: allow morphing of itemInHand
 
 						//I will go to hell for this...
 						Item* searchItem = NULL;

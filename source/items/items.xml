@@ -132,11 +132,13 @@
 	</item>
 	
 	<!--Stock des Warlocks//-->
-	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" imgfile="zauberstab.tga">
+	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" imgfile="zaubererstab.tga">
+		<sequence description="Stock des Warlocks Dummysequence." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Angelhaken//-->
 	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes" imgfile="angelhaken.tga">
+		<sequence description="Angelhaken Dummysequence." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Gaffer Tape//-->
@@ -148,11 +150,11 @@
 	</item>
 	
 	<!--Wackliger Stock mit Angelhaken//-->
-	<item id="29" name="Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="zauberstab_haken_wackelig.tga">
+	<item id="29" name="Wackliger Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="zaubererstab_haken_wacklig.tga">
 	</item>
 	
 	<!--Geklebter Stock mit Angelhaken//-->
-	<item id="30" name="Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="zaubererstab_haken_tape.tga">
+	<item id="30" name="Geklebter Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="zaubererstab_haken_tape.tga">
 	</item>
 	
 	<!--Versiffte Geldbörse//-->
