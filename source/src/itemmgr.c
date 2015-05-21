@@ -158,25 +158,28 @@ void interactionItem__clicked()
 			}				
 			mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
 		
-
-			//morph defined target item
-			if (targetId != ITEM_NONE)
+			//only perform morph and inventory actions if resultId points to real item
+			//fake resultIds may be used to trigger custom events
+			ITEM* resultItem = ITEM_get(resultId);
+			if (resultItem != NULL)
 			{
-				interactionItem_morph(targetId, resultId);
-				//TODO inventory morph
+				if (targetId != ITEM_NONE)
+				{
+					//morph defined target item
+					interactionItem_morph(targetId, resultId);
+					//TODO inventory morph
+				}
+				else
+				{
+					//UNTESTED
+					//create new inventory item with resultId;
+					Item *resultIdItem = inv_create_item(resultId, resultItem->name, "Item description", 0, bmap_create(resultItem->imgfile));
+					inv_add_item(inventory, resultIdItem);
+				}			
 			}
-			else
-			{
-				//UNTESTED
-				//create new inventory item with resultId;
-				ITEM* itemToAdd = ITEM_get(resultId);
-				Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
-				inv_add_item(inventory, resultIdItem);
-			}			
-
+	
 			//item in world
-			ITEM* myItem = ITEM_get(my->itemId);
-			if(myItem->destroyable != 0)
+			if (item->destroyable != 0)
 			{
 				ITEM_collect(item);
 				set(my, itemRemove);
@@ -265,7 +268,14 @@ void interactionItem__eventHandler()
 			}
 			else
 			{
-				mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+				if (item->collectable != 0)
+				{
+					mouse_map = bmp_cursor_array[TYPE_ITEM_GRAB];
+				}
+				else
+				{
+					mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+				}
 			}
 		}
 	}
