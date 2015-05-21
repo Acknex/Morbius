@@ -6,6 +6,7 @@
 #include "hud.h"
 #include "materials.h"
 #include "event.h"
+#include "player.h"
 
 #define itemType skill1
 #define itemId skill2
@@ -99,6 +100,12 @@ action interactionItem()
 				if(vec_dist(player->x, my->x) < ITEM_MINPLAYERDIST)
 				{
 					interactionItem__clicked();
+					reset(my, itemWasClicked);					
+				}
+				if (Player_getLastClickedEnt() != me)
+				{
+					//error("new click done");
+					reset(my, itemWasClicked);					
 				}
 			}
 			else 
@@ -107,7 +114,6 @@ action interactionItem()
 				interactionItem__clicked();
 			}
 			
-			reset(my, itemWasClicked);
 		}
 		wait(1);
 	}
@@ -244,10 +250,7 @@ void interactionItem__eventHandler()
 		
 	if (event_type == EVENT_CLICK)
 	{
-		STRING* str = str_printf(NULL,"item id %d", (int)my->itemId);
-		//error(str);
-		draw_text(str, 50,50, vector(255,255,255));
-		wait(1);
+		//wait(1);
 		set(my, itemWasClicked);
 	}
 	

@@ -4,6 +4,8 @@
 #include "itemmgr.h"
 #include "inventory.h"
 
+ENTITY* lastClickedEnt = NULL;
+
 action point_of_inter()
 {
 	set(my,INVISIBLE | PASSABLE);
@@ -44,7 +46,9 @@ action player_act()
 			{
 				mouse_left_off = 0;
 				c_ignore(GROUP_CURSOR_HELPER,0);
+				you = NULL;
 				c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
+				lastClickedEnt = you; //store entity which was clicked last
 				if(trace_hit)
 				{
 					if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
@@ -139,4 +143,7 @@ action player_act()
 	}
 }
 
-
+ENTITY* Player_getLastClickedEnt()
+{			
+	return lastClickedEnt;
+}

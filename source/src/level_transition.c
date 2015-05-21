@@ -1,4 +1,5 @@
 #include "player.h"
+#include "camera.h"
 
 var level_change_transition(var in)
 {
