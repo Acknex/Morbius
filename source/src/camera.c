@@ -1,5 +1,5 @@
-#ifndef DIALOGS_C
-#define DIALOGS_C
+#ifndef CAMERA_C
+#define CAMERA_C
 
 #include "types.h"
 

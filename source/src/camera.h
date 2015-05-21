@@ -1,5 +1,5 @@
-#ifndef DIALOGS_H
-#define DIALOGS_H
+#ifndef CAMERA_H
+#define CAMERA_H
 
 #define CAMERA_TYPE_FIXED_FOLLOW 0
 #define CAMERA_TYPE_SPLINE 1
