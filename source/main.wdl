@@ -2,7 +2,6 @@ PATH "sounds";
 PATH "media";
 PATH "src";
 PATH "models";
-PATH "dialogs";
 PATH "graphics\\cursors";
 PATH "graphics\\items";
 PATH "graphics\\textures";
