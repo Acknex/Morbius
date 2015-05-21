@@ -15,8 +15,8 @@ void startGame()
 {
 	me = NULL;
 	proc_mode = PROC_GLOBAL;
-	ITEM_load("items\\items.xml"); // items.h
-	COMBINATION_load("items\\items.xml"); // combine.h
+	ITEM_load("xml\\items.xml"); // items.h
+	COMBINATION_load("xml\\items.xml"); // combine.h
 	level_change(0,-1);
 	while(!is_level_loaded()) wait(1);
 	inventory = inv_create(NULL, screen_size.x, 80);
