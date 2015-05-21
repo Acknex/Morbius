@@ -26,7 +26,8 @@
 #endif
 
 void main() {
+	d3d_antialias = 9;
 	sys_init(); // system.c
 	menu_open(); // menu.c
-	pp_set(camera,mtl_hdr);
+	//pp_set(camera,mtl_hdr);
 }
