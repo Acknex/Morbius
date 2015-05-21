@@ -265,32 +265,54 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 				//item in inventory
 				if(handItem->destroyable == 0)
 				{
-					inv_add_item(inventory, itemInHand);
+					inv_add_item(item.inv, itemInHand);
 				}				
 				mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
 			
 	
-				//morph defined target item
-				if (targetId != ITEM_NONE)
+				ITEM* resultItem = ITEM_get(resultId);
+				if (resultItem != NULL)
 				{
-					interactionItem_morph(targetId, resultId);
-					//TODO inventory morph
-				}
-				else
-				{
-					//UNTESTED
+					//morph defined target item
+					//inventory does not need morphing -> just drop item with targetId and add new item with resultId
+					if (targetId != ITEM_NONE)
+					{
+						//this is only triggered if a targetId for a morph was specified
+						//for inventory normally this can be solved in the xml markup without morphing but for convenience
+						//it should be supported.
+						//TODO: allow morphing of itemInHand
+
+						//I will go to hell for this...
+						Item* searchItem = NULL;
+						Inventory* tempInv = (Inventory*)item.inv;
+						tempInv.itr = tempInv.head;
+						while(tempInv.itr != NULL)
+						{
+							searchItem = (Item*)tempInv.itr.panel.skill_x;
+							if (searchItem.id == targetId) 
+								break;
+							inv_increate_iterator(item.inv);
+						}
+
+						if (searchItem != NULL)
+						{
+							inv_remove_item(searchItem.inv,searchItem);
+							inv_hide(searchItem.inv);
+							inv_show(searchItem.inv);
+						}
+					}
 					//create new inventory item with resultId;
-					ITEM* itemToAdd = ITEM_get(resultId);
-					Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
+					//item->imgfile should be tested for file existance or NULL before usage here. wrong file names will cause strange error messages
+					Item *resultIdItem = inv_create_item(resultId, resultItem->name, "Item description", 0, bmap_create(resultItem->imgfile));
 					inv_add_item(inventory, resultIdItem);
-				}			
+				}		
 	
-				//item in world
-				ITEM* myItem = ITEM_get(my->itemId);
+				ITEM* myItem = ITEM_get(item->id);
 				if(myItem->destroyable != 0)
 				{
-					ITEM_collect(item);
-					set(my, itemRemove);
+					inv_remove_item(item.inv,item);
+					inv_hide(item.inv);
+					inv_show(item.inv);
 				}
 					
 				EVENT_trigger(resultId);
