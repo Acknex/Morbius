@@ -1,6 +1,8 @@
-Itemliste
+﻿Itemliste
 =========
 ID      Name                            C   D
+
+Büro:
 1       Visitenkarte                    x   x
 2       Revolver                        x   
 3       Abgeschlossene Schublade                   
@@ -17,38 +19,43 @@ ID      Name                            C   D
 14      Rosa Telefon
 15      A3 Box          
 16      Taschenlampe                    x
+42      Buch Meister des Feuers
+43      Buch Downtown
 
+Ruine:
 17      Toter Guard
 18      Unzugängliche Telefonzelle          x
 19      Telefonzelle                    
 20      Wasserverdrängungsspray-40      x   x
 21      Verrostete Telefonzellentür         x
 22      Brechstange                     x   x        
+40      Münzen                          x   
+41      Zugängliche benutzte Telefonzelle
 
+Gasse:
 23      Gulli
 24      Mülltonne                             
-25      Stock des Warlocks+1           x   x
-26      Angelhaken                     x   x
-27      Gaffer Tape                    x   x
+25      Stock des Warlocks+1            x   x
+26      Angelhaken                      x   x
+27      Gaffer Tape                     x   x
 28      Nummernschild
-29      Wackliger Stock mit Angelhaken x   x
-30      Geklebter Stock mit Angelhaken x   x
-31      Versiffte Geldbörse            x   x
+29      Wackliger Stock mit Angelhaken  x   x
+30      Geklebter Stock mit Angelhaken  x   x
+31      Versiffte Geldbörse             x   x
 32      Rechnungs Durchdruck
 
-33      Bonzai Zuckerrohr              x   x
-34      Topf                               x
-35      Topf mit Zuckerrohr                x
-36      Topf mit Zucker                x   x
+Büro:
+33      Bonzai Zuckerrohr               x   x
+34      Topf                                x
+35      Topf mit Zuckerrohr                 x
+36      Topf mit Zucker                 x   x
 37      Herd
 38      Griechin
-39      Thermoskanne                   x   x
-40      Münzen                         x   
-41      Zugängliche benutzte Telefonzelle
-42      Buch Meister des Feuers
-43      Buch Downtown
+39      Thermoskanne                    x   x
+
 
 Custom Events
+=============
 4       Trigger Item Spawn Visitenkarte 1 und Revolver 2
 41      Trigger Dialog1 (Münze auf Telefonzelle 40/19)
 1001    Trigger Dialog2 (Münze auf Telefonzelle 40/19)

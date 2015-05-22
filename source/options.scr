@@ -1,0 +1,123 @@
+;output formats - don't change this
+WED2FORMAT = on
+TEXTUREVECS = on
+WRS2 = on
+
+;export mipmaps with textures
+EXPORTMIPS = off
+;generate texture name file when saving WAD
+WRITEWADTEXT = off
+
+;project window buttons on top
+PV_TCS_TOP = on
+;scrollbar width
+TV_SBSIZE = 8
+;have a views list
+VIEWS_LIST = on
+;sort textures in display
+SORT_TEXTURES = on
+
+;save GXL state, view positions, toolbar positions
+SAVE_GXLCFG = on
+SAVE_FRAMESTATE = on
+SAVE_TBSTATE = on
+
+;undo levels 1..16
+UNDO_LEVELS = 16
+
+;mouse click on overlapping objects selects same type first
+SELMODE = 1
+
+;prefabs & entity preview
+USEPREVIEW = on
+
+; different back buffer mode; set at on when you have problems with the views
+BACKBUFFERMODE2 = off
+
+; save the WMP file in the binary A7 format
+SAVE_WMPB = on
+
+; pass meshes to the map compiler, rather than blocks 
+UVPOINTS$$M = on
+
+;options for map compiler
+MCOPTIONS = "-solidsky -b -v -l -g"
+USEWEDBUILDDLG = off
+
+;programs to open file types in the resource window
+DEFAULTEXEC "txt" "sed.exe" "%1"
+DEFAULTEXEC "c" "sed.exe" "%1"
+DEFAULTEXEC "h" "sed.exe" "%1"
+DEFAULTEXEC "fx" "sed.exe" "%1"
+DEFAULTEXEC "wdl" "sed.exe" "%1"
+DEFAULTEXEC "mdl" "med.exe" "%1"
+DEFAULTEXEC "hmp" "med.exe" "%1"
+
+;help menu links
+CONTENTS = "3dgs_manual.chm"
+UPDATES = "http://www.3dgamestudio.com/download.php"
+COMMUNITY = "http://www.coniserver.net/ubbthreads"
+
+;drag-duplication button
+CTRLDRAGFORDUP = off
+SHIFTDRAGFORDUP = on
+
+;Camera Move Setup:
+; CAMERAMOVE_LB = left mouse button [definition for 3d views] [definition for 2d views]
+; CAMERAMOVE_L&RB = both mouse buttons [definition for 3d views] [definition for 2d views]
+; CAMERAMOVE_RB = right mouse button [definition for 3d views] [definition for 2d views]
+;definitions for CAMERAMOVE_LB, CAMERAMOVE_LRB und CAMERAMOVE_RB:
+; RLPH - [R]otate [L]ookAt [P]oint, controlled by horizontal mouse movement
+; RLPV - [R]otate [L]ookAt [P]oint, controlled by vertical mouse movement
+; RCPH - [R]otate [C]amera [P]oint, controlled by horizontal mouse movement
+; RCPV - [R]otate [C]amera [P]oint, controlled by vertical mouse movement
+; MCXZH - [M]ove [C]amera [XZ]Plane, controlled by horizontal mouse movement
+; MCXZV - [M]ove [C]amera [XZ]Plane, controlled by vertical mouse movement
+; MCXYH - (3D View) [M]ove [C]amera [XY]Plane, controlled by horizontal mouse movement
+; MCXYV - (3D View) [M]ove [C]amera [XY]Plane, controlled by vertical mouse movement
+; ZVH - [Z]oom [V]iew, controlled by horizontal mouse movement
+; ZVV - [Z]oom [V]iew, controlled by vertical mouse movement
+; NULL - no function
+CAMERAMOVE_LB = [RLPH RLPV] [MCXZH MCXZV]
+CAMERAMOVE_LRB = [MCXYH MCXYV] [ZVH ZVV]
+CAMERAMOVE_RB = [MCXZH MCXZV] [MCXZH MCXZV]
+; comment this out for disabling CAMERAMODE2 (object oriented camera movements)
+CAMERAMODE2 = on;
+
+;default template folder
+;WDLTEMPLATEDIR = "template_6" ;  uncomment for WDL templates
+;TEMPLATE_DIR = "template_6\code" ;  uncomment for WDL templates
+WDLTEMPLATEDIR = "templates" ;  comment in for lite-C templates
+TEMPLATE_DIR = "templates\code" ;  comment in for lite-C templates
+
+;Path definition for Add Sprite, Terrain, Model, Map, or Prefab.
+; Argument can be a full path name (relative path names are not supported):
+;	"c:\abc\def"
+; or a macro
+;	"%TEMPLATES%" - the WDLTEMPLATEDIR given above
+;	"%WDLPATH%" - for the PATH given in the script
+;	"%WORK%" - for the current WORK folder (default)
+; Several definitions may be made
+SPRITES_DIR = "%work%"
+SPRITES_DIR = "%wdlpath%"
+MDLS_DIR = "%wdlpath%"
+MDLS_DIR = "%work%"
+TERRAINS_DIR = "%wdlpath%"
+TERRAINS_DIR = "%work%"
+WMBS_DIR = "%wdlpath%"
+WMBS_DIR = "%work%"
+; PREFABS_DIR = "prefabs"
+
+; file extensions to exclude from publish or from resources
+EXCLUDE_PUBLISH = "TMP;LOG"
+EXCLUDE_RESOURCE = "WRS;TMP;AVI;MPG;MOV;DLL;C;H;XML;LOG"
+
+; additional files to be bound to the game on Publish
+AUTOBIND = "%work%\acknex.wdf" 
+AUTOBIND = "d3dx9_42.dll" 
+
+; additional path to be searched for files on Publish
+PATH = "%EXE_DIR%\acknex_plugins" 
+
+; executable name for starting a level from the distributable editor WEDS
+ENGINE = "wrun.exe"
