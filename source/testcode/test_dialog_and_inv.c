@@ -18,7 +18,8 @@ void main() {
 	
 	dlgInit();
 	mouse_mode = 4;
-	dlgStart("..//dialogs//cbabe-information.xml");
+	//dlgStart("..//dialogs//cbabe-information.xml");
+	dlgStart("..//xml//dialog02_fritz.xml");
 	
 	/*random_seed(0);
 	mouse_mode = 4;

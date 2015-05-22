@@ -1,0 +1,41 @@
+<Dialog>
+	<NPC id="0" file="dlg02_fritz_00.ogg" name="Fritz">[schnauf] Yop?</NPC>
+	<Choice id="1">
+		<ChoiceItem target="2" returnvalue="2">Hi Fritz, Morbius hier.</ChoiceItem>
+		<ChoiceItem target="4" returnvalue="2">Ich brauche deine Hilfe.</ChoiceItem>	
+	</Choice>
+	<Player id="2" file="dlg02_morbius_01.ogg" name="Morbius">Hi Fritz, Morbius hier.</Player>
+	<Goto id="3" target="12" />
+
+	<Player id="4" file="dlg02_morbius_02.ogg" name="Morbius">Ich brauche deine Hilfe.</Player>
+	<NPC id="5" file="dlg02_fritz_03.ogg" name="Fritz">Wer bist du überhaupt?</NPC>
+	<Choice id="6">
+		<ChoiceItem target="7" returnvalue="2">Ich bins, Morbius!</ChoiceItem>
+		<ChoiceItem target="10" returnvalue="2">Unwichtig!</ChoiceItem>	
+	</Choice>
+	<Player id="7" file="dlg02_morbius_04a.ogg" name="Morbius">Ich bins, Morbius!</Player>
+	<NPC id="8" file="dlg02_fritz_05a.ogg" name="Fritz">Warum sagst du das nicht gleich?!</NPC>
+	<Goto id="9" target="12" />
+
+	<Player id="10" file="dlg02_morbius_04b.ogg" name="Morbius">Unwichtig!</Player>
+	<NPC id="11" file="dlg02_fritz_05b.ogg" name="Fritz">Morbius...? Bist du das?</NPC>
+
+	<NPC id="12" file="dlg02_fritz_06.ogg" name="Fritz">Was brauchst du?</NPC>
+	<Player id="13" file="dlg02_morbius_07.ogg" name="Morbius">Ich brauche informationen zu einem Namen. Gibt sogar wieder Honorar.</Player>
+	<NPC id="14" file="dlg02_fritz_08.ogg" name="Fritz">Yop, gib mir den Namen. Ich ruf dich dann morgen wieder an.</NPC>
+	<Player id="15" file="dlg02_morbius_09.ogg" name="Morbius">Ich brauch die Information jetzt, es geht um Leben und Tod... sozusagen.</Player>
+	<NPC id="16" file="dlg02_fritz_10.ogg" name="Fritz">[seufz] Okay Morbius, aber nur weil du es bist. Wie heißt der Übeltäter?</NPC>
+	<Player id="17" file="dlg02_morbius_11.ogg" name="Morbius">GALEP Security, sollte irgendwo in Zürich sein.</Player>
+	<NPC id="18" file="dlg02_fritz_12.ogg" name="Fritz">Zürich? Morbius, wo treibst du dich wieder rum... Moment... [tippen] [schnauf] ja komm meine Kleine, du kannst das... [tippen] Aaaaah, hier ist es: GALEP Security, eine Personenschutz Firma aus Zürich.</NPC>
+	<Player id="19" file="dlg02_morbius_13.ogg" name="Morbius">Soviel weiß ich schon, Fritz. Ich brauch ne Nummer!</Player>
+	<NPC id="20" file="dlg02_fritz_14.ogg" name="Fritz">Beruhig dich, hab ich alles hier, was glaubst du wer ich bin? [tippen] Hier: 388 520 909 8</NPC>
+	<Player id="21" file="dlg02_morbius_15.ogg" name="Morbius">Danke Fritz, was würde ich nur ohne dich tun?</Player>
+	<NPC id="22" file="dlg02_fritz_16.ogg" name="Fritz">Yop. Vergiss nur nicht, mir das Geld zu überweisen.</NPC>
+	<Player id="23" file="dlg02_morbius_17.ogg" name="Morbius">Wieviel schulde ich dir?</Player>
+	<NPC id="24" file="dlg02_fritz_18.ogg" name="Fritz">Das Übliche ist in Ordnung.</NPC>
+	<Player id="25" file="dlg02_morbius_19.ogg" name="Morbius">Alles klar, bekommst du. Ich hab diesmal einen guten Vorschuss bekommen!</Player>
+	<NPC id="26" file="dlg02_fritz_20.ogg" name="Fritz">Sag bloß du wirst langsam richtig profesionell?</NPC>
+	<Player id="27" file="dlg02_morbius_21.ogg" name="Morbius">Haha, sehr lustig. Naja... danke nochmal, ich muss jetzt los!</Player>
+	<NPC id="28" file="dlg02_fritz_22.ogg" name="Fritz">Yop, kein Problem. Log-Off!</NPC>
+	<End id="29" />
+</Dialog>
