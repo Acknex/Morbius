@@ -164,12 +164,11 @@
 #define PRAGMA_BIND "dlg03_morbius_23.ogg"
 
 /*-----------------------------*/
-/* sounds */
+/* sounds\items */
 /*-----------------------------*/
 #define PRAGMA_BIND "achievement.wav"
 #define PRAGMA_BIND "achievement1.wav"
 #define PRAGMA_BIND "collect.wav"
-#define PRAGMA_BIND "menu-click.wav"
 
 /*-----------------------------*/
 /* graphics\items */
