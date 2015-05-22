@@ -1,5 +1,5 @@
 #include <acknex.h>
-//#include <default.c>
+#include <default.c>
 
 #define PRAGMA_PATH "..//src";
 
@@ -19,7 +19,8 @@ void main() {
 	dlgInit();
 	mouse_mode = 4;
 	//dlgStart("..//dialogs//cbabe-information.xml");
-	dlgStart("..//xml//dialog02_fritz.xml");
+	//dlgStart("..//xml//dialog02_fritz.xml");
+	dlgStart("..//xml//dialog03_galep.xml");
 	
 	/*random_seed(0);
 	mouse_mode = 4;
