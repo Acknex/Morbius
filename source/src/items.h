@@ -35,8 +35,8 @@ int ITEM_load(STRING* file);
 void ITEM_close();
 ITEM* ITEM_get(int id);
 void ITEM_resetProgress();
-var ITEM_isLastSequence(ITEM* item, var step);
-int ITEM_interaction(ITEM* item, var* step);
+var ITEM_isLastSequence(ITEM* item);
+int ITEM_interaction(ITEM* item);
 void ITEM_collect(ITEM* item);
 
 #include "items.c"
