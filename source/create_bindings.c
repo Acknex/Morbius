@@ -66,7 +66,7 @@ void BINDINGS_readFiles(STRING* directory, STRING* extension)
 
 TEXT* dirlist = 
 { 
-	string("media\\dialog_jcl","media\\dialog_cbabe", "media\\dialog_fritz", "media\\dialog_griechin", "media\\dialog_galep", "media\\items", "sounds");
+	string("sounds\\dialog01_jcl","sounds\\dialog05_cbabe", "sounds\\dialog02_fritz", "sounds\\dialog04_griechin", "sounds\\dialog03_galep", "sounds\\items", "sounds", "graphics\\items");
 }
 
 void main()
@@ -74,6 +74,7 @@ void main()
 	STRING* file = "bindings.h";
 	STRING* ext1 = "ogg";
 	STRING* ext2 = "wav";
+	STRING* ext3 = "tga";
 
 	BINDINGS_start(file);
 	var i;
@@ -82,6 +83,8 @@ void main()
 		BINDINGS_readFiles((dirlist->pstring)[i], ext1);
 		BINDINGS_writeFiles(file, (dirlist->pstring)[i]);
 		BINDINGS_readFiles((dirlist->pstring)[i], ext2);
+		BINDINGS_writeFiles(file, (dirlist->pstring)[i]);
+		BINDINGS_readFiles((dirlist->pstring)[i], ext3);
 		BINDINGS_writeFiles(file, (dirlist->pstring)[i]);
 	}
 	BINDINGS_stop(file);	

@@ -9,7 +9,7 @@ echo Generate Bindings...
 acknex create_bindings.c
 
 echo.
-echo Create Resources and Executable
+echo Create Resources and Executable...
 WED -r main.c
 REM WED -p main.c
 
