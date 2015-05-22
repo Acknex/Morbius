@@ -1,5 +1,5 @@
+PATH ".";
 PATH "sounds";
-PATH "media";
 PATH "src";
 PATH "models";
 PATH "graphics\\cursors";
@@ -10,3 +10,6 @@ PATH "media\\dialog_cbabe";
 PATH "media\\dialog_fritz";
 PATH "media\\dialog_griechin";
 PATH "media\\dialog_galep";
+PATH "media\\items";
+
+RESOURCE "samples.wrs";
