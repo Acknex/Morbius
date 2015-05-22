@@ -20,7 +20,8 @@ void main() {
 	mouse_mode = 4;
 	//dlgStart("..//dialogs//cbabe-information.xml");
 	//dlgStart("..//xml//dialog02_fritz.xml");
-	dlgStart("..//xml//dialog03_galep.xml");
+	//dlgStart("..//xml//dialog03_galep.xml");
+	dlgStart("..//xml//dialog04_greek1.xml");
 	
 	/*random_seed(0);
 	mouse_mode = 4;
