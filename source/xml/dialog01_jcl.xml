@@ -5,24 +5,24 @@
 	<NPC id="3" file="dlg01_jcl_03.ogg" name="JCL">Ich meine, Guten Tag, Lotter ist mein Name.</NPC>
 	<Choice id="4">
 		<ChoiceItem target="5" returnvalue="2">Guten Tag Herr Lotter, wie kann ich Ihnen helfen?</ChoiceItem>
-		<ChoiceItem target="7" returnvalue="2">Hatten Sie nicht gerade noch einen Italienischen Aktzent?</ChoiceItem>	
+		<ChoiceItem target="7" returnvalue="2">Hatten Sie nicht gerade noch einen Italienischen Akzent?</ChoiceItem>	
 	</Choice>
 	<Player id="5" file="dlg01_morbius_04a.ogg" name="Morbius">Guten Tag Herr Lotter, wie kann ich Ihnen helfen?</Player>
 	<Goto id="6" target="9" />
-	<Player id="7" file="dlg01_morbius_04b.ogg" name="Morbius">Hatten Sie nicht gerade noch einen Italienischen Aktzent?</Player>
+	<Player id="7" file="dlg01_morbius_04b.ogg" name="Morbius">Hatten Sie nicht gerade noch einen Italienischen Akzent?</Player>
 	<NPC id="8" file="dlg01_jcl_05b.ogg" name="JCL">Ich glaube die Leitung hat eine Störung...</NPC>
 	<NPC id="9" file="dlg01_jcl_06.ogg" name="JCL">Herr Morbius, ich hoffe dass Sie mir helfen können eine Person ausfindig zu machen, Geld ist unwichtig - Hauptsache sie können mir Ergebnisse liefern!</NPC>
 	<Player id="10" file="dlg01_morbius_07.ogg" name="Morbius">Ein paar mehr Details könnte ich schon gebrauchen...</Player>
 	<NPC id="11" file="dlg01_jcl_08.ogg" name="JCL">Heißt das, sie nehmen den Job an?</NPC>
 	<Choice id="12">
 		<ChoiceItem target="13" returnvalue="2">Ohne Details kann ich das nicht entscheiden.</ChoiceItem>
-		<ChoiceItem target="16" returnvalue="2">Es scheint mir, dass Sie es eilig haben. Warum nehmen Sie nicht erstmal einen tiefen Atemzug und fangen von vorne an?</ChoiceItem>	
+		<ChoiceItem target="16" returnvalue="2">Es scheint mir, dass Sie es eilig haben. Warum nehmen Sie nicht erstmal einen tiefen Atem und fangen von vorne an?</ChoiceItem>	
 		<ChoiceItem target="19" returnvalue="2">Ja</ChoiceItem>	
 	</Choice>
 	<Player id="13" file="dlg01_morbius_09a.ogg" name="Morbius">Ohne Details kann ich das nicht entscheiden.</Player>
 	<NPC id="14" file="dlg01_jcl_10a.ogg" name="JCL">Immerhin sind Sie der Erste, der nicht als Erstes nach einem Vorschuss fragt.</NPC>
 	<Goto id="15" target="21" />
-	<Player id="16" file="dlg01_morbius_09b.ogg" name="Morbius">Es scheint mir, dass Sie es eilig haben, warum nehmen sie nicht erstmal einen tiefen Atemzug und fangen von vorne an?</Player>
+	<Player id="16" file="dlg01_morbius_09b.ogg" name="Morbius">Es scheint mir, dass Sie es eilig haben, warum nehmen Sie nicht erstmal einen tiefen Atem und fangen von vorne an?</Player>
 	<NPC id="17" file="dlg01_jcl_10b.ogg" name="JCL">[atmet tief durch] Okay... Ja, Sie haben ja Recht.</NPC>
 	<Goto id="18" target="21" />
 	<Player id="19" file="dlg01_morbius_09c.ogg" name="Morbius">Ja</Player>
