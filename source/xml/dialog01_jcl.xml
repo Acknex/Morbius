@@ -13,7 +13,7 @@
 	<NPC id="8" file="dlg01_jcl_05b.ogg" name="JCL">Ich glaube die Leitung hat eine Störung...</NPC>
 	<NPC id="9" file="dlg01_jcl_06.ogg" name="JCL">Herr Morbius, ich hoffe dass Sie mir helfen können eine Person ausfindig zu machen, Geld ist unwichtig - Hauptsache sie können mir Ergebnisse liefern!</NPC>
 	<Player id="10" file="dlg01_morbius_07.ogg" name="Morbius">Ein paar mehr Details könnte ich schon gebrauchen...</Player>
-	<NPC id="11" file="dlg01_jcl_08.ogg" name="JCL">Heißt das, sie nehmen den Job an?</NPC>
+	<NPC id="11" file="dlg01_jcl_08.ogg" name="JCL">Heißt das, Sie nehmen den Job an?</NPC>
 	<Choice id="12">
 		<ChoiceItem target="13" returnvalue="2">Ohne Details kann ich das nicht entscheiden.</ChoiceItem>
 		<ChoiceItem target="16" returnvalue="2">Es scheint mir, dass Sie es eilig haben. Warum nehmen Sie nicht erstmal einen tiefen Atem und fangen von vorne an?</ChoiceItem>	
