@@ -1,0 +1,4 @@
+<Dialog>
+	<Player id="0" file="mlg06_morbius.ogg" name="Morbius">Hier wohnt der Herr Emdayelle also. Verdient man als Bodyguard nicht viel Geld? Warum wohnt er dann in dieser abgerannten Gegend?</Player>
+	<End id="1" />
+</Dialog>

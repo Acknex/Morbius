@@ -1,0 +1,5 @@
+<Dialog>
+	<Player id="0" file="mlg03_morbius_00.ogg" name="Morbius">War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die Aufgabe der Informationssuche aufdrücken muss.</Player>
+	<Player id="1" file="mlg03_morbius_01.ogg" name="Morbius">Okay Fritz, ich hoffe du bist deine Gage immernoch wert...</Player>
+	<End id="2" />
+</Dialog>

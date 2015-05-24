@@ -1,0 +1,4 @@
+<Dialog>
+	<Player id="0" file="mlg04_morbius.ogg" name="Morbius">Meine letzte Münze, lass es gelten Morbius!</Player>
+	<End id="1" />
+</Dialog>
