@@ -1,0 +1,25 @@
+<Dialog>
+	<Player id="0" file="dlg04_morbius_13.ogg" name="Morbius">Hier, hab ich extra für dich gemacht.</Player>
+	<NPC id="1" file="dlg04_greek_14.ogg" name="Griechin">Mein Güte Morbius, du bist ja voller Überraschungen. Als nächstes wirst du mir noch sagen, dass du bei deinem neuen Fall sogar einen Vorschuss bekommen hast!</NPC>
+	<Player id="2" file="dlg04_morbius_15.ogg" name="Morbius">Habe ich sogar tatsächlich. Ist das so verwunderlich? Ich bin immerhin ein profesioneller Detektiv!</Player>
+	<NPC id="3" file="dlg04_greek_16.ogg" name="Griechin">[lacht] Selbstverständlich, tut mir leid, das war dumm von mir!</NPC>
+	<Player id="4" file="dlg04_morbius_17.ogg" name="Morbius">Es sei dir vergeben!</Player>
+	<NPC id="5" file="dlg04_greek_18.ogg" name="Griechin">Also, wie kann ich dir helfen, mein Kleiner?</NPC>
+	<Player id="6" file="dlg04_morbius_19.ogg" name="Morbius">Ich komme direkt zum Punkt: Was weißt du über Utopia?</Player>
+	<NPC id="7" file="dlg04_greek_20.ogg" name="Griechin">Oh-ho! Auf *solche* Schmuddelspielchen stehst du also?</NPC>
+	<Player id="8" file="dlg04_morbius_21.ogg" name="Morbius">Sehr lustig, es hat mit meinem Fall zu tun. Ich nehme also an du weißt, was das ist?</Player>
+	<NPC id="9" file="dlg04_greek_22.ogg" name="Griechin">Ja, aber warum weißt du, dass ich damit etwas zu tun hatte?</NPC>
+	<Player id="10" file="dlg04_morbius_23.ogg" name="Morbius">Ich bin den Spuren gefolgt und habe eine Rechnung gefunden, bei der du für deine Arbeit an Utopia bezahlt wurdest.</Player>
+	<NPC id="11" file="dlg04_greek_24.ogg" name="Griechin">Ist doch nichts illegales dabei! Das war alles legitime Arbeit!</NPC>
+	<Player id="12" file="dlg04_morbius_25.ogg" name="Morbius">Jetzt hör auf mit den Späßen! Zwei Leute sind tot! Ich habe in den letzten Tagen mit mehr leichen zu tun gehabt als ich möchte. Wenn ich nicht herausfinde was hier los ist, dann kann es gut sein dass du bald auch einer der Leichen bist.</Player>
+	<NPC id="13" file="dlg04_greek_26.ogg" name="Griechin">T-t-tot?! Was? Nein, warum sollten Leute tot sein?</NPC>
+	<Player id="14" file="dlg04_morbius_27.ogg" name="Morbius">Ich habe erst Herrn Emdayelle tot vorgefunden beim angeblichen Firmenstammsitz in Zürich, und als ich dann versucht habe, mehr über ihn herauszufinden, stoße ich direkt auf eine zweite Leiche in einer dunklen Gasse neben seinem Wohnsitz. Hier in Frankfurt! Soweit ich weiß, ist der zweite Tote der Mann, der von Emdayelle beschützt werden sollte.</Player>
+	<NPC id="15" file="dlg04_greek_28.ogg" name="Griechin">Herr M. Dayle ist... tot? Emdayelle ist tot?!</NPC>
+	<Player id="16" file="dlg04_morbius_29.ogg" name="Morbius">Jetzt erklär mir doch bitte warum zwei Leute tot sind wegen irgendeinem Schmuddelspielchen von einer Firma, die es nicht gibt, die angeblich in Zürich ist, und was du mit dem ganzen zu tun hast?!</Player>
+	<NPC id="17" file="dlg04_greek_30.ogg" name="Griechin">Ich habe nur ein paar akrobatische Bewegungen vor Kameras gemacht, nichts explizites, nichts illegales!! Ich weiß nicht, warum die Leute tot sind!</NPC>
+	<Player id="18" file="dlg04_morbius_31.ogg" name="Morbius">Weißt du sonst, wer etwas wissen könnte? Du musst doch irgend jemand anderes gesehen haben während du da gearbeitet hast?</Player>
+	<NPC id="19" file="dlg04_greek_32.ogg" name="Griechin">Ich... ich weiß nich- Doch! CBabe! Sie war auch immer da als ich dort gearbeitet hatte, sie war noch viel länger an Utopia beschäftigt, wenn Emdayelle und M. Dayle tot sind, dann ist sie definitiv die Person, die du fragen solltest.</NPC>
+	<Player id="20" file="dlg04_morbius_33.ogg" name="Morbius">Weißt du auch, wo ich sie finden kann?</Player>
+	<NPC id="21" file="dlg04_greek_34.ogg" name="Griechin">Ich meine dass sie sich oft in der Babec Disco rumtreibt. Da solltest du sie finden können.</NPC>
+	<End id="22" />
+</Dialog>
