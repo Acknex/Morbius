@@ -51,7 +51,7 @@
 #define PRAGMA_BIND "dlg01_morbius_34.ogg"
 #define PRAGMA_BIND "dlg01_morbius_36.ogg"
 #define PRAGMA_BIND "dlg01_morbius_38.ogg"
-#define PRAGMA_BIND "monolog_morbius.ogg"
+#define PRAGMA_BIND "mlg01_morbius.ogg"
 
 /*-----------------------------*/
 /* sounds\dialog05_cbabe */
@@ -96,7 +96,7 @@
 #define PRAGMA_BIND "dlg02_morbius_21.ogg"
 
 /*-----------------------------*/
-/* sounds\dialog04_griechin */
+/* sounds\dialog04_greek */
 /*-----------------------------*/
 #define PRAGMA_BIND "dlg04_greek_01.ogg"
 #define PRAGMA_BIND "dlg04_greek_03.ogg"
