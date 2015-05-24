@@ -51,20 +51,6 @@
 #define PRAGMA_BIND "dlg01_morbius_34.ogg"
 #define PRAGMA_BIND "dlg01_morbius_36.ogg"
 #define PRAGMA_BIND "dlg01_morbius_38.ogg"
-#define PRAGMA_BIND "mlg01_morbius.ogg"
-
-/*-----------------------------*/
-/* sounds\dialog05_cbabe */
-/*-----------------------------*/
-#define PRAGMA_BIND "dlg05_cbabe_01.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_03.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_05.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_07.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_09.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_11.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_13.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_15.ogg"
-#define PRAGMA_BIND "dlg05_cbabe_17.ogg"
 
 /*-----------------------------*/
 /* sounds\dialog02_fritz */
@@ -94,6 +80,35 @@
 #define PRAGMA_BIND "dlg02_morbius_17.ogg"
 #define PRAGMA_BIND "dlg02_morbius_19.ogg"
 #define PRAGMA_BIND "dlg02_morbius_21.ogg"
+
+/*-----------------------------*/
+/* sounds\dialog03_galep */
+/*-----------------------------*/
+#define PRAGMA_BIND "dlg03_galep_00.ogg"
+#define PRAGMA_BIND "dlg03_galep_02.ogg"
+#define PRAGMA_BIND "dlg03_galep_04.ogg"
+#define PRAGMA_BIND "dlg03_galep_06.ogg"
+#define PRAGMA_BIND "dlg03_galep_08.ogg"
+#define PRAGMA_BIND "dlg03_galep_10.ogg"
+#define PRAGMA_BIND "dlg03_galep_12.ogg"
+#define PRAGMA_BIND "dlg03_galep_14.ogg"
+#define PRAGMA_BIND "dlg03_galep_16.ogg"
+#define PRAGMA_BIND "dlg03_galep_18.ogg"
+#define PRAGMA_BIND "dlg03_galep_20.ogg"
+#define PRAGMA_BIND "dlg03_galep_22.ogg"
+#define PRAGMA_BIND "dlg03_galep_24.ogg"
+#define PRAGMA_BIND "dlg03_morbius_01.ogg"
+#define PRAGMA_BIND "dlg03_morbius_03.ogg"
+#define PRAGMA_BIND "dlg03_morbius_05.ogg"
+#define PRAGMA_BIND "dlg03_morbius_07.ogg"
+#define PRAGMA_BIND "dlg03_morbius_09.ogg"
+#define PRAGMA_BIND "dlg03_morbius_11.ogg"
+#define PRAGMA_BIND "dlg03_morbius_13.ogg"
+#define PRAGMA_BIND "dlg03_morbius_15.ogg"
+#define PRAGMA_BIND "dlg03_morbius_17.ogg"
+#define PRAGMA_BIND "dlg03_morbius_19.ogg"
+#define PRAGMA_BIND "dlg03_morbius_21.ogg"
+#define PRAGMA_BIND "dlg03_morbius_23.ogg"
 
 /*-----------------------------*/
 /* sounds\dialog04_greek */
@@ -135,33 +150,17 @@
 #define PRAGMA_BIND "dlg04_morbius_33.ogg"
 
 /*-----------------------------*/
-/* sounds\dialog03_galep */
+/* sounds\dialog05_cbabe */
 /*-----------------------------*/
-#define PRAGMA_BIND "dlg03_galep_00.ogg"
-#define PRAGMA_BIND "dlg03_galep_02.ogg"
-#define PRAGMA_BIND "dlg03_galep_04.ogg"
-#define PRAGMA_BIND "dlg03_galep_06.ogg"
-#define PRAGMA_BIND "dlg03_galep_08.ogg"
-#define PRAGMA_BIND "dlg03_galep_10.ogg"
-#define PRAGMA_BIND "dlg03_galep_12.ogg"
-#define PRAGMA_BIND "dlg03_galep_14.ogg"
-#define PRAGMA_BIND "dlg03_galep_16.ogg"
-#define PRAGMA_BIND "dlg03_galep_18.ogg"
-#define PRAGMA_BIND "dlg03_galep_20.ogg"
-#define PRAGMA_BIND "dlg03_galep_22.ogg"
-#define PRAGMA_BIND "dlg03_galep_24.ogg"
-#define PRAGMA_BIND "dlg03_morbius_01.ogg"
-#define PRAGMA_BIND "dlg03_morbius_03.ogg"
-#define PRAGMA_BIND "dlg03_morbius_05.ogg"
-#define PRAGMA_BIND "dlg03_morbius_07.ogg"
-#define PRAGMA_BIND "dlg03_morbius_09.ogg"
-#define PRAGMA_BIND "dlg03_morbius_11.ogg"
-#define PRAGMA_BIND "dlg03_morbius_13.ogg"
-#define PRAGMA_BIND "dlg03_morbius_15.ogg"
-#define PRAGMA_BIND "dlg03_morbius_17.ogg"
-#define PRAGMA_BIND "dlg03_morbius_19.ogg"
-#define PRAGMA_BIND "dlg03_morbius_21.ogg"
-#define PRAGMA_BIND "dlg03_morbius_23.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_01.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_03.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_05.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_07.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_09.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_11.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_13.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_15.ogg"
+#define PRAGMA_BIND "dlg05_cbabe_17.ogg"
 
 /*-----------------------------*/
 /* sounds\items */
@@ -169,6 +168,11 @@
 #define PRAGMA_BIND "achievement.wav"
 #define PRAGMA_BIND "achievement1.wav"
 #define PRAGMA_BIND "collect.wav"
+
+/*-----------------------------*/
+/* sounds\monolog */
+/*-----------------------------*/
+#define PRAGMA_BIND "mlg01_morbius.ogg"
 
 /*-----------------------------*/
 /* graphics\items */

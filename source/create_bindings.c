@@ -66,7 +66,7 @@ void BINDINGS_readFiles(STRING* directory, STRING* extension)
 
 TEXT* dirlist = 
 { 
-	string("sounds\\dialog01_jcl","sounds\\dialog05_cbabe", "sounds\\dialog02_fritz", "sounds\\dialog04_greek", "sounds\\dialog03_galep", "sounds\\items", "graphics\\items");
+	string("sounds\\dialog01_jcl", "sounds\\dialog02_fritz", "sounds\\dialog03_galep", "sounds\\dialog04_greek", "sounds\\dialog05_cbabe", "sounds\\items", "sounds\\monolog", "graphics\\items");
 }
 
 void main()

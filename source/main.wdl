@@ -11,6 +11,7 @@ PATH "sounds\\dialog05_cbabe";
 PATH "sounds\\dialog02_fritz";
 PATH "sounds\\dialog04_greek";
 PATH "sounds\\dialog03_galep";
+PATH "sounds\\monolog";
 PATH "sounds\\items";
 
 RESOURCE "samples.wrs";
