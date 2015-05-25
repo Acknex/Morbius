@@ -165,14 +165,62 @@
 /*-----------------------------*/
 /* sounds\items */
 /*-----------------------------*/
-#define PRAGMA_BIND "achievement.wav"
+#define PRAGMA_BIND "comb_batterien_taschenlampe.ogg"
+#define PRAGMA_BIND "comb_brechstange_tuer.ogg"
+#define PRAGMA_BIND "comb_futter_gecko.ogg"
+#define PRAGMA_BIND "comb_schluessel_schublade.ogg"
+#define PRAGMA_BIND "comb_wd40_tuer.ogg"
+#define PRAGMA_BIND "itm_a401.ogg"
+#define PRAGMA_BIND "itm_brechstange01.ogg"
+#define PRAGMA_BIND "itm_dunkelkammer01.ogg"
+#define PRAGMA_BIND "itm_fernbedienung01.ogg"
+#define PRAGMA_BIND "itm_fernbedienung02.ogg"
+#define PRAGMA_BIND "itm_gecko01.ogg"
+#define PRAGMA_BIND "itm_gecko02.ogg"
+#define PRAGMA_BIND "itm_guardmdl01.ogg"
+#define PRAGMA_BIND "itm_guardmdl02.ogg"
+#define PRAGMA_BIND "itm_guardmdl03.ogg"
+#define PRAGMA_BIND "itm_guardmdl04.ogg"
+#define PRAGMA_BIND "itm_guardmdl05.ogg"
+#define PRAGMA_BIND "itm_guardmdl06.ogg"
+#define PRAGMA_BIND "itm_guardmdl07.ogg"
+#define PRAGMA_BIND "itm_laptop01.ogg"
+#define PRAGMA_BIND "itm_regal01.ogg"
+#define PRAGMA_BIND "itm_reptilfutter01.ogg"
+#define PRAGMA_BIND "itm_revolver01.ogg"
+#define PRAGMA_BIND "itm_revolver02.ogg"
+#define PRAGMA_BIND "itm_rosatelefon01.ogg"
+#define PRAGMA_BIND "itm_schluessel01.ogg"
+#define PRAGMA_BIND "itm_schluessel_unzugaenglich01.ogg"
+#define PRAGMA_BIND "itm_schluessel_unzugaenglich02.ogg"
+#define PRAGMA_BIND "itm_schluessel_unzugaenglich03.ogg"
+#define PRAGMA_BIND "itm_schublade_zu01.ogg"
+#define PRAGMA_BIND "itm_schublade_zu02.ogg"
+#define PRAGMA_BIND "itm_schublade_zu03.ogg"
+#define PRAGMA_BIND "itm_schublade_zu04.ogg"
+#define PRAGMA_BIND "itm_taschenlampe01.ogg"
+#define PRAGMA_BIND "itm_taschenlampe02.ogg"
+#define PRAGMA_BIND "itm_taschenlampe03.ogg"
+#define PRAGMA_BIND "itm_telefonzelle01.ogg"
+#define PRAGMA_BIND "itm_verrostetuer01.ogg"
+#define PRAGMA_BIND "itm_verrostetuer02.ogg"
+#define PRAGMA_BIND "itm_visitenkarte01.ogg"
+#define PRAGMA_BIND "itm_wd4001.ogg"
+
+/*-----------------------------*/
+/* sounds\items */
+/*-----------------------------*/
 #define PRAGMA_BIND "achievement1.wav"
-#define PRAGMA_BIND "collect.wav"
 
 /*-----------------------------*/
 /* sounds\monolog */
 /*-----------------------------*/
 #define PRAGMA_BIND "mlg01_morbius.ogg"
+#define PRAGMA_BIND "mlg02_morbius.ogg"
+#define PRAGMA_BIND "scene01_end_fail.ogg"
+#define PRAGMA_BIND "scene01_end_prompt01.ogg"
+#define PRAGMA_BIND "scene01_end_prompt02.ogg"
+#define PRAGMA_BIND "scene01_end_proper.ogg"
 
 /*-----------------------------*/
 /* graphics\items */
