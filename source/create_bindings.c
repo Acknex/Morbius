@@ -64,9 +64,20 @@ void BINDINGS_readFiles(STRING* directory, STRING* extension)
 	BINDINGS__textLen = txt_for_dir(BINDINGS__listTxt, searchStr);
 }
 
+
+//ADJUST TO NEEDS FROM HERE ON
 TEXT* dirlist = 
 { 
-	string("sounds\\dialog01_jcl", "sounds\\dialog02_fritz", "sounds\\dialog03_galep", "sounds\\dialog04_greek", "sounds\\dialog05_cbabe", "sounds\\items", "sounds\\monolog", "graphics\\items");
+	string(
+	"sounds\\dialog01_jcl", 
+	"sounds\\dialog02_fritz", 
+	"sounds\\dialog03_galep", 
+	"sounds\\dialog04_greek", 
+	"sounds\\dialog05_cbabe", 
+	"sounds\\items", 
+	"sounds\\monolog", 
+	"graphics\\items"
+	);
 }
 
 void main()
