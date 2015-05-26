@@ -16,15 +16,12 @@
 
 #define ITEM_MINPLAYERDIST 50
 
-TEXT* interActionItem__txt;
-
 void interactionItem__clicked();
 void interactionItem__eventHandler();
 ENTITY* interactionItem__find(int id);
 
 void itemmgr_init()
 {
-	interActionItem__txt = HUD_getItemText();
 
 	mousemgr_set(MOUSE_DEFAULT, NULL);
 }
@@ -41,7 +38,6 @@ action interactionItem()
 	//restore item state: start
 	if (my->itemId == -1)
 	{
-		//wait(1);
 		ptr_remove(me);
 		return;
 	}
@@ -49,7 +45,6 @@ action interactionItem()
 	ITEM* item = ITEM_get(my->itemId);
 	if (item->wasRemoved != 0)
 	{
-		//wait(1);
 		ptr_remove(me);
 		return;
 	}
@@ -78,12 +73,6 @@ action interactionItem()
 	
 	while(!is(my, itemRemove))
 	{
-		if (is(my, itemHover))
-		{
-			interActionItem__txt->pos_x = mouse_pos.x;
-			interActionItem__txt->pos_y = mouse_pos.y - 10;
-		}
-
 		if (is(my, itemWasClicked))
 		{
 			if (player != NULL)
@@ -111,7 +100,6 @@ action interactionItem()
 
 	if (is(my, itemHover))
 	{
-		//reset (interActionItem__txt, SHOW);
 		mousemgr_set(MOUSE_DEFAULT, NULL);
 		mousemgr_hint(NULL);
 	}
@@ -242,26 +230,19 @@ void interactionItem__eventHandler()
 		
 	if (event_type == EVENT_CLICK)
 	{
-		//wait(1);
 		set(my, itemWasClicked);
 	}
 	
 	if (event_type == EVENT_TOUCH)
 	{
-		interActionItem__txt->pos_x = mouse_pos.x;
-		interActionItem__txt->pos_y = mouse_pos.y - 10;
-
 		if (!is(my, itemHover))
 		{
 			set (my, itemHover);	
-			//str_cpy((interActionItem__txt->pstring)[0], item->name);
-			//set (interActionItem__txt, SHOW);
 			mousemgr_hint(item->name);
-			//if (ITEM_isLastSequence(item, my->itemSequence) != 0 && item->collectable != 0)
-			if (itemInHand != NULL) {
+			if (itemInHand != NULL) 
+			{
 				// ToDo: Don't change mouse cursor
-				// mouse_map = bmp_cursor_array[TYPE_ITEM_USE];
-				mousemgr_set(MOUSE_USE, itemInHand.image);
+				mousemgr_set(MOUSE_USE, itemInHand->image);
 			}
 			else
 			{
@@ -283,11 +264,9 @@ void interactionItem__eventHandler()
 		{
 			reset (my,itemHover);
 			mousemgr_hint(NULL);	
-			//reset (interActionItem__txt, SHOW);
 			if (itemInHand != NULL)
 			{
 				mousemgr_set(MOUSE_DEFAULT, itemInHand->image);
-				//TODO
 			}
 			else
 			{

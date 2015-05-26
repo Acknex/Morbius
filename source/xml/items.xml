@@ -93,7 +93,7 @@
 	<item id="17" name="Guard">
 		<sequence description="Ist das... eine Leiche?!" sound="itm_guardmdl01.ogg"/>
 		<sequence description="Armer Kerl, wen hast du bloß verärgert, um so zu enden?" sound="itm_guardmdl02.ogg"/>
-		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen." sound="itm_guardmdl03.ogg"/>
+		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weiß die Firma weiter, ich sollte die mal anrufen." sound="itm_guardmdl03.ogg"/>
 		<sequence description="Also ich glaube nicht dass ich so eine Leiche anfassen werde." sound="itm_guardmdl04.ogg"/>
 		<sequence description="[stöhn] ... na gut, manchmal muss auch ein profesioneller Detektiv in der Not etwas unethisches tun.... hmmm in der linken Hosentasche ist nichts." sound="itm_guardmdl05.ogg"/>
 		<sequence description="ÜÜüääähh... in der rechten Hosentasche sind ein paar Münzen, gottseidank muss ich nicht noch weiter suchen." sound="itm_guardmdl06.ogg" result="40"/>

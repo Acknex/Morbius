@@ -1,15 +1,6 @@
 #include <acknex.h>
 
 FONT* HUD__itemFnt = "Arial#20b";
-TEXT* HUD_ItemTxt = 
-{
-	font = HUD__itemFnt;
-	layer = 1;	
-	pos_x = 0;
-	pos_y = 0;
-	flags |= CENTER_X, CENTER_Y;
-	string ("");
-}
 
 TEXT* HUD_DescriptionTxt = 
 {
@@ -21,11 +12,6 @@ TEXT* HUD_DescriptionTxt =
 	string ("");
 }
 
-
-TEXT* HUD_getItemText()
-{
-	return HUD_ItemTxt;
-}
 
 void HUD_hideDescription();
 
