@@ -84,7 +84,6 @@ action interactionItem()
 				}
 				if (Player_getLastClickedEnt() != me)
 				{
-					//error("new click done");
 					reset(my, itemWasClicked);					
 				}
 			}
@@ -106,7 +105,6 @@ action interactionItem()
 	ptr_remove(me);
 }
 
-//untested
 void interactionItem_spawn(int id, VECTOR* position)
 {
 	ITEM* item = ITEM_get(id);
@@ -153,11 +151,9 @@ void interactionItem__clicked()
 				{
 					//morph defined target item
 					interactionItem_morph(targetId, resultId);
-					//TODO inventory morph
 				}
 				else
 				{
-					//UNTESTED
 					//create new inventory item with resultId;
 					Item *resultIdItem = inv_create_item(resultId, resultItem->name, "Item description", 0, bmap_create(resultItem->imgfile));
 					inv_add_item(inventory, resultIdItem);
@@ -183,7 +179,7 @@ void interactionItem__clicked()
 		}
 		itemInHand = NULL;
 		
-		//TODO: use inventory item on inventory item. This is not handled here!!				
+		//use inventory item on inventory item is handled in inventory.c!!				
 	}
 	else
 	{
@@ -241,7 +237,6 @@ void interactionItem__eventHandler()
 			mousemgr_hint(item->name);
 			if (itemInHand != NULL) 
 			{
-				// ToDo: Don't change mouse cursor
 				mousemgr_set(MOUSE_USE, itemInHand->image);
 			}
 			else
