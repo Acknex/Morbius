@@ -70,11 +70,11 @@ action sky_color_fog_act()
 
 void level_gate_event() {
 	if (event_type == EVENT_TOUCH) {
-		mousemgr_cursor = MOUSE_EXIT;
+		mousemgr_set(MOUSE_EXIT, NULL);
 	}
 	
 	if (event_type == EVENT_RELEASE) {
-		mousemgr_cursor = MOUSE_DEFAULT;
+		mousemgr_set(MOUSE_DEFAULT, NULL);
 	}
 	
 	if (event_type == EVENT_CLICK) {

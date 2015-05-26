@@ -5,7 +5,7 @@ BMAP *mousemgrMapUse = "cur_use.png";
 BMAP *mousemgrMapLook = "cur_look.png";
 BMAP *mousemgrMapTalk = "cur_talk.png";
 BMAP *mousemgrMapExit = "cur_exit.png";
-BMAP *mousemgrMapGrab = "cur_use.png";
+BMAP *mousemgrMapGrab = "cursor_grab.tga";
 
 var mousemgrOffsets[] = {
 	 0,  0, // Default
@@ -15,6 +15,35 @@ var mousemgrOffsets[] = {
 	20, 17, // Exit
 	22, 22  // Grab
 };
+
+int mousemgr_cursor = MOUSE_DEFAULT;
+
+BMAP *mousemgr_decoration = NULL;
+STRING *mousemgr_hint = "#512";
+
+void mousemgr_set(int cursor, BMAP *decoration)
+{
+	mousemgr_cursor = cursor % 6;
+	mousemgr_decoration = decoration;
+}
+
+void mousemgr_hint(STRING *text)
+{
+	if(text == NULL)
+		str_cpy(mousemgr_hint, "");
+	else
+		str_cpy(mousemgr_hint, text);
+}
+
+TEXT *mousemgrText = 
+{
+	font = mousemgrHintFont;
+	string = (mousemgr_hint);
+	red = 255;
+	green = 255;
+	blue = 255;
+	flags = LIGHT;
+}
 
 void mousemgr_init()
 {
@@ -27,6 +56,8 @@ void mousemgr_init()
 	maps[MOUSE_GRAB] = mousemgrMapGrab;
 	
 	proc_mode = PROC_LATE;
+	
+	
 	
 	var animationSpeed = 1; // 1 Frame/Tick
 	var currentFrame = 0;
@@ -52,6 +83,24 @@ void mousemgr_init()
 			100,
 			0);
 		
+		if(mousemgr_decoration != NULL)
+		{
+			draw_quad(
+				mousemgr_decoration,
+				vector(x + map->height, y + map->height, 0),
+				NULL,
+				NULL, // Full size
+				NULL,
+				NULL,
+				100,
+				0);
+		}
+		if(str_len(mousemgr_hint) > 0)
+		{
+			mousemgrText.pos_x = x + map->height;
+			mousemgrText.pos_y = y - mousemgrHintFont->dy;
+			draw_obj(mousemgrText);
+		}
 		currentFrame += animationSpeed * time_step;
 		
 		wait(1);

@@ -265,7 +265,7 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 				{
 					inv_add_item(item.inv, itemInHand);
 				}
-				mousemgr_cursor = MOUSE_LOOK;			
+				mousemgr_set(MOUSE_LOOK, NULL);		
 	
 				ITEM* resultItem = ITEM_get(resultId);
 				if (resultItem != NULL)
@@ -320,13 +320,13 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 			inv_hide(itemInHand.inv);
 			inv_show(itemInHand.inv);
 			itemInHand = NULL;
-			mousemgr_cursor = MOUSE_DEFAULT;
+			mousemgr_set(MOUSE_DEFAULT, NULL);
 			
 			/*inv_add_item(itemInHand.inv,itemInHand);
 			inv_hide(itemInHand.inv);
 			inv_show(itemInHand.inv);
 			itemInHand = NULL;
-			mousemgr_cursor = MOUSE_DEFAULT;*/
+			mousemgr_set(MOUSE_DEFAULT, NULL);*/
 		} else {
 			if (_panel.skill_x != NULL) { // The reference between panel and item is created using skill_x
 				Item* tempItem = (Item*)_panel.skill_x;
@@ -335,7 +335,7 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 					inv_remove_item(tempItem.inv,tempItem);
 					inv_hide(tempItem.inv);
 					inv_show(tempItem.inv);
-					mousemgr_hint = tempItem.image;
+					mousemgr_set(MOUSE_DEFAULT, tempItem.image);
 				}
 			}
 		}
@@ -385,7 +385,7 @@ void inv_on_click(PANEL* _pan) {
 			Inventory* inv = (Inventory*)_pan.skill_x;
 			inv_add_item(inv, itemInHand);
 			itemInHand = NULL;
-			mousemgr_cursor = MOUSE_DEFAULT;
+			mousemgr_set(MOUSE_DEFAULT, NULL);
 			inv_hide(inv);
 			inv_show(inv);
 		}
@@ -402,7 +402,7 @@ void inv_loop() {
 				inv_hide(itemInHand.inv);
 				inv_show(itemInHand.inv);
 				itemInHand = NULL;
-				mousemgr_cursor = MOUSE_DEFAULT;
+				mousemgr_set(MOUSE_DEFAULT, NULL);
 			}
 		}
 	}

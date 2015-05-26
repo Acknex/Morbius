@@ -26,16 +26,7 @@ void itemmgr_init()
 {
 	interActionItem__txt = HUD_getItemText();
 
-	bmp_cursor_array[TYPE_ITEM_DEFAULT] = NULL; //bmap_create(".tga");
-	bmp_cursor_array[TYPE_ITEM_GRAB] = bmap_create("cursor_grab.tga");
-	bmp_cursor_array[TYPE_ITEM_LOOK] = bmap_create("cursor_look.tga");
-	bmp_cursor_array[TYPE_ITEM_POINT] = bmap_create("cursor_point.tga");
-	bmp_cursor_array[TYPE_ITEM_EXIT] = bmap_create("cursor_exit.tga");
-	bmp_cursor_array[TYPE_ITEM_TALK] = bmap_create("cursor_talk.tga");
-	bmp_cursor_array[TYPE_ITEM_USE] = bmap_create("cursor_use.tga");
-	bmp_cursor_array[TYPE_ITEM_SEARCH] = NULL; //bmap_create(".tga");
-
-	mousemgr_cursor = MOUSE_DEFAULT;
+	mousemgr_set(MOUSE_DEFAULT, NULL);
 }
 
 //skill1: ItemType 1
@@ -121,7 +112,7 @@ action interactionItem()
 	if (is(my, itemHover))
 	{
 		reset (interActionItem__txt, SHOW);
-		mousemgr_cursor = MOUSE_DEFAULT;
+		mousemgr_set(MOUSE_DEFAULT, NULL);
 	}
 	ptr_remove(me);
 }
@@ -162,7 +153,7 @@ void interactionItem__clicked()
 			{
 				inv_add_item(inventory, itemInHand);
 			}
-			mousemgr_cursor = MOUSE_DEFAULT;
+			mousemgr_set(MOUSE_DEFAULT, NULL);
 		
 			//only perform morph and inventory actions if resultId points to real item
 			//fake resultIds may be used to trigger custom events
@@ -268,17 +259,17 @@ void interactionItem__eventHandler()
 			if (itemInHand != NULL) {
 				// ToDo: Don't change mouse cursor
 				// mouse_map = bmp_cursor_array[TYPE_ITEM_USE];
-				mousemgr_cursor = MOUSE_USE;
+				mousemgr_set(MOUSE_USE, itemInHand.image);
 			}
 			else
 			{
 				if (item->collectable != 0)
 				{
-					mousemgr_cursor = MOUSE_GRAB;
+					mousemgr_set(MOUSE_GRAB, NULL);
 				}
 				else
 				{
-					mousemgr_cursor = MOUSE_LOOK;
+					mousemgr_set(MOUSE_LOOK, NULL);
 				}
 			}
 		}
@@ -292,12 +283,12 @@ void interactionItem__eventHandler()
 			reset (interActionItem__txt, SHOW);
 			if (itemInHand != NULL)
 			{
-				mousemgr_hint = itemInHand->image;
+				mousemgr_set(MOUSE_DEFAULT, itemInHand->image);
 				//TODO
 			}
 			else
 			{
-				mousemgr_cursor = MOUSE_DEFAULT;
+				mousemgr_set(MOUSE_DEFAULT, NULL);
 			}
 		}
 	}

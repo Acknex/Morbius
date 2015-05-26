@@ -9,19 +9,27 @@
 #define MOUSE_GRAB		5
 
 /**
- * @brief The current cursor icon of the mouse.
- */ 
-int mousemgr_cursor = MOUSE_DEFAULT;
-
-/**
- * @brief Cursor hint that is shown bottom right of the cursor
+ * @brief The font used for displaying the hint.
  */
-BMAP *mousemgr_hint = NULL;
+FONT *mousemgrHintFont = "Arial#16";
 
 /**
  * @brief Starts the mouse manager.
  */
 void mousemgr_init();
+
+/**
+ * @brief Sets the moues cursor.
+ * @param cursor The ID of the mouse cursor.
+ * @param decoration An image shown bottom right of the mouse cursor.
+ */
+void mousemgr_set(int cursor, BMAP *decoration);
+
+/**
+ * @brief Sets a text hint at the mouse cursor.
+ * @param text The text to be shown. To hide the text, use a blank string.
+ */
+void mousemgr_hint(STRING *text);
 
 #include "mousemgr.c"
 
