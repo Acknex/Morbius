@@ -11,7 +11,7 @@
 /**
  * @brief The font used for displaying the hint.
  */
-FONT *mousemgrHintFont = "Arial#16";
+FONT *mousemgrHintFont = "Arial#32";
 
 /**
  * @brief Starts the mouse manager.
@@ -30,6 +30,16 @@ void mousemgr_set(int cursor, BMAP *decoration);
  * @param text The text to be shown. To hide the text, use a blank string.
  */
 void mousemgr_hint(STRING *text);
+
+/**
+ * @brief Gets the current cursor.
+ */
+int mousemgr_currentCursor();
+
+/**
+ * @brief Gets the current mouse decoration.
+ */
+BMAP *mousemgr_currentDecoration();
 
 #include "mousemgr.c"
 

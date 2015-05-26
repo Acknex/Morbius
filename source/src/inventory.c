@@ -351,8 +351,9 @@ void inv_item_enter(var _buttonNumber, PANEL* _panel) {
 				if (tempInv != NULL) {
 					if (tempInv.itemDescription != NULL) {
 						// Show item description
-						set(tempInv.itemDescription, SHOW);
-						str_cpy((tempInv.itemDescription.pstring)[0], tempItem.name);
+						//set(tempInv.itemDescription, SHOW);
+						//str_cpy((tempInv.itemDescription.pstring)[0], tempItem.name);
+						mousemgr_hint(tempItem->name);
 					}
 				}
 			}
@@ -369,7 +370,8 @@ void inv_item_leave(var _buttonNumber, PANEL* _panel) {
 				if (tempInv != NULL) {
 					if (tempInv.itemDescription != NULL) {
 						// Hide item description
-						reset(tempInv.itemDescription, SHOW);
+						mousemgr_hint(NULL);
+						//reset(tempInv.itemDescription, SHOW);
 					}
 				}
 			}

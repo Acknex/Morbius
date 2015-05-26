@@ -35,6 +35,16 @@ void mousemgr_hint(STRING *text)
 		str_cpy(mousemgr_hint, text);
 }
 
+int mousemgr_currentCursor()
+{
+	return mousemgr_cursor;
+}
+
+BMAP *mousemgr_currentDecoration()
+{
+	return mousemgr_decoration;
+}
+
 TEXT *mousemgrText = 
 {
 	font = mousemgrHintFont;
@@ -42,7 +52,7 @@ TEXT *mousemgrText =
 	red = 255;
 	green = 255;
 	blue = 255;
-	flags = LIGHT;
+	flags = LIGHT | OUTLINE;
 }
 
 void mousemgr_init()
@@ -87,7 +97,7 @@ void mousemgr_init()
 		{
 			draw_quad(
 				mousemgr_decoration,
-				vector(x + map->height, y + map->height, 0),
+				vector(x + map->height, y + 0.5 * map->height, 0),
 				NULL,
 				NULL, // Full size
 				NULL,
@@ -97,8 +107,8 @@ void mousemgr_init()
 		}
 		if(str_len(mousemgr_hint) > 0)
 		{
-			mousemgrText.pos_x = x + map->height;
-			mousemgrText.pos_y = y - mousemgrHintFont->dy;
+			mousemgrText.pos_x = minv(x + map->height, screen_size.x - str_width(mousemgr_hint, mousemgrHintFont));
+			mousemgrText.pos_y = y - 0.5 * mousemgrHintFont->dy;
 			draw_obj(mousemgrText);
 		}
 		currentFrame += animationSpeed * time_step;

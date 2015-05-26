@@ -111,8 +111,9 @@ action interactionItem()
 
 	if (is(my, itemHover))
 	{
-		reset (interActionItem__txt, SHOW);
+		//reset (interActionItem__txt, SHOW);
 		mousemgr_set(MOUSE_DEFAULT, NULL);
+		mousemgr_hint(NULL);
 	}
 	ptr_remove(me);
 }
@@ -253,8 +254,9 @@ void interactionItem__eventHandler()
 		if (!is(my, itemHover))
 		{
 			set (my, itemHover);	
-			str_cpy((interActionItem__txt->pstring)[0], item->name);
-			set (interActionItem__txt, SHOW);
+			//str_cpy((interActionItem__txt->pstring)[0], item->name);
+			//set (interActionItem__txt, SHOW);
+			mousemgr_hint(item->name);
 			//if (ITEM_isLastSequence(item, my->itemSequence) != 0 && item->collectable != 0)
 			if (itemInHand != NULL) {
 				// ToDo: Don't change mouse cursor
@@ -279,8 +281,9 @@ void interactionItem__eventHandler()
 	{
 		if (is(my, itemHover))
 		{
-			reset (my,itemHover);			
-			reset (interActionItem__txt, SHOW);
+			reset (my,itemHover);
+			mousemgr_hint(NULL);	
+			//reset (interActionItem__txt, SHOW);
 			if (itemInHand != NULL)
 			{
 				mousemgr_set(MOUSE_DEFAULT, itemInHand->image);
