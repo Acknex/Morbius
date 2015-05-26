@@ -2,7 +2,7 @@
 #include "math.h"
 
 #define MENU_BASE_STOP 1
-#define MENU_NUM_STOPS 6
+#define MENU_NUM_STOPS 5
 #define MENU_IDLE_TICKS 128
 
 var options_show = 0;
@@ -26,6 +26,7 @@ typedef struct {
 	var music;
 	void *on_ent_remove;
 	void *on_space;
+	void *on_enter;
 	void *on_cul;
 	void *on_cur;
 	ENTITY *core;
@@ -77,6 +78,7 @@ void menu_close()
 	
 	_menu.on_ent_remove = on_ent_remove;
 	on_space = _menu.on_space;
+	on_enter = _menu.on_enter;
 	on_cul = _menu.on_cul;
 	on_cur = _menu.on_cur;
 }
@@ -404,8 +406,11 @@ void _menu_item_init()
 
 void menu_entity_trigger()
 {
-	if(my.skill1 == 3) options_show = 1;
-	else menu_fade_and_trigger(_menu_stops[my.skill1]);
+	if(my.skill1 == 2) {
+		options_show = 1;
+	} else {
+		menu_fade_and_trigger(_menu_stops[my.skill1]);
+	}
 }
 
 void menu_nav_next()
@@ -421,8 +426,12 @@ void menu_nav_prev()
 void menu_trigger()
 {
 	if(_menu.currentStop != _menu.nextStop)
-	return;
-	menu_fade_and_trigger(_menu_stops[_menu.currentStop]);
+		return;
+	if(_menu.currentStop == 2) {
+		options_show = 1;
+	} else {
+		menu_fade_and_trigger(_menu_stops[_menu.currentStop]);
+	}
 }
 
 void menu_regenerate_bitmaps()
@@ -444,10 +453,12 @@ void menu_open()
 	memset(_menu, 0, sizeof(MenuData));
 	_menu.on_ent_remove = on_ent_remove;
 	_menu.on_space = on_space;
+	_menu.on_enter = on_enter;
 	_menu.on_cur = on_cur;
 	_menu.on_cul = on_cul;
 	on_ent_remove = menu_ent_remove;
 	on_space = menu_trigger;
+	on_enter = menu_trigger;
 	on_cur = menu_nav_prev;
 	on_cul = menu_nav_next;
 	
@@ -549,27 +560,27 @@ void menu_startup()
 	strcpy(_menu_stops[1].title, "Start Game");
 	_menu_stops[1].trigger = menu_trigger_start;
 	
-	vec_set(_menu_stops[2].position, vector(-84, -1098, 322));
-	vec_set(_menu_stops[2].rotation, vector(154, -15, 0));
-	vec_set(_menu_stops[2].positionText, vector(-540, -935, 130));
-	strcpy(_menu_stops[2].title, "Load Game");
+	//vec_set(_menu_stops[2].position, vector(-84, -1098, 322));
+	//vec_set(_menu_stops[2].rotation, vector(154, -15, 0));
+	//vec_set(_menu_stops[2].positionText, vector(-540, -935, 130));
+	//strcpy(_menu_stops[2].title, "Load Game");
 	
-	vec_set(_menu_stops[3].position, vector(-407, -1090, 217));
-	vec_set(_menu_stops[3].rotation, vector(242, -26, 0));
-	vec_set(_menu_stops[3].positionText, vector(-485, -1310, 100));
-	strcpy(_menu_stops[3].title, "Options");
+	vec_set(_menu_stops[2].position, vector(-407, -1090, 217));
+	vec_set(_menu_stops[2].rotation, vector(242, -26, 0));
+	vec_set(_menu_stops[2].positionText, vector(-485, -1310, 100));
+	strcpy(_menu_stops[2].title, "Options");
 	
-	vec_set(_menu_stops[4].position, vector(611, -625, 226));
-	vec_set(_menu_stops[4].rotation, vector(340, -13, 0));
-	vec_set(_menu_stops[4].positionText, vector(959, -650, 100));
-	strcpy(_menu_stops[4].title, "Credits");
-	_menu_stops[4].trigger = menu_trigger_credits;
+	vec_set(_menu_stops[3].position, vector(611, -625, 226));
+	vec_set(_menu_stops[3].rotation, vector(340, -13, 0));
+	vec_set(_menu_stops[3].positionText, vector(959, -650, 100));
+	strcpy(_menu_stops[3].title, "Credits");
+	_menu_stops[3].trigger = menu_trigger_credits;
 	
-	vec_set(_menu_stops[5].position, vector(215, -562, 224));
-	vec_set(_menu_stops[5].rotation, vector(155, -18, 0));
-	vec_set(_menu_stops[5].positionText, vector(-136, -425, 110));
-	strcpy(_menu_stops[5].title, "Quit Game");
-	_menu_stops[5].trigger = menu_trigger_quit;
+	vec_set(_menu_stops[4].position, vector(215, -562, 224));
+	vec_set(_menu_stops[4].rotation, vector(155, -18, 0));
+	vec_set(_menu_stops[4].positionText, vector(-136, -425, 110));
+	strcpy(_menu_stops[4].title, "Quit Game");
+	_menu_stops[4].trigger = menu_trigger_quit;
 	
 	int i;
 	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
