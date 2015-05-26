@@ -197,12 +197,16 @@
 	
 	<!--Münzen//-->
 	<item id="40" name="Münzen" collectable="yes" imgfile="muenzen.tga">
-		<sequence description="Geiles Geld" sound="achievement1.wav"/>
 	</item>
 
 	<!--Telefonzelle benutzt//-->
 	<item id="41" name="Telefonzelle" entfile="tardis_body.mdl">
 		<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..." sound="achievement1.wav"/>
+	</item>
+
+	<!--Dunkelkammer//-->
+	<item id="42" name="Dunkelkammer" entfile="cube.mdl">
+		<sequence description="Michael Morbius und die Kammer der Dunkelheit... hrhrhr." sound="itm_dunkelkammer01.ogg"/>
 	</item>
 </items>
 <combinations>
