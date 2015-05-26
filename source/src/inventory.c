@@ -335,6 +335,7 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 					inv_remove_item(tempItem.inv,tempItem);
 					inv_hide(tempItem.inv);
 					inv_show(tempItem.inv);
+					mousemgr_hint(NULL);
 					mousemgr_set(MOUSE_DEFAULT, tempItem.image);
 				}
 			}
@@ -354,6 +355,10 @@ void inv_item_enter(var _buttonNumber, PANEL* _panel) {
 						//set(tempInv.itemDescription, SHOW);
 						//str_cpy((tempInv.itemDescription.pstring)[0], tempItem.name);
 						mousemgr_hint(tempItem->name);
+						if (itemInHand != NULL)
+						{
+							mousemgr_set(MOUSE_USE, itemInHand->image);
+						}
 					}
 				}
 			}
@@ -372,6 +377,10 @@ void inv_item_leave(var _buttonNumber, PANEL* _panel) {
 						// Hide item description
 						mousemgr_hint(NULL);
 						//reset(tempInv.itemDescription, SHOW);
+						if (itemInHand != NULL)
+						{
+							mousemgr_set(MOUSE_DEFAULT, itemInHand->image);
+						}
 					}
 				}
 			}

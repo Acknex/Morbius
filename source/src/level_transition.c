@@ -74,7 +74,14 @@ void level_gate_event() {
 	}
 	
 	if (event_type == EVENT_RELEASE) {
-		mousemgr_set(MOUSE_DEFAULT, NULL);
+		if (itemInHand != NULL)
+		{
+			mousemgr_set(MOUSE_DEFAULT, itemInHand->image);
+		}
+		else
+		{
+			mousemgr_set(MOUSE_DEFAULT, NULL);
+		}
 	}
 	
 	if (event_type == EVENT_CLICK) {
