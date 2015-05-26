@@ -1,5 +1,8 @@
+#include <mtlView.c>
 #include "menu.h"
 #include "math.h"
+
+pp_set(camera,mtl_hdr);
 
 #define MENU_BASE_STOP 1
 #define MENU_NUM_STOPS 5
@@ -81,6 +84,8 @@ void menu_close()
 	on_enter = _menu.on_enter;
 	on_cul = _menu.on_cul;
 	on_cur = _menu.on_cur;
+	
+	pp_set(camera, NULL);
 }
 
 void menu_ent_remove(ENTITY *ent)
@@ -467,6 +472,8 @@ void menu_open()
 	
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
+	
+	pp_set(camera, mtl_hdr);
 	
 	// Create main menu text bitmaps
 	menu_regenerate_bitmaps();

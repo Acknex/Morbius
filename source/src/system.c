@@ -5,6 +5,7 @@
 #include "camera.h"
 #include "items.h"
 #include "combine.h"
+#include "mousemgr.h"
 
 void itemmgr_init();
 void smartwalk_init();
@@ -22,7 +23,6 @@ void startGame()
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
-	mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
 }
 
 void quitGame()
@@ -43,7 +43,7 @@ void sys_init() {
 	
 	// window + system
 	preload_mode = 7;
-	// mouse_pointer = 0;
+	mouse_pointer = 0;
 	mouse_mode = 4;
 	mouse_range = 10000;
 	
@@ -58,6 +58,7 @@ void sys_init() {
 	
 	itemmgr_init();
 	smartwalk_init();
+	mousemgr_init();
 	
 	menuConfig.startGame = startGame;
 	menuConfig.quitGame = quitGame;

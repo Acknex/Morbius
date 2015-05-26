@@ -11,6 +11,7 @@
 
 #include "bindings.h"
 #include "morbius.h"
+#include "mousemgr.h"
 #include "menu.h"
 #include "credits.h"
 #include "system.h"
@@ -33,5 +34,4 @@ void main() {
 	d3d_antialias = 9;
 	sys_init(); // system.c
 	menu_open(); // menu.c
-	//pp_set(camera,mtl_hdr);
 }

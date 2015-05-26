@@ -35,7 +35,7 @@ void itemmgr_init()
 	bmp_cursor_array[TYPE_ITEM_USE] = bmap_create("cursor_use.tga");
 	bmp_cursor_array[TYPE_ITEM_SEARCH] = NULL; //bmap_create(".tga");
 
-	mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
+	mousemgr_cursor = MOUSE_DEFAULT;
 }
 
 //skill1: ItemType 1
@@ -121,7 +121,7 @@ action interactionItem()
 	if (is(my, itemHover))
 	{
 		reset (interActionItem__txt, SHOW);
-		mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
+		mousemgr_cursor = MOUSE_DEFAULT;
 	}
 	ptr_remove(me);
 }
@@ -161,8 +161,8 @@ void interactionItem__clicked()
 			if(handItem->destroyable == 0)
 			{
 				inv_add_item(inventory, itemInHand);
-			}				
-			mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+			}
+			mousemgr_cursor = MOUSE_DEFAULT;
 		
 			//only perform morph and inventory actions if resultId points to real item
 			//fake resultIds may be used to trigger custom events
@@ -268,16 +268,17 @@ void interactionItem__eventHandler()
 			if (itemInHand != NULL) {
 				// ToDo: Don't change mouse cursor
 				// mouse_map = bmp_cursor_array[TYPE_ITEM_USE];
+				mousemgr_cursor = MOUSE_USE;
 			}
 			else
 			{
 				if (item->collectable != 0)
 				{
-					mouse_map = bmp_cursor_array[TYPE_ITEM_GRAB];
+					mousemgr_cursor = MOUSE_GRAB;
 				}
 				else
 				{
-					mouse_map = bmp_cursor_array[TYPE_ITEM_LOOK];
+					mousemgr_cursor = MOUSE_LOOK;
 				}
 			}
 		}
@@ -291,12 +292,12 @@ void interactionItem__eventHandler()
 			reset (interActionItem__txt, SHOW);
 			if (itemInHand != NULL)
 			{
-				mouse_map = itemInHand->image;
+				mousemgr_hint = itemInHand->image;
 				//TODO
 			}
 			else
 			{
-				mouse_map = bmp_cursor_array[TYPE_ITEM_POINT];
+				mousemgr_cursor = MOUSE_DEFAULT;
 			}
 		}
 	}
