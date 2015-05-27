@@ -62,7 +62,7 @@ action player_act()
 		//HACK: player close previously clicked item? stop early
 		if (lastClickedEnt != NULL) 
 		{
-			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST)
+			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM)
 			{
 				if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
 				my.ent_smartwalk = 0;
