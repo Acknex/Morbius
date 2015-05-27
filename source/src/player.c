@@ -59,6 +59,17 @@ action player_act()
 		}
 		else mouse_left_off = 1;
 
+		//HACK: player close previously clicked item? stop early
+		if (lastClickedEnt != NULL) 
+		{
+			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST)
+			{
+				if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
+				my.ent_smartwalk = 0;
+				vec_set(my.target_x,my.x);
+			}
+		}
+		
 		my.target_z = my.z;
 		VECTOR temp,temp2;
 		vec_diff(temp,my.target_x,my.x);
@@ -146,4 +157,9 @@ action player_act()
 ENTITY* Player_getLastClickedEnt()
 {			
 	return lastClickedEnt;
+}
+
+void Player_resetLastClickedEnt()
+{			
+	lastClickedEnt = NULL;
 }

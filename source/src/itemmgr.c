@@ -14,7 +14,6 @@
 #define itemRemove FLAG2
 #define itemWasClicked FLAG3
 
-#define ITEM_MINPLAYERDIST 50
 
 void interactionItem__clicked();
 void interactionItem__eventHandler();
@@ -77,7 +76,7 @@ action interactionItem()
 		{
 			if (player != NULL)
 			{
-				if(vec_dist(player->x, my->x) < ITEM_MINPLAYERDIST)
+				if(vec_dist(player->x, my->x) < PLAYER_NEAR_DIST)
 				{
 					interactionItem__clicked();
 					reset(my, itemWasClicked);					
@@ -101,6 +100,10 @@ action interactionItem()
 	{
 		mousemgr_set(MOUSE_DEFAULT, NULL);
 		mousemgr_hint(NULL);
+	}
+	if (Player_getLastClickedEnt() == me)
+	{
+		Player_resetLastClickedEnt();
 	}
 	ptr_remove(me);
 }
