@@ -15,7 +15,10 @@ TEXT* HUD_DescriptionTxt =
 	layer = 1;	
 	pos_x = 0;
 	pos_y = 0;
-	flags |= TRANSLUCENT | WWRAP | SHADOW | CENTER_X;
+	red = 255;
+	green = 255;
+	blue = 255;
+	flags |= LIGHT | FILTER | TRANSLUCENT | WWRAP | SHADOW | CENTER_X;
 	alpha = 0;
 	string ("");
 }

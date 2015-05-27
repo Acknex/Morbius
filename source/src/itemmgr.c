@@ -135,7 +135,7 @@ void interactionItem__clicked()
 			{
 				inv_add_item(inventory, itemInHand);
 			}
-			mousemgr_set(MOUSE_DEFAULT, NULL);
+			//mousemgr_set(MOUSE_DEFAULT, NULL);
 		
 			//only perform morph and inventory actions if resultId points to real item
 			//fake resultIds may be used to trigger custom events
@@ -173,6 +173,7 @@ void interactionItem__clicked()
 			//HUD_showDescription(msg);			
 		}
 		itemInHand = NULL;
+		mousemgr_set(MOUSE_DEFAULT, NULL);
 		
 		//use inventory item on inventory item is handled in inventory.c!!				
 	}

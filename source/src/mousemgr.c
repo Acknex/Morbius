@@ -53,7 +53,8 @@ TEXT *mousemgrText =
 	red = 255;
 	green = 255;
 	blue = 255;
-	flags = LIGHT | OUTLINE;
+	flags = LIGHT | SHADOW | TRANSLUCENT | FILTER;
+	alpha = 100;
 }
 
 void mousemgr__resizeEv();
