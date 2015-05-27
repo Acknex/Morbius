@@ -3,12 +3,11 @@
 #include "hud.h"
 #include "xmlreader.h"
 #include "list.h"
+#include "soundmgr.h"
 
 #include "xmlreader.c"
 #include "list.c"
 
-
-#define ITEM_VOLUME 100
 
 LIST* ITEMS__itemList;
 XMLFILE* ITEMS__xml;
@@ -110,7 +109,7 @@ void ITEM_resetProgress()
 var ITEM_isLastSequence(ITEM* item)
 {
 	if (item == NULL)
-		return;
+		return 0;
 	
 	if (item->progress == LIST_items(item->sequences))
 		return 1;
@@ -123,7 +122,7 @@ int ITEM_interaction(ITEM* item)
 	SEQUENCE* tmpSequence;
 	
 	if (item == NULL)
-		return;
+		return -1;
 
 	item->progress = minv(item->progress, LIST_items(item->sequences) - 1);
 	if (item->progress >= 0)
@@ -131,12 +130,15 @@ int ITEM_interaction(ITEM* item)
 		tmpSequence = (SEQUENCE*)LIST_getItem(item->sequences, item->progress);
 		if (tmpSequence->snd_interact != NULL)
 		{
-			snd_play(tmpSequence->snd_interact, ITEM_VOLUME, 0);
+			SOUNDMGR_scheduleSound(tmpSequence->snd_interact);
 		}
 		
 		if (tmpSequence->description != NULL)
 		{
-			HUD_showDescription(tmpSequence->description);
+			if (tmpSequence->snd_interact != NULL)
+				HUD_showDescription(tmpSequence->description, tmpSequence->snd_interact);
+			else
+				HUD_showDescription(tmpSequence->description);
 		}
 
 		//get stuck on last step

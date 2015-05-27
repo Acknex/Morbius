@@ -6,6 +6,7 @@
 #include "items.h"
 #include "combine.h"
 #include "mousemgr.h"
+#include "hud.h"
 
 void itemmgr_init();
 void smartwalk_init();
@@ -29,6 +30,7 @@ void quitGame()
 {
 	COMBINATION_close();
 	ITEM_close();
+	HUD_close();
 	sys_exit(NULL);
 }
 
@@ -56,7 +58,7 @@ void sys_init() {
 	
 	random_seed((sys_seconds % sys_month) * sys_hours - 42);
 	
-	itemmgr_init();
+	HUD_init();
 	smartwalk_init();
 	mousemgr_init();
 	

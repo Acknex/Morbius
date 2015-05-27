@@ -7,9 +7,6 @@
 #include "xmlreader.c"
 #include "list.c"
 
-#define COMBINE_VOLUME 100
-
-
 
 LIST* COMBINATION__combinationList;
 XMLFILE* COMBINATION__xml;
@@ -86,11 +83,16 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 		{
 			//found
 			if (tmpCombination->snd_interact != NULL)
-				snd_play(tmpCombination->snd_interact, COMBINE_VOLUME, 0);
+			{
+				SOUNDMGR_scheduleSound(tmpCombination->snd_interact);
+			}
 
 			if (tmpCombination->description != NULL)
 			{
-				HUD_showDescription(tmpCombination->description);
+				if (tmpCombination->snd_interact != NULL)		
+					HUD_showDescription(tmpCombination->description, tmpCombination->snd_interact);
+				else
+					HUD_showDescription(tmpCombination->description);
 			}
 
 			*morphtargetId = tmpCombination->morphtargetId;

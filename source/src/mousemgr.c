@@ -1,4 +1,5 @@
 #include "mousemgr.h"
+#include "hud.h"
 
 BMAP *mousemgrMapDefault = "cur_point.png";
 BMAP *mousemgrMapUse = "cur_use.png";
@@ -55,8 +56,16 @@ TEXT *mousemgrText =
 	flags = LIGHT | OUTLINE;
 }
 
+void mousemgr__resizeEv();
+
 void mousemgr_init()
 {
+	mousemgr__resizeEv = on_resize;
+	on_resize = mousemgr_resize;
+	mousemgr_resize();
+
+	mousemgr_set(MOUSE_DEFAULT, NULL);
+
 	BMAP *maps[6];
 	maps[MOUSE_DEFAULT] = mousemgrMapDefault;
 	maps[MOUSE_USE] = mousemgrMapUse;
@@ -114,5 +123,19 @@ void mousemgr_init()
 		currentFrame += animationSpeed * time_step;
 		
 		wait(1);
+	}
+}
+
+void mousemgr_resize()
+{
+	if (mousemgr__resizeEv != NULL)
+	{
+		mousemgr__resizeEv();
+	}
+	
+	FONT* fnt = HUD_getFont();
+	if (fnt != NULL)
+	{
+		mousemgrText->font = fnt;
 	}
 }

@@ -8,7 +8,6 @@
 #include "event.h"
 #include "player.h"
 
-#define itemType skill1
 #define itemId skill2
 #define itemHover FLAG1
 #define itemRemove FLAG2
@@ -19,18 +18,12 @@ void interactionItem__clicked();
 void interactionItem__eventHandler();
 ENTITY* interactionItem__find(int id);
 
-void itemmgr_init()
-{
-
-	mousemgr_set(MOUSE_DEFAULT, NULL);
-}
-
-//skill1: ItemType 1
+//skill1: EntityType 1
 //skill2: ItemId -1
 action interactionItem()
 {
 	set(my, INVISIBLE);
-	my->itemType = TYPE_ITEM;
+	my->ENTITY_TYPE = TYPE_ITEM;
 	my->group = GROUP_ITEM;
 	
 	wait(1); //needed for interactionItem_spawn call to set my->itemId properly
@@ -56,7 +49,6 @@ action interactionItem()
 	}
 	//restore item state: end
 
-	my->ENTITY_TYPE = TYPE_ITEM;
 	my->material = mat_item;
 	VECTOR vmin,vmax;
 	vec_for_min(vmin, my);
@@ -298,7 +290,7 @@ void interactionItem_morph(int targetId, int morphId)
 		ent_morph(ent, item->entfile);
 	}
 	ent->itemId = morphId;
-	ent->itemType = TYPE_ITEM;
+	ent->ENTITY_TYPE = TYPE_ITEM;
 }
 
 ENTITY* interactionItem__find(int id)
@@ -309,7 +301,7 @@ ENTITY* interactionItem__find(int id)
 	{
 		if (ent != NULL)
 		{
-			if (ent->itemType == TYPE_ITEM)
+			if (ent->ENTITY_TYPE == TYPE_ITEM)
 			{
 				if (ent->itemId == id)
 				{

@@ -41,6 +41,8 @@ int mousemgr_currentCursor();
  */
 BMAP *mousemgr_currentDecoration();
 
+void mousemgr_resize();
+
 #include "mousemgr.c"
 
 #endif // #ifndef _MOUSEMGR_H_
