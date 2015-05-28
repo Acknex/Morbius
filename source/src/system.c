@@ -28,11 +28,16 @@ void startGame()
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
 }
 
-void quitGame()
+void exitGame()
 {
+//error("cleanup on exit");
 	COMBINATION_close();
 	ITEM_close();
 	HUD_close();
+}
+
+void quitGame()
+{
 	sys_exit(NULL);
 }
 
@@ -70,6 +75,9 @@ void sys_init() {
 	menuConfig.startCredits = credits_start;
 	
 	creditsConfig.ended = menu_open;
+
+	on_close = quitGame;
+	on_exit = exitGame;
 }
 
 #endif
