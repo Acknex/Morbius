@@ -5,6 +5,7 @@
 #include "inventory.h"
 
 ENTITY* lastClickedEnt = NULL;
+ENTITY* ent_flashlight = NULL;
 
 action point_of_inter()
 {
@@ -12,9 +13,17 @@ action point_of_inter()
 	my.ENTITY_TYPE = TYPE_POINTEREST;
 }
 
+action flashlight()
+{
+	set(my,PASSABLE);
+	wait(1);
+	ent_flashlight = me;
+}
+
 action player_act()
 {
 	set(my,INVISIBLE);
+	ent_flashlight = NULL;
 	wait(1);
 	level_change_set_player_position(my);
 	c_trace(my.x,vector(my.x,my.y,my.z-256),USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
@@ -45,7 +54,6 @@ action player_act()
 			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
 		}
 		
-		if(key_p) my.force_stop = 1;
 		if(my.force_stop)
 		{
 			if(my.ent_smartwalk)
@@ -156,6 +164,19 @@ action player_act()
 		vec_scale(temp,0.5);
 		ent_bonerotate(my,"Joint_2_4",temp);
 		ent_bonerotate(my,"Joint_3_5",temp);
+		
+		if(ent_flashlight)
+		{
+			vec_for_bone(temp,my,"Joint_5");
+			vec_set(ent_flashlight.x,temp);
+			ang_for_bone(temp,my,"Joint_5");
+			vec_set(ent_flashlight.pan,temp);
+			
+			vec_for_vertex(flashlight_start,ent_flashlight,133);
+			vec_set(flashlight_end,vector(flashlight_range,0,0));
+			vec_rotate(flashlight_end,ent_flashlight.pan);
+			vec_add(flashlight_end,ent_flashlight.x);
+		}
 		wait(1);
 	}
 }
