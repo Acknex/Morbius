@@ -2,8 +2,6 @@
 #include "menu.h"
 #include "math.h"
 
-pp_set(camera,mtl_hdr);
-
 #define MENU_BASE_STOP 1
 #define MENU_NUM_STOPS 5
 #define MENU_IDLE_TICKS 128
