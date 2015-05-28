@@ -5,11 +5,6 @@
 
 #include "dialogs.c"
 
-#define ITEM_ID_MUENZEN 40
-#define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
-SOUND* fritzCallSnd = "fritz_call.ogg";
-SOUND* galepCallSnd = "galep_call.ogg";
-
 int EVENT__triggerId = -1;
 var EVENT__stop = 0;
 var EVENT__locked = 0;
@@ -53,6 +48,13 @@ void EVENT__listener_startup()
 	}
 }
 
+//CUSTOM PART START
+#define ITEM_ID_MUENZEN 40
+#define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
+
+SOUND* fritzCallSnd = "fritz_call.ogg";
+SOUND* galepCallSnd = "galep_call.ogg";
+
 void EVENT__evaluate(int triggerId)
 {
 	EVENT__lock();
@@ -76,12 +78,11 @@ void EVENT__evaluate(int triggerId)
 		//Zugängliche Telefonzelle -> Zugängliche benutzte Telefonzelle
 		case 41: //use existing item ids for additional functionality
 		{
-			//error("TODO: custom Telefondialog1");
 			wait_for_dlg("xml\\monolog03.xml");
+
 			SOUNDMGR_scheduleSound(fritzCallSnd);
 			while (SOUNDMGR_isPlaying(fritzCallSnd) != 0) wait (1);
 			
-//			wait_for_dlg("xml\\monolog05.xml");			
 			wait_for_dlg("xml\\dialog02_fritz.xml");
 			break;
 		}
@@ -89,7 +90,6 @@ void EVENT__evaluate(int triggerId)
 		//Zugängliche benutzte Telefonzelle -> (invalid item id)
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
-			//error("TODO: custom Telefondialog2");
 			wait_for_dlg("xml\\monolog04.xml");
 
 			Item* item = inv_item_search(inventory, ITEM_ID_MUENZEN);
@@ -99,7 +99,7 @@ void EVENT__evaluate(int triggerId)
 			while (SOUNDMGR_isPlaying(galepCallSnd) != 0) wait (1);
 			
 			wait_for_dlg("xml\\dialog03_galep.xml");
-			wait(-2);
+			wait(-1.5);
 			wait_for_dlg("xml\\monolog05.xml");			
 			
 			level_change(2, 1);
