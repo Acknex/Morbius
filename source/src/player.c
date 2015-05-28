@@ -4,12 +4,27 @@
 #include "itemmgr.h"
 #include "inventory.h"
 
+#define PLAYER_RUN_CLICKSPEED (-0.2)
+#define PLAYER_RUN_THRESHOLD 100.0
+
+var player_waitForRun = 0;
+var player_runSpeed = 1;
+
 ENTITY* lastClickedEnt = NULL;
+
 
 action point_of_inter()
 {
 	set(my,INVISIBLE | PASSABLE);
 	my.ENTITY_TYPE = TYPE_POINTEREST;
+}
+
+void player_run_countdown(void)
+{
+	proc_kill(4);
+	player_waitForRun = 1;
+	wait(PLAYER_RUN_CLICKSPEED);
+	player_waitForRun = 0;
 }
 
 action player_act()
@@ -27,6 +42,9 @@ action player_act()
 	vec_fill(my.max_x,16*my.scale_x);
 	vec_set(my.target_x,my.x);
 	while(!inventory || !is_level_loaded()) wait(1);
+	VECTOR lastTarget;
+
+
 	while(1)
 	{
 		
@@ -68,9 +86,22 @@ action player_act()
 				lastClickedEnt = you; //store entity which was clicked last
 				if(trace_hit)
 				{
-					if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
-					my.ent_smartwalk = smartwalk_create_path(smd_level,my.x,target);
-					if(my.ent_smartwalk)	vec_set(my.target_x,(pSMARTWALK(my.ent_smartwalk)->nodes)[pSMARTWALK(my.ent_smartwalk)->current_node]);
+					if (player_waitForRun)
+					{
+						if (vec_dist(target, lastTarget) < PLAYER_RUN_THRESHOLD)
+						{
+							player_runSpeed = 2;
+						}
+					}
+					else
+					{
+						vec_set(lastTarget, target);
+						if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
+						my.ent_smartwalk = smartwalk_create_path(smd_level,my.x,target);
+						if(my.ent_smartwalk)	vec_set(my.target_x,(pSMARTWALK(my.ent_smartwalk)->nodes)[pSMARTWALK(my.ent_smartwalk)->current_node]);
+						player_runSpeed = 1;
+						player_run_countdown();
+					}
 				}
 			}
 		}
@@ -83,7 +114,7 @@ action player_act()
 		{
 			my.pan += ang(temp2.x-my.pan)*0.85*time_step;
 			my.tilt = 0;
-			var dist = vec_limit(temp,5.25*my.scale_x*time_step);
+			var dist = vec_limit(temp,5.25*my.scale_x*time_step*player_runSpeed);
 			//c_move(me,nullvector,temp,IGNORE_PASSABLE | GLIDE);
 			vec_add(my.x,temp);
 			c_ignore(GROUP_CURSOR_HELPER,GROUP_ITEM,0);
