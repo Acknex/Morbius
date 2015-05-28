@@ -7,6 +7,7 @@
 #include "materials.h"
 #include "event.h"
 #include "player.h"
+#include "dialogs.h"
 
 #define itemId skill2
 #define itemHover FLAG1
@@ -64,7 +65,7 @@ action interactionItem()
 	
 	while(!is(my, itemRemove))
 	{
-		if (is(my, itemWasClicked))
+		if (is(my, itemWasClicked) && dlgIsDialogActive() == 0)
 		{
 			if (player != NULL)
 			{
@@ -215,6 +216,9 @@ void interactionItem__clicked()
 
 void interactionItem__eventHandler()
 {
+	if (dlgIsDialogActive() != 0)
+		return;
+		
 	ITEM* item = ITEM_get(my->itemId);
 	
 	if (item == NULL)

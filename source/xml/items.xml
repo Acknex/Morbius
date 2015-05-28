@@ -251,5 +251,5 @@
 	<fail description="Sowas klappt doch nur mit Unity." sound="comb_fail02.ogg"/>
 	<fail description="Das war jetzt irgendwie... kacke." sound="comb_fail03.ogg"/>
 	<fail description="Vielleicht sollte ich doch nochmal auf MacGyverIt recherchieren." sound="comb_fail04.ogg"/>
-	<fail description="Herzlichen Glückwunsch zu dieser spitzenmäßigen... Schnapsidee, Morbius." sound="comb_fail05.ogg"/>
+	<fail description="Was für eine spitzenmäßige... Schnapsidee, Morbius." sound="comb_fail05.ogg"/>
 </combinations>
