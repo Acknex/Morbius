@@ -35,6 +35,7 @@ void level_change(var level_id, var gate_id)
 	input_fetch = 0;
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
+	vec_set(sky_color,COLOR_BLACK);
 	if(!isCameraInitialized())
 	{
 		cameraInit();

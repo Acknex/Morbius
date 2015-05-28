@@ -6,6 +6,7 @@
 #define target_x skill90
 #define target_y skill91
 #define target_z skill92
+#define force_stop skill93
 #define ent_smartwalk skill98
 #define SUB_TYPE skill99
 #define ENTITY_TYPE skill100

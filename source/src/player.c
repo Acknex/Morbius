@@ -23,8 +23,8 @@ action player_act()
 	my.material = mat_character;
 	player = me;
 	c_setminmax(my);
-	vec_fill(my.min_x,-16);
-	vec_fill(my.max_x,16);
+	vec_fill(my.min_x,-16*my.scale_x);
+	vec_fill(my.max_x,16*my.scale_x);
 	vec_set(my.target_x,my.x);
 	while(!inventory || !is_level_loaded()) wait(1);
 	while(1)
@@ -39,7 +39,24 @@ action player_act()
 		c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 		//TODO: take care of: item in hand
 		
-	
+		//HACK: player close previously clicked item? stop early
+		if (lastClickedEnt != NULL) 
+		{
+			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
+		}
+		
+		if(key_p) my.force_stop = 1;
+		if(my.force_stop)
+		{
+			if(my.ent_smartwalk)
+			{
+				smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
+				my.ent_smartwalk = 0;
+				vec_set(my.target_x,my.x);
+			}
+			my.force_stop = 0;
+		}
+
 		if(mouse_left)
 		{
 			if(mouse_left_off && input_fetch && mouse_pos.y < inventory.panel.pos_y) //screen_size.y-128
@@ -59,17 +76,6 @@ action player_act()
 		}
 		else mouse_left_off = 1;
 
-		//HACK: player close previously clicked item? stop early
-		if (lastClickedEnt != NULL) 
-		{
-			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM)
-			{
-				if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
-				my.ent_smartwalk = 0;
-				vec_set(my.target_x,my.x);
-			}
-		}
-		
 		my.target_z = my.z;
 		VECTOR temp,temp2;
 		vec_diff(temp,my.target_x,my.x);
@@ -77,13 +83,13 @@ action player_act()
 		{
 			my.pan += ang(temp2.x-my.pan)*0.85*time_step;
 			my.tilt = 0;
-			var dist = vec_limit(temp,5.25*time_step);
+			var dist = vec_limit(temp,5.25*my.scale_x*time_step);
 			//c_move(me,nullvector,temp,IGNORE_PASSABLE | GLIDE);
 			vec_add(my.x,temp);
-				c_ignore(GROUP_CURSOR_HELPER,GROUP_ITEM,0);
+			c_ignore(GROUP_CURSOR_HELPER,GROUP_ITEM,0);
 			c_trace(vector(my.x,my.y,my.z+48),vector(my.x,my.y,my.z-256),USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 			my.z += (target.z+2-my.z)*time_step;
-			my.skill20 += dist*1.41;
+			my.skill20 += dist*1.41/my.scale_x;
 			my.skill20 %= 100;
 			ent_animate(me,"walk",my.skill20,ANM_CYCLE);
 		}
@@ -114,13 +120,13 @@ action player_act()
 		if(my.skill60 > 4)
 		{
 			my.skill60 -= 4;
-			my.skill61 = 256;
+			my.skill61 = 256*my.scale_x;
 			my.skill62 = 0;
 			for(you = ent_next(NULL); you; you = ent_next(you))
 			{
 				if(your.ENTITY_TYPE == TYPE_POINTEREST || your.ENTITY_TYPE == TYPE_ITEM)
 				{
-					var dist = vec_dist(vector(my.x,my.y,my.z+40),your.x);
+					var dist = vec_dist(vector(my.x,my.y,my.z+40*my.scale_x),your.x);
 					if(dist < my.skill61)
 					{
 						my.skill61 = dist;
