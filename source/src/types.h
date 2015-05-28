@@ -38,5 +38,8 @@
 
 var mouse_left_off = 0;
 var input_fetch = 1;
+var flashlight_range = 1200;
+
+VECTOR flashlight_start,flashlight_end;
 
 #endif

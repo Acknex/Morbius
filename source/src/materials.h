@@ -21,6 +21,14 @@ MATERIAL* mat_item =
 	flags = AUTORELOAD;
 }
 
+BMAP* bmp_flashlight_mask = "flashlight_mask.tga";
+MATERIAL* mat_flashlight =
+{
+	effect = "flashlight.fx";
+	flags = AUTORELOAD;
+	skin1 = bmp_flashlight_mask;
+}
+
 MATERIAL* mat_level_change_transition =
 {
 	effect = "level_change_t.fx";

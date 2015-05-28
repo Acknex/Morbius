@@ -14,6 +14,11 @@
 FONT *mousemgrHintFont = "Arial#32";
 
 /**
+ * @brief The size of the mouse cursor.
+ */
+int mouseSize = 48;
+
+/**
  * @brief Starts the mouse manager.
  */
 void mousemgr_init();
