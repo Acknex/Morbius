@@ -8,6 +8,7 @@
 #define ITEM_ID_MUENZEN 40
 #define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
 SOUND* fritzCallSnd = "fritz_call.ogg";
+SOUND* galepCallSnd = "galep_call.ogg";
 
 int EVENT__triggerId = -1;
 var EVENT__stop = 0;
@@ -94,8 +95,8 @@ void EVENT__evaluate(int triggerId)
 			Item* item = inv_item_search(inventory, ITEM_ID_MUENZEN);
 			inv_remove_item(item.inv,item);
 
-			SOUNDMGR_scheduleSound(fritzCallSnd);
-			while (SOUNDMGR_isPlaying(fritzCallSnd) != 0) wait (1);
+			SOUNDMGR_scheduleSound(galepCallSnd);
+			while (SOUNDMGR_isPlaying(galepCallSnd) != 0) wait (1);
 			
 			wait_for_dlg("xml\\dialog03_galep.xml");
 			wait(-2);
