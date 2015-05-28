@@ -3,6 +3,8 @@
 
 #include "sounds.h"
 #include "hud.h"
+#include "inventory.h"
+#include "player.h"
 
 void (*dlg__resizeEv)();
 // ------------------------------------------------------------------------
@@ -186,6 +188,11 @@ void dlgStart(STRING* _speaker, STRING* _text, SOUND* _audio)
 {
 	// Wenn ein anderer Dialog aktiv ist, können wir keinen neuen starten
 	if (dlgIsDialogActive()) return;
+	inv_hide(inventory);
+	player_may_walk = 0;
+	mousemgr_set(MOUSE_TALK, NULL);
+	mousemgr_hint(NULL);
+
 	nIsDialogActive = 1;
 	while(mouse_left) wait(1);
 	
@@ -229,6 +236,11 @@ void dlgStart(STRING* _speaker, STRING* _text, SOUND* _audio)
 	reset(panDialogBg,SHOW);
 	reset(txtDialog,SHOW);
 	nIsDialogActive = 0;
+	inv_show(inventory);
+	player_may_walk = 1;
+	mousemgr_set(MOUSE_DEFAULT, NULL);
+	mousemgr_hint(NULL);
+	
 }
 
 
@@ -242,6 +254,10 @@ int dlgStart(STRING* _dialogFile)
 
 	if (_dialogFile == NULL) return;
 	
+	inv_hide(inventory);
+	player_may_walk = 0;
+	mousemgr_set(MOUSE_TALK, NULL);
+	mousemgr_hint(NULL);
 	nIsDialogActive = 1;
 	
 	int nCancelDialog = 0;
@@ -614,7 +630,6 @@ int dlgStart(STRING* _dialogFile)
 		reset(panDialogBg, SHOW);
 		reset(txtDialog, SHOW);
 		reset(txtSpeaker,SHOW);
-
 	}
 	XMLFILE_remove(pXml);
 
@@ -630,6 +645,10 @@ int dlgStart(STRING* _dialogFile)
 	
 	nIsDialogActive = 0;
 	
+	inv_show(inventory);
+	player_may_walk = 1;
+	mousemgr_set(MOUSE_DEFAULT, NULL);
+	mousemgr_hint(NULL);
 	// "returnValue" wird zurückgegeben falls er existiert, sonst: -1
 	if (str_cmp(returnValue,"") == 1)
 	{
