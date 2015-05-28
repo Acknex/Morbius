@@ -4,6 +4,7 @@
 void SOUNDMGR_setVolume(var vol);
 void SOUNDMGR_scheduleSound(SOUND* snd);
 var SOUNDMGR_isPlaying(SOUND* snd);
+void SOUNDMGR_stop();
 
 #include "soundmgr.c"
 

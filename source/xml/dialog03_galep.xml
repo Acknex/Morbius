@@ -13,12 +13,12 @@
 	<Player id="11" file="dlg03_morbius_11.ogg" name="Morbius">Sie sind doch Rezeptionist, ja?</Player>
 	<NPC id="12" file="dlg03_galep_12.ogg" name="Galep Security">Ja?</NPC>
 	<Player id="13" file="dlg03_morbius_13.ogg" name="Morbius">Sehen Sie, ich kann nicht einfach mit klarem Gewissen Ihnen eine Geldbörse voller Geld geben, und einfach hoffen, dass Sie sich nicht vielleicht da daran bedienen werden. Ich war auch mal Rezeptionist, ich kenne die langen Stunden und die kleinen Gehälter.</Player>
-	<NPC id="14" file="dlg03_galep_14.ogg" name="Galep Security">Herr Morbius, ich weiß nicht genau wie ich Ihnen noch weiter versichern kann, das wird nicht-</NPC>
+	<NPC id="14" file="dlg03_galep_14.ogg" name="Galep Security">Herr Morbius, ich weiß nicht genau wie ich Ihnen noch weiter versichern kann, dass wir nicht-</NPC>
 	<Player id="15" file="dlg03_morbius_15.ogg" name="Morbius">Sagen Sie mir einfach wo ich den Herren Emdayelle finden kann. Ich gebe ihm einfach persönlich die Geldbörse zurück und mein Gewissen wird erleichtert sein, und alle Risiken sind nichtig.</Player>
 	<NPC id="16" file="dlg03_galep_16.ogg" name="Galep Security">Selbst wenn ich Ihnen sagen würde, wo der Herr Emdayelle wohnt, wäre das ein Problem. Sehen Sie: Herr Emdayelle wohnt nicht hier in der Schweiz, sondern ist für seinen Kunden nach Deutschland gezogen.</NPC>
 	<Player id="17" file="dlg03_morbius_17.ogg" name="Morbius">Das trifft sich doch sehr gut, ich bin morgen wieder auf meinem Weg nach Deutschland.</Player>
 	<NPC id="18" file="dlg03_galep_18.ogg" name="Galep Security">[seufz] Na gut Herr Morbius. Wenn Sie sich sonst weigern, das persönliche Eigentum von unserem Mitarbeiter zurück zu geben, kann ich mal eine Ausnahme machen.</NPC>
-	<Player id="19" file="dlg03_morbius_19.ogg" name="Morbius">Ich wusste doch, dass Sie schlau sind! Sehen Sie: Ich habe direkt in Ihrer Stimme gehört, dass Sie's sind. Sie haben das gewisse 'Etwas', Sie werden es noch groß bringen! Das haben Sie soeben bewiesen!</Player>
+	<Player id="19" file="dlg03_morbius_19.ogg" name="Morbius">Ich wusste doch, dass Sie schlau sind! Sehen Sie: Ich habe direkt in Ihrer Stimme gehört, dass Sie's sind. Sie haben dieses gewisse 'Etwas', Sie werden es noch groß bringen! Das haben Sie soeben bewiesen!</Player>
 	<NPC id="20" file="dlg03_galep_20.ogg" name="Galep Security">Haben sie was zu schreiben? Herr Emdayelle wohnt in der Draugstraße 4 in Frankfurt.</NPC>
 	<Player id="21" file="dlg03_morbius_21.ogg" name="Morbius">Draugstraße 4, Frankfurt. Was für ein Zufall, ich wohne auch in Frankfurt!</Player>
 	<NPC id="22" file="dlg03_galep_22.ogg" name="Galep Security">Fast schon zu viele Zufälle für einen Tag...</NPC>

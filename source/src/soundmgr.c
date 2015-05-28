@@ -4,6 +4,7 @@
 var SOUNDMGR__handle = NULL;
 var SOUNDMGR__volume = SOUNDMGR_VOLUME;
 var SOUNDMGR__doFade = 0;
+var SOUNDMGR__mute = 0;
 SOUND* SOUNDMGR__nextSound = NULL;
 SOUND* SOUNDMGR__currentSound = NULL;
 
@@ -15,6 +16,12 @@ void SOUNDMGR_setVolume(var vol)
 void SOUNDMGR_scheduleSound(SOUND* snd)
 {
 	SOUNDMGR__nextSound = snd;
+}
+
+void SOUNDMGR_stop()
+{
+	SOUNDMGR__nextSound = NULL;
+	SOUNDMGR__mute = 1;
 }
 
 var SOUNDMGR_isPlaying(SOUND* snd)
@@ -37,7 +44,7 @@ void SOUNDMGR__fader_startup()
 	var fadeVol;
 	while(1)
 	{
-		if (SOUNDMGR__nextSound != NULL)
+		if (SOUNDMGR__nextSound != NULL || SOUNDMGR__mute != 0)
 		{
 			if (snd_playing(SOUNDMGR__handle))
 			{
@@ -55,9 +62,16 @@ void SOUNDMGR__fader_startup()
 			else
 			{
 				fadeVol = SOUNDMGR__volume;
-				SOUNDMGR__handle = snd_play(SOUNDMGR__nextSound, SOUNDMGR__volume, 0);
-				SOUNDMGR__currentSound = SOUNDMGR__nextSound;
-				SOUNDMGR__nextSound = NULL;
+				if (SOUNDMGR__mute == 0)
+				{
+					SOUNDMGR__handle = snd_play(SOUNDMGR__nextSound, SOUNDMGR__volume, 0);
+					SOUNDMGR__currentSound = SOUNDMGR__nextSound;
+					SOUNDMGR__nextSound = NULL;
+				}
+				else
+				{
+					SOUNDMGR__mute = 0;
+				}
 			}
 		}
 		else

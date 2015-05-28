@@ -241,10 +241,10 @@
 	<combination id1="35" id2="37" morphtarget="35" result="36"/>
 
 	<!--Dialog Trigger1//-->
-	<combination id1="40" id2="19" morphtarget="19" result="41" description="[Ring Ring]"/>
+	<combination id1="40" id2="19" morphtarget="19" result="41"/>
 
 	<!--Dialog Trigger2//-->
-	<combination id1="40" id2="41" result="1001" description="[Ring Ring]"/>
+	<combination id1="40" id2="41" result="1001""/>
 
 	<!-- Combination failures//-->
 	<fail description="So wird das nix." sound="comb_fail01.ogg"/>

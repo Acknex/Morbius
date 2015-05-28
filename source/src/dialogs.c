@@ -3,8 +3,9 @@
 
 #include "sounds.h"
 #include "hud.h"
-#include "inventory.h"
-#include "player.h"
+//#include "inventory.h"
+//#include "player.h"
+#include "soundmgr.h"
 
 void (*dlg__resizeEv)();
 // ------------------------------------------------------------------------
@@ -69,17 +70,17 @@ void dlgInit()
 	vec_set(panDialogBg.blue, vector(0,0,0));
 
 	txtDialog = txt_create(1, 23);
-	set(txtDialog, WWRAP);
+	set(txtDialog, WWRAP | SHADOW | FILTER);
 	txtDialog.font = fontDialogs;
 	vec_set(txtDialog.blue, vector(255,255,255));
 
 	txtDecisions = txt_create(4, 23);
-	set(txtDecisions, WWRAP);
+	set(txtDecisions, WWRAP | SHADOW | FILTER);
 	txtDecisions.font = fontDialogs;
 	vec_set(txtDecisions.blue, vector(255,255,255));
 
 	txtSpeaker = txt_create(1, 23);
-	set(txtSpeaker, WWRAP);
+	set(txtSpeaker, WWRAP | SHADOW | FILTER);
 	txtSpeaker.font = fontDialogBold;
 	vec_set(txtSpeaker.blue, vector(0,0,255));
 
@@ -188,10 +189,11 @@ void dlgStart(STRING* _speaker, STRING* _text, SOUND* _audio)
 {
 	// Wenn ein anderer Dialog aktiv ist, können wir keinen neuen starten
 	if (dlgIsDialogActive()) return;
-	inv_hide(inventory);
-	player_may_walk = 0;
+	//inv_hide(inventory);
+	//player_may_walk = 0;
 	mousemgr_set(MOUSE_TALK, NULL);
 	mousemgr_hint(NULL);
+	SOUNDMGR_stop();
 
 	nIsDialogActive = 1;
 	while(mouse_left) wait(1);
@@ -236,8 +238,8 @@ void dlgStart(STRING* _speaker, STRING* _text, SOUND* _audio)
 	reset(panDialogBg,SHOW);
 	reset(txtDialog,SHOW);
 	nIsDialogActive = 0;
-	inv_show(inventory);
-	player_may_walk = 1;
+	//inv_show(inventory);
+	//player_may_walk = 1;
 	mousemgr_set(MOUSE_DEFAULT, NULL);
 	mousemgr_hint(NULL);
 	
@@ -254,10 +256,12 @@ int dlgStart(STRING* _dialogFile)
 
 	if (_dialogFile == NULL) return;
 	
-	inv_hide(inventory);
-	player_may_walk = 0;
+	//inv_hide(inventory);
+	//player_may_walk = 0;
 	mousemgr_set(MOUSE_TALK, NULL);
 	mousemgr_hint(NULL);
+	SOUNDMGR_stop();
+
 	nIsDialogActive = 1;
 	
 	int nCancelDialog = 0;
@@ -619,7 +623,8 @@ int dlgStart(STRING* _dialogFile)
 				str_cpy(returnValue, "");
 				break;
 			}
-			wait(1);
+			//wait(1);
+			wait(-0.4);
 			
 			XMLPAR_getTag(pPar, strXMLTag);
 		}
@@ -645,8 +650,8 @@ int dlgStart(STRING* _dialogFile)
 	
 	nIsDialogActive = 0;
 	
-	inv_show(inventory);
-	player_may_walk = 1;
+	//inv_show(inventory);
+	//player_may_walk = 1;
 	mousemgr_set(MOUSE_DEFAULT, NULL);
 	mousemgr_hint(NULL);
 	// "returnValue" wird zurückgegeben falls er existiert, sonst: -1

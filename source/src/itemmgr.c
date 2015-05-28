@@ -216,7 +216,7 @@ void interactionItem__clicked()
 
 void interactionItem__eventHandler()
 {
-	if (dlgIsDialogActive() != 0)
+	if (dlgIsDialogActive() != 0 || EVENT_isLocked() != 0)
 		return;
 		
 	ITEM* item = ITEM_get(my->itemId);
