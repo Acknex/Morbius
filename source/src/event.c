@@ -63,6 +63,7 @@ void EVENT__evaluate(int triggerId)
 		case 41: //use existing item ids for additional functionality
 		{
 			//error("TODO: custom Telefondialog1");
+//			dlgStart("xml\\monolog05.xml");			
 			dlgStart("xml\\dialog02_fritz.xml");
 			break;
 		}

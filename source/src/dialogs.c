@@ -115,22 +115,22 @@ void dlgAlign(var fontSize)
 	panDialogBar2.pos_y = screen_size.y - panDialogBar2.size_y;//100;
 
 	panDialogBg.size_x = screen_size.x;
-	panDialogBg.size_y = fontSize * 4;//130;
+	panDialogBg.size_y = fontSize * 5.6;//130;
 	panDialogBg.pos_x = 0;
 	panDialogBg.pos_y = screen_size.y - panDialogBg.size_y - panDialogBar2.size_y - 10;//- 130 - 110;
 
 	txtDialog.pos_x = panDialogBg.pos_x + fontSize;//40;
-	txtDialog.pos_y = panDialogBg.pos_y + (1.5 * fontSize);//40;
+	txtDialog.pos_y = panDialogBg.pos_y + (1.3 * fontSize);//40;
 	txtDialog.size_x = screen_size.x - (2 * (txtDialog.pos_x - panDialogBg.pos_x));
-	txtDialog.size_y = fontSize * 3;//120;
+	txtDialog.size_y = fontSize * 4;//120;
 
 	txtDecisions.pos_x = panDialogBg.pos_x + fontSize;//40;
-	txtDecisions.pos_y = panDialogBg.pos_y + (1.5 * fontSize);//40;	
+	txtDecisions.pos_y = panDialogBg.pos_y + (0.3 * fontSize);//40;	
 	txtDecisions.size_x = screen_size.x - (2 * (txtDecisions.pos_x - panDialogBg.pos_x));
-	txtDecisions.size_y = fontSize * 3;//120;
+	txtDecisions.size_y = fontSize * 4;//120;
 
 	txtSpeaker.pos_x = panDialogBg.pos_x + fontSize;//40;
-	txtSpeaker.pos_y = panDialogBg.pos_y + (0.5 * fontSize);//30;
+	txtSpeaker.pos_y = panDialogBg.pos_y + (0.3 * fontSize);//30;
 	txtSpeaker.size_x = screen_size.x - (2 * (txtSpeaker.pos_x - panDialogBg.pos_x));//100;
 	txtSpeaker.size_y = fontSize;//30;
 
@@ -316,7 +316,7 @@ int dlgStart(STRING* _dialogFile)
 		{
 			
 			// Wird bereits ein Sound abgespielt? Dann stoppe ihn
-			if (snd_playing(vDialogSpeechHandle) > 0)
+			if (snd_playing(vDialogSpeechHandle) != 0)
 			{
 				snd_stop(vDialogSpeechHandle);
 			}
@@ -367,9 +367,9 @@ int dlgStart(STRING* _dialogFile)
 				i = getDialogItemId(pPar);
 				
 				// Dialog fortsetzen
-				if (snd_playing(vDialogSpeechHandle) > 0)
+				if (snd_playing(vDialogSpeechHandle) != 0)
 				{
-					while(snd_playing(vDialogSpeechHandle) > 0) {
+					while(snd_playing(vDialogSpeechHandle) != 0) {
 						if (key_esc) {
 							while(key_esc) wait(1);
 							nCancelDialog = 1;
@@ -434,9 +434,9 @@ int dlgStart(STRING* _dialogFile)
 				i = getDialogItemId(pPar);
 				
 				// Dialog fortsetzen
-				if (snd_playing(vDialogSpeechHandle) > 0)
+				if (snd_playing(vDialogSpeechHandle) != 0)
 				{
-					while(snd_playing(vDialogSpeechHandle) > 0) {
+					while(snd_playing(vDialogSpeechHandle) != 0) {
 						if (key_esc) {
 							while(key_esc) wait(1);
 							nCancelDialog = 1;
