@@ -93,6 +93,12 @@ FONT* HUD_getFont()
 	return HUD__font;
 }
 
+var HUD_getFontSize()
+{
+	var scale = screen_size.y / 1200;
+	return (HUD_FONT_SIZE * scale);
+}
+
 void HUD__fader_startup()
 {
 	var fadeAlpha = 0;
