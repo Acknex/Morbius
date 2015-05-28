@@ -165,6 +165,8 @@ void inv_show_items(Inventory* _inv);
  */
 void inv_item_click(var _buttonNumber, PANEL* _panel);
 
+Item* inv_item_search(Inventory* inv, int id);
+
 /**
  * Mouse entered an item button
  * \param	var	Button of the item

@@ -57,7 +57,7 @@ TEXT *mousemgrText =
 	alpha = 100;
 }
 
-void mousemgr__resizeEv();
+void (*mousemgr__resizeEv)();
 
 void mousemgr_init()
 {

@@ -7,7 +7,7 @@
 
 FONT* HUD__font = "Boogaloo#30";
 SOUND* HUD__managedSound = NULL;
-void HUD__resizeEv();
+void (*HUD__resizeEv)();
 
 TEXT* HUD_DescriptionTxt = 
 {
@@ -70,10 +70,6 @@ void HUD_close()
 
 void HUD_resize()
 {
-	if (HUD__resizeEv != NULL)
-	{
-		HUD__resizeEv();
-	}
 	var scale = screen_size.y / 1200;
 	STRING* strTemp = "#64";	
 	str_printf(strTemp, "Boogaloo#%i", (int)(HUD_FONT_SIZE * scale));
@@ -84,6 +80,12 @@ void HUD_resize()
 	HUD_DescriptionTxt->size_x = screen_size.x;
 	HUD_DescriptionTxt->pos_x = screen_size.x * 0.5;
 	HUD_DescriptionTxt->pos_y = screen_size.y * 0.05;
+
+	//trigger any chained resize event
+	if (HUD__resizeEv != NULL)
+	{
+		HUD__resizeEv();
+	}
 }
 
 FONT* HUD_getFont()
@@ -91,7 +93,7 @@ FONT* HUD_getFont()
 	return HUD__font;
 }
 
-void HUD_fader_startup()
+void HUD__fader_startup()
 {
 	var fadeAlpha = 0;
 	while(1)

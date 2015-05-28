@@ -1,4 +1,10 @@
-#include <acknex.h>
+#include "dialogs.h"
+#include "inventory.h"
+#include "level_transition.h"
+
+#include "dialogs.c"
+
+#define ITEM_ID_MUENZEN 40
 
 int EVENT__triggerId = -1;
 var EVENT__stop = 0;
@@ -56,14 +62,29 @@ void EVENT__evaluate(int triggerId)
 		//Zugängliche Telefonzelle -> Zugängliche benutzte Telefonzelle
 		case 41: //use existing item ids for additional functionality
 		{
-			error("TODO: custom Telefondialog1");
+			//error("TODO: custom Telefondialog1");
+			dlgStart("xml\\dialog02_fritz.xml");
 			break;
 		}
 		
 		//Zugängliche benutzte Telefonzelle -> (invalid item id)
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
-			error("TODO: custom Telefondialog2");
+			//error("TODO: custom Telefondialog2");
+			Item* item = inv_item_search(inventory, ITEM_ID_MUENZEN);
+			inv_remove_item(item.inv,item);
+			
+			dlgStart("xml\\dialog03_galep.xml");
+			while(dlgIsDialogActive())
+			{
+				wait (1);
+			}
+			dlgStart("xml\\monolog05.xml");			
+			while(dlgIsDialogActive())
+			{
+				wait (1);
+			}
+			level_change(2, 1);
 			break;
 		}
 		
