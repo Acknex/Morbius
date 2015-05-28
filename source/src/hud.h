@@ -8,6 +8,7 @@ void HUD_init();
 void HUD_close();
 void HUD_resize();
 FONT* HUD_getFont();
+var HUD_getFontSize();
 
 #include "hud.c"
 

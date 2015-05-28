@@ -1,6 +1,10 @@
 #ifndef DIALOGS_C
 #define DIALOGS_C
 
+#include "sounds.h"
+#include "hud.h"
+
+void (*dlg__resizeEv)();
 // ------------------------------------------------------------------------
 // Freigeben des Dialogsystems
 // ------------------------------------------------------------------------
@@ -85,44 +89,49 @@ void dlgInit()
 	set(panDialogBar2, OVERLAY | TRANSLUCENT | LIGHT);
 	vec_set(panDialogBar2.blue, vector(0,0,0));
 
-	dlgAlign();
+	//dlgAlign();
+	dlg__resizeEv = on_resize;
+	on_resize = dlg_resize;
+	dlg_resize();
+
 }
 
 // ------------------------------------------------------------------------
 // Ausrichten der Dialoge
 // (Muss nach jedem Auflösungswechsel aufgerufen werden)
 // ------------------------------------------------------------------------
-void dlgAlign()
+void dlgAlign(var fontSize)
 {
-	panDialogBg.size_x = screen_size.x;
-	panDialogBg.size_y = 130;
-	panDialogBg.pos_x = 0;
-	panDialogBg.pos_y = screen_size.y - 130 - 110;
-
-	txtDialog.size_x = screen_size.x;
-	txtDialog.size_y = 120;
-	txtDialog.pos_x = panDialogBg.pos_x + 40;
-	txtDialog.pos_y = panDialogBg.pos_y + 40;
-
-	txtDecisions.size_x = screen_size.x;
-	txtDecisions.size_y = 120;
-	txtDecisions.pos_x = panDialogBg.pos_x + 40;
-	txtDecisions.pos_y = panDialogBg.pos_y + 40;	
-
-	txtSpeaker.size_x = 100;
-	txtSpeaker.size_y = 30;
-	txtSpeaker.pos_x = panDialogBg.pos_x + 40;
-	txtSpeaker.pos_y = panDialogBg.pos_y + 30;
-
 	panDialogBar1.size_x = screen_size.x;
-	panDialogBar1.size_y = 100;
+	panDialogBar1.size_y = screen_size.y * 0.09;//100;
 	panDialogBar1.pos_x = 0;
 	panDialogBar1.pos_y = 0;
 
 	panDialogBar2.size_x = screen_size.x;
-	panDialogBar2.size_y = 100;
+	panDialogBar2.size_y = screen_size.y * 0.09;//100;
 	panDialogBar2.pos_x = 0;
-	panDialogBar2.pos_y = screen_size.y - 100;
+	panDialogBar2.pos_y = screen_size.y - panDialogBar2.size_y;//100;
+
+	panDialogBg.size_x = screen_size.x;
+	panDialogBg.size_y = fontSize * 4;//130;
+	panDialogBg.pos_x = 0;
+	panDialogBg.pos_y = screen_size.y - panDialogBg.size_y - panDialogBar2.size_y - 10;//- 130 - 110;
+
+	txtDialog.pos_x = panDialogBg.pos_x + fontSize;//40;
+	txtDialog.pos_y = panDialogBg.pos_y + (1.5 * fontSize);//40;
+	txtDialog.size_x = screen_size.x - (2 * (txtDialog.pos_x - panDialogBg.pos_x));
+	txtDialog.size_y = fontSize * 3;//120;
+
+	txtDecisions.pos_x = panDialogBg.pos_x + fontSize;//40;
+	txtDecisions.pos_y = panDialogBg.pos_y + (1.5 * fontSize);//40;	
+	txtDecisions.size_x = screen_size.x - (2 * (txtDecisions.pos_x - panDialogBg.pos_x));
+	txtDecisions.size_y = fontSize * 3;//120;
+
+	txtSpeaker.pos_x = panDialogBg.pos_x + fontSize;//40;
+	txtSpeaker.pos_y = panDialogBg.pos_y + (0.5 * fontSize);//30;
+	txtSpeaker.size_x = screen_size.x - (2 * (txtSpeaker.pos_x - panDialogBg.pos_x));//100;
+	txtSpeaker.size_y = fontSize;//30;
+
 }
 
 // ------------------------------------------------------------------------
@@ -652,6 +661,24 @@ void dlgClickDialog(var _buttonNumber, PANEL* _panel)
 int dlgIsDialogActive()
 {
 	return nIsDialogActive;
+}
+
+void dlg_resize()
+{
+	if (dlg__resizeEv != NULL)
+	{
+		dlg__resizeEv();
+	}
+	
+	FONT* fnt = HUD_getFont();
+	if (fnt != NULL)
+	{
+		txtDialog.font = fnt;
+		txtDecisions.font = fnt;
+		txtSpeaker.font = fnt; //todo bold font?
+	}
+	var fontSize = HUD_getFontSize();
+	dlgAlign(fontSize);
 }
 
 #endif

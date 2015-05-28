@@ -32,7 +32,7 @@ var SOUNDMGR_isPlaying(SOUND* snd)
 	return 0;
 }
 
-void SOUNDMGR_fader_startup()
+void SOUNDMGR__fader_startup()
 {
 	var fadeVol;
 	while(1)

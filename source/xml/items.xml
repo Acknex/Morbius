@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <items>
 	<!--Visitenkarte//-->
-	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" imgfile="visitenkarte.tga">
+	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" imgfile="business_card.png">
 		<sequence description="Die Visitenkarte wird bestimmt noch wichtig sein." sound="itm_visitenkarte01.ogg"/>
 	</item>
 	
 	<!--Revolver//-->
-	<item id="2" name="Revolver" collectable="yes" imgfile="revolver.tga">
+	<item id="2" name="Revolver" collectable="yes" imgfile="revolver.png">
 		<sequence description="Revolver, das braucht man so." sound="itm_revolver01.ogg"/>
 		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt." sound="itm_revolver02.ogg"/>
 	</item>
@@ -31,23 +31,23 @@
 	</item>
 	
 	<!--Futter//-->
-	<item id="6" name="Futter" collectable="yes" imgfile="futter.tga">
+	<item id="6" name="Futter" collectable="yes" imgfile="gecko_food.png">
 		<sequence description="DA habe ich also mein Reptilfutter gelassen. Macht irgendwie Sinn, in der Küche." sound="itm_reptilfutter01.ogg"/>
 	</item>
 	
 	<!--Leere Taschenlampe//-->
-	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes" imgfile="taschenlampe.tga">
+	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes" imgfile="flashlight.png">
 		<sequence description="Aha, meine Taschenlampe! Wichtig für allerlei Detektivarbeiten bei Nacht und Dunkelheit." sound="itm_taschenlampe01.ogg"/>
 		<sequence description="Verdammt... die Batterien sind leer." sound="itm_taschenlampe02.ogg"/>
 		<sequence description="Die Taschenlampe braucht neue Batterien." sound="itm_taschenlampe03.ogg"/>
 	</item>
 	
 	<!--Batterien//-->
-	<item id="8" name="Batterien" collectable="yes" entfile="battery.mdl" imgfile="batterien.tga">
+	<item id="8" name="Batterien" collectable="yes" entfile="battery.mdl" imgfile="batteries.png">
 	</item>
 
 	<!--Fernbedienung//-->
-	<item id="9" name="Fernbedienung">
+	<item id="9" name="Fernbedienung" imgfile="tv_remote.png">
 		<sequence description="Eine Fernbedienung, den dazugehörigen Fernseher musste ich verramschen, um mir die Taschenlampe zu kaufen." sound="itm_fernbedienung01.ogg"/>
 		<sequence description="Schau mal einer an, wer hätte da gedacht, da sind Batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können." sound="itm_fernbedienung02.ogg" result="8"/>
 		<sequence description="Eine Fernbedienung ohne Batterien. Toll." sound="achievement1.wav"/>
@@ -66,7 +66,7 @@
 	</item>
 	
 	<!--Schubladenschlüssel//-->
-	<item id="12" name="Schubladenschlüssel" collectable="yes" destroyable="yes" imgfile="schluessel.tga">
+	<item id="12" name="Schubladenschlüssel" collectable="yes" destroyable="yes" imgfile="key.png">
 		<sequence description="Mein Schreibtischschubladenschlüssel!" sound="itm_schluessel01.ogg"/>
 	</item>
 	
@@ -86,7 +86,7 @@
 	</item>
 	
 	<!--Taschenlampe//-->
-	<item id="16" name="Taschenlampe">
+	<item id="16" name="Taschenlampe" imgfile="flashlight_on.png">
 	</item>
 	
 	<!--Toter Guard//-->
@@ -110,7 +110,7 @@
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" entfile="wd40.mdl" imgfile="wd40.tga">
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" entfile="wd40.mdl" imgfile="wd40.png">
 		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="itm_wd4001.ogg"/>
 	</item>
 	
@@ -121,7 +121,7 @@
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" entfile="crowbar.mdl" imgfile="brechstange.tga">
+	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" entfile="crowbar.mdl" imgfile="crowbar.png">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="itm_brechstange01.ogg"/>
 	</item>
 	
@@ -134,17 +134,17 @@
 	</item>
 	
 	<!--Stock des Warlocks//-->
-	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" imgfile="zaubererstab.tga">
+	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" imgfile="staff.png">
 		<sequence description="Stock des Warlocks Dummysequence." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Angelhaken//-->
-	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes" imgfile="angelhaken.tga">
+	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes" imgfile="hook.png">
 		<sequence description="Angelhaken Dummysequence." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Gaffer Tape//-->
-	<item id="27" name="Gaffer Tape" collectable="yes" destroyable="yes" imgfile="gaffertape.tga">
+	<item id="27" name="Gaffer Tape" collectable="yes" destroyable="yes" imgfile="gaffer.png">
 	</item>
 	
 	<!--Nummernschild//-->
@@ -152,15 +152,15 @@
 	</item>
 	
 	<!--Wackliger Stock mit Angelhaken//-->
-	<item id="29" name="Wackliger Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="zaubererstab_haken_wacklig.tga">
+	<item id="29" name="Wackliger Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="staff_hook.png">
 	</item>
 	
 	<!--Geklebter Stock mit Angelhaken//-->
-	<item id="30" name="Geklebter Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="zaubererstab_haken_tape.tga">
+	<item id="30" name="Geklebter Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="staff_hook_gaffer.png">
 	</item>
 	
 	<!--Versiffte Geldbörse//-->
-	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" imgfile="portemonaie.tga">
+	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" imgfile="wallet.png">
 	</item>
 	
 	<!--Rechnungs Durchdruck//-->
@@ -168,7 +168,7 @@
 	</item>
 	
 	<!--Bonzai Zuckerrohr//-->
-	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes" imgfile="zuckerrohr.tga">
+	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes" imgfile="sugar_cane.png">
 	</item>
 	
 	<!--Topf//-->
@@ -180,7 +180,7 @@
 	</item>
 	
 	<!--Topf mit Zucker//-->
-	<item id="36" name="Topf" collectable="yes" destroyable="yes" imgfile="zucker.tga">
+	<item id="36" name="Topf" collectable="yes" destroyable="yes" imgfile="sugar_pot.png">
 	</item>
 	
 	<!--Herd//-->
@@ -192,11 +192,11 @@
 	</item>
 	
 	<!--Thermoskanne//-->
-	<item id="39" name="Thermoskanne" collectable="yes" destroyable="yes" imgfile="thermoskanne.tga">
+	<item id="39" name="Thermoskanne" collectable="yes" destroyable="yes" imgfile="coffee_can.png">
 	</item>
 	
 	<!--Münzen//-->
-	<item id="40" name="Münzen" collectable="yes" imgfile="muenzen.tga">
+	<item id="40" name="Münzen" collectable="yes" imgfile="coins.png">
 	</item>
 
 	<!--Telefonzelle benutzt//-->
@@ -245,4 +245,11 @@
 
 	<!--Dialog Trigger2//-->
 	<combination id1="40" id2="41" result="1001" description="[Ring Ring]"/>
+
+	<!-- Combination failures//-->
+	<fail description="So wird das nix." sound="comb_fail01.ogg"/>
+	<fail description="Sowas klappt doch nur mit Unity." sound="comb_fail02.ogg"/>
+	<fail description="Das war jetzt irgendwie... kacke." sound="comb_fail03.ogg"/>
+	<fail description="Vielleicht sollte ich doch nochmal auf MacGyverIt recherchieren." sound="comb_fail04.ogg"/>
+	<fail description="Herzlichen Glückwunsch zu dieser spitzenmäßigen... Schnapsidee, Morbius." sound="comb_fail05.ogg"/>
 </combinations>

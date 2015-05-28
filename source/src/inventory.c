@@ -247,6 +247,20 @@ void inv_show_items(Inventory* _inv) {
 	}
 }
 
+Item* inv_item_search(Inventory* inv, int id)
+{
+	Item* searchItem = NULL;
+	inv.itr = inv.head;
+	while(inv.itr != NULL)
+	{
+		searchItem = (Item*)inv.itr.panel.skill_x;
+		if (searchItem.id == id) 
+			return searchItem;
+		inv_increate_iterator(inv);
+	}
+	return NULL;
+}
+
 void inv_item_click(var _buttonNumber, PANEL* _panel) {
 	if (_panel != NULL) {
 		
@@ -280,7 +294,7 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 
 						//I will go to hell for this...
 						Item* searchItem = NULL;
-						Inventory* tempInv = (Inventory*)item.inv;
+/*						Inventory* tempInv = (Inventory*)item.inv;
 						tempInv.itr = tempInv.head;
 						while(tempInv.itr != NULL)
 						{
@@ -289,7 +303,8 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 								break;
 							inv_increate_iterator(item.inv);
 						}
-
+*/
+						searchItem = inv_item_search((Inventory*)item.inv, targetId);
 						if (searchItem != NULL)
 						{
 							inv_remove_item(searchItem.inv,searchItem);

@@ -9,10 +9,12 @@
 
 
 LIST* COMBINATION__combinationList;
+LIST* COMBINATION__failList;
 XMLFILE* COMBINATION__xml;
 
 void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag);
 void COMBINATION__cleanup(COMBINATION* combination);
+void COMBINATION__display(COMBINATION* combination);
 
 
 int COMBINATION_load(STRING* file)
@@ -25,6 +27,7 @@ int COMBINATION_load(STRING* file)
 	var i;
 	
 	COMBINATION__combinationList = LIST_create();	
+	COMBINATION__failList = LIST_create();
 	COMBINATION__xml = XMLFILE_create(_chr(file));	
 	hndl = XMLFILE_parse(COMBINATION__xml); 
 	
@@ -37,7 +40,14 @@ int COMBINATION_load(STRING* file)
 			xmlCombination = XMLPAR_getElementByIndex(xmlList, i);
 			combination = (COMBINATION*)malloc(sizeof(COMBINATION));
 			COMBINATION__copyFromXml(combination, xmlCombination);
-			LIST_append(COMBINATION__combinationList, (void*)combination);
+			if (str_stri("combination", XMLPAR_getPTag(xmlCombination)) != 0)
+			{
+				LIST_append(COMBINATION__combinationList, (void*)combination);
+			}
+			if (str_stri("fail", XMLPAR_getPTag(xmlCombination)) != 0)
+			{
+				LIST_append(COMBINATION__failList, (void*)combination);
+			}
 		}
 		return 1;
 	}
@@ -50,6 +60,7 @@ void COMBINATION_close()
 {
 	int i;
 	COMBINATION* tmpCombination;
+	SOUND* tmpSound;
 
 	if (COMBINATION__combinationList != NULL)
 	{
@@ -60,6 +71,17 @@ void COMBINATION_close()
 			LIST_removeItem(COMBINATION__combinationList, i);
 		}
 		LIST_remove(COMBINATION__combinationList);
+	}
+
+	if (COMBINATION__failList != NULL)
+	{
+		for (i = 0; i < LIST_items(COMBINATION__failList); i++)
+		{
+			tmpCombination = (COMBINATION*)LIST_getItem(COMBINATION__failList, i);
+			COMBINATION__cleanup(tmpCombination);
+			LIST_removeItem(COMBINATION__failList, i);
+		}
+		LIST_remove(COMBINATION__failList);
 	}
 
 	if (COMBINATION__xml != NULL)
@@ -82,18 +104,7 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 		)
 		{
 			//found
-			if (tmpCombination->snd_interact != NULL)
-			{
-				SOUNDMGR_scheduleSound(tmpCombination->snd_interact);
-			}
-
-			if (tmpCombination->description != NULL)
-			{
-				if (tmpCombination->snd_interact != NULL)		
-					HUD_showDescription(tmpCombination->description, tmpCombination->snd_interact);
-				else
-					HUD_showDescription(tmpCombination->description);
-			}
+			COMBINATION__display(tmpCombination);
 
 			*morphtargetId = tmpCombination->morphtargetId;
 			return tmpCombination->resultId;
@@ -101,6 +112,13 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 	}
 
 	//not found
+	if (LIST_items(COMBINATION__failList) > 0)
+	{
+		var failnum = integer(random(LIST_items(COMBINATION__failList)));
+		tmpCombination = (COMBINATION*)LIST_getItem(COMBINATION__failList, failnum);
+		COMBINATION__display(tmpCombination);
+	}
+	
 	*morphtargetId = -1;
 	return -1;
 }
@@ -150,6 +168,22 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 		combination->description = str;
 	}
 	
+}
+
+void COMBINATION__display(COMBINATION* combination)
+{
+	if (combination->snd_interact != NULL)
+	{
+		SOUNDMGR_scheduleSound(combination->snd_interact);
+	}
+
+	if (combination->description != NULL)
+	{
+		if (combination->snd_interact != NULL)		
+			HUD_showDescription(combination->description, combination->snd_interact);
+		else
+			HUD_showDescription(combination->description);
+	}
 }
 
 void COMBINATION__cleanup(COMBINATION* combination)

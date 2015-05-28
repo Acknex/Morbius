@@ -34,7 +34,7 @@
 	<Player id="23" file="dlg02_morbius_17.ogg" name="Morbius">Wieviel schulde ich dir?</Player>
 	<NPC id="24" file="dlg02_fritz_18.ogg" name="Fritz">Das ‹bliche ist in Ordnung.</NPC>
 	<Player id="25" file="dlg02_morbius_19.ogg" name="Morbius">Alles klar, bekommst du. Ich hab diesmal einen guten Vorschuss bekommen!</Player>
-	<NPC id="26" file="dlg02_fritz_20.ogg" name="Fritz">Sag bloﬂ du wirst langsam richtig profesionell?</NPC>
+	<NPC id="26" file="dlg02_fritz_20.ogg" name="Fritz">Sag bloﬂ du wirst langsam richtig professionell?</NPC>
 	<Player id="27" file="dlg02_morbius_21.ogg" name="Morbius">Haha, sehr lustig. Naja... danke nochmal, ich muss jetzt los!</Player>
 	<NPC id="28" file="dlg02_fritz_22.ogg" name="Fritz">Yop, kein Problem. Log-Off!</NPC>
 	<End id="29" />

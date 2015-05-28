@@ -7,8 +7,10 @@
 #include "combine.h"
 #include "mousemgr.h"
 #include "hud.h"
+#include "dialogs.h"
 
-void itemmgr_init();
+#include "dialogs.c"
+
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
 var is_level_loaded();
@@ -26,11 +28,16 @@ void startGame()
 	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
 }
 
-void quitGame()
+void exitGame()
 {
+//error("cleanup on exit");
 	COMBINATION_close();
 	ITEM_close();
 	HUD_close();
+}
+
+void quitGame()
+{
 	sys_exit(NULL);
 }
 
@@ -58,15 +65,19 @@ void sys_init() {
 	
 	random_seed((sys_seconds % sys_month) * sys_hours - 42);
 	
-	HUD_init();
+	HUD_init(); //any GUI related init should be called afterwards
 	smartwalk_init();
 	mousemgr_init();
+	dlgInit();
 	
 	menuConfig.startGame = startGame;
 	menuConfig.quitGame = quitGame;
 	menuConfig.startCredits = credits_start;
 	
 	creditsConfig.ended = menu_open;
+
+	on_close = quitGame;
+	on_exit = exitGame;
 }
 
 #endif
