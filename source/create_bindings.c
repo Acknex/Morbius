@@ -1,4 +1,5 @@
 TEXT* BINDINGS__listTxt = { strings = 10000; }
+STRING* BINDINGS__curDir = "";
 var BINDINGS__textLen = 0;
 
 void BINDINGS_start(STRING* file)
@@ -23,7 +24,7 @@ void BINDINGS_stop(STRING* file)
 	}
 }
 
-void BINDINGS_writeFiles(STRING* file, STRING* directory)
+void BINDINGS_writeFiles(STRING* file)
 {
 	var i = 0;
 	STRING* str = "";
@@ -39,7 +40,7 @@ void BINDINGS_writeFiles(STRING* file, STRING* directory)
 	{
 		file_str_write(vHandle, "\r\n/*-----------------------------*/\r\n");
 		file_str_write(vHandle, "/* ");
-		file_str_write(vHandle, directory);
+		file_str_write(vHandle, BINDINGS__curDir);
 		file_str_write(vHandle, " */\r\n");
 		file_str_write(vHandle, "/*-----------------------------*/\r\n");
 		for (i = 0; i < BINDINGS__textLen; i++)
@@ -57,11 +58,29 @@ void BINDINGS_writeFiles(STRING* file, STRING* directory)
 void BINDINGS_readFiles(STRING* directory, STRING* extension)
 {
 	STRING* searchStr = "";
+	str_cpy(BINDINGS__curDir, directory);
 	str_cpy(searchStr, directory);
 	str_cat(searchStr, "\\*.");
 	str_cat(searchStr, extension);
 
 	BINDINGS__textLen = txt_for_dir(BINDINGS__listTxt, searchStr);
+}
+
+void BINDINGS_main(STRING* file, TEXT* dirs, TEXT* exts)
+{
+	BINDINGS_start(file);
+
+	var i, j;
+	for (i = 0; i < dirs->strings; i++)
+	{
+		for (j = 0; j < exts->strings; j++)
+		{
+			BINDINGS_readFiles((dirs->pstring)[i], (exts->pstring)[j]);
+			BINDINGS_writeFiles(file);
+		}
+	}
+
+	BINDINGS_stop(file);	
 }
 
 
@@ -76,30 +95,26 @@ TEXT* dirlist =
 	"sounds\\dialog05_cbabe", 
 	"sounds\\items", 
 	"sounds\\monolog", 
-	"graphics\\items"
+	"graphics\\items",
+	"shaders"
+	);
+}
+
+TEXT* extlist =
+{
+	string(
+	"ogg",
+	"wav",
+	"tga",
+	"fxo"
 	);
 }
 
 void main()
 {
 	STRING* file = "bindings.h";
-	STRING* ext1 = "ogg";
-	STRING* ext2 = "wav";
-	STRING* ext3 = "tga";
 
-	BINDINGS_start(file);
-	var i;
-	for (i = 0; i < dirlist->strings; i++)
-	{
-		BINDINGS_readFiles((dirlist->pstring)[i], ext1);
-		BINDINGS_writeFiles(file, (dirlist->pstring)[i]);
-		BINDINGS_readFiles((dirlist->pstring)[i], ext2);
-		BINDINGS_writeFiles(file, (dirlist->pstring)[i]);
-		BINDINGS_readFiles((dirlist->pstring)[i], ext3);
-		BINDINGS_writeFiles(file, (dirlist->pstring)[i]);
-	}
-	BINDINGS_stop(file);	
-	
+	BINDINGS_main(file, dirlist, extlist);
 
 	STRING* str = "";
 	str_cpy(str, file);
