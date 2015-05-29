@@ -1,0 +1,283 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="dlg03_galep_xx_telefonized_data" version="1.3.0" audacityversion="1.3.14-beta" sel0="0.0000000000" sel1="1.1609977324" vpos="3040" h="0.0000000000" zoom="84.5784555849" rate="44100.0">
+	<tags/>
+	<wavetrack name="dlg03_galep_00" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="91904">
+				<waveblock start="0">
+					<simpleblockfile filename="e00002af.au" len="91904" min="-0.932498" max="1.080421" rms="0.102432"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_00" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="91904">
+				<waveblock start="0">
+					<simpleblockfile filename="e00009d5.au" len="91904" min="-0.932311" max="1.080414" rms="0.102433"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_02" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52224">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000ffe.au" len="52224" min="-1.071866" max="1.031799" rms="0.105827"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_02" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52224">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000aae.au" len="52224" min="-1.071818" max="1.031837" rms="0.105826"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_04" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="119296">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000acf.au" len="119296" min="-0.96713" max="0.757612" rms="0.120498"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_04" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="119296">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000757.au" len="119296" min="-0.967121" max="0.757611" rms="0.120498"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_06" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="311552">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000534.au" len="260144" min="-0.987924" max="0.806378" rms="0.104019"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e000042f.au" len="51408" min="-0.517924" max="0.439258" rms="0.087467"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_06" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="311552">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000740.au" len="260144" min="-0.987937" max="0.806389" rms="0.104018"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e000027f.au" len="51408" min="-0.517942" max="0.439252" rms="0.087461"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_08" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="78592">
+				<waveblock start="0">
+					<simpleblockfile filename="e00007d1.au" len="78592" min="-0.998984" max="0.828858" rms="0.097693"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_08" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="78592">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000008.au" len="78592" min="-0.998978" max="0.828868" rms="0.097694"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_10" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="100096">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c13.au" len="100096" min="-1.077042" max="0.969369" rms="0.096121"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_10" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="100096">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000b18.au" len="100096" min="-1.078317" max="0.969439" rms="0.096121"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_12" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="30208">
+				<waveblock start="0">
+					<simpleblockfile filename="e00005fa.au" len="30208" min="-0.98559" max="1.000795" rms="0.110513"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_12" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="30208">
+				<waveblock start="0">
+					<simpleblockfile filename="e00005ae.au" len="30208" min="-0.985517" max="1.000693" rms="0.110511"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_14" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="167424">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000ff0.au" len="167424" min="-0.789146" max="1.26286" rms="0.11377"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_14" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="167424">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000a1a.au" len="167424" min="-0.789154" max="1.262681" rms="0.11377"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_16" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="411392">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000465.au" len="260144" min="-1.077566" max="1.083256" rms="0.133366"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e0000baf.au" len="151248" min="-0.822835" max="0.902106" rms="0.0989"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_16" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="411392">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000cfa.au" len="260144" min="-1.077574" max="1.083283" rms="0.133366"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e00005f9.au" len="151248" min="-0.822831" max="0.902095" rms="0.098897"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_18" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="330240">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000fde.au" len="260144" min="-0.797576" max="1.135453" rms="0.089601"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e00004fa.au" len="70096" min="-0.499289" max="0.547044" rms="0.050546"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_18" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="330240">
+				<waveblock start="0">
+					<simpleblockfile filename="e00003eb.au" len="260144" min="-0.797579" max="1.135457" rms="0.0896"/>
+				</waveblock>
+				<waveblock start="260144">
+					<simpleblockfile filename="e00008f4.au" len="70096" min="-0.499276" max="0.547042" rms="0.050547"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_20" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="238848">
+				<waveblock start="0">
+					<simpleblockfile filename="e00005ee.au" len="238848" min="-0.88471" max="0.979763" rms="0.115849"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_20" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="238848">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000033.au" len="238848" min="-0.884799" max="0.979777" rms="0.115849"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_22" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="113664">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000cea.au" len="113664" min="-0.976705" max="0.774452" rms="0.114134"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_22" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="113664">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000969.au" len="113664" min="-0.976761" max="0.774455" rms="0.114131"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_24" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="51200">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000885.au" len="51200" min="-1.044916" max="0.863265" rms="0.167306"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="dlg03_galep_24" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="51200">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000905.au" len="51200" min="-1.044917" max="0.863269" rms="0.167306"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
