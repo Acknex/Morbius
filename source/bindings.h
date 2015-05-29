@@ -235,7 +235,6 @@
 #define PRAGMA_BIND "gaffer.png"
 #define PRAGMA_BIND "gecko_food.png"
 #define PRAGMA_BIND "hook.png"
-#define PRAGMA_BIND "items.png"
 #define PRAGMA_BIND "key.png"
 #define PRAGMA_BIND "revolver.png"
 #define PRAGMA_BIND "staff.png"
