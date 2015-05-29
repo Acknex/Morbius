@@ -14,4 +14,5 @@ int snIsMusicPlayed();
 void snSetMusicVolume(int _vol);
 void levelRegionMusic();
 
+#include "sounds.c"
 #endif /*SOUNDS_H*/

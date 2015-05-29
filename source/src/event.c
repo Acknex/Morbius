@@ -87,8 +87,8 @@ void EVENT__evaluate(int triggerId)
 			break;
 		}
 		
-		//Zugängliche benutzte Telefonzelle -> (invalid item id)
-		case 1001: //use non existing item id (> 1000) for solely custom functionality
+		//Zugängliche benutzte Telefonzelle -> zweimal benutzte Telefonzelle
+		case 42: //use non existing item id (> 1000) for solely custom functionality
 		{
 			wait_for_dlg("xml\\monolog04.xml");
 

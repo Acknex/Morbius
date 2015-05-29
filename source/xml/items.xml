@@ -43,7 +43,7 @@
 	</item>
 	
 	<!--Batterien//-->
-	<item id="8" name="Batterien" collectable="yes" entfile="battery.mdl" imgfile="batteries.png">
+	<item id="8" name="Batterien" collectable="yes" imgfile="batteries.png">
 	</item>
 
 	<!--Fernbedienung//-->
@@ -54,7 +54,7 @@
 	</item>
 	
 	<!--Laptop//-->
-	<item id="10" name="Laptop" entfile="laptop.mdl">
+	<item id="10" name="Laptop">
 		<sequence description="Mein Laptop, digital soll angeblich die Zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen Platz." sound="itm_laptop01.ogg"/>
 	</item>
 	
@@ -71,17 +71,17 @@
 	</item>
 	
 	<!--Regal//-->
-	<item id="13" name="IKEA Regal" entfile="regal.mdl">
+	<item id="13" name="IKEA Regal">
 		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown." sound="itm_regal01.ogg"/>
 	</item>
 	
 	<!--Rosa Telefon//-->
-	<item id="14" name="Rosa Telefon" entfile="phone.mdl">
+	<item id="14" name="Rosa Telefon">
 		<sequence description="Das ist mein patentiertes rosa Designertelefon." sound="itm_rosatelefon01.ogg"/>
 	</item>
 	
 	<!--A3 Box//-->
-	<item id="15" name="Gamestudio Packung" entfile="a3_box.mdl">
+	<item id="15" name="Gamestudio Packung">
 		<sequence description="A4, das erste Programm das ich mir für meinen Laptop gekauft habe." sound="itm_a401.ogg"/>
 	</item>
 	
@@ -101,36 +101,36 @@
 	</item>
 	
 	<!--Unzugängliche Telefonzelle//-->
-	<item id="18" name="Telefonzelle" entfile="tardis_body.mdl" destroyable="yes">
+	<item id="18" name="Telefon">
 	</item>
 	
 	<!--Telefonzelle//-->
-	<item id="19" name="Telefonzelle" entfile="tardis_body.mdl">
+	<item id="19" name="Telefon">
 		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." sound="itm_telefonzelle01.ogg"/>
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" entfile="wd40.mdl" imgfile="wd40.png">
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" imgfile="wd40.png">
 		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="itm_wd4001.ogg"/>
 	</item>
 	
 	<!--Verrostete Telefonzellentür//-->
-	<item id="21" name="Verrostete Telefonzellentür" entfile="tardis_door.mdl" destroyable="yes">
+	<item id="21" name="Verrostete Telefonzellentür" destroyable="yes">
 		<sequence description="Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach." sound="itm_verrostetuer01.ogg"/>
 		<sequence description="Irgendwie sollte sich diese Tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist." sound="itm_verrostetuer02.ogg"/>
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" entfile="crowbar.mdl" imgfile="crowbar.png">
+	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" imgfile="crowbar.png">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="itm_brechstange01.ogg"/>
 	</item>
 	
 	<!--Gulli//-->
-	<item id="23" name="Gulli" entfile="gulli.mdl">
+	<item id="23" name="Gulli">
 	</item>
 	
 	<!--Mülltonne//-->
-	<item id="24" name="Mülltonne" entfile="muell.mdl">
+	<item id="24" name="Mülltonne">
 	</item>
 	
 	<!--Stock des Warlocks//-->
@@ -200,12 +200,17 @@
 	</item>
 
 	<!--Telefonzelle benutzt//-->
-	<item id="41" name="Telefonzelle" entfile="tardis_body.mdl">
+	<item id="41" name="Telefon">
 		<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..." sound="achievement1.wav"/>
 	</item>
 
+	<!--Telefonzelle zweimal benutzt//-->
+	<item id="42" name="Telefon">
+		<sequence description="Und welche Münzen soll ich jetzt bitte einwerfen?" sound="achievement1.wav"/>
+	</item>
+
 	<!--Dunkelkammer//-->
-	<item id="42" name="Dunkelkammer" entfile="cube.mdl">
+	<item id="43" name="Dunkelkammer" entfile="cube.mdl">
 		<sequence description="Michael Morbius und die Kammer der Dunkelheit... hrhrhr." sound="itm_dunkelkammer01.ogg"/>
 	</item>
 </items>
@@ -244,7 +249,7 @@
 	<combination id1="40" id2="19" morphtarget="19" result="41"/>
 
 	<!--Dialog Trigger2//-->
-	<combination id1="40" id2="41" result="1001""/>
+	<combination id1="40" id2="41" morphtarget="41" result="42"/>
 
 	<!-- Combination failures//-->
 	<fail description="So wird das nix." sound="comb_fail01.ogg"/>
