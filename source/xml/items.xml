@@ -87,7 +87,7 @@
 	
 	<!--Taschenlampe//-->
 	<item id="16" name="Taschenlampe" collectable="yes" imgfile="flashlight_on.png">
-		<sequence description="Eine funktionierende Taschenlampe." sound="achievement1.wav"/>
+		<sequence description="Eine funktionierende Taschenlampe. Her damit!" sound="achievement1.wav"/>
 	</item>
 	
 	<!--Toter Guard//-->
