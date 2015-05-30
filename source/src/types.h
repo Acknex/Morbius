@@ -31,6 +31,10 @@
 #define GROUP_CURSOR_HELPER 10
 #define GROUP_ITEM 11
 
+// Item Ids
+#define ITEM_ID_FLASHLIGHT 16
+#define ITEM_ID_MUENZEN 40
+
 // Macros
 #define pSMARTWALK(pointer) ((SMARTWALK*)pointer)
 

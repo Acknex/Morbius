@@ -117,6 +117,28 @@ var ITEM_isLastSequence(ITEM* item)
 		return 0;
 }
 
+var ITEM_isBeingCollected(ITEM* item)
+{
+	if (item == NULL)
+		return 0;
+	
+	if ((item->progress >= LIST_items(item->sequences)) && (item->collectable != 0))
+		return 1;
+	else
+		return 0;
+}
+
+var ITEM_isNowCollectable(ITEM* item)
+{
+	if (item == NULL)
+		return 0;
+	
+	if ((item->progress >= LIST_items(item->sequences) - 1) && (item->collectable != 0))
+		return 1;
+	else
+		return 0;
+}
+
 int ITEM_interaction(ITEM* item)
 {
 	SEQUENCE* tmpSequence;

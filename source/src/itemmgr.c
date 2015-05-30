@@ -36,28 +36,30 @@ action interactionItem()
 	}
 	
 	ITEM* item = ITEM_get(my->itemId);
-	if (item->wasRemoved != 0)
-	{
-		ptr_remove(me);
-		return;
-	}
-	
 	while (item->wasMorphedTo != -1)
 	{
 		//loop through all morph stages
 		interactionItem_morph(item->id, item->wasMorphedTo);
 		item = ITEM_get(my->itemId);
 	}
+
+	if (item->wasRemoved != 0)
+	{
+		ptr_remove(me);
+		return;
+	}	
 	//restore item state: end
 
+	//item material start
 	my->material = mat_item;
-	VECTOR vmin,vmax;
-	vec_for_min(vmin, my);
-	vec_for_max(vmax, my);
-	vec_scale(vmin, my->scale_x);
-	vec_scale(vmax, my->scale_x);
-	vec_sub(vmax, vmin);
-	my.skill41 = floatv(4.0 / (1 + vec_length(vmax) * 0.1));
+	VECTOR vmin, vmax;
+	vec_for_min(&vmin, my);
+	vec_for_max(&vmax, my);
+	vec_scale(&vmin, my->scale_x);
+	vec_scale(&vmax, my->scale_x);
+	vec_sub(&vmax, &vmin);
+	my->skill41 = floatv(4.0 / (1 + vec_length(&vmax) * 0.1));
+	//item material end
 
 	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
@@ -69,7 +71,7 @@ action interactionItem()
 		{
 			if (player != NULL)
 			{
-				if(vec_dist(player->x, my->x) < PLAYER_NEAR_DIST)
+				if(vec_dist(player->x, my->x) < (PLAYER_NEAR_DIST * player->scale_x * 1.3)) //temp HACK, cleanup (level scale problem)
 				{
 					interactionItem__clicked();
 					reset(my, itemWasClicked);					
@@ -168,10 +170,6 @@ void interactionItem__clicked()
 		else
 		{
 			inv_add_item(inventory, itemInHand);
-			//TODO: play random fail sound
-			//snd_play(...);
-			//TODO: show random fail message
-			//HUD_showDescription(msg);			
 		}
 		itemInHand = NULL;
 		mousemgr_set(MOUSE_DEFAULT, NULL);
@@ -195,16 +193,17 @@ void interactionItem__clicked()
 			EVENT_trigger(resultId);
 		}
 		
-		if (ITEM_isLastSequence(item) != 0) 
+		if (ITEM_isBeingCollected(item) != 0)
+		//if (ITEM_isLastSequence(item) != 0) 
 		{
-			if (item->collectable != 0)
-			{
+			//if (item->collectable != 0)
+			//{
 				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, bmap_create(item->imgfile));
 				
 				inv_add_item(inventory, newItem);
 				ITEM_collect(item);
 				set(my, itemRemove);
-			}
+			//}
 			
 			//else if (item->destroyable != 0)
 			//{
@@ -241,7 +240,7 @@ void interactionItem__eventHandler()
 			}
 			else
 			{
-				if (item->collectable != 0)
+				if ((item->collectable != 0) && (ITEM_isNowCollectable(item) != 0))
 				{
 					mousemgr_set(MOUSE_GRAB, NULL);
 				}

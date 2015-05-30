@@ -36,6 +36,8 @@ void ITEM_close();
 ITEM* ITEM_get(int id);
 void ITEM_resetProgress();
 var ITEM_isLastSequence(ITEM* item);
+var ITEM_isBeingCollected(ITEM* item);
+var ITEM_isNowCollectable(ITEM* item);
 int ITEM_interaction(ITEM* item);
 void ITEM_collect(ITEM* item);
 

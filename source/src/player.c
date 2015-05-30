@@ -30,9 +30,23 @@ void player_run_countdown(void)
 
 action flashlight()
 {
-	set(my,PASSABLE);
+	set(my,PASSABLE | INVISIBLE);
 	wait(1);
-	ent_flashlight = me;
+	
+	while(1)
+	{
+		if (inv_item_search(inventory, ITEM_ID_FLASHLIGHT) != NULL)
+		{
+			ent_flashlight = me;
+			reset(me, INVISIBLE);
+		}
+		else
+		{
+			ent_flashlight = NULL;
+			set(me, INVISIBLE);
+		}
+		wait (1);
+	}
 }
 
 action player_act()

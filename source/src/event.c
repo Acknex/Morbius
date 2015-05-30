@@ -1,9 +1,8 @@
+#include "types.h"
 #include "dialogs.h"
 #include "inventory.h"
 #include "level_transition.h"
 #include "player.h"
-
-#include "dialogs.c"
 
 int EVENT__triggerId = -1;
 var EVENT__stop = 0;
@@ -49,7 +48,6 @@ void EVENT__listener_startup()
 }
 
 //CUSTOM PART START
-#define ITEM_ID_MUENZEN 40
 #define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
 
 SOUND* fritzCallSnd = "fritz_call.ogg";

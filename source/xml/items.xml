@@ -31,19 +31,19 @@
 	</item>
 	
 	<!--Futter//-->
-	<item id="6" name="Futter" collectable="yes" imgfile="gecko_food.png">
+	<item id="6" name="Futter" collectable="yes" destroyable="yes" imgfile="gecko_food.png">
 		<sequence description="DA habe ich also mein Reptilfutter gelassen. Macht irgendwie Sinn, in der Küche." sound="itm_reptilfutter01.ogg"/>
 	</item>
 	
 	<!--Leere Taschenlampe//-->
-	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes" imgfile="flashlight.png">
+	<item id="7" name="Taschenlampe" collectable="yes" imgfile="flashlight.png">
 		<sequence description="Aha, meine Taschenlampe! Wichtig für allerlei Detektivarbeiten bei Nacht und Dunkelheit." sound="itm_taschenlampe01.ogg"/>
 		<sequence description="Verdammt... die Batterien sind leer." sound="itm_taschenlampe02.ogg"/>
 		<sequence description="Die Taschenlampe braucht neue Batterien." sound="itm_taschenlampe03.ogg"/>
 	</item>
 	
 	<!--Batterien//-->
-	<item id="8" name="Batterien" collectable="yes" imgfile="batteries.png">
+	<item id="8" name="Batterien" collectable="yes" destroyable="yes" imgfile="batteries.png">
 	</item>
 
 	<!--Fernbedienung//-->
@@ -71,7 +71,7 @@
 	</item>
 	
 	<!--Regal//-->
-	<item id="13" name="IKEA Regal">
+	<item id="13" name="Schwedisches Regal mit vier Buchstaben">
 		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown." sound="itm_regal01.ogg"/>
 	</item>
 	
@@ -86,7 +86,8 @@
 	</item>
 	
 	<!--Taschenlampe//-->
-	<item id="16" name="Taschenlampe" imgfile="flashlight_on.png">
+	<item id="16" name="Taschenlampe" collectable="yes" imgfile="flashlight_on.png">
+		<sequence description="Eine funktionierende Taschenlampe." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Toter Guard//-->
@@ -206,7 +207,7 @@
 
 	<!--Telefonzelle zweimal benutzt//-->
 	<item id="42" name="Telefon">
-		<sequence description="Und welche Münzen soll ich jetzt bitte einwerfen?" sound="achievement1.wav"/>
+		<sequence description="Und welche Münzen genau soll ich jetzt bitte nochmal einwerfen?" sound="achievement1.wav"/>
 	</item>
 
 	<!--Dunkelkammer//-->
