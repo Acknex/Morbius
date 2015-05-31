@@ -52,17 +52,7 @@ action interactionItem()
 	}	
 	//restore item state: end
 
-	//item material start
 	my->material = mat_item;
-	VECTOR vmin, vmax;
-	vec_for_min(&vmin, my);
-	vec_for_max(&vmax, my);
-	vec_scale(&vmin, my->scale_x);
-	vec_scale(&vmax, my->scale_x);
-	vec_sub(&vmax, &vmin);
-	my->skill41 = floatv(4.0 / (1 + vec_length(&vmax) * 0.1));
-	//item material end
-
 	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
 	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
