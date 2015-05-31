@@ -60,8 +60,8 @@ void EVENT__listener_startup()
 
 SOUND* fritzCallSnd = "fritz_call.ogg";
 SOUND* galepCallSnd = "galep_call.ogg";
-ENTITY* morbiusChair = NULL;
-ENTITY* morbiusStart = NULL;
+ENTITY* EVENT__officeChairEnt = NULL;
+ENTITY* EVENT__officeStartEnt = NULL;
 long EVENT__entrylock = 0;
 
 void EVENT__evaluate(int triggerId)
@@ -118,10 +118,10 @@ void EVENT__evaluate(int triggerId)
 			VECTOR* temp;
 			if (player != NULL)
 			{
-				if (morbiusChair != NULL)
+				if (EVENT__officeChairEnt != NULL)
 				{
-					vec_set(&player->x, &morbiusChair->x);
-					vec_set(&player->pan, &morbiusChair->pan);
+					vec_set(&player->x, &EVENT__officeChairEnt->x);
+					vec_set(&player->pan, &EVENT__officeChairEnt->pan);
 					//dirty hackaround
 					player->pan += 90;
 					player->tilt = 10;
@@ -141,10 +141,10 @@ void EVENT__evaluate(int triggerId)
 			
 			if (player != NULL)
 			{
-				if (morbiusStart != NULL)
+				if (EVENT__officeStartEnt != NULL)
 				{
-					vec_set(&player->x, &morbiusStart->x);
-					vec_set(&player->pan, &morbiusStart->pan);
+					vec_set(&player->x, &EVENT__officeStartEnt->x);
+					vec_set(&player->pan, &EVENT__officeStartEnt->pan);
 				}
 				temp = vector(0,-80,0);
 				ent_bonerotate(player,"Joint_3_3",temp);
@@ -217,13 +217,13 @@ action entryEvent()
 
 action officeChair()
 {
-	morbiusChair = me;
+	EVENT__officeChairEnt = me;
 }
 
 action officeStart()
 {
 	set(my, INVISIBLE | PASSABLE);
-	morbiusStart = me;
+	EVENT__officeStartEnt = me;
 }
 
 #ifdef habgradkeinenbockdrauf
