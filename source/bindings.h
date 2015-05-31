@@ -247,6 +247,19 @@
 #define PRAGMA_BIND "wd40.png"
 
 /*-----------------------------*/
+/* models\items */
+/*-----------------------------*/
+#define PRAGMA_BIND "crowbar.mdl"
+#define PRAGMA_BIND "Downtown.mdl"
+#define PRAGMA_BIND "Fernbedienung.mdl"
+#define PRAGMA_BIND "flashlight.mdl"
+#define PRAGMA_BIND "MeisterdesFeuers.mdl"
+#define PRAGMA_BIND "Revolver.mdl"
+#define PRAGMA_BIND "Schluessel.mdl"
+#define PRAGMA_BIND "Topf.mdl"
+#define PRAGMA_BIND "wd40.mdl"
+
+/*-----------------------------*/
 /* shaders */
 /*-----------------------------*/
 #define PRAGMA_BIND "animTree.fxo"

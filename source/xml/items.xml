@@ -6,7 +6,7 @@
 	</item>
 	
 	<!--Revolver//-->
-	<item id="2" name="Revolver" collectable="yes" entfile="cube.mdl" imgfile="revolver.png">
+	<item id="2" name="Revolver" collectable="yes" entfile="revolver.mdl" imgfile="revolver.png">
 		<sequence description="Revolver, das braucht man so." sound="itm_revolver01.ogg"/>
 		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt." sound="itm_revolver02.ogg"/>
 	</item>
@@ -213,6 +213,16 @@
 	<!--Dunkelkammer//-->
 	<item id="43" name="Dunkelkammer" entfile="cube.mdl">
 		<sequence description="Michael Morbius und die Kammer der Dunkelheit... hrhrhr." sound="itm_dunkelkammer01.ogg"/>
+	</item>
+
+	<!--Meister des Feuers//-->
+	<item id="44" name="Buch">
+		<sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL." sound="achievement1.wav"/>
+	</item>
+
+	<!--Downtown//-->
+	<item id="45" name="Buch">
+		<sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius." sound="achievement1.wav"/>
 	</item>
 </items>
 <combinations>

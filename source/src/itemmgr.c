@@ -19,7 +19,7 @@ void interactionItem__clicked();
 void interactionItem__eventHandler();
 void interactionItem__morph(int targetId, int morphId);
 ENTITY* interactionItem__find(int id);
-VECTOR* interactionItem__findSpawnPoint(id);
+void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle);
 
 //skill1: EntityType 1
 //skill2: ItemId -1
@@ -115,12 +115,13 @@ action interactionSpawnPnt()
 	
 void interactionItem_spawn(int id)
 {
-	VECTOR* pos;
-	pos = interactionItem__findSpawnPoint(id);
-	interactionItem_spawn(id, pos);
+	VECTOR pos;
+	VECTOR dir;
+	interactionItem__findSpawnPoint(id, &pos, &dir);
+	interactionItem_spawn(id, &pos, &dir);
 }
 
-void interactionItem_spawn(int id, VECTOR* position)
+void interactionItem_spawn(int id, VECTOR* position, VECTOR* angle)
 {
 	ITEM* item = ITEM_get(id);
 	if (item != NULL)	
@@ -129,6 +130,7 @@ void interactionItem_spawn(int id, VECTOR* position)
 		{
 			you = ent_create(item->entfile, position, interactionItem);
 			your->itemId = id;
+			vec_set(&your->pan, angle);
 		}
 	}
 }
@@ -155,7 +157,6 @@ void interactionItem__clicked()
 			{
 				inv_add_item(inventory, itemInHand);
 			}
-			//mousemgr_set(MOUSE_DEFAULT, NULL);
 		
 			//only perform morph and inventory actions if resultId points to real item
 			//fake resultIds may be used to trigger custom events
@@ -334,15 +335,16 @@ ENTITY* interactionItem__find(int id)
 	return ent;
 }
 
-VECTOR* interactionItem__findSpawnPoint(id)
+void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle)
 {
 	ENTITY* ent = NULL;
-	VECTOR* pos = nullvector;
+	vec_set(position, nullvector);
+	vec_set(angle, nullvector);
 	
 	if (player != NULL)
 	{
 		//fallback: spawn at player position if spawnpoint was not placed
-		pos = &player->x;
+		vec_set(position, &player->x);
 	}
 
 	while (ent = ent_next(ent))
@@ -353,11 +355,11 @@ VECTOR* interactionItem__findSpawnPoint(id)
 			{
 				if (ent->itemId == id)
 				{
-					pos = &ent->x;
+					vec_set(position, &ent->x);
+					vec_set(angle, &ent->pan);
 					break;
 				}
 			}
 		}
 	}
-	return pos;
 }

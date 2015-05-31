@@ -19,8 +19,9 @@ Büro:
 14      Rosa Telefon
 15      A3 Box          
 16      Taschenlampe                    x
-42      Buch Meister des Feuers
-43      Buch Downtown
+43      Dunkelkammer
+44      Buch Meister des Feuers
+45      Buch Downtown
 
 Ruine:
 17      Toter Guard
@@ -31,6 +32,7 @@ Ruine:
 22      Brechstange                     x   x        
 40      Münzen                          x   
 41      Zugängliche benutzte Telefonzelle
+42      Zugängliche 2x benutzte Telefonzelle
 
 Gasse:
 23      Gulli

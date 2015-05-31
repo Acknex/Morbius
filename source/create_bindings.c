@@ -96,6 +96,7 @@ TEXT* dirlist =
 	"sounds\\items", 
 	"sounds\\monolog", 
 	"graphics\\items",
+	"models\\items",
 	"shaders"
 	);
 }
@@ -106,6 +107,7 @@ TEXT* extlist =
 	"ogg",
 	"wav",
 	"png",
+	"mdl",
 	"fxo"
 	);
 }

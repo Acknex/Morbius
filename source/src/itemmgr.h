@@ -2,7 +2,7 @@
 #define ITEMMGR_H
 
 void interactionItem_spawn(int id);
-void interactionItem_spawn(int id, VECTOR* position);
+void interactionItem_spawn(int id, VECTOR* position, VECTOR* angle);
 
 
 #include "itemmgr.c"
