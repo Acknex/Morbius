@@ -1,5 +1,7 @@
 #include "player.h"
 #include "camera.h"
+#include "event.h
+#include "dialogs.h"
 
 var level_change_transition(var in)
 {
@@ -72,6 +74,9 @@ action sky_color_fog_act()
 }
 
 void level_gate_event() {
+	if (dlgIsDialogActive() != 0 || EVENT_isLocked() != 0)
+		return;
+		
 	if (event_type == EVENT_TOUCH) {
 		mousemgr_set(MOUSE_EXIT, NULL);
 	}

@@ -11,7 +11,7 @@
 	<Goto id="6" target="9" />
 	<Player id="7" file="dlg01_morbius_04b.ogg" name="Morbius">Hatten Sie nicht gerade noch einen Italienischen Akzent?</Player>
 	<NPC id="8" file="dlg01_jcl_05b.ogg" name="JCL">Ich glaube die Leitung hat eine Störung...</NPC>
-	<NPC id="9" file="dlg01_jcl_06.ogg" name="JCL">Herr Morbius, ich hoffe dass Sie mir helfen können eine Person ausfindig zu machen, Geld ist unwichtig - Hauptsache sie können mir Ergebnisse liefern!</NPC>
+	<NPC id="9" file="dlg01_jcl_06.ogg" name="JCL">Herr Morbius, ich hoffe dass Sie mir helfen können eine Person ausfindig zu machen, Geld ist unwichtig - Hauptsache Sie können mir Ergebnisse liefern!</NPC>
 	<Player id="10" file="dlg01_morbius_07.ogg" name="Morbius">Ein paar mehr Details könnte ich schon gebrauchen...</Player>
 	<NPC id="11" file="dlg01_jcl_08.ogg" name="JCL">Heißt das, Sie nehmen den Job an?</NPC>
 	<Choice id="12">

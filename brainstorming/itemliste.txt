@@ -60,7 +60,10 @@ Custom Events
 =============
 4       Trigger Item Spawn Visitenkarte 1 und Revolver 2
 41      Trigger Dialog1 (Münze auf Telefonzelle 40/19)
-1001    Trigger Dialog2 (Münze auf Telefonzelle 40/19)
+42      Trigger Dialog2 (Münze auf Telefonzelle 40/19)
+1001    Office Startup Event
+1002    Ruin Startup Event
+1003    Alley Startup Event
 
 
 Kombinationsliste

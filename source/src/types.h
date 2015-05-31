@@ -18,6 +18,7 @@
 #define TYPE_LEVEL_GATE 3
 #define TYPE_POINTEREST 4 // (point of interest)
 #define TYPE_ITEM_SPAWNPOINT 5
+#define TYPE_EVENT_TRIGGER 6
 
 #define TYPE_ITEM_DEFAULT 0
 #define TYPE_ITEM_GRAB 1

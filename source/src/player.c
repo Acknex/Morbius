@@ -85,7 +85,7 @@ action player_act()
 		{
 			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
 		}
-		
+
 		if(my.force_stop)
 		{
 			if(my.ent_smartwalk)
