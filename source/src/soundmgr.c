@@ -13,6 +13,11 @@ void SOUNDMGR_setVolume(var vol)
 	SOUNDMGR__volume = clamp(vol, 0, 100);
 }
 
+void SOUNDMGR_playAtOnce(SOUND* snd)
+{
+	snd_play(snd, SOUNDMGR__volume, 0);
+}
+
 void SOUNDMGR_scheduleSound(SOUND* snd)
 {
 	SOUNDMGR__nextSound = snd;
