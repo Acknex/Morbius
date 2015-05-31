@@ -4,6 +4,7 @@
 #include "level_transition.h"
 #include "player.h"
 
+//DO NOT EDIT - START
 int EVENT__triggerId = -1;
 var EVENT__stop = 0;
 var EVENT__locked = 0;
@@ -46,6 +47,9 @@ void EVENT__listener_startup()
 		wait (1);
 	}
 }
+//DO NOT EDIT - END
+
+
 
 //CUSTOM PART START
 #define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
@@ -66,10 +70,8 @@ void EVENT__evaluate(int triggerId)
 			//Items in drawer must be spawned or at least their position must be adapted
 			//otherwise they would be visible with locked drawer
 			//TODO: maybe solution for automation: allow parentId in XML?
-			error("TODO: trigger custom spawn revolver und visitenkarte");
-			//interactionItem_spawn(id, position);
-			//interactionItem_spawn(1, visitenkartepos);
-			//interactionItem_spawn(2, revolverpos);
+			interactionItem_spawn(ITEM_ID_VISITENKARTE);
+			interactionItem_spawn(ITEM_ID_REVOLVER);
 			break;
 		}
 		
@@ -128,4 +130,3 @@ void EVENT__unlock()
 	inv_show(inventory);
 	player_may_walk = 1;
 }
-

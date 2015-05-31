@@ -17,7 +17,9 @@
 
 void interactionItem__clicked();
 void interactionItem__eventHandler();
+void interactionItem__morph(int targetId, int morphId);
 ENTITY* interactionItem__find(int id);
+VECTOR* interactionItem__findSpawnPoint(id);
 
 //skill1: EntityType 1
 //skill2: ItemId -1
@@ -39,7 +41,7 @@ action interactionItem()
 	while (item->wasMorphedTo != -1)
 	{
 		//loop through all morph stages
-		interactionItem_morph(item->id, item->wasMorphedTo);
+		interactionItem__morph(item->id, item->wasMorphedTo);
 		item = ITEM_get(my->itemId);
 	}
 
@@ -103,6 +105,21 @@ action interactionItem()
 	ptr_remove(me);
 }
 
+//skill1: EntityType 5
+//skill2: ItemId -1
+action interactionSpawnPnt()
+{
+	set(my, INVISIBLE | PASSABLE);
+	my->ENTITY_TYPE = TYPE_ITEM_SPAWNPOINT;
+}
+	
+void interactionItem_spawn(int id)
+{
+	VECTOR* pos;
+	pos = interactionItem__findSpawnPoint(id);
+	interactionItem_spawn(id, pos);
+}
+
 void interactionItem_spawn(int id, VECTOR* position)
 {
 	ITEM* item = ITEM_get(id);
@@ -148,7 +165,7 @@ void interactionItem__clicked()
 				if (targetId != ITEM_NONE)
 				{
 					//morph defined target item
-					interactionItem_morph(targetId, resultId);
+					interactionItem__morph(targetId, resultId);
 				}
 				else
 				{
@@ -271,7 +288,7 @@ void interactionItem__eventHandler()
 	
 }
 
-void interactionItem_morph(int targetId, int morphId)
+void interactionItem__morph(int targetId, int morphId)
 {
 	ENTITY* ent;
 	ITEM* item;
@@ -315,4 +332,32 @@ ENTITY* interactionItem__find(int id)
 		}
 	}
 	return ent;
+}
+
+VECTOR* interactionItem__findSpawnPoint(id)
+{
+	ENTITY* ent = NULL;
+	VECTOR* pos = nullvector;
+	
+	if (player != NULL)
+	{
+		//fallback: spawn at player position if spawnpoint was not placed
+		pos = &player->x;
+	}
+
+	while (ent = ent_next(ent))
+	{
+		if (ent != NULL)
+		{
+			if (ent->ENTITY_TYPE == TYPE_ITEM_SPAWNPOINT)
+			{
+				if (ent->itemId == id)
+				{
+					pos = &ent->x;
+					break;
+				}
+			}
+		}
+	}
+	return pos;
 }

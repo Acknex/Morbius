@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <items>
 	<!--Visitenkarte//-->
-	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" imgfile="business_card.png">
+	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" entfile="cube.mdl" imgfile="business_card.png">
 		<sequence description="Die Visitenkarte wird bestimmt noch wichtig sein." sound="itm_visitenkarte01.ogg"/>
 	</item>
 	
 	<!--Revolver//-->
-	<item id="2" name="Revolver" collectable="yes" imgfile="revolver.png">
+	<item id="2" name="Revolver" collectable="yes" entfile="cube.mdl" imgfile="revolver.png">
 		<sequence description="Revolver, das braucht man so." sound="itm_revolver01.ogg"/>
 		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt." sound="itm_revolver02.ogg"/>
 	</item>
