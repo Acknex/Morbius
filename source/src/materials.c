@@ -1,4 +1,6 @@
 
+// unused... ?
+
 MATERIAL* mat_cloud =
 {
 	effect = "cloud.fx";

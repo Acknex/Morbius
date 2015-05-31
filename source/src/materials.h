@@ -35,6 +35,12 @@ MATERIAL* mat_level_change_transition =
 	flags = AUTORELOAD;
 }
 
+MATERIAL* mat_coffee_can =
+{
+	effect = "coffee_can.fx";
+	flags = AUTORELOAD;
+}
+
 ///////////////////////////////////////////
 // Views for postprocessing
 
