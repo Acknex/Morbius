@@ -107,6 +107,7 @@ TEXT* extlist =
 	"ogg",
 	"wav",
 	"png",
+	"tga",
 	"mdl",
 	"fxo"
 	);
