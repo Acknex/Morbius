@@ -111,6 +111,16 @@ action interactionSpawnPnt()
 {
 	set(my, INVISIBLE | PASSABLE);
 	my->ENTITY_TYPE = TYPE_ITEM_SPAWNPOINT;
+
+	//restore laste state after level change
+	ITEM* item = ITEM_get(my->itemId);
+	if (item != NULL)	
+	{
+		if (item->hasSpawned != 0)
+		{
+			interactionItem_spawn(my->itemId, &my->x, &my->pan);
+		}
+	}	
 }
 	
 void interactionItem_spawn(int id)
@@ -131,6 +141,7 @@ void interactionItem_spawn(int id, VECTOR* position, VECTOR* angle)
 			you = ent_create(item->entfile, position, interactionItem);
 			your->itemId = id;
 			vec_set(&your->pan, angle);
+			item->hasSpawned = 1; //save spawn state for level change
 		}
 	}
 }

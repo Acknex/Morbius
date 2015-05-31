@@ -104,6 +104,7 @@ void ITEM_resetProgress()
 		tmpItem->wasRemoved = 0;
 		tmpItem->progress = 0;
 		tmpItem->wasMorphedTo = -1;
+		tmpItem->hasSpawned = 0;
 	}
 }
 

@@ -21,6 +21,7 @@ typedef struct item
 	int wasRemoved;
 	int progress;
 	int wasMorphedTo;
+	int hasSpawned;
 } ITEM;
 
 typedef struct sequence
