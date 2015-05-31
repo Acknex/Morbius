@@ -20,7 +20,7 @@
 	</item>
 	
 	<!--Schublade//-->
-	<item id="4" name="Schublade">
+	<item id="4" name="Schublade" entfile="schublade_offen.mdl">
 		<sequence description="Die Schublade ist offen." sound="achievement1.wav"/>
 	</item>
 	
