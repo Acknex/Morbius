@@ -52,6 +52,7 @@ action flashlight()
 action player_act()
 {
 	set(my,INVISIBLE);
+	my.flags2 |= UNTOUCHABLE;
 	ent_flashlight = NULL;
 	wait(1);
 	level_change_set_player_position(my);
