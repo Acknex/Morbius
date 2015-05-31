@@ -2,6 +2,7 @@
 #include "camera.h"
 #include "event.h
 #include "dialogs.h"
+#include "soundmgr.h"
 
 var level_change_transition(var in)
 {
@@ -35,6 +36,8 @@ void level_change(var level_id, var gate_id)
 	
 	gate_entry_id = gate_id;
 	input_fetch = 0;
+	
+	SOUNDMGR_stop();
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
 	vec_set(sky_color,COLOR_BLACK);
@@ -103,9 +106,7 @@ void level_gate_event() {
 	}
 }
 
-//skill1: this_id 0
-//skill2: to_id 0
-action level_gate()
+void level_gate_init()
 {
 	my.ENTITY_TYPE = TYPE_LEVEL_GATE;
 	my.SUB_TYPE = TYPE_ITEM_EXIT;
@@ -127,9 +128,15 @@ action level_gate()
 	my.skill13 = maxv(temp.y,temp2.y);
 	set(my, POLYGON | TRANSLUCENT); //TRANSLUCENT
 	my.alpha = 0;
-	
-	my.event = level_gate_event;
 	my.emask = ENABLE_TOUCH | ENABLE_CLICK | ENABLE_RELEASE;
+}
+
+//skill1: this_id 0
+//skill2: to_id 0
+action level_gate()
+{
+	level_gate_init();	
+	my.event = level_gate_event;
 	
 	while(1)
 	{

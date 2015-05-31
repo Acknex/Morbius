@@ -3,6 +3,7 @@
 #include "inventory.h"
 #include "level_transition.h"
 #include "player.h"
+#include "office.h"
 
 //DO NOT EDIT - START
 int EVENT__triggerId = -1;
@@ -55,13 +56,14 @@ void EVENT__listener_startup()
 #define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
 #define wait_for_snd(x) SOUNDMGR_scheduleSound(x); while (SOUNDMGR_isPlaying(x) != 0) wait (1)
 
+//entryEvent
 #define trigId skill2
 #define eventId skill3
 
+
 SOUND* fritzCallSnd = "fritz_call.ogg";
 SOUND* galepCallSnd = "galep_call.ogg";
-ENTITY* EVENT__officeChairEnt = NULL;
-ENTITY* EVENT__officeStartEnt = NULL;
+SOUND* phoneHangupSnd = "phone_hangup.ogg";
 long EVENT__entrylock = 0;
 
 void EVENT__evaluate(int triggerId)
@@ -88,6 +90,7 @@ void EVENT__evaluate(int triggerId)
 			wait_for_dlg("xml\\monolog03.xml");
 			wait_for_snd(fritzCallSnd);			
 			wait_for_dlg("xml\\dialog02_fritz.xml");
+			wait_for_snd(phoneHangupSnd);			
 			break;
 		}
 		
@@ -101,6 +104,7 @@ void EVENT__evaluate(int triggerId)
 
 			wait_for_snd(galepCallSnd);			
 			wait_for_dlg("xml\\dialog03_galep.xml");
+			wait_for_snd(phoneHangupSnd);			
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog05.xml");			
 			
@@ -118,10 +122,10 @@ void EVENT__evaluate(int triggerId)
 			VECTOR* temp;
 			if (player != NULL)
 			{
-				if (EVENT__officeChairEnt != NULL)
+				if (OFFICE__officeChairEnt != NULL)
 				{
-					vec_set(&player->x, &EVENT__officeChairEnt->x);
-					vec_set(&player->pan, &EVENT__officeChairEnt->pan);
+					vec_set(&player->x, &OFFICE__officeChairEnt->x);
+					vec_set(&player->pan, &OFFICE__officeChairEnt->pan);
 					//dirty hackaround
 					player->pan += 90;
 					player->tilt = 10;
@@ -136,15 +140,16 @@ void EVENT__evaluate(int triggerId)
 			wait_for_dlg("xml\\monolog00.xml");
 			//wait(-1.5);
 			wait_for_dlg("xml\\dialog01_jcl.xml");
+			wait_for_snd(phoneHangupSnd);			
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog01.xml");
 			
 			if (player != NULL)
 			{
-				if (EVENT__officeStartEnt != NULL)
+				if (OFFICE__officeStartEnt != NULL)
 				{
-					vec_set(&player->x, &EVENT__officeStartEnt->x);
-					vec_set(&player->pan, &EVENT__officeStartEnt->pan);
+					vec_set(&player->x, &OFFICE__officeStartEnt->x);
+					vec_set(&player->pan, &OFFICE__officeStartEnt->pan);
 				}
 				temp = vector(0,-80,0);
 				ent_bonerotate(player,"Joint_3_3",temp);
@@ -215,87 +220,3 @@ action entryEvent()
 	}
 }
 
-action officeChair()
-{
-	EVENT__officeChairEnt = me;
-}
-
-action officeStart()
-{
-	set(my, INVISIBLE | PASSABLE);
-	EVENT__officeStartEnt = me;
-}
-
-#ifdef habgradkeinenbockdrauf
-//copied and patched from level_transition.c
-void officeLevel_gate_event() 
-{
-	if (dlgIsDialogActive() != 0 || EVENT_isLocked() != 0)
-		return;
-		
-	if (event_type == EVENT_CLICK) 
-	{
-		if (my.DOUBLE_CLICK_TIME >= 100) 
-		{
-			// Double clicked
-			player_may_walk = 0;
-			level_change(integer(my.skill2*0.01),my.skill2); // Instant level change
-		} 
-		else 
-		{
-			my.DOUBLE_CLICK_TIME = 110;
-		}
-	}
-	else
-	{
-		level_gate_event();
-	}
-}
-
-//skill1: this_id 0
-//skill2: to_id 0
-action officeLevel_gate()
-{
-	my.ENTITY_TYPE = TYPE_LEVEL_GATE;
-	my.SUB_TYPE = TYPE_ITEM_EXIT;
-	my.group = GROUP_CURSOR_HELPER;
-	vec_set(my.skill20,vector(32,0,0));
-	vec_rotate(my.skill20,my.pan);
-	vec_add(my.skill20,my.x);
-	c_setminmax(my);
-	VECTOR temp,temp2;
-	vec_set(temp,my.min_x);
-	vec_rotate(temp,my.pan);
-	vec_add(temp,my.x);
-	vec_set(temp2,my.max_x);
-	vec_rotate(temp2,my.pan);
-	vec_add(temp2,my.x);
-	my.skill10 = minv(temp.x,temp2.x);
-	my.skill11 = minv(temp.y,temp2.y);
-	my.skill12 = maxv(temp.x,temp2.x);
-	my.skill13 = maxv(temp.y,temp2.y);
-	set(my, POLYGON | TRANSLUCENT); //TRANSLUCENT
-	my.alpha = 0;
-	
-	my.event = level_gate_event;
-	my.emask = ENABLE_TOUCH | ENABLE_CLICK | ENABLE_RELEASE;
-	
-	while(1)
-	{
-		if(player)
-		{
-			if(player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13)
-			{
-				level_change(integer(my.skill2*0.01),my.skill2);
-				break;
-			}
-		}
-		
-		if (my.DOUBLE_CLICK_TIME > 0) 
-		{
-			my.DOUBLE_CLICK_TIME -=1 * time_step;
-		}
-		wait(1);
-	}
-}
-#endif

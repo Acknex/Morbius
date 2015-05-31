@@ -25,6 +25,7 @@
 #include "inventory.h"
 #include "camera.h"
 #include "alley.c"
+#include "office.h"
 
 #define DEBUG
 #ifdef DEBUG

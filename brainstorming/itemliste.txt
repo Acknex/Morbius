@@ -22,6 +22,10 @@ Büro:
 43      Dunkelkammer
 44      Buch Meister des Feuers
 45      Buch Downtown
+46      Main Door ohne Visitenkarte
+47      Main Door mit Visitenkarte
+48      Dunkelkammer Door ohne Taschenlampe
+49      Dunkelkammer Door mit Taschenlampe
 
 Ruine:
 17      Toter Guard

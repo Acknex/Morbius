@@ -224,6 +224,21 @@
 	<item id="45" name="Buch">
 		<sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius." sound="achievement1.wav"/>
 	</item>
+
+	<!--Main Door ohne Visitenkarte//-->
+	<item id="46" name="Main Door ohne Visitenkarte">
+		<sequence description="Irgendwas habe ich vergessen. Ohne Visitenkarte verlasse ich ungerne das Büro." sound="scene01_end_prompt01.ogg"/>
+		<sequence description="Ich möchte echt nicht ohne Visitenkarte gehen..." sound="scene01_end_prompt02.ogg"/>
+		<sequence description="Na gut, ich sollte mich auf den Weg machen. Hoffentlich bereue ich es nicht, meine Visitenkarte zu vergessen." sound="scene01_end_fail.ogg"/>
+		<sequence/>
+	</item>
+
+	<!--Main Door mit Visitenkarte//-->
+	<item id="47" name="Main Door mit Visitenkarte">
+		<sequence description="Alles dabei! Dann mal auf nach Zürich!" sound="scene01_end_proper.ogg"/>
+		<sequence/>
+	</item>
+	
 </items>
 <combinations>
 	<!--Schubladenschlüssel mit Abgeschlossene Schublade//-->
