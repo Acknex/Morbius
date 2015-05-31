@@ -2,6 +2,7 @@ PATH ".";
 PATH "sounds";
 PATH "src";
 PATH "models";
+PATH "models\\items";
 PATH "level";
 PATH "graphics\\cursors";
 PATH "graphics\\items";

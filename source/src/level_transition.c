@@ -47,6 +47,8 @@ void level_change(var level_id, var gate_id)
 	input_fetch = 1;
 	level_loaded = 1;
 	player_may_walk = 1;
+	mousemgr_set(MOUSE_DEFAULT, NULL);
+	mousemgr_hint(NULL);
 }
 
 var is_level_loaded()

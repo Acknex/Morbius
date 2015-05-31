@@ -21,7 +21,7 @@
 	<NPC id="11" file="dlg02_fritz_05b.ogg" name="Fritz">Morbius...? Bist du das?</NPC>
 
 	<NPC id="12" file="dlg02_fritz_06.ogg" name="Fritz">Was brauchst du?</NPC>
-	<Player id="13" file="dlg02_morbius_07.ogg" name="Morbius">Ich brauche informationen zu einem Namen. Gibt sogar wieder Honorar.</Player>
+	<Player id="13" file="dlg02_morbius_07.ogg" name="Morbius">Ich brauche Informationen zu einem Namen. Gibt sogar wieder Honorar.</Player>
 	<NPC id="14" file="dlg02_fritz_08.ogg" name="Fritz">Yop, gib mir den Namen. Ich ruf dich dann morgen wieder an.</NPC>
 	<Player id="15" file="dlg02_morbius_09.ogg" name="Morbius">Ich brauch die Information jetzt, es geht um Leben und Tod... sozusagen.</Player>
 	<NPC id="16" file="dlg02_fritz_10.ogg" name="Fritz">[seufz] Okay Morbius, aber nur weil du es bist. Wie heiﬂt der ‹belt‰ter?</NPC>

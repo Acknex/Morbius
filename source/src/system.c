@@ -9,8 +9,6 @@
 #include "hud.h"
 #include "dialogs.h"
 
-#include "dialogs.c"
-
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
 var is_level_loaded();

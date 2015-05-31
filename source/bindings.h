@@ -235,7 +235,6 @@
 #define PRAGMA_BIND "gaffer.png"
 #define PRAGMA_BIND "gecko_food.png"
 #define PRAGMA_BIND "hook.png"
-#define PRAGMA_BIND "items.png"
 #define PRAGMA_BIND "key.png"
 #define PRAGMA_BIND "revolver.png"
 #define PRAGMA_BIND "staff.png"
@@ -246,6 +245,19 @@
 #define PRAGMA_BIND "tv_remote.png"
 #define PRAGMA_BIND "wallet.png"
 #define PRAGMA_BIND "wd40.png"
+
+/*-----------------------------*/
+/* models\items */
+/*-----------------------------*/
+#define PRAGMA_BIND "crowbar.mdl"
+#define PRAGMA_BIND "Downtown.mdl"
+#define PRAGMA_BIND "Fernbedienung.mdl"
+#define PRAGMA_BIND "flashlight.mdl"
+#define PRAGMA_BIND "MeisterdesFeuers.mdl"
+#define PRAGMA_BIND "Revolver.mdl"
+#define PRAGMA_BIND "Schluessel.mdl"
+#define PRAGMA_BIND "Topf.mdl"
+#define PRAGMA_BIND "wd40.mdl"
 
 /*-----------------------------*/
 /* shaders */
