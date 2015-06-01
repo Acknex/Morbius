@@ -164,14 +164,14 @@ void EVENT__evaluate(int triggerId)
 		//ruin startup
 		case 1002:
 		{
-			wait_for_dlg("xml\\monolog02.xml");
+			//wait_for_dlg("xml\\monolog02.xml");
 			break;
 		}
 		
 		//alley startup
 		case 1003:
 		{
-			wait_for_dlg("xml\\monolog06.xml");
+			//wait_for_dlg("xml\\monolog06.xml");
 			break;
 		}
 		
@@ -249,7 +249,7 @@ action touchEvent()
 {
 	//TODO: this is broken
 	set (my, POLYGON);
-	//set(my, INVISIBLE);
+	set(my, INVISIBLE);
 	my->ENTITY_TYPE = TYPE_EVENT_TRIGGER;
 	my->group = GROUP_CURSOR_HELPER;
 	my->flags2 |= UNTOUCHABLE;
