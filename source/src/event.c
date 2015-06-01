@@ -57,7 +57,7 @@ void EVENT__listener_startup()
 //#define wait_for_dlg(x) error(x)
 #define wait_for_snd(x) SOUNDMGR_scheduleSound(x); while (SOUNDMGR_isPlaying(x) != 0) wait (1)
 
-//entryEvent
+//entryEvent, touchEvent
 #define trigId skill2
 #define eventId skill3
 
@@ -175,6 +175,13 @@ void EVENT__evaluate(int triggerId)
 			break;
 		}
 		
+		//alley corpse detected
+		case 1004:
+		{
+			wait_for_dlg("xml\\monolog07.xml");
+			break;
+		}
+		
 		default:
 		{
 			break;
@@ -207,6 +214,8 @@ action entryEvent()
 {
 	set(my, INVISIBLE | PASSABLE);
 	my->ENTITY_TYPE = TYPE_EVENT_TRIGGER;
+	my->group = GROUP_CURSOR_HELPER;
+	my->flags2 |= UNTOUCHABLE;
 
 	if (my->trigId < 0 || my->trigId > 31)
 	{
@@ -221,3 +230,43 @@ action entryEvent()
 	}
 }
 
+void touchEvent__ev()
+{
+error("impact!");
+	if (event_type == EVENT_IMPACT)
+	{
+		EVENT__entrylock |= (1<<my->trigId);
+		EVENT_trigger(my->eventId);
+		set(my, PASSABLE);
+		my->event = NULL;
+	}
+}
+
+//skill1: EntityType 6
+//skill2: TriggerId -1
+//skill3: EventId -1
+action touchEvent()
+{
+	//TODO: this is broken
+	set (my, POLYGON);
+	//set(my, INVISIBLE);
+	my->ENTITY_TYPE = TYPE_EVENT_TRIGGER;
+	my->group = GROUP_CURSOR_HELPER;
+	my->flags2 |= UNTOUCHABLE;
+
+	if (my->trigId < 0 || my->trigId > 31)
+	{
+		return;
+	}
+	
+	if ((EVENT__entrylock & (1<<my->trigId)) == 0)
+	{
+		while(!inventory || !is_level_loaded()) wait(1); //harghhhh
+		my->event = touchEvent__ev;
+		my->emask |= ENABLE_IMPACT;
+	}
+	else
+	{
+		set(my, PASSABLE);
+	}
+}

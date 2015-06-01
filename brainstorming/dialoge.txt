@@ -247,7 +247,7 @@ DRAUGSTRASSE 4
 "Wer ist dieser Mann? Ich sollte irgendwelche hinweise finden sollen"
 "Nichts an seiner person, vielleicht finde ich in der umgebung etwas"
 
-"Ein stock? Gehört der zu ihm? Könnte auf jeden fall hilfreich sein"
+"Ein stock? Gehört der zu dem Typen? Könnte auf jeden fall hilfreich sein"
 
 "Eine Mülltonne. Ein standartmodell für die Frankfurter Grosstadt"
 "Ein Angelhaken? Komisch dass jemand sowas hier mitten in der stadt haben sollte"

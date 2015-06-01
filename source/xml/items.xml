@@ -132,16 +132,17 @@
 	
 	<!--Mülltonne//-->
 	<item id="24" name="Mülltonne">
+		<sequence description="Eine Mülltonne. Ein Standardmodell für die Frankfurter Großstadt." sound="achievement1.wav"/>
+		<sequence description="Ein Angelhaken? Komisch dass jemand sowas hier mitten in der Stadt haben sollte." sound="achievement1.wav" result="26"/>
 	</item>
 	
 	<!--Stock des Warlocks//-->
 	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" imgfile="staff.png">
-		<sequence description="Stock des Warlocks Dummysequence." sound="achievement1.wav"/>
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden fall hilfreich sein." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Angelhaken//-->
 	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes" imgfile="hook.png">
-		<sequence description="Angelhaken Dummysequence." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Gaffer Tape//-->
@@ -239,6 +240,11 @@
 		<sequence/>
 	</item>
 	
+	<!--Toter Warlock//-->
+	<item id="50" name="Warlock">
+		<sequence description="Wer ist dieser Mann? Ich sollte irgendwelche Hinweise finden sollen." sound="achievement1.wav"/>
+		<sequence description="Nichts an seiner Person, vielleicht finde ich in der Umgebung etwas." sound="achievement1.wav"/>
+	</item>
 </items>
 <combinations>
 	<!--Schubladenschlüssel mit Abgeschlossene Schublade//-->

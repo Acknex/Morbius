@@ -49,6 +49,7 @@ Gasse:
 30      Geklebter Stock mit Angelhaken  x   x
 31      Versiffte Geldbörse             x   x
 32      Rechnungs Durchdruck
+50      Toter Warlock
 
 Büro:
 33      Bonzai Zuckerrohr               x   x
