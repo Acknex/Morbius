@@ -14,18 +14,28 @@
 #define itemRemove FLAG2
 #define itemWasClicked FLAG3
 
+#define ITEM_NEAR_AREA_BORDER 25
 
 void interactionItem__clicked();
 void interactionItem__eventHandler();
 void interactionItem__morph(int targetId, int morphId);
 ENTITY* interactionItem__find(int id);
 void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle);
+void interactionItem__setNearZone(VECTOR* vec, var border);
 
 //skill1: EntityType 1
 //skill2: ItemId -1
 action interactionItem()
 {
+	VECTOR vecMin;
+	VECTOR vecMax;
 	set(my, INVISIBLE);
+	reset(my, PASSABLE);
+	vec_for_min(&vecMin, me);
+	vec_for_max(&vecMax, me);
+	interactionItem__setNearZone(&vecMin, -ITEM_NEAR_AREA_BORDER);
+	interactionItem__setNearZone(&vecMax, ITEM_NEAR_AREA_BORDER);
+	
 	my->ENTITY_TYPE = TYPE_ITEM;
 	my->group = GROUP_ITEM;
 	
@@ -59,12 +69,26 @@ action interactionItem()
 	
 	while(!is(my, itemRemove))
 	{
+draw_box3d(vecMin,vecMax,vector(0,0,255),100);
+//draw_box3d(my->min_x,my->max_x,vector(0,255,255),100);
 		if (is(my, itemWasClicked) && dlgIsDialogActive() == 0)
 		{
 			if (player != NULL)
 			{
-				if(vec_dist(player->x, my->x) < (PLAYER_NEAR_DIST * player->scale_x * 1.3)) //temp HACK, cleanup (level scale problem)
+				//if(vec_dist(player->x, my->x) < (PLAYER_NEAR_DIST * player->scale_x * 1.3)) //temp HACK, cleanup (level scale problem)
+				if (
+					(
+						(vecMin.x < vecMax.x && player->x > vecMin.x && player->x < vecMax.x) ||
+						(vecMin.x > vecMax.x && player->x < vecMin.x && player->x > vecMax.x)
+					)
+					&&
+					(
+						(vecMin.y < vecMax.y && player->y > vecMin.y && player->y < vecMax.y) ||
+						(vecMin.y > vecMax.y && player->y < vecMin.y && player->y > vecMax.y)
+					)
+				)
 				{
+					Player_stop();
 					interactionItem__clicked();
 					reset(my, itemWasClicked);					
 				}
@@ -364,3 +388,12 @@ void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle)
 		}
 	}
 }
+
+void interactionItem__setNearZone(VECTOR* vec, var border)
+{
+	vec_mul(vec, &my->scale_x);
+	vec_add(vec, vector(border, border, border));
+	vec_rotate(vec, vector(integer(my->pan/90)*90,0,0));
+	vec_add(vec, &my->x);
+}
+

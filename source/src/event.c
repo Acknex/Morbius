@@ -230,29 +230,24 @@ action entryEvent()
 	}
 }
 
-void touchEvent__ev()
-{
-error("impact!");
-	if (event_type == EVENT_IMPACT)
-	{
-		EVENT__entrylock |= (1<<my->trigId);
-		EVENT_trigger(my->eventId);
-		set(my, PASSABLE);
-		my->event = NULL;
-	}
-}
-
 //skill1: EntityType 6
 //skill2: TriggerId -1
 //skill3: EventId -1
 action touchEvent()
 {
-	//TODO: this is broken
-	set (my, POLYGON);
+	VECTOR vecMin;
+	VECTOR vecMax;
+
 	set(my, INVISIBLE);
 	my->ENTITY_TYPE = TYPE_EVENT_TRIGGER;
 	my->group = GROUP_CURSOR_HELPER;
 	my->flags2 |= UNTOUCHABLE;
+	vec_for_min(&vecMin, me);
+	vec_for_max(&vecMax, me);
+	vec_mul(&vecMin, &my->scale_x);
+	vec_mul(&vecMax, &my->scale_x);
+	vec_add(&vecMin, &my->x);
+	vec_add(&vecMax, &my->x);
 
 	if (my->trigId < 0 || my->trigId > 31)
 	{
@@ -262,11 +257,27 @@ action touchEvent()
 	if ((EVENT__entrylock & (1<<my->trigId)) == 0)
 	{
 		while(!inventory || !is_level_loaded()) wait(1); //harghhhh
-		my->event = touchEvent__ev;
-		my->emask |= ENABLE_IMPACT;
+		while(!is(my, PASSABLE))
+		{
+			wait(1);
+			if (
+				player->x > vecMin.x && player->x < vecMax.x &&
+				player->y > vecMin.y && player->y < vecMax.y
+			)
+			{
+				EVENT__entrylock |= (1<<my->trigId);
+				set(my, PASSABLE);
+				EVENT_trigger(my->eventId);
+			}
+		}
 	}
 	else
 	{
 		set(my, PASSABLE);
 	}
+}
+
+action untouchableObject()
+{
+	my->flags2 |= UNTOUCHABLE;
 }

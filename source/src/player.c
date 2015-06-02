@@ -52,6 +52,7 @@ action flashlight()
 action player_act()
 {
 	set(my,INVISIBLE);
+	lastClickedEnt = NULL;
 	my.flags2 |= UNTOUCHABLE;
 	ent_flashlight = NULL;
 	wait(1);
@@ -82,10 +83,10 @@ action player_act()
 		//TODO: take care of: item in hand
 		
 		//HACK: player close previously clicked item? stop early
-		if (lastClickedEnt != NULL) 
-		{
-			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
-		}
+		//if (lastClickedEnt != NULL) 
+		//{
+		//	if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
+		//}
 
 		if(my.force_stop)
 		{
@@ -235,4 +236,9 @@ ENTITY* Player_getLastClickedEnt()
 void Player_resetLastClickedEnt()
 {			
 	lastClickedEnt = NULL;
+}
+
+void Player_stop()
+{
+	player->force_stop = 1;
 }
