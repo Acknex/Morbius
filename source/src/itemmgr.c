@@ -1,20 +1,18 @@
-#include <acknex.h>
 #include "items.h"
 #include "combine.h"
 #include "types.h"
 #include "inventory.h"
-#include "hud.h"
 #include "materials.h"
 #include "event.h"
 #include "player.h"
 #include "dialogs.h"
+#include "mousemgr.h"
 
 #define itemId skill2
+#define itemBorder skill3
 #define itemHover FLAG1
 #define itemRemove FLAG2
 #define itemWasClicked FLAG3
-
-#define ITEM_NEAR_AREA_BORDER 25
 
 void interactionItem__clicked();
 void interactionItem__eventHandler();
@@ -25,28 +23,33 @@ void interactionItem__setNearZone(VECTOR* vec, var border);
 
 //skill1: EntityType 1
 //skill2: ItemId -1
+//skill3: ItemBorder 25
 action interactionItem()
 {
 	VECTOR vecMin;
 	VECTOR vecMax;
 	set(my, INVISIBLE);
 	reset(my, PASSABLE);
-	vec_for_min(&vecMin, me);
-	vec_for_max(&vecMax, me);
-	interactionItem__setNearZone(&vecMin, -ITEM_NEAR_AREA_BORDER);
-	interactionItem__setNearZone(&vecMax, ITEM_NEAR_AREA_BORDER);
-	
+	while(player == NULL) wait(1); //hargh...
+
+	if (my->itemBorder == 0) my->itemBorder = 25;
 	my->ENTITY_TYPE = TYPE_ITEM;
 	my->group = GROUP_ITEM;
 	
 	wait(1); //needed for interactionItem_spawn call to set my->itemId properly
-	//restore item state: start
 	if (my->itemId == -1)
 	{
 		ptr_remove(me);
 		return;
 	}
 	
+	//scale hack for office
+	vec_for_min(&vecMin, me);
+	vec_for_max(&vecMax, me);
+	interactionItem__setNearZone(&vecMin, -my->itemBorder * player->scale_x);
+	interactionItem__setNearZone(&vecMax, my->itemBorder * player->scale_x);
+	
+	//restore item state: start
 	ITEM* item = ITEM_get(my->itemId);
 	while (item->wasMorphedTo != -1)
 	{
@@ -393,7 +396,8 @@ void interactionItem__setNearZone(VECTOR* vec, var border)
 {
 	vec_mul(vec, &my->scale_x);
 	vec_add(vec, vector(border, border, border));
-	vec_rotate(vec, vector(integer(my->pan/90)*90,0,0));
+	var vPan = integer((my->pan + 45) / 90) * 90;
+	vec_rotate(vec, vector(vPan, 0, 0));
 	vec_add(vec, &my->x);
 }
 

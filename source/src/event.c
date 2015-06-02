@@ -164,14 +164,14 @@ void EVENT__evaluate(int triggerId)
 		//ruin startup
 		case 1002:
 		{
-			//wait_for_dlg("xml\\monolog02.xml");
+			wait_for_dlg("xml\\monolog02.xml");
 			break;
 		}
 		
 		//alley startup
 		case 1003:
 		{
-			//wait_for_dlg("xml\\monolog06.xml");
+			wait_for_dlg("xml\\monolog06.xml");
 			break;
 		}
 		
@@ -242,6 +242,7 @@ action touchEvent()
 	my->ENTITY_TYPE = TYPE_EVENT_TRIGGER;
 	my->group = GROUP_CURSOR_HELPER;
 	my->flags2 |= UNTOUCHABLE;
+	//TODO: might not work for rotated ents... see itemmgr.c
 	vec_for_min(&vecMin, me);
 	vec_for_max(&vecMax, me);
 	vec_mul(&vecMin, &my->scale_x);
