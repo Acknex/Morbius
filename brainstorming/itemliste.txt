@@ -50,6 +50,9 @@ Gasse:
 31      Versiffte Geldbörse             x   x
 32      Rechnungs Durchdruck
 50      Toter Warlock
+51      Haustür Draugstraße 4 
+52      Unnützes Auto
+53      Nummernschild Auto
 
 Büro:
 33      Bonzai Zuckerrohr               x   x
