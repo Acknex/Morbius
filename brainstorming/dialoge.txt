@@ -1,14 +1,14 @@
-Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weitere Leichen im Stadtteil Bockenheim, welche auf brutale weise ermodet wurden. Der Serienmörder, welcher den Opfern nach dem Tod ein Z Zeichen auf die Brust markierte, wurde bisher noch nicht gefasst.
+Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weitere Leichen im Stadtteil Bockenheim, welche auf brutale weise ermodet wurden. Der SerienmÃ¶rder, welcher den Opfern nach dem Tod ein Z Zeichen auf die Brust markierte, wurde bisher noch nicht gefasst.
 
-"Wir setzen alles darauf, den Übeltäter auf die spur zu kommen. Leider ist er sehr sorgfältig und es gibt wenig Spuren an den Tatorten zu finden", so Oberkommisar Seiffrig der Kriminalpolizei. "Wir bitten, dass alle Einwohner welche Hinweise oder Augenzeugen zu den Morden haben, sich umgehend beim nähesten Polizeirevier zu melden."
+"Wir setzen alles darauf, den ÃœbeltÃ¤ter auf die spur zu kommen. Leider ist er sehr sorgfÃ¤ltig und es gibt wenig Spuren an den Tatorten zu finden", so Oberkommisar Seiffrig der Kriminalpolizei. "Wir bitten, dass alle Einwohner welche Hinweise oder Augenzeugen zu den Morden haben, sich umgehend beim nÃ¤hesten Polizeirevier zu melden."
 
-Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.
+Die UmstÃ¤nde, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der Ã¶ffentlichkeit zu zeigen. Mehr auf seite 4.
 
 -----------
 
 {
 FRANKFURT
-MORBIUS' BÜRO
+MORBIUS' BÃœRO
 10. AUGUST
 }
 
@@ -20,7 +20,7 @@ MORBIUS: Wenn man vom Teufel spricht!
 
 -----
 
-MORBIUS: Morbius, Institut für Information
+MORBIUS: Morbius, Institut fÃ¼r Information
 JCL: It's a me! J C L-e!
 MORBIUS: Entschuldigung?
 JCL: Ich meine, Guten Tag, Lotter ist mein Name.
@@ -28,142 +28,142 @@ JCL: Ich meine, Guten Tag, Lotter ist mein Name.
     1. "Guten Tag Herr Lotter, wie kann ich ihnen helfen?"
         ->
     2. "Hatten Sie nicht gerade noch einen Italienischen Aktzent?"
-       JCL: "Ich glaube die leitung hatte eine störung..."->
+       JCL: "Ich glaube die leitung hatte eine stÃ¶rung..."->
             
-JCL: Herr Morbius, ich hoffe dass Sie mir helfen können eine Person ausfindig zu machen, geld ist unwichtig; Hauptsache sie können mir ergebnisse liefern!
-MORBIUS: Ein paar mehr details könnte ich schon gebrauchen...
-JCL: Heißt dass sie nehmen den Job an?
+JCL: Herr Morbius, ich hoffe dass Sie mir helfen kÃ¶nnen eine Person ausfindig zu machen, geld ist unwichtig; Hauptsache sie kÃ¶nnen mir ergebnisse liefern!
+MORBIUS: Ein paar mehr details kÃ¶nnte ich schon gebrauchen...
+JCL: HeiÃŸt dass sie nehmen den Job an?
     
     1. "Ohne details kann ich das nicht entscheiden"
         JCL: Immerhin sind sie der erste der nicht als erstes nach einem Vorschuss fragt. ->
     2. "Es scheint mir dass sie es eilig haben, warum nehmen sie nicht erstmal einen tiefen atmen und fangen von vorne an?"
         JCL: [atmet tief durch] okay... ja, sie haben ja recht. ->
     3. "Ja"
-        JCL: Das freut mich zu hören! ->
+        JCL: Das freut mich zu hÃ¶ren! ->
         
-JCL: Folgendes, vor ein paar Monaten wurde meiner Firma ein auftrag gegeben, ein großer auftrag. Ich rede hier von millionen von D-Mark. Wir haben jetzt schon viel arbeit in das projekt gesteckt, aber ich kann einfach nicht das gefühl von mir lassen dass an dem Kunden etwas faul dran ist.
+JCL: Folgendes, vor ein paar Monaten wurde meiner Firma ein auftrag gegeben, ein groÃŸer auftrag. Ich rede hier von millionen von D-Mark. Wir haben jetzt schon viel arbeit in das projekt gesteckt, aber ich kann einfach nicht das gefÃ¼hl von mir lassen dass an dem Kunden etwas faul dran ist.
 MORBIUS: Faul? In wie fern?
 JCL: Zum einen dreht es sich hier bei um ein projekt der etwas... expliziteren art-
 MORBIUS: Expliziteren art?
 JCL: Es handelt sich um ein Computerspiel mit dem Schwerpunkt Sex. Interaktiver Sex.
 MORBIUS: ... Ich verstehe
-JCL: Auf jeden fall, kommt mir einfach alles suspekt vor! Vom namen der Firma über die art und weise wie sie zahlen.
+JCL: Auf jeden fall, kommt mir einfach alles suspekt vor! Vom namen der Firma Ã¼ber die art und weise wie sie zahlen.
 MORBIUS: Aber sie zahlen? Dann sehe ich doch kein problem...
-JCL: Ja, aber wie gesagt, wir reden hier von Millionen von DMark, aber statt das geld zu überweisen, kommt der Kunde jedes mal bei uns im Büro vorbei und bezahlt in bar. Mit dem geld in einem Koffer. Mit handschellen.
+JCL: Ja, aber wie gesagt, wir reden hier von Millionen von DMark, aber statt das geld zu Ã¼berweisen, kommt der Kunde jedes mal bei uns im BÃ¼ro vorbei und bezahlt in bar. Mit dem geld in einem Koffer. Mit handschellen.
 MORBIUS: Okay... ich kann sehen wie man da ein wenig vorbehalte haben kann. Was genau wollen Sie denn jetzt dass ich tue?
-JCL: Es ist ganz einfach, finden sie mehr über diese leute heraus. Ob ich denen vertrauen kann oder ob ich hier übers ohr gezogen werde oder ob meine firma demnächst von der Kripo genau unter die lupe genommen wird wegen etwas von dem ich nichts wusste und auch nichts zu tun haben möchte.
+JCL: Es ist ganz einfach, finden sie mehr Ã¼ber diese leute heraus. Ob ich denen vertrauen kann oder ob ich hier Ã¼bers ohr gezogen werde oder ob meine firma demnÃ¤chst von der Kripo genau unter die lupe genommen wird wegen etwas von dem ich nichts wusste und auch nichts zu tun haben mÃ¶chte.
 MORBIUS: Haben Sie denn einen namen als anhaltspunkt?
-JCL: Cni K. Colraw heißt der Herr der mit uns den Kontakt pflegt. Ob es bei denen noch mehr leute gibt oder nicht weis ich leider nicht, das müssen sie dann selber herausfinden - das ist ja auch ihr job oder?
-MORBIUS: Der Name der Firma wäre noch hilfreich.
+JCL: Cni K. Colraw heiÃŸt der Herr der mit uns den Kontakt pflegt. Ob es bei denen noch mehr leute gibt oder nicht weis ich leider nicht, das mÃ¼ssen sie dann selber herausfinden - das ist ja auch ihr job oder?
+MORBIUS: Der Name der Firma wÃ¤re noch hilfreich.
 JCL: Flight Embassy and Service Ground
 MORBIUS: Haben Sie dazu noch eine adresse?
 JCL: Ist das nicht ihr job, Herr Morbius?
 MORBIUS: Wenn sie die adresse schon wissen, dann macht es keinen sinn das ich zeit verschwende sie herauszufinden.
-JCL: Macht sinn... moment... Mathias N. Straße 211 in Zürich
-MORBIUS: Alles klar... Leider ist jetzt der moment bei dem ich auf einen Vorschuss bestehen muss, für reisekosten, ausgaben, etcetera. Das ganze geht schließlich über die Stadtgrenzen, sogar die Landesgrenzen hinaus.
+JCL: Macht sinn... moment... Mathias N. StraÃŸe 211 in ZÃ¼rich
+MORBIUS: Alles klar... Leider ist jetzt der moment bei dem ich auf einen Vorschuss bestehen muss, fÃ¼r reisekosten, ausgaben, etcetera. Das ganze geht schlieÃŸlich Ã¼ber die Stadtgrenzen, sogar die Landesgrenzen hinaus.
 JCL: Wie klingen 5000 Mark?
-MORBIUS: Das wird knapp, sollte aber erstmal reichen. Sie zahlen per überweisung?
+MORBIUS: Das wird knapp, sollte aber erstmal reichen. Sie zahlen per Ã¼berweisung?
 JCL: Habe ich bereits getan, auf das konto aus ihrer anzeige.
-MORBIUS: Vielen dank, sie müssten dann die Tage noch einmal in mein Büro kommen um die formalitäten zu unterschreiben. Papierkram, sie verstehen schon.
-JCL: Wenn Sie mir mit dem Vorschuss konkrete ergebnisse zeigen können, dann können wir über weitere formalitäten und finanzierung reden.
-MORBIUS: Ein wenig unorthodox, aber in anbetracht der situation und des großzügigen vorschusses geht das in ordnung.
-JCL: Alles klar herr morbius, melden sie sich sobald sie näheres erfahren
-MORBIUS: Werde ich tun herr Lotter, einen guten tag wünsche ich ihnen noch
+MORBIUS: Vielen dank, sie mÃ¼ssten dann die Tage noch einmal in mein BÃ¼ro kommen um die formalitÃ¤ten zu unterschreiben. Papierkram, sie verstehen schon.
+JCL: Wenn Sie mir mit dem Vorschuss konkrete ergebnisse zeigen kÃ¶nnen, dann kÃ¶nnen wir Ã¼ber weitere formalitÃ¤ten und finanzierung reden.
+MORBIUS: Ein wenig unorthodox, aber in anbetracht der situation und des groÃŸzÃ¼gigen vorschusses geht das in ordnung.
+JCL: Alles klar herr morbius, melden sie sich sobald sie nÃ¤heres erfahren
+MORBIUS: Werde ich tun herr Lotter, einen guten tag wÃ¼nsche ich ihnen noch
 JCL: Danke ihnen auch.
 
-MORBIUS: [interner monolog] Ein Schmuddelspiel, ein Italienischer Spieleentwickler und eine Zürische Firma die darauf besteht wie in einem Hollywood film zu bezahlen... Irgendwas roch an der sache faul, genauso wie die abgestandene luft in meinem Büro... Als erstes sollte ich erstmal diese Firma aufsuchen, aber vorher sollte ich meinen Revolver und meine Visitenkarte aus meinem Schreibtisch holen, das A und O eines jeden Detektives der etwas von sich hält.
+MORBIUS: [interner monolog] Ein Schmuddelspiel, ein Italienischer Spieleentwickler und eine ZÃ¼rische Firma die darauf besteht wie in einem Hollywood film zu bezahlen... Irgendwas roch an der sache faul, genauso wie die abgestandene luft in meinem BÃ¼ro... Als erstes sollte ich erstmal diese Firma aufsuchen, aber vorher sollte ich meinen Revolver und meine Visitenkarte aus meinem Schreibtisch holen, das A und O eines jeden Detektives der etwas von sich hÃ¤lt.
 
 "Verdammt, die schublade ist abgeschlossen"
 "Die schublade ist immernoch abgeschlossen"
 "Wenn ich nichts versuche, dann bleibt die schublade auch weiterhin abgeschlossen"
-"Vielleicht sollte ich den schlüssel finden mit dem ich diese ABGESCHLOSSENE schublade öffnen kann"
+"Vielleicht sollte ich den schlÃ¼ssel finden mit dem ich diese ABGESCHLOSSENE schublade Ã¶ffnen kann"
 
-"Wie sind meine Schlüssel nur da drin gelandet?"
-"Mein Gecko wird mich nicht an die schlüssel lassen"
-"Irgendwie muss ich meinen Gecko ablenken um an die schlüssel zu kommen"
+"Wie sind meine SchlÃ¼ssel nur da drin gelandet?"
+"Mein Gecko wird mich nicht an die schlÃ¼ssel lassen"
+"Irgendwie muss ich meinen Gecko ablenken um an die schlÃ¼ssel zu kommen"
 
-"Das ist mein Gecko, er war eine sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen kunden gepfändet habe"
+"Das ist mein Gecko, er war eine sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfÃ¤higen kunden gepfÃ¤ndet habe"
 "Schau mich nicht so verzweifelnd an du reptil"
 
 "Das ist meine Dunkelkammer. Eigentlich eine Kochnische die ich dazu entfremdet habe"
 "Das ist eine DUNKELkammer, ich geh da nicht ohne licht rein"
 
-"Aha, meine taschenlampe! Wichtig für allerlei Detektivarbeiten bei nacht und dunkelheit. Verdammt die batterien sind leer"
+"Aha, meine taschenlampe! Wichtig fÃ¼r allerlei Detektivarbeiten bei nacht und dunkelheit. Verdammt die batterien sind leer"
 "Die Taschenlampe braucht neue batterien"
 
-"Eine fernbedienung, den dazugehörigen fernseher musste ich verramschen um mir eine Taschenlampe zu kaufen"
-"Schau mal einer an, wer hätte da gedacht, da sind batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können"
+"Eine fernbedienung, den dazugehÃ¶rigen fernseher musste ich verramschen um mir eine Taschenlampe zu kaufen"
+"Schau mal einer an, wer hÃ¤tte da gedacht, da sind batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen kÃ¶nnen"
 "Eine fernbedienung ohne batterien. Toll."
 
 "Abracadabra, und schon funktioniert meine Taschenlampe wieder"
 
 "Michael Morbius und die Kammer der Dunkelheit. [kichern]"
 
-"DA habe ich also mein Reptilfutter gelassen. Macht irgendwie sinn, in einer küche."
+"DA habe ich also mein Reptilfutter gelassen. Macht irgendwie sinn, in einer kÃ¼che."
 
-"Du denkst du fängst dir dein futter selbst, dabei verdankst du es nur meiner großzügigkeit. Aber jetzt lässt du mich wenigstens wieder an meine schlüssel"
+"Du denkst du fÃ¤ngst dir dein futter selbst, dabei verdankst du es nur meiner groÃŸzÃ¼gigkeit. Aber jetzt lÃ¤sst du mich wenigstens wieder an meine schlÃ¼ssel"
 
-"Mein Schreibtischschubladenschlüssel"
+"Mein SchreibtischschubladenschlÃ¼ssel"
 
-"Sesam öffne dich!"
+"Sesam Ã¶ffne dich!"
 
 "Revolver und Visitenkarte. Alles was ich brauche."
 "Der Revolver ist noch in der Schublade"
 "Die Visitenkarte ist noch in der schublade"
 "Die Schublade ist leer"
 
-"Ich habe zwar keine Munition mehr für den revolver, aber um jemanden einzuschüchtern ist er perfekt"
+"Ich habe zwar keine Munition mehr fÃ¼r den revolver, aber um jemanden einzuschÃ¼chtern ist er perfekt"
 
 "Die Visitenkarte wird bestimmt noch wichtig sein"
 
 "Das ist mein Patentiertes Rosa Designertelefon"
 
-"A4, das erste programm das ich mit für meinen Laptop gekauft habe."
+"A4, das erste programm das ich mit fÃ¼r meinen Laptop gekauft habe."
 
-"Mein Laptop, digital soll angeblich die zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen platz"
+"Mein Laptop, digital soll angeblich die zukunft sein. FÃ¼r den ganzen Papierkram hab ich hier sowieso keinen platz"
 
-"Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown"
+"Mein BÃ¼cherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown"
 
-"Alles dabei! Dann mal auf nach Zürich!"
+"Alles dabei! Dann mal auf nach ZÃ¼rich!"
 
-"Irgendwas habe ich vergessen. Ohne Visitenkarte verlasse ich ungerne das Büro."
-"Ich möchte echt nicht ohne Visitenkarte gehen..."
+"Irgendwas habe ich vergessen. Ohne Visitenkarte verlasse ich ungerne das BÃ¼ro."
+"Ich mÃ¶chte echt nicht ohne Visitenkarte gehen..."
 "Na gut, ich sollte mich auf den weg machen. Hoffentlich bereue ich es nicht meine visitenkarte mitzunehmen"
 -----------
 
 {
-ZÜRICH
+ZÃœRICH
 MATHIAS N STRASSE 211
 11. AUGUST
 }
 
-"Das ist also der hauptsitz der Flight Embassy and Service Ground. Ich bin zwar kein Experte in Großunternehmen, aber das sieht mir nicht nach dem Ansitz eines Multi-Millionen unternehmens aus."
+"Das ist also der hauptsitz der Flight Embassy and Service Ground. Ich bin zwar kein Experte in GroÃŸunternehmen, aber das sieht mir nicht nach dem Ansitz eines Multi-Millionen unternehmens aus."
 
 "Ist das... eine Leiche?!"
-"Armer kerl, wen hast du bloß verärgert um so zu enden?"
+"Armer kerl, wen hast du bloÃŸ verÃ¤rgert um so zu enden?"
 "GALEP Security... hmm war er ein bodyguard? Vielleicht weis die Firma weiter, ich sollte die mal anrufen."
 "Also ich glaube nicht dass ich so eine Leiche anfassen werde"
-"[stöhn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
-"ÜÜüääähh... in der rechten Hosentasche sind ein paar münzen, gottseidank muss ich nicht noch weiter suchen"
+"[stÃ¶hn] ... na gut, manchmal muss auch ein profesioneller detektiv in der not etwas unethishes tun.... hmmm in der linken hosentasche ist nichts"
+"ÃœÃœÃ¼Ã¤Ã¤Ã¤hh... in der rechten Hosentasche sind ein paar mÃ¼nzen, gottseidank muss ich nicht noch weiter suchen"
 "Der hat nichts mehr"
 
-"Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach"
-"Irgendwie sollte sich diese tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist."
+"Verdammt die TÃ¼r ist verrostet, mit meinen HÃ¤nden krieg' ich die nicht auf. Denk nach Morbius, denk nach"
+"Irgendwie sollte sich diese tÃ¼r doch Ã¶ffnen lassen, ich muss schnellstmÃ¶glich herausfinden wer diese GALEP Security ist."
 
-"Wasserverdrängugsspray-40, der alltägliche helfer für alles. Wird mir bestimmt gelegen kommen."
+"WasserverdrÃ¤ngugsspray-40, der alltÃ¤gliche helfer fÃ¼r alles. Wird mir bestimmt gelegen kommen."
 
 "Eine Brechstange, kein wunder dass ich in dieser abgestandenen schabracke sowas finde."
 
-"Ein bisschen Wasserverdrängugsspray-40 anwenden und abracadabra....! Sesam öffne dich!"
+"Ein bisschen WasserverdrÃ¤ngugsspray-40 anwenden und abracadabra....! Sesam Ã¶ffne dich!"
 
-"Eine Brechstange ist meist genauso gut wie ein schlüssel, wenn nicht sogar noch besser!"
+"Eine Brechstange ist meist genauso gut wie ein schlÃ¼ssel, wenn nicht sogar noch besser!"
 
-"Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können"
-
-
+"Okay Morbius, du hast einen Fehler in deinem Plan: Ohne MÃ¼nzen wirst du ganz schlecht ein MÃ¼nztelefon benutzen kÃ¶nnen"
 
 
-MORBIUS: [interner monolog]  War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die aufgabe der Informationssuche aufdrücken muss.
+
+
+MORBIUS: [interner monolog]  War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die aufgabe der Informationssuche aufdrÃ¼cken muss.
 MORBIUS: [interner monolog] Okay Fritz, ich hoffe du bist deine Gadge immernoch wert...
 [tuuut]
 FRITZ: [schnauf] Yop?
@@ -171,7 +171,7 @@ FRITZ: [schnauf] Yop?
     1. "Hi Fritz, Morbius hier"
         ->
     2. "Ich brauche deine hilfe"
-        FRITZ: Wer bist du überhaupt?
+        FRITZ: Wer bist du Ã¼berhaupt?
         
         1. "Ich bins, Morbius"
             FRITZ: Warum sagst du das nicht gleich?! ->
@@ -183,51 +183,51 @@ FRITZ: Was brauchst du?
 MORBIUS: Ich brauche informationen zu einem Namen. Gibt sogar wieder honorar.
 FRITZ: Yop, gib mir den Namen ich ruf dich dann morgen wieder an.
 MORBIUS: Ich brauch die information jetzt, es geht um leben und tot... sozusagen.
-FRITZ: [seuftz] okay Morbius, aber nur weil du es bist, wie heißt der Übeltäter?
-MORBIUS: GALEP Security, sollte irgendwo in Zürich sein.
-FRITZ: Zürich? Morbius, wo treibst du dich wieder rum... moment... [tippen] [schnauf] ja komm meine kleine, du kannst das... [tippen] Aaaaah, hier ist es: GALEP Security, eine Personenschutz Firma aus Zürich. 
+FRITZ: [seuftz] okay Morbius, aber nur weil du es bist, wie heiÃŸt der ÃœbeltÃ¤ter?
+MORBIUS: GALEP Security, sollte irgendwo in ZÃ¼rich sein.
+FRITZ: ZÃ¼rich? Morbius, wo treibst du dich wieder rum... moment... [tippen] [schnauf] ja komm meine kleine, du kannst das... [tippen] Aaaaah, hier ist es: GALEP Security, eine Personenschutz Firma aus ZÃ¼rich. 
 MORBIUS: Soviel weis ich schon, Fritz. Ich brauch ne nummer!
 FRITZ: Beruhig dich, hab ich alles hier, was glaubst du wer ich bin? [tippen] Hier: 388 520 909 8
-MORBIUS: Danke Fritz, was würde ich nur ohne dich tun?
-FRITZ: Yop, vergiss nur nicht mir das Geld zu überweisen.
+MORBIUS: Danke Fritz, was wÃ¼rde ich nur ohne dich tun?
+FRITZ: Yop, vergiss nur nicht mir das Geld zu Ã¼berweisen.
 MORBIUS: Wieviel schulde ich dir?
-FRITZ: Das Übliche ist in ordnung.
+FRITZ: Das Ãœbliche ist in ordnung.
 MORBIUS: Alles klar, bekommst du. Ich hab diesmal einen guten Vorschuss bekommen!
-FRITZ: Sag bloß du wirst langsam richtig profesionell?
+FRITZ: Sag bloÃŸ du wirst langsam richtig profesionell?
 MORBIUS: Haha, sehr lustig. Naja danke nochmal, ich muss jetzt los!
 FRITZ: Yop, kein problem. Log-Off!
-MORBIUS: [interner monolog] Perfekt, jetzt muss ich nur noch die GALEP leute überzeugen mir zu sagen wo der Herr Guard Emdayelle wohnt... Denk nach Morbius... aha! Ich habs, ich wollte ihm sein Portmonnai zurück geben. Hab ich irgendwo gefunden - ist ja auch wahr. Morbius, du bist ein Genie!
+MORBIUS: [interner monolog] Perfekt, jetzt muss ich nur noch die GALEP leute Ã¼berzeugen mir zu sagen wo der Herr Guard Emdayelle wohnt... Denk nach Morbius... aha! Ich habs, ich wollte ihm sein Portmonnai zurÃ¼ck geben. Hab ich irgendwo gefunden - ist ja auch wahr. Morbius, du bist ein Genie!
 
 
 
-MORBIUS: [interner monolog] Meine letzte münze, lass es gelten Morbius!
+MORBIUS: [interner monolog] Meine letzte mÃ¼nze, lass es gelten Morbius!
 GALEP: GALEP Security?
-MORBIUS: Hallo, Morbius mein name. Ich hätte da gerne mal ein problem.
+MORBIUS: Hallo, Morbius mein name. Ich hÃ¤tte da gerne mal ein problem.
 GALEP: Wie kann ich ihnen weiter helfen?
-MORBIUS: Folgendes... ich habe vor ein paar tagen die geldbörse einer ihrer mitarbeiter gefunden, leider habe ich da nur eine visitenkarte von ihnen, also GALEP Security gefunden und den namen.
-GALEP: Sie können das Portemonnai am besten zu uns in büro-
-MORBIUS: Ich würde mich wesentlich erleichtert fühlen wenn ich die Geldbörse persönlich bei dem herren Emdayelle abgeben könnte. Ich bräuchte nur die adresse
-GALEP: Wir können leider keine persönlichen daten zu unseren angestellten herausgeben, es wäre wirklich am einfachsten wenn sie einfach zu uns ins büro-
+MORBIUS: Folgendes... ich habe vor ein paar tagen die geldbÃ¶rse einer ihrer mitarbeiter gefunden, leider habe ich da nur eine visitenkarte von ihnen, also GALEP Security gefunden und den namen.
+GALEP: Sie kÃ¶nnen das Portemonnai am besten zu uns in bÃ¼ro-
+MORBIUS: Ich wÃ¼rde mich wesentlich erleichtert fÃ¼hlen wenn ich die GeldbÃ¶rse persÃ¶nlich bei dem herren Emdayelle abgeben kÃ¶nnte. Ich brÃ¤uchte nur die adresse
+GALEP: Wir kÃ¶nnen leider keine persÃ¶nlichen daten zu unseren angestellten herausgeben, es wÃ¤re wirklich am einfachsten wenn sie einfach zu uns ins bÃ¼ro-
 MORBIUS: Tut mir leid, aber da habe ich keine garantie dass dort nicht weiter etwas entwendet wird.
 GALEP: Sie haben meine garantie dass-
-MORBIUS: Ich habe ja nichts persönlich gegen sie, aber sehen sie es mal aus meiner perspektive, wenn da noch mehr geld fehlt, dann wird das alles auf mich zurück fallen.
+MORBIUS: Ich habe ja nichts persÃ¶nlich gegen sie, aber sehen sie es mal aus meiner perspektive, wenn da noch mehr geld fehlt, dann wird das alles auf mich zurÃ¼ck fallen.
 GALEP: Ich versichere ihnen, wir werden kein geld-
 MORBIUS: So sind doch Rezeptionist, ja?
 GALEP: Ja?
-MORBIUS: Sehen Sie, ich kann nicht mit klarem gewissen ihnen eine Gelbörse voller geld geben und einfach hoffen dass sie sich nicht vielleicht daran bedienen werden. Ich war auch mal Rezeptionist, ich kenne die langen stunden und die kleinen gehälter.
+MORBIUS: Sehen Sie, ich kann nicht mit klarem gewissen ihnen eine GelbÃ¶rse voller geld geben und einfach hoffen dass sie sich nicht vielleicht daran bedienen werden. Ich war auch mal Rezeptionist, ich kenne die langen stunden und die kleinen gehÃ¤lter.
 GALEP: Herr Morbius, ich weis nicht wie ich ihnen noch weiter versichern kann das wird nicht-
-MORBIUS: Sagen sie mir einfach wo ich den Herren Emdayelle finden kann, ich gebe ihm einfach persönlich die Geldbörse und mein gewissen ist erleichtert und alle risiken sind nichtig.
-GALEP: Selbst wenn ich ihnen sagen würde wo der Herr Emdayelle wohnt, wäre das ein Problem, sehen sie: Herr Emdayelle wohnt nicht hier in der Schweiz sondern ist für seinen Kunden nach Deutschland gezogen.
+MORBIUS: Sagen sie mir einfach wo ich den Herren Emdayelle finden kann, ich gebe ihm einfach persÃ¶nlich die GeldbÃ¶rse und mein gewissen ist erleichtert und alle risiken sind nichtig.
+GALEP: Selbst wenn ich ihnen sagen wÃ¼rde wo der Herr Emdayelle wohnt, wÃ¤re das ein Problem, sehen sie: Herr Emdayelle wohnt nicht hier in der Schweiz sondern ist fÃ¼r seinen Kunden nach Deutschland gezogen.
 MORBIUS: Das Trifft sich doch gut, ich bin morgen wieder auf dem weg nach Deutschland.
-GALEP: [seuftz] na gut herr morbius, wenn sie sich sonst weigern das persönliche eigentum eines unserer mitarbeiter zurück zu geben, kann ich mal eine ausnahme machen.
-MORBIUS: Ich wusste doch dass sie schlau sind! Sehen sie: Ich habe das direkt in ihrer stimme gehört, sie haben das gewisse 'etwas', sie werden es noch groß bringen! Das haben sie ja soeben bewiesen!
-GALEP: Haben sie was zu schreiben? Herr Emdayelle wohnt in der Draugstraße 4 in Frankfurt.
-MORBIUS: Draugstraße 4, Frankfurt. Was für ein zufall, ich wohne auch in Frankfurt!
-GALEP: Fast schon zu viele zufälle für einen tag....
-MORBIUS: Ich danke ihnen für ihre hilfe!
-GALEP: Einen schönen-
+GALEP: [seuftz] na gut herr morbius, wenn sie sich sonst weigern das persÃ¶nliche eigentum eines unserer mitarbeiter zurÃ¼ck zu geben, kann ich mal eine ausnahme machen.
+MORBIUS: Ich wusste doch dass sie schlau sind! Sehen sie: Ich habe das direkt in ihrer stimme gehÃ¶rt, sie haben das gewisse 'etwas', sie werden es noch groÃŸ bringen! Das haben sie ja soeben bewiesen!
+GALEP: Haben sie was zu schreiben? Herr Emdayelle wohnt in der DraugstraÃŸe 4 in Frankfurt.
+MORBIUS: DraugstraÃŸe 4, Frankfurt. Was fÃ¼r ein zufall, ich wohne auch in Frankfurt!
+GALEP: Fast schon zu viele zufÃ¤lle fÃ¼r einen tag....
+MORBIUS: Ich danke ihnen fÃ¼r ihre hilfe!
+GALEP: Einen schÃ¶nen-
 [Aufgelegt]
-MORBIUS: [interner monolog] Dieser Fall wurde immer ungewöhnlicher, das mulmige gefühl in meinem bauch wurde immer stärker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloß eingelassen? Und warum hat der Z Mörder ein opfer in Zürich? Fragen über fragen häuften sich, und die spur blieb nicht kalt - im gegensatz zu meinem büro weil ich meine Gasrechnung diesen monat nicht bezahlt hatte.
+MORBIUS: [interner monolog] Dieser Fall wurde immer ungewÃ¶hnlicher, das mulmige gefÃ¼hl in meinem bauch wurde immer stÃ¤rker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloÃŸ eingelassen? Und warum hat der Z MÃ¶rder ein opfer in ZÃ¼rich? Fragen Ã¼ber fragen hÃ¤uften sich, und die spur blieb nicht kalt - im gegensatz zu meinem bÃ¼ro weil ich meine Gasrechnung diesen monat nicht bezahlt hatte.
 
 --------------
 
@@ -239,66 +239,72 @@ DRAUGSTRASSE 4
 
 "Hier wohnt der Herr Emdayelle also. Verdient man als Bodyguard nicht viel geld? Warum wohnt er dann in dieser abgerannten gegend?"
 
-"Warum sollte ich an der Tür klopfen? Ich weis dass Emdayelle tot ist. Ich habe persönlich von seiner kalten Leiche kleingeld entwendet."
+"Warum sollte ich an der TÃ¼r klopfen? Ich weis dass Emdayelle tot ist. Ich habe persÃ¶nlich von seiner kalten Leiche kleingeld entwendet."
 "Vielleicht sollte ich versuchen mich nach einer Alternativen zugangsmethode umzuschauen"
 
-"Hier sollte es definitiv einen hintereinga- ist das eine Leiche?! Schon wieder?! Was ist bloß mit diesem fall los?"
+"Hier sollte es definitiv einen hintereinga- ist das eine Leiche?! Schon wieder?! Was ist bloÃŸ mit diesem fall los?"
 
 "Wer ist dieser Mann? Ich sollte irgendwelche hinweise finden sollen"
 "Nichts an seiner person, vielleicht finde ich in der umgebung etwas"
 
-"Ein stock? Gehört der zu dem Typen? Könnte auf jeden fall hilfreich sein"
+"Ein stock? GehÃ¶rt der zu dem Typen? KÃ¶nnte auf jeden fall hilfreich sein"
 
-"Eine Mülltonne. Ein standartmodell für die Frankfurter Grosstadt"
+"Eine MÃ¼lltonne. Ein standartmodell fÃ¼r die Frankfurter Grosstadt"
 "Ein Angelhaken? Komisch dass jemand sowas hier mitten in der stadt haben sollte"
+"Da drin wÃ¼hl ich nicht nochmal rum!"
 
 "Sieht ja schlimmer als mein auto aus."
+"Das Nummernschild ist ja witzig - so ein Zufall aber auch [kicher]."
+
+"Fast so schick wie mein Subaru."
+
 "Hmm, das nummernschild ist mit gaffer tape befestigt"
-"Ich glaube das tape kann ich irgendwie verwenden, ist ja nicht so als ob dass jetzt noch auffallen würde wenn ich das entwende"
+"Ich glaube das tape kann ich irgendwie verwenden, ist ja nicht so als ob dass jetzt noch auffallen wÃ¼rde wenn ich das entwende"
+"Unerwarteterweise ist das noch immer ein Nummernschild."
 
-"Hmmm... für irgendwas sollte das nützlich sein... aber irgendwie sollte ich das noch etwas stabiler bekommen"
+"Hmmm... fÃ¼r irgendwas sollte das nÃ¼tzlich sein... aber irgendwie sollte ich das noch etwas stabiler bekommen"
 
-"Perfekt, jetzt hält der haken auch stabil am stock"
+"Perfekt, jetzt hÃ¤lt der haken auch stabil am stock"
 
 "Da scheint entwas den gulli heruntergefallen zu sein"
-"Wenn ich bloß etwas hätte um das da herauszufischen"
+"Wenn ich bloÃŸ etwas hÃ¤tte um das da herauszufischen"
 
-"Gute idee morbius, aber der haken hält nicht stabil genug"
+"Gute idee morbius, aber der haken hÃ¤lt nicht stabil genug"
 "Ich sollte den haken erst noch stabiler am stock befestigen bevor ich versuche etwas damit anzuheben"
 
-"Ah ha, eine geldbörse!"
+"Ah ha, eine geldbÃ¶rse!"
 
-"Was haben wir hier? Honorar für Personenschutz - das muss wohl die person sein die Emdayelle beschützen sollte - und... nein, das kann nicht sein... was hast DU mit IHM zu tun? Warum bist du in dieser sache involviert?!"
+"Was haben wir hier? Honorar fÃ¼r Personenschutz - das muss wohl die person sein die Emdayelle beschÃ¼tzen sollte - und... nein, das kann nicht sein... was hast DU mit IHM zu tun? Warum bist du in dieser sache involviert?!"
 
-"Ein rechnungsdurchdruck für die Griechin... für etwas dass sich 'Motion Capture' nennt... für... 'Utopia'?"
+"Ein rechnungsdurchdruck fÃ¼r die Griechin... fÃ¼r etwas dass sich 'Motion Capture' nennt... fÃ¼r... 'Utopia'?"
 "Warum hast du nur etwas mit diesem fall zu tun, Griechin?"
 
-"Der fall spitzte sich weiter zu. Jetzt war auch noch einer meiner besten freunde in der ganzen situatuion verzwickt. Verzwickt war zwar gut, aber eigentlich meinte ich damit nicht sie und meine fälle sonder eher sie und mich. Es wurde zeit sie zu der situation zu befragen..."
+"Der fall spitzte sich weiter zu. Jetzt war auch noch einer meiner besten freunde in der ganzen situatuion verzwickt. Verzwickt war zwar gut, aber eigentlich meinte ich damit nicht sie und meine fÃ¤lle sonder eher sie und mich. Es wurde zeit sie zu der situation zu befragen..."
 
 ---
 
 {
 FRANKFURT
-MORBIUS' BÜRO
+MORBIUS' BÃœRO
 14. AUGUST
 }
 
 [Enter Griechin]
-MORBIUS: Hallo, schön das du kommen konntest.
+MORBIUS: Hallo, schÃ¶n das du kommen konntest.
 GRIECHIN: [kichern] Kein problem. Ist schon ne weile her seit dem lezten mal. Wie geht es deinem Keilbeinknochen?
 MORBIUS: Ich weis zwar noch immer nicht wo oder was der ist, aber es geht im besser!
-GRIECHIN: Also erzähl mal, was brauchst du von mir?
+GRIECHIN: Also erzÃ¤hl mal, was brauchst du von mir?
 MORBIUS: Warum nimmst du immer an das ich was von dir will?
 GRIECHIN: Weil du jedes mal was von mir willst wenn du mich anrufst.
 MORBIUS: Mag ja sein, aber du musst ja nicht immer davon ausgehen.
 GRIECHIN: Also, ja, du brauchst was von mir?
 MORBIUS: .... ja.
-GRIECHIN: Dann sei doch wenigstens so ein schatz und füll mir einen Kaffee ein
+GRIECHIN: Dann sei doch wenigstens so ein schatz und fÃ¼ll mir einen Kaffee ein
 [schenkt kaffee ein]
 [griechen wartet erwartungsvoll]
 MORBIUS: Thermoskannenkaffee nicht gut genug?
-GRIECHIN: Also wirklich, morbius, wie lange kennen wir uns schon? Du weißt doch das ich meinen kaffe mit zucker trinke!
-MORBIUS: Oh... ja... ääh... wart eben einen moment...
+GRIECHIN: Also wirklich, morbius, wie lange kennen wir uns schon? Du weiÃŸt doch das ich meinen kaffe mit zucker trinke!
+MORBIUS: Oh... ja... Ã¤Ã¤h... wart eben einen moment...
 
 "Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilrettarium."
 "Vielleicht kann ich aus diesem Zuckerrohr zucker herstellen"
@@ -308,41 +314,41 @@ MORBIUS: Oh... ja... ääh... wart eben einen moment...
 "Ein Topf"
 
 "Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium"
-"Wenn ich mich jetzt noch errinnern würde wie man aus Zuckerrohr zucker herstellt, dann wäre ich ganz klar im vorteil"
+"Wenn ich mich jetzt noch errinnern wÃ¼rde wie man aus Zuckerrohr zucker herstellt, dann wÃ¤re ich ganz klar im vorteil"
 "Ich glaube der muss etwas erhitzt werden, oder so?"
 
 "Ein gelungenes experiment der Zuckerherstellung aus Biologischem anbau! Garantiert ohne gluten. Oder doch. Keine ahnung."
 
 "Jetzt hab ich Zuckerrohr in einen Topf gelegt. Das hast du toll gemacht Morbius."
 
-"Ah genau, wir kochen das Zuckerrohr zu einer rohen masse und lassen die flüssigkeit verdampfen... und was übrig bleibt ist... Zucker!"
+"Ah genau, wir kochen das Zuckerrohr zu einer rohen masse und lassen die flÃ¼ssigkeit verdampfen... und was Ã¼brig bleibt ist... Zucker!"
 
-MORBIUS: Hier, hab ich extra für dich gemacht.
-GRIECHIN: Mein güte Morbius, du bist ja voller überraschungen. Als nächstes wirst du mir nopch sagen dass du bei deinem neuen Fall sogar einen Vorschuss bekommen hast!
-MORBIUS: Habe ich sogar tatsächlich. Ist das so verwunderlich? Ich bin immerhin ein profesioneller detektiv!
-GRIECHIN: [lacht] Selbstverständlich, tut mir leid, das war dumm von mir!
+MORBIUS: Hier, hab ich extra fÃ¼r dich gemacht.
+GRIECHIN: Mein gÃ¼te Morbius, du bist ja voller Ã¼berraschungen. Als nÃ¤chstes wirst du mir nopch sagen dass du bei deinem neuen Fall sogar einen Vorschuss bekommen hast!
+MORBIUS: Habe ich sogar tatsÃ¤chlich. Ist das so verwunderlich? Ich bin immerhin ein profesioneller detektiv!
+GRIECHIN: [lacht] SelbstverstÃ¤ndlich, tut mir leid, das war dumm von mir!
 MORBIUS: Es sei dir vergeben!
 GRIECHIN: Also, wie kann ich dir helfen mein kleiner?
-MORBIUS: Ich komme direkt zum punkt: Was weißt du über Utopia?
+MORBIUS: Ich komme direkt zum punkt: Was weiÃŸt du Ã¼ber Utopia?
 GRIECHIN: Oh-ho! Auf *solche* schmuddelspielchen stehst du also?
-MORBIUS: Sehr lustig, es hat mit meinem fall zu tun. Ich nehme also an du weißt was das ist?
-GRIECHIN: Ja, aber warum weißt du dass ich damit etwas zu tun hatte?
-MORBIUS: Ich bin den spuren gefolgt und habe eine rechnung gefunden bei der du für deine arbeit an Utopia bezahlt wurdest.
+MORBIUS: Sehr lustig, es hat mit meinem fall zu tun. Ich nehme also an du weiÃŸt was das ist?
+GRIECHIN: Ja, aber warum weiÃŸt du dass ich damit etwas zu tun hatte?
+MORBIUS: Ich bin den spuren gefolgt und habe eine rechnung gefunden bei der du fÃ¼r deine arbeit an Utopia bezahlt wurdest.
 GRIECHIN: Ist doch nichts illegales dabei! Das war alles legitime arbeit!
-MORBIUS: Jetzt hör auf mit den späßen! Zwei leute sind tot! Ich habe in den letzten tagen mit mehr leichen zu tun gehabt als ich möchte. Wenn ich nicht herausfinde was hier los ist, dann kann es gut sein dass du bald auch einer der leichen bist.
+MORBIUS: Jetzt hÃ¶r auf mit den spÃ¤ÃŸen! Zwei leute sind tot! Ich habe in den letzten tagen mit mehr leichen zu tun gehabt als ich mÃ¶chte. Wenn ich nicht herausfinde was hier los ist, dann kann es gut sein dass du bald auch einer der leichen bist.
 GRIECHIN: T-t-tot?! Was? Nein, warum sollten leute tot sein?
-MORBIUS: Ich habe erst Herrn Emdayelle tot vorgefunden beim angeblichen firmenstammsitz in zürich und als ich dann versucht habe mehr über ihn herauszufinden, stoße ich direkt auf eine zweite leiche in einer dunklen gasse neben seinem Wohnsitz. Hier in Frankfurt! Soweit ich weis ist der zweite tote der mann der von Emdayelle beschützt werden sollte.
+MORBIUS: Ich habe erst Herrn Emdayelle tot vorgefunden beim angeblichen firmenstammsitz in zÃ¼rich und als ich dann versucht habe mehr Ã¼ber ihn herauszufinden, stoÃŸe ich direkt auf eine zweite leiche in einer dunklen gasse neben seinem Wohnsitz. Hier in Frankfurt! Soweit ich weis ist der zweite tote der mann der von Emdayelle beschÃ¼tzt werden sollte.
 GRIECHIN: Herr M. Dayle ist... tot? Emdayelle ist tot?!
-MORBIUS: Jetzt erklär mir doch bitte warum zwei leute tot sind wegen irgend einem schmuddelspielchen von einer firma die es nicht gibt die angeblich in zürich ist und was du mit dem ganzen zu tun hast?!
+MORBIUS: Jetzt erklÃ¤r mir doch bitte warum zwei leute tot sind wegen irgend einem schmuddelspielchen von einer firma die es nicht gibt die angeblich in zÃ¼rich ist und was du mit dem ganzen zu tun hast?!
 GRIECHIN: Ich habe nur ein paar akrobatische bewegungen vor kameras gemacht, nichts explizites, nichts illegales!! ICh weis nicht warum die leute tot sind!
-MORBIUS: WEißt du sonst wer etwas wissen könnte? DU musst doch irgend jemand anderes gesehen haben während du da gearbeitet hast?
-GRIECHIN: Ich... ich weis nich- Doch! CBabe! Sie war auch immer da als ich dort gearbeitet hatte, sie war noch viel länger an Utopia beschäftigt, wenn Emdayelle und M. Doyle tot sind, dann ist sie definitiv die person die du fragen solltest.
-MORBIUS: Weißt du auch wo ich Sie finden kann?
-GRIECHIN: Ich meine dass sie sich oft in der Babec Disco rumtreibt. Da solltest du die finden können.
+MORBIUS: WEiÃŸt du sonst wer etwas wissen kÃ¶nnte? DU musst doch irgend jemand anderes gesehen haben wÃ¤hrend du da gearbeitet hast?
+GRIECHIN: Ich... ich weis nich- Doch! CBabe! Sie war auch immer da als ich dort gearbeitet hatte, sie war noch viel lÃ¤nger an Utopia beschÃ¤ftigt, wenn Emdayelle und M. Doyle tot sind, dann ist sie definitiv die person die du fragen solltest.
+MORBIUS: WeiÃŸt du auch wo ich Sie finden kann?
+GRIECHIN: Ich meine dass sie sich oft in der Babec Disco rumtreibt. Da solltest du die finden kÃ¶nnen.
 
 [Fade to black]
 
-"Ich war der lösung heiß auf der spur, ich hoffte dass ich jetzt von CBabe erfahren könnte was des rätsels lösung ist."
+"Ich war der lÃ¶sung heiÃŸ auf der spur, ich hoffte dass ich jetzt von CBabe erfahren kÃ¶nnte was des rÃ¤tsels lÃ¶sung ist."
 
 -------
 
@@ -363,29 +369,29 @@ DIALOG CBabe
 MORBIUS: Cbabe nehme ich an?
 CBABE: Wer will das wissen?
 MORBIUS: Morbius, Privatdetektiv.
-CBABE: Ich nehme an du hast Fragen für mich?
-MORBIUS: So läuft das normalerweise mit Detektiven.
-CBABE: Direkt zum punkt, was? ... Nagut, das kann ich respektieren. Schieß los.
-MORBIUS: Sehr vornehmlich. Ich musste das ganze spiel über schon irgendwelche Rätsel lösen nur um leute zum reden zu bringen.
-CBABE: Kannst du bitte aufhören die 4. wand zu brechen und den dialog weiterführen?
+CBABE: Ich nehme an du hast Fragen fÃ¼r mich?
+MORBIUS: So lÃ¤uft das normalerweise mit Detektiven.
+CBABE: Direkt zum punkt, was? ... Nagut, das kann ich respektieren. SchieÃŸ los.
+MORBIUS: Sehr vornehmlich. Ich musste das ganze spiel Ã¼ber schon irgendwelche RÃ¤tsel lÃ¶sen nur um leute zum reden zu bringen.
+CBABE: Kannst du bitte aufhÃ¶ren die 4. wand zu brechen und den dialog weiterfÃ¼hren?
 MORBIUS: Sorry! ... Du hast am Utopia Projekt gearbeitet?
 CBABE: Das ist richtig. Warum? Willst du mich auch anheuern? Kostet dich aber extra als privatperson...
 MORBIUS: Sorry, kein interesse. Ich bin viel mehr interessiert an den Herren M. Dayle und Emdayelle.
 CBABE: Guard und Warlock? Wie kommt es?
-MORBIUS: Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn du GANZ genau weißt dass die beiden ins Graß gebissen haben.
+MORBIUS: Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn du GANZ genau weiÃŸt dass die beiden ins GraÃŸ gebissen haben.
 CBABE: S...sie.. Sie sind TOT?!
-MORBIUS: Ach komm, alle spuren führen zu dir, jetzt tu nicht so als ob du nichts davon weißt!
-CBABE: WIE WAGST DU ES?! Natürlich weis ich nichts davon! Wie kannst du nur so taktlos sein??
+MORBIUS: Ach komm, alle spuren fÃ¼hren zu dir, jetzt tu nicht so als ob du nichts davon weiÃŸt!
+CBABE: WIE WAGST DU ES?! NatÃ¼rlich weis ich nichts davon! Wie kannst du nur so taktlos sein??
 MORBIUS: [seuftz] Tut mir leid. So meinte ich das nicht. Du verstehst, dass ich antworten brauche.
 CBABE: Lass mich jetzt bitte in ruhe...
 
 COMBINE: Visitenkarte + Cbabe
-    "Hier falls ihnen noch was einfällt geben sie mir bitte umgehend bescheid"
+    "Hier falls ihnen noch was einfÃ¤llt geben sie mir bitte umgehend bescheid"
     (VICTORY CONDITION)
 
 ---------------
 
-Büro
+BÃ¼ro
 
 VICTORY
 
