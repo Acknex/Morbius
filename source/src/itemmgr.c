@@ -30,7 +30,7 @@ action interactionItem()
 	VECTOR vecMax;
 	set(my, INVISIBLE);
 	reset(my, PASSABLE);
-	while(player == NULL) wait(1); //hargh...
+	//while(player == NULL) wait(1); //hargh...
 
 	if (my->itemBorder == 0) my->itemBorder = 25;
 	my->ENTITY_TYPE = TYPE_ITEM;
@@ -43,11 +43,10 @@ action interactionItem()
 		return;
 	}
 	
-	//scale hack for office
 	vec_for_min(&vecMin, me);
 	vec_for_max(&vecMax, me);
-	interactionItem__setNearZone(&vecMin, -my->itemBorder * player->scale_x);
-	interactionItem__setNearZone(&vecMax, my->itemBorder * player->scale_x);
+	interactionItem__setNearZone(&vecMin, -my->itemBorder);
+	interactionItem__setNearZone(&vecMax, my->itemBorder);
 	
 	//restore item state: start
 	ITEM* item = ITEM_get(my->itemId);
@@ -341,6 +340,18 @@ void interactionItem__morph(int targetId, int morphId)
 	}
 	ent->itemId = morphId;
 	ent->ENTITY_TYPE = TYPE_ITEM;
+	if (is(ent, itemHover))
+	{
+		mousemgr_hint(item->name);
+		if ((item->collectable != 0) && (ITEM_isNowCollectable(item) != 0))
+		{
+			mousemgr_set(MOUSE_GRAB, NULL);
+		}
+		else
+		{
+			mousemgr_set(MOUSE_LOOK, NULL);
+		}
+	}
 }
 
 ENTITY* interactionItem__find(int id)

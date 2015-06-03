@@ -38,6 +38,7 @@
 #define ITEM_ID_REVOLVER 2
 #define ITEM_ID_FLASHLIGHT 16
 #define ITEM_ID_MUENZEN 40
+#define ITEM_ID_GELDBOERSE 31
 
 // Macros
 #define pSMARTWALK(pointer) ((SMARTWALK*)pointer)

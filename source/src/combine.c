@@ -168,6 +168,7 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
 		combination->description = str;
+		str_replaceall(combination->description, "\\n", "\r\n");
 	}
 	
 }

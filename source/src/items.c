@@ -1,4 +1,5 @@
 #include <acknex.h>
+#include <strio.c>
 #include "items.h"
 #include "hud.h"
 #include "xmlreader.h"
@@ -386,6 +387,7 @@ void ITEM__copySequqenceFromXml(SEQUENCE* sequence, XMLPAR* tag)
 		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
 		sequence->description = str;
+		str_replaceall(sequence->description, "\\n", "\r\n");
 	}
 	
 	attrib = XMLATTRIB_getElementByAttribute(tag, "result");

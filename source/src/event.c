@@ -3,7 +3,6 @@
 #include "inventory.h"
 #include "level_transition.h"
 #include "player.h"
-#include "office.h"
 
 //DO NOT EDIT - START
 int EVENT__triggerId = -1;
@@ -60,12 +59,16 @@ void EVENT__listener_startup()
 //entryEvent, touchEvent
 #define trigId skill2
 #define eventId skill3
+#define trigItemId skill4
 
 
 SOUND* fritzCallSnd = "fritz_call.ogg";
 SOUND* galepCallSnd = "galep_call.ogg";
 SOUND* phoneHangupSnd = "phone_hangup.ogg";
 long EVENT__entrylock = 0;
+ENTITY* OFFICE__officeChairEnt = NULL;
+ENTITY* OFFICE__officeStartEnt = NULL;
+
 
 void EVENT__evaluate(int triggerId)
 {
@@ -82,6 +85,13 @@ void EVENT__evaluate(int triggerId)
 			//TODO: maybe solution for automation: allow parentId in XML?
 			interactionItem_spawn(ITEM_ID_VISITENKARTE);
 			interactionItem_spawn(ITEM_ID_REVOLVER);
+			break;
+		}
+		
+		//Stock mit getaptem Angelhaken -> Gulli
+		case 32:
+		{
+			interactionItem_spawn(ITEM_ID_GELDBOERSE);
 			break;
 		}
 		
@@ -182,6 +192,14 @@ void EVENT__evaluate(int triggerId)
 			break;
 		}
 		
+		//leave alley
+		case 1006:
+		{
+			wait_for_dlg("xml\\monolog08.xml");
+			level_change(4, 1); //todo adjust for greek_office
+			break;
+		}
+		
 		default:
 		{
 			break;
@@ -205,6 +223,17 @@ void EVENT__unlock()
 
 	inv_show(inventory);
 	player_may_walk = 1;
+}
+
+action officeChair()
+{
+	OFFICE__officeChairEnt = me;
+}
+
+action officeStart()
+{
+	set(my, INVISIBLE | PASSABLE);
+	OFFICE__officeStartEnt = me;
 }
 
 //skill1: EntityType 6
@@ -233,6 +262,7 @@ action entryEvent()
 //skill1: EntityType 6
 //skill2: TriggerId -1
 //skill3: EventId -1
+//skill4  triggerItemId -1
 action touchEvent()
 {
 	VECTOR vecMin;
@@ -262,8 +292,12 @@ action touchEvent()
 		{
 			wait(1);
 			if (
-				player->x > vecMin.x && player->x < vecMax.x &&
-				player->y > vecMin.y && player->y < vecMax.y
+				(player->x > vecMin.x) && (player->x < vecMax.x) &&
+				(player->y > vecMin.y) && (player->y < vecMax.y) &&
+				(
+					(my->trigItemId == -1) ||
+					(inv_item_search(inventory, my->trigItemId) != NULL)
+				)
 			)
 			{
 				EVENT__entrylock |= (1<<my->trigId);
