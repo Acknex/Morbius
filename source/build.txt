@@ -1,0 +1,32 @@
+How to build
+------------
+
+1. Make sure environment path contains path to Acknex.exe - otherwise edit build.bat and have 'Ackpath' point to Acknex.exe.
+2. Close engine if still running
+3a. Call build.bat
+3b. (optional) For checking the wrs contents, open build.wmp and run publish with 'create resource' from WED. It will list all files in WRS
+4. Several popups and errors will occur. They are intended. Press space to confirm each.
+5. Find ready to publish project in 'main.cd'
+
+
+Adding new files to the project
+-------------------------------
+
+Projektordner (alles unter "source"):
+    - Einhalten ist wichtig fürs Resource generieren
+    Media: 
+        - hier kommt alles rein, was nicht in die Resource darf: Sounds via media_play(), TTF Fonts...
+        - während dem publishen wird der Ordner umbenannt, so dass die Dateien nicht in der WRS landen, und am Ende manuell ins Release kopiert
+        - alle Dateien in diesem Ordner müssen im Script mit relativem Pfad media\\ referenziert werden
+    XML:
+        - hier liegen alle Dialoge und Gegenstands Beschreibungen
+        - landet nicht in der WRS, wird beim Publishen umkopiert (XML ist via Options.scr exludiert)
+        - alle Dateien in diesem Ordner müssen im Script mit relativem Pfad xml\\ referenziert werden
+    src:
+        - Source code
+    testcode:
+        - source code zum Testen, nicht Bestandteil des fertigen Spiels
+    alle anderen Ordner:
+        - landen in der WRS sofern referenziert
+        - keine(!) relativen Pfade verwenden, sondern PATH Statement in der main.wdl
+        - für Code File Pfade kann ein #define PRAGMA_PATH in main.c angelegt werden
