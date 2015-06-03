@@ -41,12 +41,12 @@ void HUD_showDescription(STRING* description, SOUND* snd)
 	HUD__managedSound = snd;
 }
 
-void HUD_showDescription(STRING* description)
+/*void HUD_showDescription(STRING* description)
 {
 	str_cpy((HUD_DescriptionTxt->pstring)[0], description);
 	set(HUD_DescriptionTxt, SHOW);
 	HUD_descriptionTimer = HUD_MINDISPLAYTIME;
-}
+}*/
 
 void HUD_hideDescription()
 {

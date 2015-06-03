@@ -18,7 +18,7 @@ void interactionItem__clicked();
 void interactionItem__eventHandler();
 void interactionItem__morph(int targetId, int morphId);
 ENTITY* interactionItem__find(int id);
-void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle);
+void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle, var* border);
 void interactionItem__setNearZone(VECTOR* vec, var border);
 
 //skill1: EntityType 1
@@ -32,11 +32,11 @@ action interactionItem()
 	reset(my, PASSABLE);
 	//while(player == NULL) wait(1); //hargh...
 
-	if (my->itemBorder == 0) my->itemBorder = 25;
 	my->ENTITY_TYPE = TYPE_ITEM;
 	my->group = GROUP_ITEM;
 	
 	wait(1); //needed for interactionItem_spawn call to set my->itemId properly
+	if (my->itemBorder == 0) my->itemBorder = 25;
 	if (my->itemId == -1)
 	{
 		ptr_remove(me);
@@ -123,6 +123,7 @@ draw_box3d(vecMin,vecMax,vector(0,0,255),100);
 
 //skill1: EntityType 5
 //skill2: ItemId -1
+//skill3: ItemBorder 25
 action interactionSpawnPnt()
 {
 	set(my, INVISIBLE | PASSABLE);
@@ -134,7 +135,7 @@ action interactionSpawnPnt()
 	{
 		if (item->hasSpawned != 0)
 		{
-			interactionItem_spawn(my->itemId, &my->x, &my->pan);
+			interactionItem_spawn(my->itemId, &my->x, &my->pan, my->itemBorder);
 		}
 	}	
 }
@@ -143,11 +144,13 @@ void interactionItem_spawn(int id)
 {
 	VECTOR pos;
 	VECTOR dir;
-	interactionItem__findSpawnPoint(id, &pos, &dir);
-	interactionItem_spawn(id, &pos, &dir);
+	var border;
+	
+	interactionItem__findSpawnPoint(id, &pos, &dir, &border);
+	interactionItem_spawn(id, &pos, &dir, border);
 }
 
-void interactionItem_spawn(int id, VECTOR* position, VECTOR* angle)
+void interactionItem_spawn(int id, VECTOR* position, VECTOR* angle, var border)
 {
 	ITEM* item = ITEM_get(id);
 	if (item != NULL)	
@@ -156,6 +159,7 @@ void interactionItem_spawn(int id, VECTOR* position, VECTOR* angle)
 		{
 			you = ent_create(item->entfile, position, interactionItem);
 			your->itemId = id;
+			your->itemBorder = border;
 			vec_set(&your->pan, angle);
 			item->hasSpawned = 1; //save spawn state for level change
 		}
@@ -374,7 +378,7 @@ ENTITY* interactionItem__find(int id)
 	return ent;
 }
 
-void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle)
+void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle, var* border)
 {
 	ENTITY* ent = NULL;
 	vec_set(position, nullvector);
@@ -396,6 +400,7 @@ void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle)
 				{
 					vec_set(position, &ent->x);
 					vec_set(angle, &ent->pan);
+					*border = ent->itemBorder;
 					break;
 				}
 			}

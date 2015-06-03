@@ -280,7 +280,7 @@
 	<combination id1="12" id2="3" morphtarget="3" description="Sesam öffne dich!" sound="comb_schluessel_schublade.ogg" result="4"/>
 
 	<!--Futter mit Gecko//-->
-	<combination id1="6" id2="5" morphtarget="11" description="Du denkst du fängst dir dein Futter selbst, dabei verdankst du es nur meiner Großzügigkeit. Aber jetzt lässt du mich wenigstens wieder an meine Schlüssel" sound="comb_futter_gecko.ogg" result="12"/>
+	<combination id1="6" id2="5" morphtarget="11" description="Du denkst du fängst dir dein Futter selbst, dabei verdankst du es nur meiner Großzügigkeit.\nAber jetzt lässt du mich wenigstens wieder an meine Schlüssel" sound="comb_futter_gecko.ogg" result="12"/>
 
 	<!--Batterien mit Leere Taschenlampe//-->
 	<combination id1="8" id2="7" morphtarget="7" result="16" description="Abracadabra, und schon funktioniert meine Taschenlampe wieder." sound="comb_batterien_taschenlampe.ogg"/>
