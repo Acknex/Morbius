@@ -14,7 +14,6 @@ Inventory* inv_create(BMAP* _bg, int width, int height) {
 	// Create background panel
 	inv.panel = pan_create("on_click = inv_on_click;", INV_PANEL_LAYER);
 	inv.panel.skill_x = inv;
-	set(inv.panel, FILTER);
 	if (_bg == NULL) {
 		inv.panel.bmap = bmap_createblack(width, height, 24);
 		set(inv.panel, TRANSLUCENT);
@@ -194,6 +193,7 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value) {
 	item.panel = pan_create("", INV_PANEL_LAYER + 1);
 	item.panel.size_x = INV_ITEM_SIZE;
 	item.panel.size_y = INV_ITEM_SIZE;
+	set(item.panel, FILTER);
 	pan_setbutton(item.panel, 0, 0, 0, 0, item.image, item.image, item.image, item.image, inv_item_click, inv_item_leave, inv_item_enter);
 	// Assert item to panel so that the item can be referenced from the panel (click events)
 	item.panel.skill_x = item;
@@ -212,6 +212,7 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, BMAP* 
 	item.panel = pan_create("", INV_PANEL_LAYER + 1);
 	item.panel.size_x = INV_ITEM_SIZE;
 	item.panel.size_y = INV_ITEM_SIZE;
+	set(item.panel, FILTER);
 	pan_setbutton(item.panel, 0, 0, 0, 0, item.image, item.image, item.image, item.image, inv_item_click, inv_item_leave, inv_item_enter);
 	// Assert item to panel so that the item can be referenced from the panel (click events)
 	item.panel.skill_x = item;
