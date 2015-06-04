@@ -279,9 +279,9 @@ int dlgStart(STRING* _dialogFile)
 	}
 	
 	// Erstelle Bilder für die Auswahlboden
-	bmapDialogBtnDown = bmap_createblack(screen_size.x, 15, 32);
+	bmapDialogBtnDown = bmap_createblack(screen_size.x, 15, 32); //ToDo: Calculate font size for height (32 = wrong)
 	bmap_fill(bmapDialogBtnDown, vector(0,0,255), 50);
-	bmapDialogBtnUp = bmap_createblack(screen_size.x, 15, 32);
+	bmapDialogBtnUp = bmap_createblack(screen_size.x, 15, 32); //ToDo: Calculate font size for height (32 = wrong)
 	bmap_fill(bmapDialogBtnUp, vector(10,10,10), 50);
 
 	XMLPAR *pParHndl, *pPar, *pParMain, *pParGoto, *pParChoice;
@@ -379,6 +379,12 @@ int dlgStart(STRING* _dialogFile)
 							nCancelDialog = 1;
 							snd_stop(vDialogSpeechHandle);
 						}
+						
+						// Skip current dialog
+						if (mouse_left) {
+							while(mouse_left) wait(1);
+							snd_stop(vDialogSpeechHandle);
+						}
 						wait(1);
 					}
 				}
@@ -444,6 +450,12 @@ int dlgStart(STRING* _dialogFile)
 						if (key_esc) {
 							while(key_esc) wait(1);
 							nCancelDialog = 1;
+							snd_stop(vDialogSpeechHandle);
+						}
+						
+						// Skip current dialog
+						if (mouse_left) {
+							while(mouse_left) wait(1);
 							snd_stop(vDialogSpeechHandle);
 						}
 						wait(1);
