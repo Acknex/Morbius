@@ -52,8 +52,8 @@ void EVENT__listener_startup()
 
 
 //CUSTOM PART START
-//#define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
-#define wait_for_dlg(x) error(x)
+#define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
+//#define wait_for_dlg(x) error(x)
 #define wait_for_snd(x) SOUNDMGR_scheduleSound(x); while (SOUNDMGR_isPlaying(x) != 0) wait (1)
 
 //entryEvent, touchEvent
@@ -74,7 +74,6 @@ void EVENT__evaluate(int triggerId)
 {
 	EVENT__lock();
 	
-	triggerId = -10000;
 	//Modify switch/case as needed
 	switch(triggerId)
 	{
@@ -190,6 +189,13 @@ void EVENT__evaluate(int triggerId)
 		case 1004:
 		{
 			wait_for_dlg("xml\\monolog07.xml");
+			break;
+		}
+		
+		//enter dunkelkammer
+		case 1005:
+		{
+			wait_for_dlg("xml\\monolog11.xml");
 			break;
 		}
 		

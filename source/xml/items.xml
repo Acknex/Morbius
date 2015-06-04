@@ -252,6 +252,12 @@
 		<sequence/>
 	</item>
 	
+	<!--Dunkelkammer Door ohne Taschenlampe//-->
+	<item id="48" name="Dunkelkammer">
+		<sequence description="Das ist meine Dunkelkammer. Eigentlich eine Kochnische die ich dazu entfremdet habe." sound="achievement1.wav"/>
+		<sequence description="Das ist eine DUNKELkammer, ich geh da nicht ohne Licht rein!" sound="achievement1.wav"/>
+	</item>
+	
 	<!--Toter Warlock//-->
 	<item id="50" name="Warlock">
 		<sequence description="Wer ist dieser Mann? Ich sollte irgendwelche Hinweise finden sollen." sound="achievement1.wav"/>

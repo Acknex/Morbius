@@ -31,7 +31,6 @@ action interactionItem()
 	VECTOR vecMax;
 	set(my, INVISIBLE);
 	reset(my, PASSABLE);
-	//while(player == NULL) wait(1); //hargh...
 
 	my->ENTITY_TYPE = TYPE_ITEM;
 	my->group = GROUP_ITEM;
@@ -79,16 +78,15 @@ action interactionItem()
 		{
 			if (player != NULL)
 			{
-				//if(vec_dist(player->x, my->x) < (PLAYER_NEAR_DIST * player->scale_x * 1.3)) //temp HACK, cleanup (level scale problem)
 				if (
 				(
-				(vecMin.x < vecMax.x && player->x > vecMin.x && player->x < vecMax.x) ||
-				(vecMin.x > vecMax.x && player->x < vecMin.x && player->x > vecMax.x)
+					(vecMin.x < vecMax.x && player->x > vecMin.x && player->x < vecMax.x) ||
+					(vecMin.x > vecMax.x && player->x < vecMin.x && player->x > vecMax.x)
 				)
 				&&
 				(
-				(vecMin.y < vecMax.y && player->y > vecMin.y && player->y < vecMax.y) ||
-				(vecMin.y > vecMax.y && player->y < vecMin.y && player->y > vecMax.y)
+					(vecMin.y < vecMax.y && player->y > vecMin.y && player->y < vecMax.y) ||
+					(vecMin.y > vecMax.y && player->y < vecMin.y && player->y > vecMax.y)
 				)
 				)
 				{
@@ -253,6 +251,7 @@ void interactionItem__clicked()
 				
 				inv_add_item(inventory, newItem);
 				ITEM_collect(item);
+				EVENT_trigger(item->id);
 				set(my, itemRemove);
 			//}
 			

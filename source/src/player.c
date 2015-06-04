@@ -93,13 +93,6 @@ action player_act()
 		vec_scale(temp,9000);
 		vec_add(temp,camera.x);
 		c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
-		//TODO: take care of: item in hand <- what?
-		
-		/*HACK: player close previously clicked item? stop early
-		if (lastClickedEnt != NULL) 
-		{
-			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
-		}*/
 
 		if(my.force_stop)
 		{
@@ -265,7 +258,7 @@ action player_act()
 			vec_set(ent_flashlight.pan,vector(temp.x,temp.y*0.25,temp.z));
 			ang_rotate(ent_flashlight.pan,vector(0,10+5*sinv(total_ticks*4),0));
 			
-			if(my.x < -16 && my.y > 220)
+			if(my.x < -16 && my.y > 370/*220*/)
 			{
 				ent_flashlight.vmask = 0;
 				vec_for_vertex(flashlight_start,ent_flashlight,133);
