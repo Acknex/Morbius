@@ -181,6 +181,7 @@ void inv_item_enter(var _buttonNumber, PANEL* _panel);
  */
 void inv_item_leave(var _buttonNumber, PANEL* _panel);
 
+void inv_resize();
 
 // Temp item to be held in hand
 Item *itemInHand = NULL;
