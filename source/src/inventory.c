@@ -3,6 +3,8 @@
 
 #include "itemmgr.h"
 
+void (*inv__resizeEv)();
+
 Inventory* inv_create(BMAP* _bg, int width, int height) {
 	Inventory* inv = sys_malloc(sizeof(Inventory));
 	
@@ -27,6 +29,10 @@ Inventory* inv_create(BMAP* _bg, int width, int height) {
 	inv.itemDescription.font = fontInventoryDescription;
 	str_cpy((inv.itemDescription.pstring)[0], "Dies ist ein\nTest!");
 	
+	inv__resizeEv = on_resize;
+	on_resize = inv_resize;
+	inv_resize();
+
 	return inv;
 }
 
@@ -59,8 +65,8 @@ void inv_show(Inventory* _inv) {
 			if (_inv.itr.panel != NULL)
 			{	
 				set(_inv.itr.panel, SHOW);
-				_inv.itr.panel.pos_x = _inv.panel.pos_x + 1 + INV_ITEMS_OFFSET_X + (INV_ITEM_GAP * (i%INV_ITEMS_X)) + (INV_ITEM_SIZE*(i%INV_ITEMS_X));
-				_inv.itr.panel.pos_y = _inv.panel.pos_y + 1 + INV_ITEMS_OFFSET_Y + (INV_ITEM_GAP * (integer(i/INV_ITEMS_X))) + (INV_ITEM_SIZE*(integer(i/INV_ITEMS_X)));		
+				_inv.itr.panel.pos_x = _inv.panel.pos_x + 1 + (INV_ITEMS_OFFSET_X + (INV_ITEM_GAP * (i%INV_ITEMS_X)) + (INV_ITEM_SIZE*(i%INV_ITEMS_X))) * _inv.itr.panel.scale_x;
+				_inv.itr.panel.pos_y = _inv.panel.pos_y + 1 + (INV_ITEMS_OFFSET_Y + (INV_ITEM_GAP * (integer(i/INV_ITEMS_X))) + (INV_ITEM_SIZE*(integer(i/INV_ITEMS_X)))) * _inv.itr.panel.scale_y;		
 			}
 			i+=1;
 			inv_increate_iterator(_inv);
@@ -187,6 +193,7 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value) {
 	item.panel = pan_create("", INV_PANEL_LAYER + 1);
 	item.panel.size_x = INV_ITEM_SIZE;
 	item.panel.size_y = INV_ITEM_SIZE;
+	set(item.panel, FILTER);
 	pan_setbutton(item.panel, 0, 0, 0, 0, item.image, item.image, item.image, item.image, inv_item_click, inv_item_leave, inv_item_enter);
 	// Assert item to panel so that the item can be referenced from the panel (click events)
 	item.panel.skill_x = item;
@@ -205,6 +212,7 @@ Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value, BMAP* 
 	item.panel = pan_create("", INV_PANEL_LAYER + 1);
 	item.panel.size_x = INV_ITEM_SIZE;
 	item.panel.size_y = INV_ITEM_SIZE;
+	set(item.panel, FILTER);
 	pan_setbutton(item.panel, 0, 0, 0, 0, item.image, item.image, item.image, item.image, inv_item_click, inv_item_leave, inv_item_enter);
 	// Assert item to panel so that the item can be referenced from the panel (click events)
 	item.panel.skill_x = item;
@@ -292,18 +300,7 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 						//for inventory normally this can be solved in the xml markup without morphing but for convenience
 						//it should be supported.
 
-						//I will go to hell for this...
 						Item* searchItem = NULL;
-/*						Inventory* tempInv = (Inventory*)item.inv;
-						tempInv.itr = tempInv.head;
-						while(tempInv.itr != NULL)
-						{
-							searchItem = (Item*)tempInv.itr.panel.skill_x;
-							if (searchItem.id == targetId) 
-								break;
-							inv_increate_iterator(item.inv);
-						}
-*/
 						searchItem = inv_item_search((Inventory*)item.inv, targetId);
 						if (searchItem != NULL)
 						{
@@ -327,10 +324,6 @@ void inv_item_click(var _buttonNumber, PANEL* _panel) {
 			else
 			{
 				inv_add_item(inventory, itemInHand);
-				//TODO: play random fail sound
-				//snd_play(...);
-				//TODO: show random fail message
-				//HUD_showDescription(msg);			
 			}
 			inv_hide(itemInHand.inv);
 			inv_show(itemInHand.inv);
@@ -367,8 +360,6 @@ void inv_item_enter(var _buttonNumber, PANEL* _panel) {
 				if (tempInv != NULL) {
 					if (tempInv.itemDescription != NULL) {
 						// Show item description
-						//set(tempInv.itemDescription, SHOW);
-						//str_cpy((tempInv.itemDescription.pstring)[0], tempItem.name);
 						mousemgr_hint(tempItem->name);
 						if (itemInHand != NULL)
 						{
@@ -391,7 +382,6 @@ void inv_item_leave(var _buttonNumber, PANEL* _panel) {
 					if (tempInv.itemDescription != NULL) {
 						// Hide item description
 						mousemgr_hint(NULL);
-						//reset(tempInv.itemDescription, SHOW);
 						if (itemInHand != NULL)
 						{
 							mousemgr_set(MOUSE_DEFAULT, itemInHand->image);
@@ -431,6 +421,41 @@ void inv_loop() {
 				mousemgr_set(MOUSE_DEFAULT, NULL);
 			}
 		}
+	}
+}
+
+
+void inv_resize()
+{
+	if (inv__resizeEv != NULL)
+	{
+		inv__resizeEv();
+	}
+
+	if (inventory != NULL)
+	{
+		var vScale = screen_size.y / 1200;
+		
+		//this is sort of hacky
+		
+		ptr_remove(inventory.panel.bmap);
+		inventory.panel.bmap = bmap_createblack(screen_size.x, inventory.panel.size_y, 24);
+		inventory.panel.scale_y = vScale; //leave original panel y size due to missing height reference
+		inv_set_pos(inventory, 0, screen_size.y - (bmap_height(inventory.panel.bmap) * vScale));	
+		//todo: scale whole inventory - not working due to item positioning
+		inventory.itr = inventory.head;
+		while(inventory.itr != NULL)
+		{
+			if (inventory.itr.panel != NULL)
+			{
+				inventory.itr.panel.scale_x = vScale;
+				inventory.itr.panel.scale_y = vScale;
+			}
+			inv_increate_iterator(inventory);
+		}
+		inv_hide(inventory);
+		inv_show(inventory);
+		
 	}
 }
 
