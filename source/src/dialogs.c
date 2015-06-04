@@ -127,7 +127,9 @@ void dlgAlign(var fontSize)
 
 	txtDecisions.pos_x = panDialogBg.pos_x + fontSize;//40;
 	txtDecisions.pos_y = panDialogBg.pos_y + (0.3 * fontSize);//40;	
-	txtDecisions.size_x = screen_size.x - (2 * (txtDecisions.pos_x - panDialogBg.pos_x));
+	//a wild bug appears on setting size_x: on certain resolutions all strings are placed on each other
+	//may have to do with reassigning the font in the same frame
+	txtDecisions.size_x = 0;//screen_size.x - (2 * (txtDecisions.pos_x - panDialogBg.pos_x));
 	txtDecisions.size_y = fontSize * 4;//120;
 
 	txtSpeaker.pos_x = panDialogBg.pos_x + fontSize;//40;
