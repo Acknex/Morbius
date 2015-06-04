@@ -62,8 +62,12 @@ in float3 pixPos: TEXCOORD2): COLOR
 		Flashlight = FLMask;
 	}
 	
-	float Ambient = 0.1+0.1*saturate(dot(-vecSunDir, normalize(InNormal)));
-	float4 final = TexColor*(Ambient+Flashlight);
+	float ambdiffx = saturate(saturate(pixPos.x+20)+saturate(-407-pixPos.x));
+	float ambdiffy = saturate((372-pixPos.z)*0.05);
+	float flashlightfac = 1-saturate(ambdiffx+ambdiffy+saturate(pixPos.y-198));
+	float Ambient = 0.75*saturate(dot(-vecSunDir, normalize(InNormal)))+0.5;
+	Ambient = lerp(Ambient,0.125,flashlightfac);
+	float4 final = TexColor*(Ambient+Flashlight*(0.2+0.8*flashlightfac));
 	
 	return final;
 } 

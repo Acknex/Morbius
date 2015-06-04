@@ -41,6 +41,17 @@ MATERIAL* mat_coffee_can =
 	flags = AUTORELOAD;
 }
 
+MATERIAL* mat_mydefault =
+{
+	effect = "mydefault.fx";
+	flags = AUTORELOAD;
+}
+
+MATERIAL* mat_flight_glow =
+{
+	effect = "flight_glow.fx";
+	flags = AUTORELOAD;
+}
 ///////////////////////////////////////////
 // Views for postprocessing
 
@@ -52,4 +63,12 @@ VIEW* pp_level_change_transition =
 
 ///////////////////////////////////////////
 //
+
+action offmod_init()
+{
+	my.material = mat_flashlight; //mat_mydefault;
+	//ent_mtlset(my,mat_flashlight,3);
+	//ent_mtlset(my,mat_flashlight,4);
+}
+
 #endif

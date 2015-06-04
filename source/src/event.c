@@ -74,6 +74,7 @@ void EVENT__evaluate(int triggerId)
 {
 	EVENT__lock();
 	
+	triggerId = -10000;
 	//Modify switch/case as needed
 	switch(triggerId)
 	{
