@@ -215,6 +215,7 @@
 /*-----------------------------*/
 /* sounds\monolog */
 /*-----------------------------*/
+#define PRAGMA_BIND "mlg00_morbius_01.ogg"
 #define PRAGMA_BIND "mlg01_morbius.ogg"
 #define PRAGMA_BIND "mlg02_morbius.ogg"
 #define PRAGMA_BIND "scene01_end_fail.ogg"
@@ -235,7 +236,6 @@
 #define PRAGMA_BIND "gaffer.png"
 #define PRAGMA_BIND "gecko_food.png"
 #define PRAGMA_BIND "hook.png"
-#define PRAGMA_BIND "items.png"
 #define PRAGMA_BIND "key.png"
 #define PRAGMA_BIND "revolver.png"
 #define PRAGMA_BIND "staff.png"
@@ -246,6 +246,32 @@
 #define PRAGMA_BIND "tv_remote.png"
 #define PRAGMA_BIND "wallet.png"
 #define PRAGMA_BIND "wd40.png"
+
+/*-----------------------------*/
+/* models\items */
+/*-----------------------------*/
+#define PRAGMA_BIND "business_card.tga"
+#define PRAGMA_BIND "coffee_can.tga"
+#define PRAGMA_BIND "gecko_yum.tga"
+
+/*-----------------------------*/
+/* models\items */
+/*-----------------------------*/
+#define PRAGMA_BIND "a3_box.mdl"
+#define PRAGMA_BIND "business_card.mdl"
+#define PRAGMA_BIND "coffee_can.mdl"
+#define PRAGMA_BIND "crowbar.mdl"
+#define PRAGMA_BIND "downtown.mdl"
+#define PRAGMA_BIND "fernbedienung.mdl"
+#define PRAGMA_BIND "flashlight.mdl"
+#define PRAGMA_BIND "gecko_food.mdl"
+#define PRAGMA_BIND "meisterdesfeuers.mdl"
+#define PRAGMA_BIND "revolver.mdl"
+#define PRAGMA_BIND "schluessel.mdl"
+#define PRAGMA_BIND "schublade_geschlossen.mdl"
+#define PRAGMA_BIND "schublade_offen.mdl"
+#define PRAGMA_BIND "topf.mdl"
+#define PRAGMA_BIND "wd40.mdl"
 
 /*-----------------------------*/
 /* shaders */

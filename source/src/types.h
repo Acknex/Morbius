@@ -17,6 +17,8 @@
 #define TYPE_DYNAMIC_CAMERA 2
 #define TYPE_LEVEL_GATE 3
 #define TYPE_POINTEREST 4 // (point of interest)
+#define TYPE_ITEM_SPAWNPOINT 5
+#define TYPE_EVENT_TRIGGER 6
 
 #define TYPE_ITEM_DEFAULT 0
 #define TYPE_ITEM_GRAB 1
@@ -30,6 +32,13 @@
 // Groups
 #define GROUP_CURSOR_HELPER 10
 #define GROUP_ITEM 11
+
+// Item Ids
+#define ITEM_ID_VISITENKARTE 1
+#define ITEM_ID_REVOLVER 2
+#define ITEM_ID_FLASHLIGHT 16
+#define ITEM_ID_MUENZEN 40
+#define ITEM_ID_GELDBOERSE 31
 
 // Macros
 #define pSMARTWALK(pointer) ((SMARTWALK*)pointer)

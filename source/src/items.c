@@ -1,4 +1,5 @@
 #include <acknex.h>
+#include <strio.c>
 #include "items.h"
 #include "hud.h"
 #include "xmlreader.h"
@@ -11,6 +12,7 @@
 
 LIST* ITEMS__itemList;
 XMLFILE* ITEMS__xml;
+SOUND* ITEMS__collectSnd = "collect.wav";
 
 void ITEM__copyFromXml(ITEM* item, XMLPAR* tag);
 void ITEM__cleanup(ITEM* item);
@@ -103,6 +105,7 @@ void ITEM_resetProgress()
 		tmpItem->wasRemoved = 0;
 		tmpItem->progress = 0;
 		tmpItem->wasMorphedTo = -1;
+		tmpItem->hasSpawned = 0;
 	}
 }
 
@@ -112,6 +115,33 @@ var ITEM_isLastSequence(ITEM* item)
 		return 0;
 	
 	if (item->progress == LIST_items(item->sequences))
+		return 1;
+	else
+		return 0;
+}
+
+var ITEM_isBeingCollected(ITEM* item)
+{
+	if (item == NULL)
+		return 0;
+	
+	if ((item->progress >= LIST_items(item->sequences)) && (item->collectable != 0))
+	{
+		SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+var ITEM_isNowCollectable(ITEM* item)
+{
+	if (item == NULL)
+		return 0;
+	
+	if ((item->progress >= LIST_items(item->sequences) - 1) && (item->collectable != 0))
 		return 1;
 	else
 		return 0;
@@ -139,6 +169,11 @@ int ITEM_interaction(ITEM* item)
 				HUD_showDescription(tmpSequence->description, tmpSequence->snd_interact);
 			else
 				HUD_showDescription(tmpSequence->description);
+		}
+		
+		if (tmpSequence->resultId != ITEM_NONE)
+		{
+			SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
 		}
 
 		//get stuck on last step
@@ -352,6 +387,7 @@ void ITEM__copySequqenceFromXml(SEQUENCE* sequence, XMLPAR* tag)
 		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
 		sequence->description = str;
+		str_replaceall(sequence->description, "\\n", "\r\n");
 	}
 	
 	attrib = XMLATTRIB_getElementByAttribute(tag, "result");

@@ -4,8 +4,15 @@
 #include "itemmgr.h"
 #include "inventory.h"
 
+#define PLAYER_RUN_CLICKSPEED (-0.2)
+#define PLAYER_RUN_THRESHOLD 100.0
+
+var player_waitForRun = 0;
+var player_runSpeed = 1;
+
 ENTITY* lastClickedEnt = NULL;
 ENTITY* ent_flashlight = NULL;
+
 
 action point_of_inter()
 {
@@ -13,16 +20,40 @@ action point_of_inter()
 	my.ENTITY_TYPE = TYPE_POINTEREST;
 }
 
+void player_run_countdown(void)
+{
+	proc_kill(4);
+	player_waitForRun = 1;
+	wait(PLAYER_RUN_CLICKSPEED);
+	player_waitForRun = 0;
+}
+
 action flashlight()
 {
-	set(my,PASSABLE);
+	set(my,PASSABLE | INVISIBLE);
 	wait(1);
-	ent_flashlight = me;
+	
+	while(1)
+	{
+		if (inv_item_search(inventory, ITEM_ID_FLASHLIGHT) != NULL)
+		{
+			ent_flashlight = me;
+			reset(me, INVISIBLE);
+		}
+		else
+		{
+			ent_flashlight = NULL;
+			set(me, INVISIBLE);
+		}
+		wait (1);
+	}
 }
 
 action player_act()
 {
 	set(my,INVISIBLE);
+	lastClickedEnt = NULL;
+	my.flags2 |= UNTOUCHABLE;
 	ent_flashlight = NULL;
 	wait(1);
 	level_change_set_player_position(my);
@@ -36,6 +67,9 @@ action player_act()
 	vec_fill(my.max_x,16*my.scale_x);
 	vec_set(my.target_x,my.x);
 	while(!inventory || !is_level_loaded()) wait(1);
+	VECTOR lastTarget;
+
+
 	while(1)
 	{
 		
@@ -49,11 +83,11 @@ action player_act()
 		//TODO: take care of: item in hand
 		
 		//HACK: player close previously clicked item? stop early
-		if (lastClickedEnt != NULL) 
-		{
-			if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
-		}
-		
+		//if (lastClickedEnt != NULL) 
+		//{
+		//	if (vec_dist(my.x, lastClickedEnt.x) < PLAYER_NEAR_DIST && lastClickedEnt.ENTITY_TYPE == TYPE_ITEM) my.force_stop = 1;
+		//}
+
 		if(my.force_stop)
 		{
 			if(my.ent_smartwalk)
@@ -76,9 +110,22 @@ action player_act()
 				lastClickedEnt = you; //store entity which was clicked last
 				if(trace_hit)
 				{
-					if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
-					my.ent_smartwalk = smartwalk_create_path(smd_level,my.x,target);
-					if(my.ent_smartwalk)	vec_set(my.target_x,(pSMARTWALK(my.ent_smartwalk)->nodes)[pSMARTWALK(my.ent_smartwalk)->current_node]);
+					if (player_waitForRun)
+					{
+						if (vec_dist(target, lastTarget) < PLAYER_RUN_THRESHOLD)
+						{
+							player_runSpeed = 2;
+						}
+					}
+					else
+					{
+						vec_set(lastTarget, target);
+						if(my.ent_smartwalk) smartwalk_destroy(pSMARTWALK(my.ent_smartwalk));
+						my.ent_smartwalk = smartwalk_create_path(smd_level,my.x,target);
+						if(my.ent_smartwalk)	vec_set(my.target_x,(pSMARTWALK(my.ent_smartwalk)->nodes)[pSMARTWALK(my.ent_smartwalk)->current_node]);
+						player_runSpeed = 1;
+						player_run_countdown();
+					}
 				}
 			}
 		}
@@ -91,7 +138,7 @@ action player_act()
 		{
 			my.pan += ang(temp2.x-my.pan)*0.85*time_step;
 			my.tilt = 0;
-			var dist = vec_limit(temp,5.25*my.scale_x*time_step);
+			var dist = vec_limit(temp,5.25*my.scale_x*time_step*player_runSpeed);
 			//c_move(me,nullvector,temp,IGNORE_PASSABLE | GLIDE);
 			vec_add(my.x,temp);
 			c_ignore(GROUP_CURSOR_HELPER,GROUP_ITEM,0);
@@ -189,4 +236,9 @@ ENTITY* Player_getLastClickedEnt()
 void Player_resetLastClickedEnt()
 {			
 	lastClickedEnt = NULL;
+}
+
+void Player_stop()
+{
+	player->force_stop = 1;
 }

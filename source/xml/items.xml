@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <items>
 	<!--Visitenkarte//-->
-	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" imgfile="business_card.png">
+	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" entfile="business_card.mdl" imgfile="business_card.png">
 		<sequence description="Die Visitenkarte wird bestimmt noch wichtig sein." sound="itm_visitenkarte01.ogg"/>
 	</item>
 	
 	<!--Revolver//-->
-	<item id="2" name="Revolver" collectable="yes" imgfile="revolver.png">
+	<item id="2" name="Revolver" collectable="yes" entfile="revolver.mdl" imgfile="revolver.png">
 		<sequence description="Revolver, das braucht man so." sound="itm_revolver01.ogg"/>
 		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt." sound="itm_revolver02.ogg"/>
 	</item>
@@ -20,7 +20,7 @@
 	</item>
 	
 	<!--Schublade//-->
-	<item id="4" name="Schublade">
+	<item id="4" name="Schublade" entfile="schublade_offen.mdl">
 		<sequence description="Die Schublade ist offen." sound="achievement1.wav"/>
 	</item>
 	
@@ -31,19 +31,19 @@
 	</item>
 	
 	<!--Futter//-->
-	<item id="6" name="Futter" collectable="yes" imgfile="gecko_food.png">
+	<item id="6" name="Futter" collectable="yes" destroyable="yes" imgfile="gecko_food.png">
 		<sequence description="DA habe ich also mein Reptilfutter gelassen. Macht irgendwie Sinn, in der Küche." sound="itm_reptilfutter01.ogg"/>
 	</item>
 	
 	<!--Leere Taschenlampe//-->
-	<item id="7" name="Taschenlampe" collectable="yes" destroyable="yes" imgfile="flashlight.png">
+	<item id="7" name="Taschenlampe" collectable="yes" imgfile="flashlight.png">
 		<sequence description="Aha, meine Taschenlampe! Wichtig für allerlei Detektivarbeiten bei Nacht und Dunkelheit." sound="itm_taschenlampe01.ogg"/>
 		<sequence description="Verdammt... die Batterien sind leer." sound="itm_taschenlampe02.ogg"/>
 		<sequence description="Die Taschenlampe braucht neue Batterien." sound="itm_taschenlampe03.ogg"/>
 	</item>
 	
 	<!--Batterien//-->
-	<item id="8" name="Batterien" collectable="yes" entfile="battery.mdl" imgfile="batteries.png">
+	<item id="8" name="Batterien" collectable="yes" destroyable="yes" imgfile="batteries.png">
 	</item>
 
 	<!--Fernbedienung//-->
@@ -54,7 +54,7 @@
 	</item>
 	
 	<!--Laptop//-->
-	<item id="10" name="Laptop" entfile="laptop.mdl">
+	<item id="10" name="Laptop">
 		<sequence description="Mein Laptop, digital soll angeblich die Zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen Platz." sound="itm_laptop01.ogg"/>
 	</item>
 	
@@ -71,22 +71,23 @@
 	</item>
 	
 	<!--Regal//-->
-	<item id="13" name="IKEA Regal" entfile="regal.mdl">
+	<item id="13" name="Schwedisches Regal mit vier Buchstaben">
 		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown." sound="itm_regal01.ogg"/>
 	</item>
 	
 	<!--Rosa Telefon//-->
-	<item id="14" name="Rosa Telefon" entfile="phone.mdl">
+	<item id="14" name="Rosa Telefon">
 		<sequence description="Das ist mein patentiertes rosa Designertelefon." sound="itm_rosatelefon01.ogg"/>
 	</item>
 	
 	<!--A3 Box//-->
-	<item id="15" name="Gamestudio Packung" entfile="a3_box.mdl">
+	<item id="15" name="Gamestudio Packung">
 		<sequence description="A4, das erste Programm das ich mir für meinen Laptop gekauft habe." sound="itm_a401.ogg"/>
 	</item>
 	
 	<!--Taschenlampe//-->
-	<item id="16" name="Taschenlampe" imgfile="flashlight_on.png">
+	<item id="16" name="Taschenlampe" collectable="yes" imgfile="flashlight_on.png">
+		<sequence description="Eine funktionierende Taschenlampe. Her damit!" sound="achievement1.wav"/>
 	</item>
 	
 	<!--Toter Guard//-->
@@ -95,52 +96,56 @@
 		<sequence description="Armer Kerl, wen hast du bloß verärgert, um so zu enden?" sound="itm_guardmdl02.ogg"/>
 		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weiß die Firma weiter, ich sollte die mal anrufen." sound="itm_guardmdl03.ogg"/>
 		<sequence description="Also ich glaube nicht dass ich so eine Leiche anfassen werde." sound="itm_guardmdl04.ogg"/>
-		<sequence description="[stöhn] ... na gut, manchmal muss auch ein professioneller Detektiv in der Not etwas unethisches tun.... hmmm in der linken Hosentasche ist nichts." sound="itm_guardmdl05.ogg"/>
+		<sequence description="[stöhn] Na gut... Manchmal muss auch ein professioneller Detektiv in der Not etwas unethisches tun...\nHmm... in der linken Hosentasche ist nichts." sound="itm_guardmdl05.ogg"/>
 		<sequence description="ÜÜüääähh... in der rechten Hosentasche sind ein paar Münzen, gottseidank muss ich nicht noch weiter suchen." sound="itm_guardmdl06.ogg" result="40"/>
 		<sequence description="Der hat nichts mehr." sound="itm_guardmdl07.ogg"/>
 	</item>
 	
 	<!--Unzugängliche Telefonzelle//-->
-	<item id="18" name="Telefonzelle" entfile="tardis_body.mdl" destroyable="yes">
+	<item id="18" name="Telefon">
 	</item>
 	
 	<!--Telefonzelle//-->
-	<item id="19" name="Telefonzelle" entfile="tardis_body.mdl">
+	<item id="19" name="Telefon">
 		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." sound="itm_telefonzelle01.ogg"/>
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" entfile="wd40.mdl" imgfile="wd40.png">
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" imgfile="wd40.png">
 		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="itm_wd4001.ogg"/>
 	</item>
 	
 	<!--Verrostete Telefonzellentür//-->
-	<item id="21" name="Verrostete Telefonzellentür" entfile="tardis_door.mdl" destroyable="yes">
+	<item id="21" name="Verrostete Telefonzellentür" destroyable="yes">
 		<sequence description="Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach." sound="itm_verrostetuer01.ogg"/>
 		<sequence description="Irgendwie sollte sich diese Tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist." sound="itm_verrostetuer02.ogg"/>
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" entfile="crowbar.mdl" imgfile="crowbar.png">
+	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" imgfile="crowbar.png">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="itm_brechstange01.ogg"/>
 	</item>
 	
 	<!--Gulli//-->
-	<item id="23" name="Gulli" entfile="gulli.mdl">
+	<item id="23" name="Gulli">
+		<sequence description="Da scheint etwas den Gulli heruntergefallen zu sein." sound="achievement1.wav"/>
+		<sequence description="Wenn ich bloß etwas hätte, um das da herauszufischen." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Mülltonne//-->
-	<item id="24" name="Mülltonne" entfile="muell.mdl">
+	<item id="24" name="Mülltonne">
+		<sequence description="Eine Mülltonne. Ein Standardmodell für die Frankfurter Großstadt." sound="achievement1.wav"/>
+		<sequence description="Ein Angelhaken? Komisch dass jemand sowas hier mitten in der Stadt haben sollte." sound="achievement1.wav" result="26"/>
+		<sequence description="Da drin wühl ich nicht nochmal rum!" sound="achievement1.wav"/>
 	</item>
 	
 	<!--Stock des Warlocks//-->
-	<item id="25" name="Stock des Warlocks" collectable="yes" destroyable="yes" imgfile="staff.png">
-		<sequence description="Stock des Warlocks Dummysequence." sound="achievement1.wav"/>
+	<item id="25" name="Stock des Warlocks" collectable="yes" imgfile="staff.png">
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Angelhaken//-->
 	<item id="26" name="Angelhaken" collectable="yes" destroyable="yes" imgfile="hook.png">
-		<sequence description="Angelhaken Dummysequence." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Gaffer Tape//-->
@@ -148,23 +153,32 @@
 	</item>
 	
 	<!--Nummernschild//-->
-	<item id="28" name="Nummernschild">
+	<item id="28" name="Proletenkarre">
+		<sequence description="Hmm, das Nummernschild ist mit Gaffer Tape befestigt." sound="achievement1.wav"/>
+		<sequence description="Ich glaube das Tape kann ich irgendwie verwenden, ist ja nicht so als ob dass jetzt noch auffallen würde wenn ich das entwende." result="27" sound="achievement1.wav"/>
+		<sequence description="Unerwarteterweise ist das noch immer ein Nummernschild." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Wackliger Stock mit Angelhaken//-->
-	<item id="29" name="Wackliger Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="staff_hook.png">
+	<item id="29" name="Wackliger Stock mit Angelhaken" collectable="yes" imgfile="staff_hook.png">
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Geklebter Stock mit Angelhaken//-->
-	<item id="30" name="Geklebter Stock mit Angelhaken" collectable="yes" destroyable="yes" imgfile="staff_hook_gaffer.png">
+	<item id="30" name="Geklebter Stock mit Angelhaken" collectable="yes" imgfile="staff_hook_gaffer.png">
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Versiffte Geldbörse//-->
-	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" imgfile="wallet.png">
+	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" entfile="wallet.mdl" imgfile="wallet.png">
+		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl die Person sein die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!" sound="achievement1.wav"/>
+		<sequence description="Ein Rechnungsdurchdruck für die Griechin... für etwas, dass sich 'Motion Capture' nennt... für... 'Utopia'?" sound="achievement1.wav"/>
+		<sequence description="Warum hast du nur etwas mit diesem Fall zu tun, Griechin?" sound="achievement1.wav"/>
 	</item>
 	
-	<!--Rechnungs Durchdruck//-->
-	<item id="32" name="Rechnungsdurchdruck">
+	<!--Gulli benutzt//-->
+	<item id="32" name="Gulli">
+		<sequence description="Hier ist nichts mehr." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Bonzai Zuckerrohr//-->
@@ -200,13 +214,65 @@
 	</item>
 
 	<!--Telefonzelle benutzt//-->
-	<item id="41" name="Telefonzelle" entfile="tardis_body.mdl">
+	<item id="41" name="Telefon">
 		<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..." sound="achievement1.wav"/>
 	</item>
 
+	<!--Telefonzelle zweimal benutzt//-->
+	<item id="42" name="Telefon">
+		<sequence description="Und welche Münzen genau soll ich jetzt bitte nochmal einwerfen?" sound="achievement1.wav"/>
+	</item>
+
 	<!--Dunkelkammer//-->
-	<item id="42" name="Dunkelkammer" entfile="cube.mdl">
+	<item id="43" name="Dunkelkammer" entfile="cube.mdl">
 		<sequence description="Michael Morbius und die Kammer der Dunkelheit... hrhrhr." sound="itm_dunkelkammer01.ogg"/>
+	</item>
+
+	<!--Meister des Feuers//-->
+	<item id="44" name="Buch">
+		<sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL." sound="achievement1.wav"/>
+	</item>
+
+	<!--Downtown//-->
+	<item id="45" name="Buch">
+		<sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius." sound="achievement1.wav"/>
+	</item>
+
+	<!--Main Door ohne Visitenkarte//-->
+	<item id="46" name="Main Door ohne Visitenkarte">
+		<sequence description="Irgendwas habe ich vergessen. Ohne Visitenkarte verlasse ich ungerne das Büro." sound="scene01_end_prompt01.ogg"/>
+		<sequence description="Ich möchte echt nicht ohne Visitenkarte gehen..." sound="scene01_end_prompt02.ogg"/>
+		<sequence description="Na gut, ich sollte mich auf den Weg machen. Hoffentlich bereue ich es nicht, meine Visitenkarte zu vergessen." sound="scene01_end_fail.ogg"/>
+		<sequence/>
+	</item>
+
+	<!--Main Door mit Visitenkarte//-->
+	<item id="47" name="Main Door mit Visitenkarte">
+		<sequence description="Alles dabei! Dann mal auf nach Zürich!" sound="scene01_end_proper.ogg"/>
+		<sequence/>
+	</item>
+	
+	<!--Toter Warlock//-->
+	<item id="50" name="Warlock">
+		<sequence description="Wer ist dieser Mann? Ich sollte irgendwelche Hinweise finden sollen." sound="achievement1.wav"/>
+		<sequence description="Nichts an seiner Person, vielleicht finde ich in der Umgebung etwas." sound="achievement1.wav"/>
+	</item>
+
+	<!--Haustür Draugstraße 4//-->
+	<item id="51" name="Draugstraße 4">
+		<sequence description="Warum sollte ich an der Tür klopfen? Ich weiß, dass Emdayelle tot ist.\nIch habe persönlich von seiner kalten Leiche Kleingeld entwendet." sound="achievement1.wav"/>
+		<sequence description="Vielleicht sollte ich versuchen, mich nach einer alternativen Zugangsmethode umzuschauen." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Unnützes Auto//-->
+	<item id="52" name="Trabi">
+		<sequence description="Fast so schick wie mein Subaru." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Nummernschild Auto//-->
+	<item id="53" name="Proletenkarre">
+		<sequence description="Sieht ja schlimmer als mein Auto aus." sound="achievement1.wav"/>
+		<sequence description="Das Nummernschild ist aber witzig - so ein Zufall auch [kicher]." sound="achievement1.wav"/>
 	</item>
 </items>
 <combinations>
@@ -214,7 +280,7 @@
 	<combination id1="12" id2="3" morphtarget="3" description="Sesam öffne dich!" sound="comb_schluessel_schublade.ogg" result="4"/>
 
 	<!--Futter mit Gecko//-->
-	<combination id1="6" id2="5" morphtarget="11" description="Du denkst du fängst dir dein Futter selbst, dabei verdankst du es nur meiner Großzügigkeit. Aber jetzt lässt du mich wenigstens wieder an meine Schlüssel" sound="comb_futter_gecko.ogg" result="12"/>
+	<combination id1="6" id2="5" morphtarget="11" description="Du denkst du fängst dir dein Futter selbst, dabei verdankst du es nur meiner Großzügigkeit.\nAber jetzt lässt du mich wenigstens wieder an meine Schlüssel." sound="comb_futter_gecko.ogg" result="12"/>
 
 	<!--Batterien mit Leere Taschenlampe//-->
 	<combination id1="8" id2="7" morphtarget="7" result="16" description="Abracadabra, und schon funktioniert meine Taschenlampe wieder." sound="comb_batterien_taschenlampe.ogg"/>
@@ -226,13 +292,16 @@
 	<combination id1="20" id2="21" morphtarget="18" description="Ein bisschen Wasserverdrängungsspray-40 anwenden und abracadabra....! Sesam öffne dich!" sound="comb_wd40_tuer.ogg" result="19"/>
 
 	<!--Stock des Warlocks mit Angelhaken//-->
-	<combination id1="25" id2="26" result="29"/>
+	<combination id1="25" id2="26" morphtarget="25" description="Gute Idee Morbius, aber der Haken hält nicht stabil genug." result="29"/>
 
 	<!--Stock mit Angelhaken mit Gaffer Tape//-->
-	<combination id1="29" id2="27" result="30"/>
+	<combination id1="29" id2="27" morphtarget="29" description="Perfekt, jetzt hält der Haken auch stabil am Stock." result="30"/>
 
 	<!--Stock mit Angelhaken mit Gulli//-->
-	<combination id1="30" id2="23" result="31"/>
+	<combination id1="29" id2="23" description="Ich sollte den Haken erst noch stabiler am Stock befestigen, bevor ich versuche etwas damit anzuheben."/>
+
+	<!--Stock mit getaptem Angelhaken mit Gulli//-->
+	<combination id1="30" id2="23" morphtarget="23" description="Ah ha, eine Geldbörse!" result="32"/>
 
 	<!--Bonzai Zuckerrohr mit Topf//-->
 	<combination id1="33" id2="34" morphtarget="34" result="35"/>
@@ -241,10 +310,10 @@
 	<combination id1="35" id2="37" morphtarget="35" result="36"/>
 
 	<!--Dialog Trigger1//-->
-	<combination id1="40" id2="19" morphtarget="19" result="41" description="[Ring Ring]"/>
+	<combination id1="40" id2="19" morphtarget="19" result="41"/>
 
 	<!--Dialog Trigger2//-->
-	<combination id1="40" id2="41" result="1001" description="[Ring Ring]"/>
+	<combination id1="40" id2="41" morphtarget="41" result="42"/>
 
 	<!-- Combination failures//-->
 	<fail description="So wird das nix." sound="comb_fail01.ogg"/>

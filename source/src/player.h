@@ -7,6 +7,7 @@ int player_may_walk = 1;
 action player_act();
 ENTITY* Player_getLastClickedEnt();
 void Player_resetLastClickedEnt();
+void Player_stop();
 
 #include "player.c"
 #endif

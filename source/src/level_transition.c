@@ -1,5 +1,14 @@
 #include "player.h"
 #include "camera.h"
+#include "event.h
+#include "dialogs.h"
+#include "soundmgr.h"
+#include "types.h"
+#include "inventory.h"
+#include "items.h"
+
+void dynamicLevel_gate_check();
+void dynamicLevel_gate_event();
 
 var level_change_transition(var in)
 {
@@ -33,6 +42,8 @@ void level_change(var level_id, var gate_id)
 	
 	gate_entry_id = gate_id;
 	input_fetch = 0;
+	
+	SOUNDMGR_stop();
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
 	vec_set(sky_color,COLOR_BLACK);
@@ -72,6 +83,9 @@ action sky_color_fog_act()
 }
 
 void level_gate_event() {
+	if (dlgIsDialogActive() != 0 || EVENT_isLocked() != 0)
+		return;
+		
 	if (event_type == EVENT_TOUCH) {
 		mousemgr_set(MOUSE_EXIT, NULL);
 	}
@@ -98,9 +112,7 @@ void level_gate_event() {
 	}
 }
 
-//skill1: this_id 0
-//skill2: to_id 0
-action level_gate()
+void level_gate_init()
 {
 	my.ENTITY_TYPE = TYPE_LEVEL_GATE;
 	my.SUB_TYPE = TYPE_ITEM_EXIT;
@@ -122,9 +134,15 @@ action level_gate()
 	my.skill13 = maxv(temp.y,temp2.y);
 	set(my, POLYGON | TRANSLUCENT); //TRANSLUCENT
 	my.alpha = 0;
-	
-	my.event = level_gate_event;
 	my.emask = ENABLE_TOUCH | ENABLE_CLICK | ENABLE_RELEASE;
+}
+
+//skill1: this_id 0
+//skill2: to_id 0
+action level_gate()
+{
+	level_gate_init();	
+	my.event = level_gate_event;
 	
 	while(1)
 	{
@@ -157,6 +175,104 @@ void level_change_set_player_position(ENTITY* ent_pl)
 				break;
 			}
 		}
+	}
+}
+
+//dynamicLevel_gate
+#define triggerItemId skill3
+#define badItemId skill4
+#define goodItemId skill5
+#define activeItemId skill6
+#define ALLOWBADGATE FLAG1
+
+
+//skill1: this_id 0
+//skill2: to_id 0
+//skill3: triggerItemId -1
+//skill4: badItemId -1
+//skill5: goodItemId -1
+//flag1: allowBadGate 0
+action dynamicLevel_gate()
+{
+	level_gate_init();	
+	my.event = dynamicLevel_gate_event;
+	int itemId;
+		
+	while(1)
+	{
+		if (inv_item_search(inventory, my->triggerItemId) != NULL)
+		{
+			my->activeItemId = my->goodItemId;
+		}
+		else
+		{
+			my->activeItemId = my->badItemId;
+		}
+		
+		
+		if(player)
+		{
+			if(player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13)
+			{
+				dynamicLevel_gate_check();
+				break;
+			}
+		}
+		
+		if (my.DOUBLE_CLICK_TIME > 0) 
+		{
+			my.DOUBLE_CLICK_TIME -=1 * time_step;
+		}
+		wait(1);
+	}
+}
+
+void dynamicLevel_gate_check()
+{
+	ITEM* item = ITEM_get(my->activeItemId);
+	int resultId;
+	
+	if (item != NULL)
+	{
+		resultId = ITEM_interaction(item);
+	
+		if (ITEM_isLastSequence(item) != 0 && 
+			(
+				((my->activeItemId == my->badItemId) && is(my, ALLOWBADGATE)) ||
+				(my->activeItemId == my->goodItemId)
+			)
+		)
+		//if (resultId != ITEM_NONE)
+		{
+			level_change(integer(my.skill2*0.01),my.skill2);
+		}
+	}
+}
+
+void dynamicLevel_gate_event() 
+{
+	if (dlgIsDialogActive() != 0 || EVENT_isLocked() != 0)
+		return;
+		
+	if (event_type == EVENT_CLICK) 
+	{
+		if (my.DOUBLE_CLICK_TIME >= 100) 
+		{
+			// Double clicked
+			if (player != NULL)
+			{
+				player->force_stop = 1;
+			}
+			dynamicLevel_gate_check(); // Instant level change
+		} 
+		else 
+		{
+			my.DOUBLE_CLICK_TIME = 110;
+		}
+	}
+	else
+	{
+		level_gate_event();
 	}
 }
 

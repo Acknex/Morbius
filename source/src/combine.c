@@ -11,6 +11,7 @@
 LIST* COMBINATION__combinationList;
 LIST* COMBINATION__failList;
 XMLFILE* COMBINATION__xml;
+SOUND* COMBINATION__successSnd = "combine.wav";
 
 void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag);
 void COMBINATION__cleanup(COMBINATION* combination);
@@ -105,6 +106,7 @@ int COMBINATION_combine(int id1, int id2, int* morphtargetId)
 		{
 			//found
 			COMBINATION__display(tmpCombination);
+			SOUNDMGR_playAtOnce(COMBINATION__successSnd);
 
 			*morphtargetId = tmpCombination->morphtargetId;
 			return tmpCombination->resultId;
@@ -166,6 +168,7 @@ void COMBINATION__copyFromXml(COMBINATION* combination, XMLPAR* tag)
 		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
 		combination->description = str;
+		str_replaceall(combination->description, "\\n", "\r\n");
 	}
 	
 }

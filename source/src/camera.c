@@ -126,6 +126,8 @@ void actDynamicCamera() {
 }
 
 void actSetCameraType() {
+	set(me,PASSABLE);
+	set(me,INVISIBLE);
 	if (my.skill2 == 1) {
 		cameraInit();
 	}

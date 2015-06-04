@@ -30,6 +30,9 @@ action level_gate();
 void level_change_set_player_position(ENTITY* ent_pl);
 
 var is_level_loaded();
+void level_gate_event();
+void level_gate_init();
+
 
 #include "level_transition.c"
 #endif

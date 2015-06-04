@@ -54,4 +54,5 @@ int getDialogItemId(XMLPAR* _XMLItem);
 int dlgStart(STRING* _dialogFile);
 void dlgStart(STRING* _speaker, STRING* _text, SOUND* _audio);
 
+#include "dialogs.c"
 #endif
