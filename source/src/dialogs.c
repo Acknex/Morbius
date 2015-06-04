@@ -135,6 +135,12 @@ void dlgAlign(var fontSize)
 	txtSpeaker.size_x = screen_size.x - (2 * (txtSpeaker.pos_x - panDialogBg.pos_x));//100;
 	txtSpeaker.size_y = fontSize;//30;
 
+	if (panDecisionBg != NULL)
+	{
+		panDecisionBg.pos_y = panDialogBg.pos_y + (0.3 * fontSize);
+		panDecisionBg.scale_x = screen_size.x / panDecisionBg.size_x;
+		panDecisionBg.scale_y = (fontSize * 4) / panDecisionBg.size_y;
+	}
 }
 
 // ------------------------------------------------------------------------
@@ -279,9 +285,11 @@ int dlgStart(STRING* _dialogFile)
 	}
 	
 	// Erstelle Bilder für die Auswahlboden
-	bmapDialogBtnDown = bmap_createblack(screen_size.x, 15, 32); //ToDo: Calculate font size for height (32 = wrong)
+	var fontSize = HUD_getFontSize();
+	
+	bmapDialogBtnDown = bmap_createblack(screen_size.x, fontSize+1/*15*/, 32); //ToDo: Calculate font size for height (32 = wrong)
 	bmap_fill(bmapDialogBtnDown, vector(0,0,255), 50);
-	bmapDialogBtnUp = bmap_createblack(screen_size.x, 15, 32); //ToDo: Calculate font size for height (32 = wrong)
+	bmapDialogBtnUp = bmap_createblack(screen_size.x, fontSize+1/*15*/, 32); //ToDo: Calculate font size for height (32 = wrong)
 	bmap_fill(bmapDialogBtnUp, vector(10,10,10), 50);
 
 	XMLPAR *pParHndl, *pPar, *pParMain, *pParGoto, *pParChoice;
@@ -481,11 +489,11 @@ int dlgStart(STRING* _dialogFile)
 
 				// Das Decision-Panel wird erzeugt. Darauf werden gleich die Auswahlbuttons platziert
 				panDecisionBg = pan_create("", 23);
-				set(panDecisionBg, OVERLAY | TRANSLUCENT);
+				set(panDecisionBg, OVERLAY | TRANSLUCENT | FILTER);
 				panDecisionBg.size_x = screen_size.x;
-				panDecisionBg.size_y = 130;
+				panDecisionBg.size_y = fontSize * 4;//panDialogBg.size_y;//130;
 				panDecisionBg.pos_x = panDialogBg.pos_x;
-				panDecisionBg.pos_y = panDialogBg.pos_y;
+				panDecisionBg.pos_y = /*panDialogBg.pos_y;*/ panDialogBg.pos_y + (0.3 * fontSize);
 				
 				// Hole das erste Unterelement.
 				pParChoice = XMLPAR_getElementByIndex(pPar,0);
@@ -506,7 +514,7 @@ int dlgStart(STRING* _dialogFile)
 					str_cpy((txtDecisions.pstring)[0],strXMLTemp);
 
 					// ... und Erstellen des Buttons
-					pan_setbutton(panDecisionBg,0,1,0,40,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
+					pan_setbutton(panDecisionBg,0,1,0,0/*40*/,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
 				}
 				else
 				{
@@ -524,7 +532,7 @@ int dlgStart(STRING* _dialogFile)
 						XMLATTRIB_getContent(pAttrib, strChoiceTarget2);
 					}
 					str_cpy((txtDecisions.pstring)[1],strXMLTemp);
-					pan_setbutton(panDecisionBg,0,1,0,55,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
+					pan_setbutton(panDecisionBg,0,1,0,fontSize/*55*/,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
 				}	
 				else
 				{
@@ -542,7 +550,7 @@ int dlgStart(STRING* _dialogFile)
 						XMLATTRIB_getContent(pAttrib, strChoiceTarget3);
 					}
 					str_cpy((txtDecisions.pstring)[2],strXMLTemp);
-					pan_setbutton(panDecisionBg,0,1,0,70,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
+					pan_setbutton(panDecisionBg,0,1,0,fontSize*2/*70*/,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
 				}
 				else
 				{
@@ -560,7 +568,7 @@ int dlgStart(STRING* _dialogFile)
 						XMLATTRIB_getContent(pAttrib, strChoiceTarget4);
 					}
 					str_cpy((txtDecisions.pstring)[3],strXMLTemp);
-					pan_setbutton(panDecisionBg,0,1,0,85,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
+					pan_setbutton(panDecisionBg,0,1,0,fontSize*3/*85*/,bmapDialogBtnDown,bmapDialogBtnUp,bmapDialogBtnDown,NULL,dlgClickDialog,NULL,NULL);
 				}
 				else
 				{
