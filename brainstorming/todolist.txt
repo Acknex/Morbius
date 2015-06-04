@@ -27,6 +27,9 @@ IRC:
     #acknex
     irc.quakenet.org
     
+Reddit
+    http://www.reddit.com/r/acknex/
+    
 Bearbeiter:
     Bitte oben rechts im Etherpad euren Namen eintragen und hier einmal den Namen hinschreiben, wegen farblicher Zuordnung
     
@@ -65,49 +68,31 @@ Hätte gerne einen schwarzen Balken überm Inventory, wo die Itembeschreibung st
     - über HUD_getFont() kann der aktuelle Font geholt werden. Wird beim resize Event automatisch skaliert. Dazu muss man ihn aber bei einem eigenen resize Event auch neu zuweisen. Beispiel siehe mousemgr.c
     
 Player:
-    - falls Item angeklickt wurde, Spieler nur in die Nähe und nicht direkt auf das Item navigieren (Distance Check + Abort if near?) (Ja! ->ist etwas hakelig mit großen Objekten wie Telefonzelle
-    - der Distance Check muss nochmal überarbeitet werden. Fällt auseinander bei unterschiedlicher Level Skalierung (das ist derzeit so ein unschöner "Doppelcheck" (also quasi eine Sollbruchstelle): Einsammeldistanz in itemmgr.c, Stopdistanz in player.c -> am besten nur in itemmgr.c auswertden und mit player->force_stop arbeiten)
-    - Momentan ist alles unterschiedlich skaliert. Auf die Schnelle kann man das beheben, indem man Morbius für jedes Level entsprechend skaliert, allerdings stimmt dann die Laufgeschwindigkeit nicht mehr. -> Speed abhängig vom Morbius Scale machen?
+
 
 Itemmgr:
 
 Level_transition:
-    - Das Event wird anscheinend on impact ausgelöst. Das kann je nach Levelaufbau nervig sein, wenn die Spielfigur versehentlich nah am Triggerobjekt vorbeiläuft. Vielleicht wäre ein Click + Distance Check ähnlich dem itemmgr sinnvoller.  --> anhand Levelaufbau vermeiden, keine Zeit reinversenken
 
-    Jeder Level-Eingangs- und Ausgangs-Punkt braucht eine eindeutige Identifikationsnummer, insbesondere bei mehreren Eingängen aus einem oder mehreren anderen Leveln.
-
-    Sagen wir, du befindest dich in Level 1 (von 0 beginnend) und möchtest über eine Tür o.ä. Level 3 betreten, welches sich auch durch Level 0 und 2 betreten lässt. Dann gibt es in Level 3 also 3 "level_gate"s jeweils mit einer eindeutigen "this_id" (aka Skill1 im Properties Panel).
-
-    Diese muss eine dreistellige Zahl sein und mit 3 beginnen, da es das dritte Level ist. Bspw. kann man als IDs 301, 302, 317 wählen. Um nun von Level 1 das dritte Level über eine Tür zu betreten und wenn du willst, dass der Spieler in Level 3 auch an der richtigen Position
-
-    spawnt, dann musst du in Level 1 einfach in dem entsprechenden "level_gate" (einer Aktion, siehe ruin.wmp) bei "to_id" aka skill2 die korrekte ID, sagen wir 302, eintragen. Das ist gate_id.
-
-    (Bei je 2 level_gates ist also skill1 und skill2 vertauscht, je nachdem welches Level dadurch betreten oder verlassen wird.)
-
-    - Die dunkle Gasse ist testweise mit einfacher Kamera, Morbius und Regionen drin und kann ausgearbeitet werden. 
-
-    - "Tonnen" ins ruins gebaut zu Springen in die anderen Levels
-
-    - Im Kingmorph funktioniert die Mausnavigation nicht, woran kann das liegen?
-
-    - Im Menü kann man Level Transitions triggern -> king morph für Menü am besten separat halten? (War so angedacht, dass man das Level zwei mal hat) -> wie kann ich am einfachsten aus nem älteren Stand in Github das alte kingmorph.wmb retten und unter neuem Namen abspeichern? (http://githowto.com/getting_old_versions)
-
+Jeder Level-Eingangs- und Ausgangs-Punkt braucht eine eindeutige Identifikationsnummer, insbesondere bei mehreren Eingängen aus einem oder mehreren anderen Leveln.
+Sagen wir, du befindest dich in Level 1 (von 0 beginnend) und möchtest über eine Tür o.ä. Level 3 betreten, welches sich auch durch Level 0 und 2 betreten lässt. Dann gibt es in Level 3 also 3 "level_gate"s jeweils mit einer eindeutigen "this_id" (aka Skill1 im Properties Panel).
+Diese muss eine dreistellige Zahl sein und mit 3 beginnen, da es das dritte Level ist. Bspw. kann man als IDs 301, 302, 317 wählen. Um nun von Level 1 das dritte Level über eine Tür zu betreten und wenn du willst, dass der Spieler in Level 3 auch an der richtigen Position
+spawnt, dann musst du in Level 1 einfach in dem entsprechenden "level_gate" (einer Aktion, siehe ruin.wmp) bei "to_id" aka skill2 die korrekte ID, sagen wir 302, eintragen. Das ist gate_id.
+(Bei je 2 level_gates ist also skill1 und skill2 vertauscht, je nachdem welches Level dadurch betreten oder verlassen wird.)
+- Die dunkle Gasse ist testweise mit einfacher Kamera, Morbius und Regionen drin und kann ausgearbeitet werden. <-- aus funktionaler Sicht fertig, ggf. Items zurechtrutschen
+- "Tonnen" im ruins gebaut zu Springen in die anderen Levels müssen irgendwann wieder entfernt werden. jumpsites.wmp anlegen? Keinen Bock...
+- Im Menü kann man Level Transitions triggern -> king morph für Menü am besten separat halten? (War so angedacht, dass man das Level zwei mal hat)
 
 Events:
 
     
 Audio:
-    - Effekte (Vielleicht in dem Miethauslevel regelmäßige Rufe aus den Fenstern von einer Frau "Jooooohann, Suppe ist fertig!", "Feliiiiicitas, gehst du jetzt mal mit deinem Hund raus?!", "Du verlotterst hier drin noch irgendwann..." und so Späße.
+    - Effekte (Vielleicht in dem Miethauslevel regelmäßige Rufe aus den Fenstern von einer Frau "Jooooohann, Suppe ist fertig!", "Feliiiiicitas, gehst du jetzt mal mit deinem Hund raus?!", "Du verlotterst hier drin noch irgendwann..." und so Späße. -> wer baut das dann ein?
     - Sprachsachen (Mach ich am wochenende, hoch und heilig versprochen)
-
-    - Level 1
-
-    - Level 2
-
-    - Level 3
-
-    - Level 4
-
+- Level 1
+- Level 2
+- Level 3
+- Level 4
     - Endsong (vielleicht) ->evtl. für Credits nutzen? -> für was sonst? -> für das Ende? :p
     - 4-5 Morbius Fails bei fehlgeschlagenen Kombinationsversuchen 
         - "So wird das nix.",
@@ -116,56 +101,47 @@ Audio:
         - "Vielleicht sollte ich doch nochmal auf MacGyverIt recherchieren."
         - "Was für eine spitzenmäßige... Schnapsidee, Morbius." ... <- sollte nicht zu lang sein
 Die 5 Sätze sind mal in der items.xml definiert fürs Erste. Erwarten als sound "comb_fail0x.ogg" (x=1..5)
-
-    - in der items.xml sind einige Sätze zu finden, die nicht bedacht worden waren (wenn ein Objekt "durch" ist z.B.). Denen ist immer der sound "achievement1.wav" zugewiesen:
-
-    <sequence description="Die Schublade ist offen." sound="achievement1.wav"/>
-
-    <sequence description="Eine Fernbedienung ohne Batterien. Toll." sound="achievement1.wav"/>
-
-    <sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..." sound="achievement1.wav"/> (Telefonzelle zwischen Telefonat 1 und 2 beim untersuchen)
-
-    <sequence description="Und welche Münzen genau soll ich jetzt bitte nochmal einwerfen?" sound="achievement1.wav"/> (Telefonzelle nach Telefonat 2)
-
-    <sequence description="Eine funktionierende Taschenlampe. Her damit!" sound="achievement1.wav"/> (wenn man Batterien mit leerer Taschenlampe vor dem Einsammeln kombiniert)
-
-    <sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL." sound="achievement1.wav"/> (ggf. anpassen)
-
-    <sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius." sound="achievement1.wav"/> (ggf. anpassen)
-
+- in der items.xml sind einige Sätze zu finden, die nicht bedacht worden waren (wenn ein Objekt "durch" ist z.B.). Denen ist immer der sound "achievement1.wav" zugewiesen:
+<sequence description="Die Schublade ist offen." sound="achievement1.wav"/> (Schubladen Final)
+<sequence description="Eine Fernbedienung ohne Batterien. Toll." sound="achievement1.wav"/> (Fernbedienung Final)
+<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..." sound="achievement1.wav"/> (Telefonzelle zwischen Telefonat 1 und 2 beim untersuchen) < Das ist der münzdings einfach wiederverwendet <--"Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." ?? <- ja
+<sequence description="Und welche Münzen genau soll ich jetzt bitte nochmal einwerfen?" sound="achievement1.wav"/> (Telefonzelle nach Telefonat 2)-> evtl. gar nicht nötig, da momentan automatischer Szenenwechsel nach Telefonat.
+<sequence description="Eine funktionierende Taschenlampe. Her damit!" sound="achievement1.wav"/> (wenn man Batterien mit leerer Taschenlampe vor dem Einsammeln kombiniert)
+<sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL." sound="achievement1.wav"/> (ggf. anpassen)
+<sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius." sound="achievement1.wav"/> (ggf. anpassen)
 
 Spiellogik:
-    - Mögliche Item Kombinationen für Disco und Gasse (Erweiterung der ID Combinations itemliste.txt) falls noch nicht komplett
-    - zugehörige Texte (Erweiterung itemtexte.txt)
-    - Übernahme der Logik nach items.xml mit Sprachsamples (Dateinamen der Samples?)
+Mögliche Item Kombinationen für Disco und Gasse (Erweiterung der ID Combinations itemliste.txt) falls noch nicht komplett
+zugehörige Texte (Erweiterung itemtexte.txt) -> nur noch für Disco und Greek_Office
+Übernahme der Logik nach items.xml mit Sprachsamples (Dateinamen der Samples?) 
 
 
 Dialogsystem:
     - aktuellen Satz abbrechen mit Enter oder Space... (schnelles Durchklicken)
-    - ansprechbare Entities einbauen. Verhalten bei Hovern ähnlich dem itemmgr, aber eben Sprechblasencursor, mit Verriegelugnsfeature (Dialoge können nur einmal geführt werden) und Savefeature mit globaler var (wg. Levelwechsel)
+    - ansprechbare Entities einbauen. Verhalten bei Hovern ähnlich dem itemmgr, aber eben Sprechblasencursor, mit Verriegelugnsfeature (Dialoge können nur einmal geführt werden) und Savefeature mit globaler var (wg. Levelwechsel) -> wird eigentlich nur für CBabe benötigt und wäre damit eine Sonderlösung. Andere Ideen, z.B. ein automatischer Trigger on near (haben wir in der Gasse schon)?
     - choice Panel + Buttons bei on_resize skalieren
 
 Levels:
     - Office muss umgebaut werden, Dunkelkammer wg. Taschenlampe+Effekt als eigenes Level? -> xwcg skizziere bitte mal, wie du dir das für die Rätsel vorgestellt hast
-    - Office: derzeitige Kameraführung nervt - ok die ist echt mega nervig. wie könnte man die besser positionieren? wenn man die fixiert, braucht man mindestens 2 blickwinkel. dann könnte der wechsel aber irritierend werde, einen versuch ist es aber bestimmt wert. -> Der Schwenk beim Intro ist ja schon ganz witzig eigentlich, könnte auch gern noch länger gehen. Aber während dem Spiel macht diese andauernd ändernde Perspektive das Item anklicken (besonders das Doppelklicken) zur Qual.
+    - Office: derzeitige Kameraführung nervt - ok die ist echt mega nervig. wie könnte man die besser positionieren? wenn man die fixiert, braucht man mindestens 2 blickwinkel. dann könnte der wechsel aber irritierend werde, einen versuch ist es aber bestimmt wert. -> Der Schwenk beim Intro ist ja schon ganz witzig eigentlich, könnte auch gern noch länger gehen. Aber während dem Spiel macht diese andauernd ändernde Perspektive das Item anklicken (besonders das Doppelklicken) zur Qual. Ok, ich guck mal.<-- bitte Kamera Code nochmal checken
     - soll das Tanzspiel noch in den Kingmorph rein? Kennt sich da irgendjemand außer Christian damit aus?
-    - Verkehrsrauschen als Ambient Sound im Gassenlevel
+    - Verkehrsrauschen als Ambient Sound im Gassenlevel<-- stattdessen relaxed musik
     - Ruins: Simons Telefon entfernen, Tardis Telefonzelle an besseren Platz parken.
-    - Musik einbinden (Ordner Media) - wofür waren die dort abgelegten Tracks mal gedacht?
-    - Office: Terrarium muss transparent sein und vom Mauszeiger ignoriert werden(+Schlüssel und Gecko rein)
+    - Musik einbinden (Ordner Media) - "relaxed" für alley, "thegreekwoman" für greek_office
+    - Musiklautstärke automatisch runterregeln falls DIalog aktiv (dlgIsDialogActive() - dialogs.h)
 
 Models:
-    - Stock des Warlocks mit Angelhaken
-    - Stock des Warlocks mit getaptem Angelhaken
     
  Menü:
+     Vielleicht wie in LA Noire aber in billig? http://www.wsgf.org/f/u/imagecache/node-gallery-display/contrib/dr/18091/menu_16x9.jpg <-- ist ja quasi von Felix schon fertig (kingmorph). Das würde ich jetzt nicht mehr neu machen, allenfalls kann man über nen anderen Font für die Menüpunkte nachdenken
 
         
 Allgemeines:
    - stylische readme.txt für den Release Build mit Bla und Credits und Ascii Art
-   - Rückkehr ins Hauptmenü aus dem Spiel, kein direktes Beenden
+   - Rückkehr ins Hauptmenü aus dem Spiel, kein direktes Beenden Mach ich.
    - Kanal 21 gehört auf der Bielefeldkarte eingekringelt. (-> Macht Felix)
      - Dialog XML Texte mit Voice Samples gegenchecken und Abweichungen sowie Tippfehler korrigieren. Punkt ans Satzende.
+     - animierter Grab- Cursor -> animierter "Notfall" Grab Cursor ist drin. Schaut aber nicht gut aus.
    
     
 Credits:
@@ -173,6 +149,12 @@ Credits:
         - Kameraflug anpassen
         - Einfügen des passenden Textes
         - Passende Musik einfügen (bessere Vorschläge als das aktuelle?)
+        Sind die genauen angaben was man gemacht hat nötig? Ich hatte mir das einfach so wie filmcredits vorgestellt <-- würde das schon gut finden, wenn das auch zuordenbar ist, man weiß nie, wer das Ding mal spielt ;) Fände ich auch cool, aber ich glaub ich werd die Credits eher Richtung Filmcredits umbauen, dürfte besser aussehen...  <-- widerspricht sich ja nicht: http://www.johnandrewcameron.com/wp-content/uploads/2013/04/P1250921.jpg
+        
+        MORBIUS
+        The Utopia Conspiracy
+        
+        Based on "Meister des Feuers" by Johann C. Lotter
         
         Starring
         Michael Schwarz as JCL and Morbius
@@ -186,15 +168,19 @@ Credits:
         Programming
         Robert "Firoball" Jäger -> Precious Items, Buildmaster, XML Copy&Paste Hero, Bug-squisher
         Felix "MasterQ32" Queißner -> Menu & Credits
-        Felix "Superku" Pohl -> Pathfinding, Player Movement, Flashlight
+        Felix "Superku" Pohl -> Pathfinding, Player Movement, Flashlight, Terrible Hacks
         Jonas "PadMalcom" Freiknecht -> Inventory, Camera, Dialogs
         Christian "HeelX" Behrenberg -> Morbius Dance Game
+        
+        Art Director
+        Simon Trümpler
         
         Level Editing
         Jonas Freiknecht
         Andreas Schmidt
         Robert Jäger
-        
+        Felix Pohl
+                
         Modelling
         Simon Trümpler -> Art Direction, Ruins, Characters
         Kitsune "Kitsu" -> Office, Environment Models
@@ -212,9 +198,20 @@ Credits:
         Location
         Kanal 21 Bielefeld
         
+        Catering Services
+        REWE (?) ... Jibi ... Joey's (würde ich weglassen, oder einfach "Christian Behrenberg / Conitec" - siehe Donation)
+        
         Special Thanks
         Johann C. "jcl" Lotter -> "Morbius" Book Templates, Gamestudio
+        
+        Funded with a generous donation by Conitec Germany
+
+Blöde Sprüche am Ende :D
+
+Mike Morbius was found alive without any injuries dancing at Kingmorph.
+...oder...
+No Geckos were animated in this production.
 
 Credits direkt über Menü zugänglich machen, oder als Abspann wenn man durchgespielt hat? Diesmal haben wir ja (hoffentlich irgendwann) wieder was durchspielbares
-Ich würde die Credits abspielen, wenn man das Spiel durch hat und übers Hauptmenü. -> Credit Trigger für Abspann kann dann in event.c eingebaut werden. Ich würde pauschal mal sagen case 9999 im switch anlegen.
+Ich würde die Credits abspielen, wenn man das Spiel durch hat und übers Hauptmenü. -> Credit Trigger für Abspann kann dann in event.c eingebaut werden. Ich würde pauschal mal sagen case 9999 im switch anlegen. +1
 
