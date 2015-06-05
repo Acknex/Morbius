@@ -8,6 +8,8 @@
 
 var options_show = 0;
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
+STRING *msAckmaniaVideo = "media\\ackmania_tiny.wmv";
+STRING *msPrinceOfLotteriaVideo = "media\\princeoflotteria.mp4";
 BMAP *bmpMenuLogo = "graphics\\textures\\logo.png";
 FONT *fontCalibri48 = "Calibri#48b";
 SOUND *sndMenuClick = "sounds\\menu-click.wav";
@@ -603,6 +605,27 @@ void menu_startup()
 
 var lerp(var v1, var v2, var f)
 { return ((1-f)*v1 + f*v2); }
+
+var kingMediaPrince = 0;
+var kingMediaMania = 0;
+
+action king_prince(void)
+{
+	return;
+	if(kingMediaPrince == 0) {
+		BMAP *skin = ent_getskin(me, 2);
+		kingMediaPrince = media_loop(msPrinceOfLotteriaVideo, skin, 0);
+	}
+}
+
+action king_mania(void)
+{
+	if(kingMediaMania == 0) {
+		BMAP *skin = bmap_createblack(320, 240, 888);
+		kingMediaMania = media_loop(msAckmaniaVideo, skin, 0);
+		ent_setskin(me, skin, 2);
+	}
+}
 
 action king_dancer(void)
 {
