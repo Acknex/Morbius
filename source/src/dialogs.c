@@ -288,10 +288,10 @@ int dlgStart(STRING* _dialogFile)
 	
 	// Erstelle Bilder für die Auswahlboden
 	var fontSize = HUD_getFontSize();
-	
-	bmapDialogBtnDown = bmap_createblack(screen_size.x, fontSize+1/*15*/, 32); //ToDo: Calculate font size for height (32 = wrong)
+	fontSize = integer(fontSize + 0.5); //will not solve all problems but initial resolution will look nice
+	bmapDialogBtnDown = bmap_createblack(screen_size.x, fontSize/*15*/, 32);
 	bmap_fill(bmapDialogBtnDown, vector(0,0,255), 50);
-	bmapDialogBtnUp = bmap_createblack(screen_size.x, fontSize+1/*15*/, 32); //ToDo: Calculate font size for height (32 = wrong)
+	bmapDialogBtnUp = bmap_createblack(screen_size.x, fontSize/*15*/, 32);
 	bmap_fill(bmapDialogBtnUp, vector(10,10,10), 50);
 
 	XMLPAR *pParHndl, *pPar, *pParMain, *pParGoto, *pParChoice;
