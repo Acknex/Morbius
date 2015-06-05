@@ -202,8 +202,14 @@ void EVENT__evaluate(int triggerId)
 		//leave alley
 		case 1006:
 		{
-			wait_for_dlg("xml\\monolog08.xml");
 			level_change(4, 1); //todo adjust for greek_office
+			break;
+		}
+		
+		//alley done
+		case 1007:
+		{
+			wait_for_dlg("xml\\monolog08.xml");
 			break;
 		}
 		

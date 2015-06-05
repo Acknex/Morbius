@@ -111,7 +111,7 @@
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" imgfile="wd40.png">
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" imgfile="wd40.png">
 		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="itm_wd4001.ogg"/>
 	</item>
 	
@@ -122,7 +122,7 @@
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" imgfile="crowbar.png">
+	<item id="22" name="Brechstange" collectable="yes" imgfile="crowbar.png">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="itm_brechstange01.ogg"/>
 	</item>
 	
