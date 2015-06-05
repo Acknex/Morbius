@@ -448,7 +448,7 @@ action actCondition()
 		{
 			if(ent_flashlight) smwalk_condition[0] = 1;
 			else smwalk_condition[0] = 0;
-			DEBUG_VAR(smwalk_condition[0],120);
+			//DEBUG_VAR(smwalk_condition[0],120);
 		}
 		wait(1);
 	}

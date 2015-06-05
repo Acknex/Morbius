@@ -257,6 +257,11 @@ void inv_show_items(Inventory* _inv) {
 
 Item* inv_item_search(Inventory* inv, int id)
 {
+	if (inv == NULL) 
+	{
+		return NULL;
+	}
+	
 	Item* searchItem = NULL;
 	inv.itr = inv.head;
 	while(inv.itr != NULL)

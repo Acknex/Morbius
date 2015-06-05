@@ -19,20 +19,12 @@ void startGame()
 	proc_mode = PROC_GLOBAL;
 	ITEM_load("xml\\items.xml"); // items.h
 	COMBINATION_load("xml\\items.xml"); // combine.h
-	level_change(0,-1);
+	//level_change(0,-1);
+	level_change(4,-1);
 	while(!is_level_loaded()) wait(1);
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
-	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));
-	
-//	BMAP* playBmap = bmap_createblack(320,240,888);
-//	media_play("media\\ackmania_tiny.wmv", playBmap, 100);
-//	media_play("media\\ackmania.wmv", NULL, 100);
-//while(player==NULL) wait(1);
-//ent_setskin(player, playBmap, 1);
-	//PANEL* myPan = pan_create(" ", 10);
-	//myPan->bmap = playBmap;
-	//set(myPan, SHOW);
+	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));	
 }
 
 void exitGame()

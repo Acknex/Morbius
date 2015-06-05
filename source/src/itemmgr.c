@@ -72,7 +72,7 @@ action interactionItem()
 	
 	while(!is(my, itemRemove))
 	{
-		draw_box3d(vecMin,vecMax,vector(0,0,255),100);
+		//draw_box3d(vecMin,vecMax,vector(0,0,255),100);
 		//draw_box3d(my->min_x,my->max_x,vector(0,255,255),100);
 		if (is(my, itemWasClicked) && dlgIsDialogActive() == 0)
 		{
