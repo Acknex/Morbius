@@ -466,7 +466,7 @@ void menu_open()
 	on_cul = menu_nav_next;
 	
 	
-	level_load("level\\kingmorph.wmb");
+	level_load("level\\kingmorph_menu.wmb");
 	
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
