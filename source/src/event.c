@@ -52,8 +52,8 @@ void EVENT__listener_startup()
 
 
 //CUSTOM PART START
-//#define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
-#define wait_for_dlg(x) error(x)
+#define wait_for_dlg(x) dlgStart(x); while (dlgIsDialogActive() != 0) wait (1)
+//#define wait_for_dlg(x) error(x)
 #define wait_for_snd(x) SOUNDMGR_scheduleSound(x); while (SOUNDMGR_isPlaying(x) != 0) wait (1)
 
 //entryEvent, touchEvent
@@ -127,7 +127,7 @@ void EVENT__evaluate(int triggerId)
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
 			//fix this shit start
-			error("event.c case 1001: TODO CERTAINLY NOT BY FIRO: Zeitungsartikelintrogedöns");
+			//error("event.c case 1001: TODO CERTAINLY NOT BY FIRO: Zeitungsartikelintrogedöns");
 			//fix this shit end
 
 			VECTOR* temp;
@@ -189,6 +189,13 @@ void EVENT__evaluate(int triggerId)
 		case 1004:
 		{
 			wait_for_dlg("xml\\monolog07.xml");
+			break;
+		}
+		
+		//enter dunkelkammer
+		case 1005:
+		{
+			wait_for_dlg("xml\\monolog11.xml");
 			break;
 		}
 		

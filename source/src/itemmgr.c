@@ -24,13 +24,13 @@ void interactionItem__setNearZone(VECTOR* vec, var border);
 //skill1: EntityType 1
 //skill2: ItemId -1
 //skill3: ItemBorder 25
+//flag3: vmask 0
 action interactionItem()
 {
 	VECTOR vecMin;
 	VECTOR vecMax;
 	set(my, INVISIBLE);
 	reset(my, PASSABLE);
-	//while(player == NULL) wait(1); //hargh...
 
 	my->ENTITY_TYPE = TYPE_ITEM;
 	my->group = GROUP_ITEM;
@@ -64,6 +64,7 @@ action interactionItem()
 	}	
 	//restore item state: end
 
+	if(is(my,FLAG3)) my.vmask |= (1<<1);
 	my->material = mat_item;
 	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
@@ -71,23 +72,22 @@ action interactionItem()
 	
 	while(!is(my, itemRemove))
 	{
-draw_box3d(vecMin,vecMax,vector(0,0,255),100);
-//draw_box3d(my->min_x,my->max_x,vector(0,255,255),100);
+		//draw_box3d(vecMin,vecMax,vector(0,0,255),100);
+		//draw_box3d(my->min_x,my->max_x,vector(0,255,255),100);
 		if (is(my, itemWasClicked) && dlgIsDialogActive() == 0)
 		{
 			if (player != NULL)
 			{
-				//if(vec_dist(player->x, my->x) < (PLAYER_NEAR_DIST * player->scale_x * 1.3)) //temp HACK, cleanup (level scale problem)
 				if (
-					(
-						(vecMin.x < vecMax.x && player->x > vecMin.x && player->x < vecMax.x) ||
-						(vecMin.x > vecMax.x && player->x < vecMin.x && player->x > vecMax.x)
-					)
-					&&
-					(
-						(vecMin.y < vecMax.y && player->y > vecMin.y && player->y < vecMax.y) ||
-						(vecMin.y > vecMax.y && player->y < vecMin.y && player->y > vecMax.y)
-					)
+				(
+					(vecMin.x < vecMax.x && player->x > vecMin.x && player->x < vecMax.x) ||
+					(vecMin.x > vecMax.x && player->x < vecMin.x && player->x > vecMax.x)
+				)
+				&&
+				(
+					(vecMin.y < vecMax.y && player->y > vecMin.y && player->y < vecMax.y) ||
+					(vecMin.y > vecMax.y && player->y < vecMin.y && player->y > vecMax.y)
+				)
 				)
 				{
 					Player_stop();
@@ -139,7 +139,7 @@ action interactionSpawnPnt()
 		}
 	}	
 }
-	
+
 void interactionItem_spawn(int id)
 {
 	VECTOR pos;
@@ -172,7 +172,7 @@ void interactionItem__clicked()
 	int resultId;
 
 	if (item == NULL)
-		return;
+	return;
 
 	// If we have an item in hand
 	if (itemInHand != NULL) 
@@ -188,7 +188,7 @@ void interactionItem__clicked()
 			{
 				inv_add_item(inventory, itemInHand);
 			}
-		
+			
 			//only perform morph and inventory actions if resultId points to real item
 			//fake resultIds may be used to trigger custom events
 			ITEM* resultItem = ITEM_get(resultId);
@@ -206,14 +206,14 @@ void interactionItem__clicked()
 					inv_add_item(inventory, resultIdItem);
 				}			
 			}
-	
+			
 			//item in world
 			if (item->destroyable != 0)
 			{
 				ITEM_collect(item);
 				set(my, itemRemove);
 			}
-				
+			
 			EVENT_trigger(resultId);
 		}
 		else
@@ -228,7 +228,7 @@ void interactionItem__clicked()
 	else
 	{
 		resultId = ITEM_interaction(item);
-	
+		
 
 		if (resultId != ITEM_NONE)
 		{
@@ -251,12 +251,13 @@ void interactionItem__clicked()
 				
 				inv_add_item(inventory, newItem);
 				ITEM_collect(item);
+				EVENT_trigger(item->id);
 				set(my, itemRemove);
 			//}
 			
 			//else if (item->destroyable != 0)
 			//{
-			//	set(my, itemRemove);
+				//	set(my, itemRemove);
 			//}
 		}
 	}
@@ -265,13 +266,13 @@ void interactionItem__clicked()
 void interactionItem__eventHandler()
 {
 	if (dlgIsDialogActive() != 0 || EVENT_isLocked() != 0)
-		return;
-		
+	return;
+	
 	ITEM* item = ITEM_get(my->itemId);
 	
 	if (item == NULL)
-		return;
-		
+	return;
+	
 	if (event_type == EVENT_CLICK)
 	{
 		set(my, itemWasClicked);

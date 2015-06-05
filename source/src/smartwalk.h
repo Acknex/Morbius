@@ -4,6 +4,7 @@
 struct _SMARTWALKDATA
 {
 	int num_regions;
+	int *condition;
 	int *neighbors;
 	int *path_prev;
 	int *path_stack;
@@ -27,6 +28,9 @@ typedef struct _SMARTWALKDATA SMARTWALKDATA;
 typedef struct _SMARTWALK SMARTWALK;
 
 SMARTWALKDATA *smd_level;
+
+#define SMWALK_CONDITION_MAX 4
+var smwalk_condition[SMWALK_CONDITION_MAX];
 
 //#define ent_smartwalk skill84
 //#define pSMARTWALK(pointer) ((SMARTWALK*)pointer)

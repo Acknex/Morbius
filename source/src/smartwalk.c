@@ -50,12 +50,18 @@ void smartwalkdata_fill(SMARTWALKDATA* data)
 	var buffer = 1,diff_x,diff_y,line_x,line_y;
 	int i,j,k,nodes;
 	VECTOR vmin,vmax,size_i,size_j;
+	STRING* str_tmp;
 	
+	str_tmp = str_create("");
 	i = 0;
 	while(region_get(NULL, i+1, vmin, vmax)) i++;
 	if(i != data->num_regions)
 	{
 		data->num_regions = i;
+
+		if(data->condition) sys_free(data->condition);
+		data->condition = (int*)sys_malloc(sizeof(int)*data->num_regions);
+
 		if(data->neighbors) sys_free(data->neighbors);
 		data->neighbors = (int*)sys_malloc(sizeof(int)*data->num_regions*data->num_regions);
 
@@ -89,6 +95,21 @@ void smartwalkdata_fill(SMARTWALKDATA* data)
 		region_get(NULL, i+1, (data->regionMin)[i], (data->regionMax)[i]);
 		vec_lerp((data->center)[i],(data->regionMin)[i], (data->regionMax)[i],0.5);
 		for(j = 0; j < data->num_regions; j++) (data->neighbors)[i*data->num_regions+j] = -1;
+	}
+	for(k = 0; k < SMWALK_CONDITION_MAX; k++)
+	{
+		str_printf(str_tmp,"cond_0%d",(int)k);
+		j = 1;
+		while(region_get(str_tmp, j, vmin, vmax))
+		{
+			// slow hack :/, praise var though!
+			for(i = 0; i < data->num_regions; i++)
+			{
+				if((data->regionMin)[i].x == vmin.x && (data->regionMin)[i].y == vmin.y
+				&& (data->regionMax)[i].x == vmax.x && (data->regionMax)[i].y == vmax.y) (data->condition)[i] = k+1;
+			}
+			j++;
+		}
 	}
 	
 	for(i = 0; i < data->num_regions; i++)
@@ -217,6 +238,7 @@ void smartwalkdata_fill(SMARTWALKDATA* data)
 			}
 		}
 	}
+	ptr_remove(str_tmp);
 }
 
 
@@ -229,7 +251,8 @@ var smartwalkdata_find_region(SMARTWALKDATA* data, VECTOR* vpos, var modify)
 	for(i = 0; i < data->num_regions; i++)
 	{
 		if(vpos.x > (data->regionMin)[i].x && vpos.y > (data->regionMin)[i].y
-		&& vpos.x < (data->regionMax)[i].x && vpos.y < (data->regionMax)[i].y) break;
+		&& vpos.x < (data->regionMax)[i].x && vpos.y < (data->regionMax)[i].y
+		&& (!(data->condition)[i] || smwalk_condition[clamp((data->condition)[i]-1,0,SMWALK_CONDITION_MAX-1)])) break;
 	}
 	if(i == data->num_regions)
 	{
@@ -237,6 +260,7 @@ var smartwalkdata_find_region(SMARTWALKDATA* data, VECTOR* vpos, var modify)
 		closest_region = -1;
 		for(i = 0; i < data->num_regions; i++)
 		{
+			if((data->condition)[i] && !smwalk_condition[clamp((data->condition)[i]-1,0,SMWALK_CONDITION_MAX-1)]) continue;
 			vec_diff(vpdir,vpos,(data->regionMin)[i]);
 			fac = clamp(vpdir.x/(double)((data->regionMax)[i].x-(data->regionMin)[i].x),0,1);
 			vtmp.x = (data->regionMin)[i].x*(1-fac) + (data->regionMax)[i].x*fac;
@@ -254,6 +278,7 @@ var smartwalkdata_find_region(SMARTWALKDATA* data, VECTOR* vpos, var modify)
 		i = closest_region;
 		if(modify) vec_set(vpos,vproj);
 	}
+	
 
 	return i;
 }
@@ -280,8 +305,10 @@ SMARTWALK* smartwalk_create_path(SMARTWALKDATA* data, VECTOR* vstart, VECTOR* vt
 	VECTOR vproj,vproj1,vproj2;
 	SMARTWALK* walk;
 
+
 	start_region = smartwalkdata_find_region(data, vstart, false);
 	target_region = smartwalkdata_find_region(data, vtarget, true);
+
 	if(start_region < 0 || target_region < 0) return NULL;
 	if(start_region == target_region)
 	{
@@ -309,7 +336,8 @@ SMARTWALK* smartwalk_create_path(SMARTWALKDATA* data, VECTOR* vstart, VECTOR* vt
 		current_region = (data->path_stack)[stack_region];
 		for(j = 0; j < data->num_regions; j++)
 		{
-			if(j == current_region || (data->neighbors)[current_region*data->num_regions+j] < 0) continue;
+			if(j == current_region || (data->neighbors)[current_region*data->num_regions+j] < 0
+			|| ((data->condition)[j] && !smwalk_condition[clamp((data->condition)[j]-1,0,SMWALK_CONDITION_MAX-1)])) continue;
 			line_projection(vproj1,(data->center)[j],(data->edgeMin)[current_region*data->num_regions+j],(data->edgeMax)[current_region*data->num_regions+j]);
 			line_projection(vproj2,(data->center)[current_region],(data->edgeMin)[current_region*data->num_regions+j],(data->edgeMax)[current_region*data->num_regions+j]);
 			vec_lerp(vproj,vproj1,vproj2,0.5);
@@ -399,7 +427,29 @@ void smartwalk_on_ent_remove_event(ENTITY* ent)
 
 void smartwalk_init()
 {
+	int i;
+	
+	for(i = 0; i < SMWALK_CONDITION_MAX; i++) smwalk_condition[i] = 0;
+	
 	smd_level = smartwalkdata_create();
 	on_level_load = smartwalk_level_load_event;
 	on_ent_remove = smartwalk_on_ent_remove_event;
+}
+
+ENTITY* ent_flashlight = NULL;
+
+//flag3: office 0
+action actCondition()
+{
+	set(my,INVISIBLE | PASSABLE | UNLIT);
+	while(1)
+	{
+		if(is(my,FLAG3))
+		{
+			if(ent_flashlight) smwalk_condition[0] = 1;
+			else smwalk_condition[0] = 0;
+			//DEBUG_VAR(smwalk_condition[0],120);
+		}
+		wait(1);
+	}
 }

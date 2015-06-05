@@ -24,8 +24,7 @@ Büro:
 45      Buch Downtown
 46      Main Door ohne Visitenkarte
 47      Main Door mit Visitenkarte
-48      Dunkelkammer Door ohne Taschenlampe
-49      Dunkelkammer Door mit Taschenlampe
+48      Dunkelkammer Door
 
 Ruine:
 17      Toter Guard
@@ -49,6 +48,7 @@ Gasse:
 30      Geklebter Stock mit Angelhaken  x   x
 31      Versiffte Geldbörse             x   x
 //32      Rechnungs Durchdruck
+32      Gulli benutzt
 50      Toter Warlock
 51      Haustür Draugstraße 4 
 52      Unnützes Auto
