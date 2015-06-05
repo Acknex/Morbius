@@ -253,6 +253,7 @@
 #define PRAGMA_BIND "business_card.tga"
 #define PRAGMA_BIND "coffee_can.tga"
 #define PRAGMA_BIND "gecko_yum.tga"
+#define PRAGMA_BIND "sugar_cane.tga"
 
 /*-----------------------------*/
 /* models\items */
@@ -264,13 +265,19 @@
 #define PRAGMA_BIND "downtown.mdl"
 #define PRAGMA_BIND "fernbedienung.mdl"
 #define PRAGMA_BIND "flashlight.mdl"
+#define PRAGMA_BIND "gecko.mdl"
 #define PRAGMA_BIND "gecko_food.mdl"
 #define PRAGMA_BIND "meisterdesfeuers.mdl"
+#define PRAGMA_BIND "nummernschild_doug.mdl"
+#define PRAGMA_BIND "nummernschild_jcl.mdl"
 #define PRAGMA_BIND "revolver.mdl"
 #define PRAGMA_BIND "schluessel.mdl"
 #define PRAGMA_BIND "schublade_geschlossen.mdl"
 #define PRAGMA_BIND "schublade_offen.mdl"
+#define PRAGMA_BIND "staff.mdl"
+#define PRAGMA_BIND "sugar_cane.mdl"
 #define PRAGMA_BIND "topf.mdl"
+#define PRAGMA_BIND "wallet.mdl"
 #define PRAGMA_BIND "wd40.mdl"
 
 /*-----------------------------*/

@@ -127,7 +127,7 @@ void EVENT__evaluate(int triggerId)
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
 			//fix this shit start
-			error("event.c case 1001: TODO CERTAINLY NOT BY FIRO: Zeitungsartikelintrogedöns");
+			//error("event.c case 1001: TODO CERTAINLY NOT BY FIRO: Zeitungsartikelintrogedöns");
 			//fix this shit end
 
 			VECTOR* temp;
