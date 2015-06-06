@@ -6,6 +6,7 @@
 #include "types.h"
 #include "inventory.h"
 #include "items.h"
+#include "chapter.h"
 
 void dynamicLevel_gate_check();
 void dynamicLevel_gate_event();
@@ -47,6 +48,7 @@ void level_change(var level_id, var gate_id)
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
 	vec_set(sky_color,COLOR_BLACK);
+	CHAPTER_show(level_id);
 	if(!isCameraInitialized())
 	{
 		cameraInit();
@@ -54,6 +56,7 @@ void level_change(var level_id, var gate_id)
 	}
 	if(!smd_level) smd_level = smartwalkdata_create();
 	smartwalkdata_fill(smd_level);
+	while(CHAPTER_isVisible()) wait(1);
 	while(level_change_transition(-1) > 0) wait(1);
 	input_fetch = 1;
 	level_loaded = 1;

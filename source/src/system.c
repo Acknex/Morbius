@@ -8,6 +8,7 @@
 #include "mousemgr.h"
 #include "hud.h"
 #include "dialogs.h"
+#include "chapter.h"
 
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
@@ -19,8 +20,10 @@ void startGame()
 	proc_mode = PROC_GLOBAL;
 	ITEM_load("xml\\items.xml"); // items.h
 	COMBINATION_load("xml\\items.xml"); // combine.h
+	CHAPTER_load("xml\\chapters.xml"); // chapter.h
 	//level_change(0,-1);
 	level_change(4,-1);
+	//level_change(2,-1);
 	while(!is_level_loaded()) wait(1);
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
@@ -30,6 +33,7 @@ void startGame()
 void exitGame()
 {
 //error("cleanup on exit");
+	CHAPTER_close();
 	COMBINATION_close();
 	ITEM_close();
 	HUD_close();
