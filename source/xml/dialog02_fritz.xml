@@ -1,8 +1,8 @@
 <Dialog>
 	<NPC id="0" file="dlg02_fritz_00.ogg" name="Fritz">[schnauf] Yop?</NPC>
 	<Choice id="1">
-		<ChoiceItem target="2" returnvalue="2">Hi Fritz, Morbius hier.</ChoiceItem>
-		<ChoiceItem target="4" returnvalue="2">Ich brauche deine Hilfe.</ChoiceItem>	
+		<ChoiceItem target="2" returnvalue="2">1 - Hi Fritz, Morbius hier.</ChoiceItem>
+		<ChoiceItem target="4" returnvalue="2">2 - Ich brauche deine Hilfe.</ChoiceItem>	
 	</Choice>
 	<Player id="2" file="dlg02_morbius_01.ogg" name="Morbius">Hi Fritz, Morbius hier.</Player>
 	<Goto id="3" target="12" />
@@ -10,8 +10,8 @@
 	<Player id="4" file="dlg02_morbius_02.ogg" name="Morbius">Ich brauche deine Hilfe.</Player>
 	<NPC id="5" file="dlg02_fritz_03.ogg" name="Fritz">Wer bist du überhaupt?</NPC>
 	<Choice id="6">
-		<ChoiceItem target="7" returnvalue="2">Ich bins, Morbius!</ChoiceItem>
-		<ChoiceItem target="10" returnvalue="2">Unwichtig!</ChoiceItem>	
+		<ChoiceItem target="7" returnvalue="2">1 - Ich bins, Morbius!</ChoiceItem>
+		<ChoiceItem target="10" returnvalue="2">2 - Unwichtig!</ChoiceItem>	
 	</Choice>
 	<Player id="7" file="dlg02_morbius_04a.ogg" name="Morbius">Ich bins, Morbius!</Player>
 	<NPC id="8" file="dlg02_fritz_05a.ogg" name="Fritz">Warum sagst du das nicht gleich?!</NPC>
