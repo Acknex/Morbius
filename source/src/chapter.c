@@ -306,11 +306,14 @@ void CHAPTER__copyFromXml(CHAPTER* chapter, XMLPAR* tag)
 	else
 		chapter->id = CHAPTER_NONE;
 
-	str = str_create("");
+	chapter->title = NULL;
 	attrib = XMLATTRIB_getElementByAttribute(tag, "title");
 	if (attrib != NULL)
+	{
+		str = str_create("");
 		XMLATTRIB_getContent(attrib, str);
-	chapter->title = str;
+		chapter->title = str;
+	}
 	
 	chapter->line_count = 0;
 	chapter->line[0] = NULL;
