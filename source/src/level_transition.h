@@ -13,6 +13,7 @@ TEXT* txt_level_wmbs =
 
 var level_change_transition(var in);
 
+void level_change(var level_id, var gate_id, var silent);
 void level_change(var level_id, var gate_id);
 
 //skill1: blue 0
@@ -25,6 +26,7 @@ action sky_color_fog_act();
 
 //skill1: this_id 0
 //skill2: to_id 0
+//flag2: silent 0
 action level_gate();
 
 void level_change_set_player_position(ENTITY* ent_pl);
