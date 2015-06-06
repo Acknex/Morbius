@@ -127,9 +127,17 @@ void EVENT__evaluate(int triggerId)
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
 			//fix this shit start
-			//error("event.c case 1001: TODO CERTAINLY NOT BY FIRO: Zeitungsartikelintrogedöns");
+			error("event.c case 1001: TODO: Zeitungsartikelintrogedöns
+			
+Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weitere Leichen im Stadtteil Bockenheim, welche auf brutale weise ermodet wurden. Der Serienmörder, welcher den Opfern nach dem Tod ein Z Zeichen auf die Brust markierte, wurde bisher noch nicht gefasst.");
+			error("event.c case 1001: TODO: Zeitungsartikelintrogedöns
+			
+\"Wir setzen alles darauf, den Übeltäter auf die spur zu kommen. Leider ist er sehr sorgfältig und es gibt wenig Spuren an den Tatorten zu finden\", so Oberkommisar Seiffrig der Kriminalpolizei. \"Wir bitten, dass alle Einwohner welche Hinweise oder Augenzeugen zu den Morden haben, sich umgehend beim nähesten Polizeirevier zu melden.\"");
+			error("event.c case 1001: TODO: Zeitungsartikelintrogedöns
+			
+Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.");
 			//fix this shit end
-
+//break;
 			VECTOR* temp;
 			if (player != NULL)
 			{

@@ -124,7 +124,7 @@ void CHAPTER_close()
 	}
 
 	ptr_remove(CHAPTER__bgPanel->bmap);
-	RemoveFontResource("media//Kingthings_Trypewriter_2.ttf");
+	RemoveFontResource("media//Kingthings Trypewriter 2.ttf");
 }
 
 
