@@ -171,7 +171,7 @@
 	
 	<!--Versiffte Geldbörse//-->
 	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" entfile="wallet.mdl" imgfile="wallet.png">
-		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl die Person sein die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!" sound="achievement1.wav"/>
+		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl von der Person sein, die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!" sound="achievement1.wav"/>
 		<sequence description="Ein Rechnungsdurchdruck für die Griechin... für etwas, dass sich 'Motion Capture' nennt... für... 'Utopia'?" sound="achievement1.wav"/>
 		<sequence description="Warum hast du nur etwas mit diesem Fall zu tun, Griechin?" sound="achievement1.wav"/>
 	</item>
@@ -278,7 +278,7 @@
 	<!--Nummernschild Auto//-->
 	<item id="53" name="Proletenkarre">
 		<sequence description="Sieht ja schlimmer als mein Auto aus." sound="achievement1.wav"/>
-		<sequence description="Das Nummernschild ist aber witzig - so ein Zufall auch [kicher]." sound="achievement1.wav"/>
+		<sequence description="Interessantes Nummernschild... [kicher]" sound="achievement1.wav"/>
 	</item>
 </items>
 <combinations>

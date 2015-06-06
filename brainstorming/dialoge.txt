@@ -254,7 +254,8 @@ DRAUGSTRASSE 4
 "Da drin wühl ich nicht nochmal rum!"
 
 "Sieht ja schlimmer als mein auto aus."
-"Das Nummernschild ist ja witzig - so ein Zufall aber auch [kicher]."
+("Das Nummernschild ist ja witzig - so ein Zufall aber auch [kicher].") kapiert keiner
+"Interessantes Nummernschild... [kicher]"
 
 "Fast so schick wie mein Subaru."
 
@@ -274,7 +275,7 @@ DRAUGSTRASSE 4
 
 "Ah ha, eine geldbörse!"
 
-"Was haben wir hier? Honorar für Personenschutz - das muss wohl die person sein die Emdayelle beschützen sollte - und... nein, das kann nicht sein... was hast DU mit IHM zu tun? Warum bist du in dieser sache involviert?!"
+"Was haben wir hier? Honorar für Personenschutz - das muss wohl von der person sein die Emdayelle beschützen sollte - und... nein, das kann nicht sein... was hast DU mit IHM zu tun? Warum bist du in dieser sache involviert?!"
 
 "Ein rechnungsdurchdruck für die Griechin... für etwas dass sich 'Motion Capture' nennt... für... 'Utopia'?"
 "Warum hast du nur etwas mit diesem fall zu tun, Griechin?"
