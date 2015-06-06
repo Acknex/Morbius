@@ -79,21 +79,10 @@ action interactionItem()
 	
 	while(!is(my, itemRemove))
 	{
-		draw_box3d(my->itemVecMin,my->itemVecMax,vector(0,0,255),100);
+		//draw_box3d(my->itemVecMin,my->itemVecMax,vector(0,0,255),100);
 		//draw_box3d(my->min_x,my->max_x,vector(0,255,255),100);
 		if (is(my, itemWasClicked) && dlgIsDialogActive() == 0)
 		{
-/*				if (
-				(
-					(vecMin.x < vecMax.x && player->x > vecMin.x && player->x < vecMax.x) ||
-					(vecMin.x > vecMax.x && player->x < vecMin.x && player->x > vecMax.x)
-				)
-				&&
-				(
-					(vecMin.y < vecMax.y && player->y > vecMin.y && player->y < vecMax.y) ||
-					(vecMin.y > vecMax.y && player->y < vecMin.y && player->y > vecMax.y)
-				)
-				)*/
 				if (interactionItem__isNear(player))
 				{
 					Player_stop();
