@@ -140,7 +140,7 @@
 	</item>
 	
 	<!--Stock des Warlocks//-->
-	<item id="25" name="Stock des Warlocks" collectable="yes" imgfile="staff.png">
+	<item id="25" name="Stock" collectable="yes" imgfile="staff.png">
 		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="achievement1.wav"/>
 	</item>
 	
