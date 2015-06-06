@@ -10,6 +10,14 @@
 
 #define itemId skill2
 #define itemBorder skill3
+#define itemVecMin skill60
+#define itemVecMin_x skill60
+#define itemVecMin_y skill61
+#define itemVecMin_z skill62
+#define itemVecMax skill63
+#define itemVecMax_x skill63
+#define itemVecMax_y skill64
+#define itemVecMax_z skill65
 #define itemHover FLAG1
 #define itemRemove FLAG2
 #define itemWasClicked FLAG3
@@ -20,15 +28,14 @@ void interactionItem__morph(int targetId, int morphId);
 ENTITY* interactionItem__find(int id);
 void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle, var* border);
 void interactionItem__setNearZone(VECTOR* vec, var border);
+var interactionItem__isNear(ENTITY* ent);
 
 //skill1: EntityType 1
 //skill2: ItemId -1
 //skill3: ItemBorder 25
-//flag3: vmask 0
+//flag5: vmask 0
 action interactionItem()
 {
-	VECTOR vecMin;
-	VECTOR vecMax;
 	set(my, INVISIBLE);
 	reset(my, PASSABLE);
 
@@ -43,10 +50,10 @@ action interactionItem()
 		return;
 	}
 	
-	vec_for_min(&vecMin, me);
-	vec_for_max(&vecMax, me);
-	interactionItem__setNearZone(&vecMin, -my->itemBorder);
-	interactionItem__setNearZone(&vecMax, my->itemBorder);
+	vec_for_min(&my->itemVecMin, me);
+	vec_for_max(&my->itemVecMax, me);
+	interactionItem__setNearZone(&my->itemVecMin, -my->itemBorder);
+	interactionItem__setNearZone(&my->itemVecMax, my->itemBorder);
 	
 	//restore item state: start
 	ITEM* item = ITEM_get(my->itemId);
@@ -64,7 +71,7 @@ action interactionItem()
 	}	
 	//restore item state: end
 
-	if(is(my,FLAG3)) my.vmask |= (1<<1);
+	if(is(my,FLAG5)) my.vmask |= (1<<1);
 	my->material = mat_item;
 	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
@@ -72,13 +79,11 @@ action interactionItem()
 	
 	while(!is(my, itemRemove))
 	{
-		//draw_box3d(vecMin,vecMax,vector(0,0,255),100);
+		draw_box3d(my->itemVecMin,my->itemVecMax,vector(0,0,255),100);
 		//draw_box3d(my->min_x,my->max_x,vector(0,255,255),100);
 		if (is(my, itemWasClicked) && dlgIsDialogActive() == 0)
 		{
-			if (player != NULL)
-			{
-				if (
+/*				if (
 				(
 					(vecMin.x < vecMax.x && player->x > vecMin.x && player->x < vecMax.x) ||
 					(vecMin.x > vecMax.x && player->x < vecMin.x && player->x > vecMax.x)
@@ -88,22 +93,18 @@ action interactionItem()
 					(vecMin.y < vecMax.y && player->y > vecMin.y && player->y < vecMax.y) ||
 					(vecMin.y > vecMax.y && player->y < vecMin.y && player->y > vecMax.y)
 				)
-				)
+				)*/
+				if (interactionItem__isNear(player))
 				{
 					Player_stop();
 					interactionItem__clicked();
 					reset(my, itemWasClicked);					
 				}
+				
 				if (Player_getLastClickedEnt() != me)
 				{
 					reset(my, itemWasClicked);					
 				}
-			}
-			else 
-			{
-				//only needed for levels without player, maybe remove later
-				interactionItem__clicked();
-			}
 			
 		}
 		wait(1);
@@ -138,6 +139,27 @@ action interactionSpawnPnt()
 			interactionItem_spawn(my->itemId, &my->x, &my->pan, my->itemBorder);
 		}
 	}	
+}
+
+var interactionItem_isNearPlayer(ENTITY* ent)
+{
+	if (ent != NULL)
+	{
+		if (ent->ENTITY_TYPE == TYPE_ITEM)
+		{
+			//this is hack
+			ENTITY* caller = me;
+			me = ent;
+			if(interactionItem__isNear(caller))
+			{
+				me = caller;
+				return 1;
+			}
+			me = caller;
+		}
+	}
+
+	return 0;
 }
 
 void interactionItem_spawn(int id)
@@ -418,3 +440,24 @@ void interactionItem__setNearZone(VECTOR* vec, var border)
 	vec_add(vec, &my->x);
 }
 
+var interactionItem__isNear(ENTITY* ent)
+{
+	if (ent != NULL)
+	{
+		if (
+		(
+			(my->itemVecMin_x < my->itemVecMax_x && ent->x > my->itemVecMin_x && ent->x < my->itemVecMax_x) ||
+			(my->itemVecMin_x > my->itemVecMax_x && ent->x < my->itemVecMin_x && ent->x > my->itemVecMax_x)
+		)
+		&&
+		(
+			(my->itemVecMin_y < my->itemVecMax_y && ent->y > my->itemVecMin_y && ent->y < my->itemVecMax_y) ||
+			(my->itemVecMin_y > my->itemVecMax_y && ent->y < my->itemVecMin_y && ent->y > my->itemVecMax_y)
+		)
+		)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}

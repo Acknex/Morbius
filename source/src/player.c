@@ -122,6 +122,11 @@ action player_act()
 				you = NULL;
 				c_trace(camera.x,temp,USE_POLYGON | IGNORE_ME | IGNORE_PASSABLE);
 				lastClickedEnt = you; //store entity which was clicked last
+				if (interactionItem_isNearPlayer(lastClickedEnt))
+				{
+					//probably the most terrible hack I've ever done
+					continue;
+				}
 				if(trace_hit)
 				{
 					/*if (player_waitForRun)
