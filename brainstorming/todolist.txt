@@ -19,6 +19,7 @@ http://patorjk.com/software/taag/#p=display&c=c&f=Ogre&t=Morbius%0AThe%20Utopia%
 
 Da nach und nach mehr Events laufen, wird es langsam etwas nervig mit dem schnellen Debuggen und Testen. Daher ein Tip:
 In der Datei event.c in der Funktion EVENT__evaluate gibt es einen Switch. Dort werden sämtliche Dialoge und Monologe via wait_for_dlg() getriggert. Die einzelnen Cases sind kommentiert - einfach temporär die nervigen Dialoge per // rauswerfen oder das wait_for_dlg - define in Zeile 56/57 anpassen. das geänderte File bitte nicht einchecken!! (außer es handelt sich um echte neue Events natürlich)
+In system.c kann man in der Funktion startGame() das Startlevel festlegen.
 
 Todo list:
 Durchgestrichen = DONE
@@ -119,21 +120,24 @@ zugehörige Texte (Erweiterung itemtexte.txt) -> nur noch für Disco und Greek_O
 Dialogsystem:
     - aktuellen Satz abbrechen mit Enter oder Space... (schnelles Durchklicken)
     - ansprechbare Entities einbauen. Verhalten bei Hovern ähnlich dem itemmgr, aber eben Sprechblasencursor, mit Verriegelugnsfeature (Dialoge können nur einmal geführt werden) und Savefeature mit globaler var (wg. Levelwechsel) -> wird eigentlich nur für CBabe benötigt und wäre damit eine Sonderlösung. Andere Ideen, z.B. ein automatischer Trigger on near (haben wir in der Gasse schon)?
-    - choice Panel + Buttons bei on_resize skalieren
+    - choice Panel + Buttons bei on_resize skalieren <-- eine relativ unschöne (ungenaue) aber schnelle Lösung via scale ist eingebaut
+    Beim Testlauf mit einer unbeteiligten Person hat sich gezeigt, dass die Choices nicht klar genug als solche ersichtlich sind. Vorschläge, wie man das eindeutiger "kommunizieren" kann?
 
 Levels:
-    - Office muss umgebaut werden, Dunkelkammer wg. Taschenlampe+Effekt als eigenes Level? -> xwcg skizziere bitte mal, wie du dir das für die Rätsel vorgestellt hast
-    - Office: derzeitige Kameraführung nervt - ok die ist echt mega nervig. wie könnte man die besser positionieren? wenn man die fixiert, braucht man mindestens 2 blickwinkel. dann könnte der wechsel aber irritierend werde, einen versuch ist es aber bestimmt wert. -> Der Schwenk beim Intro ist ja schon ganz witzig eigentlich, könnte auch gern noch länger gehen. Aber während dem Spiel macht diese andauernd ändernde Perspektive das Item anklicken (besonders das Doppelklicken) zur Qual. Ok, ich guck mal.<-- bitte Kamera Code nochmal checken
+im Office bitte Kamera Code nochmal checken<-- geht nur schief, wenn man aus einem anderen Level springt...  hat evtl. mit dem level_gate Entity Call zu tun? (Levelwechsel am besten nie aus einer Entity Aktion raus oder ME rechtzeitig NULLen)
     - soll das Tanzspiel noch in den Kingmorph rein? Kennt sich da irgendjemand außer Christian damit aus?
     - Verkehrsrauschen als Ambient Sound im Gassenlevel<-- stattdessen relaxed musik
     - Ruins: Simons Telefon entfernen, Tardis Telefonzelle an besseren Platz parken.
     - Musik einbinden (Ordner Media) - "relaxed" für alley, "thegreekwoman" für greek_office
     - Musiklautstärke automatisch runterregeln falls DIalog aktiv (dlgIsDialogActive() - dialogs.h)
+    - Greek_Office von Office kopieren und Items anpassen
+    - Kingmorph ausarbeiten
 
 Models:
     
  Menü:
      Vielleicht wie in LA Noire aber in billig? http://www.wsgf.org/f/u/imagecache/node-gallery-display/contrib/dr/18091/menu_16x9.jpg <-- ist ja quasi von Felix schon fertig (kingmorph). Das würde ich jetzt nicht mehr neu machen, allenfalls kann man über nen anderen Font für die Menüpunkte nachdenken
+     - Options: MAX RESOLUTION button, der direkt  auf Monitor Aufösung Fullscreen stellt. Sonst wird man ja gaga :) - oder zumindest für den release build (Vorschlag: #ifdef RELEASE_BUILD) als default setzen
 
         
 Allgemeines:
@@ -142,6 +146,7 @@ Allgemeines:
    - Kanal 21 gehört auf der Bielefeldkarte eingekringelt. (-> Macht Felix)
      - Dialog XML Texte mit Voice Samples gegenchecken und Abweichungen sowie Tippfehler korrigieren. Punkt ans Satzende.
      - animierter Grab- Cursor -> animierter "Notfall" Grab Cursor ist drin. Schaut aber nicht gut aus.
+     - der Door Code (level_gate) triggert nicht mehr beim ersten Anklicken. Das sorgt für verständnisprobleme im Office bei der "Visitenkarten Warnung" da sie erst beim zweiten Klick kommt. Bitte wieder unfixen.
    
     
 Credits:
@@ -166,7 +171,7 @@ Credits:
         Production Team AckCon Germany unLtd.
         
         Programming
-        Robert "Firoball" Jäger -> Precious Items, Buildmaster, XML Copy&Paste Hero, Bug-squisher
+        Robert "Firoball" Jäger -> Precious Items, Buildmaster, XML Copy&Paste Hero, Bug Squisher, Typewriter Writer
         Felix "MasterQ32" Queißner -> Menu & Credits
         Felix "Superku" Pohl -> Pathfinding, Player Movement, Flashlight, Terrible Hacks
         Jonas "PadMalcom" Freiknecht -> Inventory, Camera, Dialogs
