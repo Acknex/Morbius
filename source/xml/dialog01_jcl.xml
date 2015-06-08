@@ -4,8 +4,8 @@
 	<Player id="2" file="dlg01_morbius_02.ogg" name="Morbius">Entschuldigung?</Player>
 	<NPC id="3" file="dlg01_jcl_03.ogg" name="JCL">Ich meine, Guten Tag, Lotter ist mein Name.</NPC>
 	<Choice id="4">
-		<ChoiceItem target="5" returnvalue="2">Guten Tag Herr Lotter, wie kann ich Ihnen helfen?</ChoiceItem>
-		<ChoiceItem target="7" returnvalue="2">Hatten Sie nicht gerade noch einen Italienischen Akzent?</ChoiceItem>	
+		<ChoiceItem target="5" returnvalue="2">1 - Guten Tag Herr Lotter, wie kann ich Ihnen helfen?</ChoiceItem>
+		<ChoiceItem target="7" returnvalue="2">2 - Hatten Sie nicht gerade noch einen Italienischen Akzent?</ChoiceItem>	
 	</Choice>
 	<Player id="5" file="dlg01_morbius_04a.ogg" name="Morbius">Guten Tag Herr Lotter, wie kann ich Ihnen helfen?</Player>
 	<Goto id="6" target="9" />
@@ -15,9 +15,9 @@
 	<Player id="10" file="dlg01_morbius_07.ogg" name="Morbius">Ein paar mehr Details könnte ich schon gebrauchen...</Player>
 	<NPC id="11" file="dlg01_jcl_08.ogg" name="JCL">Heißt das, Sie nehmen den Job an?</NPC>
 	<Choice id="12">
-		<ChoiceItem target="13" returnvalue="2">Ohne Details kann ich das nicht entscheiden.</ChoiceItem>
-		<ChoiceItem target="16" returnvalue="2">Es scheint mir, dass Sie es eilig haben. Warum nehmen Sie nicht erstmal einen tiefen Atem und fangen von vorne an?</ChoiceItem>	
-		<ChoiceItem target="19" returnvalue="2">Ja</ChoiceItem>	
+		<ChoiceItem target="13" returnvalue="2">1 - Ohne Details kann ich das nicht entscheiden.</ChoiceItem>
+		<ChoiceItem target="16" returnvalue="2">2 - Es scheint mir, dass Sie es eilig haben. Warum nehmen Sie nicht erstmal einen tiefen Atem und fangen von vorne an?</ChoiceItem>	
+		<ChoiceItem target="19" returnvalue="2">3 - Ja</ChoiceItem>	
 	</Choice>
 	<Player id="13" file="dlg01_morbius_09a.ogg" name="Morbius">Ohne Details kann ich das nicht entscheiden.</Player>
 	<NPC id="14" file="dlg01_jcl_10a.ogg" name="JCL">Immerhin sind Sie der Erste, der nicht als Erstes nach einem Vorschuss fragt.</NPC>

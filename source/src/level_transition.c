@@ -6,6 +6,7 @@
 #include "types.h"
 #include "inventory.h"
 #include "items.h"
+#include "chapter.h"
 
 void dynamicLevel_gate_check();
 void dynamicLevel_gate_event();
@@ -36,6 +37,11 @@ var level_change_transition(var in)
 
 void level_change(var level_id, var gate_id)
 {
+	level_change(level_id, gate_id, 0);
+}
+
+void level_change(var level_id, var gate_id, var silent)
+{
 	// Always reset camera to NOT use the spline function during level transitions
 	level_loaded = 0;
 	activeCameraType = CAMERA_TYPE_FIXED_FOLLOW;
@@ -47,6 +53,10 @@ void level_change(var level_id, var gate_id)
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
 	vec_set(sky_color,COLOR_BLACK);
+	if (!silent)
+	{
+		CHAPTER_show(level_id);
+	}
 	if(!isCameraInitialized())
 	{
 		cameraInit();
@@ -54,6 +64,10 @@ void level_change(var level_id, var gate_id)
 	}
 	if(!smd_level) smd_level = smartwalkdata_create();
 	smartwalkdata_fill(smd_level);
+	if (!silent)
+	{
+		while(CHAPTER_isVisible()) wait(1);
+	}
 	while(level_change_transition(-1) > 0) wait(1);
 	input_fetch = 1;
 	level_loaded = 1;
@@ -105,7 +119,9 @@ void level_gate_event() {
 		if (my.DOUBLE_CLICK_TIME >= 100) {
 			// Double clicked
 			player_may_walk = 0;
-			level_change(integer(my.skill2*0.01),my.skill2); // Instant level change
+			var silent = 0;
+			if(is(me, FLAG2)) silent = 1;
+			level_change(integer(my.skill2*0.01),my.skill2, silent); // Instant level change
 		} else {
 			my.DOUBLE_CLICK_TIME = 110;
 		}
@@ -139,6 +155,7 @@ void level_gate_init()
 
 //skill1: this_id 0
 //skill2: to_id 0
+//flag2: silent 0
 action level_gate()
 {
 	level_gate_init();	
@@ -150,7 +167,9 @@ action level_gate()
 		{
 			if(player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13)
 			{
-				level_change(integer(my.skill2*0.01),my.skill2);
+				var silent = 0;
+				if(is(me, FLAG2)) silent = 1;
+				level_change(integer(my.skill2*0.01),my.skill2, silent);
 				break;
 			}
 		}
@@ -192,6 +211,7 @@ void level_change_set_player_position(ENTITY* ent_pl)
 //skill4: badItemId -1
 //skill5: goodItemId -1
 //flag1: allowBadGate 0
+//flag2: silent 0
 action dynamicLevel_gate()
 {
 	level_gate_init();	
@@ -244,7 +264,10 @@ void dynamicLevel_gate_check()
 		)
 		//if (resultId != ITEM_NONE)
 		{
-			level_change(integer(my.skill2*0.01),my.skill2);
+			var silent = 0;
+			if(is(me, FLAG2)) silent = 1;
+			
+			level_change(integer(my.skill2*0.01),my.skill2, silent);
 		}
 	}
 }

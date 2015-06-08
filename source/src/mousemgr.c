@@ -83,45 +83,48 @@ void mousemgr_init()
 	var currentFrame = 0;
 	while(1)
 	{
-		int id = mousemgr_cursor % 6;
-		
-		int x = mouse_pos.x - mousemgrOffsets[2 * id + 0];
-		int y = mouse_pos.y - mousemgrOffsets[2 * id + 1];
-		
-		BMAP *map = maps[id];
-		
-		int numFrames = map->width / map->height;
-		int frame = ((int)currentFrame) % numFrames;
-		
-		draw_quad(
-			map,
-			vector(x, y, 0),
-			vector(frame * map->height, 0, 0),
-			vector(map->height, map->height, 0),
-			vector((var)mouseSize / (var)map->height, (var)mouseSize / (var)map->height, 0),
-			NULL,
-			100,
-			0);
-		
-		if(mousemgr_decoration != NULL)
+		if (mouse_mode != 0)
 		{
+			int id = mousemgr_cursor % 6;
+			
+			int x = mouse_pos.x - mousemgrOffsets[2 * id + 0];
+			int y = mouse_pos.y - mousemgrOffsets[2 * id + 1];
+			
+			BMAP *map = maps[id];
+			
+			int numFrames = map->width / map->height;
+			int frame = ((int)currentFrame) % numFrames;
+			
 			draw_quad(
-				mousemgr_decoration,
-				vector(x + mouseSize, y + 0.5 * mouseSize, 0),
-				NULL,
-				NULL, // Full size
-				NULL,
+				map,
+				vector(x, y, 0),
+				vector(frame * map->height, 0, 0),
+				vector(map->height, map->height, 0),
+				vector((var)mouseSize / (var)map->height, (var)mouseSize / (var)map->height, 0),
 				NULL,
 				100,
 				0);
+			
+			if(mousemgr_decoration != NULL)
+			{
+				draw_quad(
+					mousemgr_decoration,
+					vector(x + mouseSize, y + 0.5 * mouseSize, 0),
+					NULL,
+					NULL, // Full size
+					NULL,
+					NULL,
+					100,
+					0);
+			}
+			if(str_len(mousemgr_hint) > 0)
+			{
+				mousemgrText.pos_x = minv(x + mouseSize, screen_size.x - str_width(mousemgr_hint, mousemgrHintFont));
+				mousemgrText.pos_y = y - 0.5 * mousemgrHintFont->dy;
+				draw_obj(mousemgrText);
+			}
+			currentFrame += animationSpeed * time_step;
 		}
-		if(str_len(mousemgr_hint) > 0)
-		{
-			mousemgrText.pos_x = minv(x + mouseSize, screen_size.x - str_width(mousemgr_hint, mousemgrHintFont));
-			mousemgrText.pos_y = y - 0.5 * mousemgrHintFont->dy;
-			draw_obj(mousemgrText);
-		}
-		currentFrame += animationSpeed * time_step;
 		
 		wait(1);
 	}

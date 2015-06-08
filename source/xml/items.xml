@@ -111,7 +111,7 @@
 	</item>
 	
 	<!--Wasserverdrängungsspray-40//-->
-	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" destroyable="yes" imgfile="wd40.png">
+	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" imgfile="wd40.png">
 		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="itm_wd4001.ogg"/>
 	</item>
 	
@@ -122,7 +122,7 @@
 	</item>
 	
 	<!--Brechstange//-->
-	<item id="22" name="Brechstange" collectable="yes" destroyable="yes" imgfile="crowbar.png">
+	<item id="22" name="Brechstange" collectable="yes" imgfile="crowbar.png">
 		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="itm_brechstange01.ogg"/>
 	</item>
 	
@@ -140,7 +140,7 @@
 	</item>
 	
 	<!--Stock des Warlocks//-->
-	<item id="25" name="Stock des Warlocks" collectable="yes" imgfile="staff.png">
+	<item id="25" name="Stock" collectable="yes" imgfile="staff.png">
 		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="achievement1.wav"/>
 	</item>
 	
@@ -171,7 +171,7 @@
 	
 	<!--Versiffte Geldbörse//-->
 	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" entfile="wallet.mdl" imgfile="wallet.png">
-		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl die Person sein die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!" sound="achievement1.wav"/>
+		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl von der Person sein, die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!" sound="achievement1.wav"/>
 		<sequence description="Ein Rechnungsdurchdruck für die Griechin... für etwas, dass sich 'Motion Capture' nennt... für... 'Utopia'?" sound="achievement1.wav"/>
 		<sequence description="Warum hast du nur etwas mit diesem Fall zu tun, Griechin?" sound="achievement1.wav"/>
 	</item>
@@ -278,7 +278,7 @@
 	<!--Nummernschild Auto//-->
 	<item id="53" name="Proletenkarre">
 		<sequence description="Sieht ja schlimmer als mein Auto aus." sound="achievement1.wav"/>
-		<sequence description="Das Nummernschild ist aber witzig - so ein Zufall auch [kicher]." sound="achievement1.wav"/>
+		<sequence description="Interessantes Nummernschild... [kicher]" sound="achievement1.wav"/>
 	</item>
 </items>
 <combinations>
