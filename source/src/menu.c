@@ -9,7 +9,7 @@
 var options_show = 0;
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
 STRING *msAckmaniaVideo = "media\\ackmania_tiny.wmv";
-STRING *msPrinceOfLotteriaVideo = "media\\princeoflotteria.mp4";
+STRING *msPrinceOfLotteriaVideo = "media\\lotteria_tiny.wmv";
 BMAP *bmpMenuLogo = "graphics\\textures\\logo.png";
 FONT *fontCalibri48 = "Calibri#48b";
 SOUND *sndMenuClick = "sounds\\menu-click.wav";
@@ -26,6 +26,7 @@ typedef struct {
 } MenuStop;
 
 typedef struct {
+	var active;
 	var music;
 	void *on_ent_remove;
 	void *on_space;
@@ -38,6 +39,10 @@ typedef struct {
 	float lerp;
 	int isIdle;
 	float fade;
+	struct {
+		var ackmania;
+		var lotteria;
+	} media;
 } MenuData;
 
 MenuData _menu;
@@ -76,8 +81,16 @@ void menu_switch(int dir)
 
 void menu_close()
 {
+	_menu.active = 0;
 	media_stop(_menu.music);
 	_menu.music = 0;
+	
+	if(_menu.media.ackmania) {
+		media_stop(_menu.media.ackmania);
+	}
+	if(_menu.media.lotteria) {
+		media_stop(_menu.media.lotteria);
+	}
 	
 	_menu.on_ent_remove = on_ent_remove;
 	on_space = _menu.on_space;
@@ -456,6 +469,7 @@ void menu_open()
 	
 	// Initialize menuData
 	memset(_menu, 0, sizeof(MenuData));
+	_menu.active = 1;
 	_menu.on_ent_remove = on_ent_remove;
 	_menu.on_space = on_space;
 	_menu.on_enter = on_enter;
@@ -606,25 +620,24 @@ void menu_startup()
 var lerp(var v1, var v2, var f)
 { return ((1-f)*v1 + f*v2); }
 
-var kingMediaPrince = 0;
-var kingMediaMania = 0;
-
 action king_prince(void)
 {
-	return;
-	if(kingMediaPrince == 0) {
-		BMAP *skin = ent_getskin(me, 2);
-		kingMediaPrince = media_loop(msPrinceOfLotteriaVideo, skin, 0);
-	}
+	static BMAP *skin = NULL;
+	if(_menu.active == 0)
+		return;
+	if(skin == NULL) skin = bmap_createblack(320, 240, 888);
+	_menu.media.lotteria = media_loop(msPrinceOfLotteriaVideo, skin, 0);
+	ent_setskin(me, skin, 2);
 }
 
 action king_mania(void)
 {
-	if(kingMediaMania == 0) {
-		BMAP *skin = bmap_createblack(320, 240, 888);
-		kingMediaMania = media_loop(msAckmaniaVideo, skin, 0);
-		ent_setskin(me, skin, 2);
-	}
+	static BMAP *skin = NULL;
+	if(_menu.active == 0)
+		return;
+	if(skin == NULL) skin = bmap_createblack(320, 240, 888);
+	_menu.media.ackmania = media_loop(msAckmaniaVideo, skin, 0);
+	ent_setskin(me, skin, 2);
 }
 
 action king_dancer(void)
