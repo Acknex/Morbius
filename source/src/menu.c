@@ -483,7 +483,7 @@ void menu_open()
 	
 	
 	level_load("level\\kingmorph_menu.wmb");
-	
+
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
 	
@@ -573,7 +573,8 @@ void menu_startup()
 {
 	vec_set(_menu_stops[0].position, vector(1056, -280, 334));
 	vec_set(_menu_stops[0].rotation, vector(203, -12, 0));
-	strcpy(_menu_stops[0].title, "<IDLE MENU>");
+	//strcpy(_menu_stops[0].title, "<IDLE MENU>");
+	strcpy(_menu_stops[0].title, "");
 	
 	vec_set(_menu_stops[1].position, vector(-76, -1379, 310));
 	vec_set(_menu_stops[1].rotation, vector(52, -21, 0));
