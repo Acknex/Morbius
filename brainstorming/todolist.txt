@@ -110,6 +110,10 @@ Die 5 Sätze sind mal in der items.xml definiert fürs Erste. Erwarten als sound
 <sequence description="Eine funktionierende Taschenlampe. Her damit!" sound="achievement1.wav"/> (wenn man Batterien mit leerer Taschenlampe vor dem Einsammeln kombiniert)
 <sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL." sound="achievement1.wav"/> (ggf. anpassen)
 <sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius." sound="achievement1.wav"/> (ggf. anpassen)
+(1) ein Item Einsammel Sound, 
+(2) einen dezenten Sound für eine erfolgreiche Kombination (dezent deswegen, weil es bei einer "guten" Kombi auch mal nur nen Tip zur eigentlichen Lösung gibt), 
+(3) Sound für eine fehlgeschlagene Kombination. 
+Die derzeitigen Sounds sind Platzhalter und passen einfach nicht zum Rest.
 
 Spiellogik:
 Mögliche Item Kombinationen für Disco und Gasse (Erweiterung der ID Combinations itemliste.txt) falls noch nicht komplett
@@ -132,6 +136,7 @@ im Office bitte Kamera Code nochmal checken<-- geht nur schief, wenn man aus ein
     - Musiklautstärke automatisch runterregeln falls DIalog aktiv (dlgIsDialogActive() - dialogs.h)
     - Greek_Office von Office kopieren und Items anpassen
     - Kingmorph ausarbeiten
+    - Endsequenz im Final_Office <-- wie genau soll die aussehen?
 
 Models:
     
