@@ -71,7 +71,7 @@
 	</item>
 	
 	<!--Regal//-->
-	<item id="13" name="Schwedisches Regal mit vier Buchstaben">
+	<item id="13" name="Schwedisches Regal">
 		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown." sound="itm_regal01.ogg"/>
 	</item>
 	
@@ -183,10 +183,13 @@
 	
 	<!--Bonzai Zuckerrohr//-->
 	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes" imgfile="sugar_cane.png">
+		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium." sound="achievement1.wav"/>
+		<sequence description="Vielleicht kann ich aus diesem Zuckerrohr Zucker herstellen." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Topf//-->
 	<item id="34" name="Topf" destroyable="yes">
+		<sequence description="Ein Topf." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Topf mit Zuckerrohr//-->
@@ -199,6 +202,7 @@
 	
 	<!--Herd//-->
 	<item id="37" name="Herd">
+		<sequence description="Ein Standard-Elektroherd." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Griechin//-->
@@ -256,6 +260,11 @@
 	<item id="48" name="Dunkelkammer">
 		<sequence description="Das ist meine Dunkelkammer. Eigentlich eine Kochnische die ich dazu entfremdet habe." sound="achievement1.wav"/>
 		<sequence description="Das ist eine DUNKELkammer, ich geh da nicht ohne Licht rein!" sound="achievement1.wav"/>
+	</item>
+	
+	<!--Bonzai Zuckerrohr Dummy//-->
+	<item id="49" name="Bonzai Zuckerrohr">
+		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Toter Warlock//-->

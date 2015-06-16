@@ -62,6 +62,7 @@ Büro:
 37      Herd
 38      Griechin
 39      Thermoskanne                    x   x
+49      Bonzai Zuckerrohr Dummy
 
 
 Custom Events

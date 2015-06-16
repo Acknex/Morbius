@@ -64,6 +64,11 @@ action interactionItem()
 		item = ITEM_get(my->itemId);
 	}
 
+	if ((item->collectable != 0) && (ITEM_isNowCollectable(item) != 0))
+	{
+		my->material = mat_item;
+	}
+
 	if (item->wasRemoved != 0)
 	{
 		ptr_remove(me);
@@ -72,7 +77,7 @@ action interactionItem()
 	//restore item state: end
 
 	if(is(my,FLAG5)) my.vmask |= (1<<1);
-	my->material = mat_item;
+//	my->material = mat_item;
 	reset(my, INVISIBLE | TRANSLUCENT);
 	my->event = interactionItem__eventHandler;
 	my->emask |= ENABLE_CLICK | ENABLE_TOUCH | ENABLE_RELEASE;
@@ -241,6 +246,11 @@ void interactionItem__clicked()
 		resultId = ITEM_interaction(item);
 		
 
+		if ((item->collectable != 0) && (ITEM_isNowCollectable(item) != 0))
+		{
+			my->material = mat_item;
+		}
+
 		if (resultId != ITEM_NONE)
 		{
 			ITEM* itemToAdd = ITEM_get(resultId);
@@ -356,6 +366,12 @@ void interactionItem__morph(int targetId, int morphId)
 	}
 	ent->itemId = morphId;
 	ent->ENTITY_TYPE = TYPE_ITEM;
+
+	if ((item->collectable != 0) && (ITEM_isNowCollectable(item) != 0))
+	{
+		ent->material = mat_item;
+	}
+
 	if (is(ent, itemHover))
 	{
 		mousemgr_hint(item->name);
