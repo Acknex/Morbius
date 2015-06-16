@@ -4,6 +4,7 @@ PATH "src";
 PATH "models";
 PATH "models\\items";
 PATH "level";
+PATH "graphics";
 PATH "graphics\\cursors";
 PATH "graphics\\items";
 PATH "graphics\\textures";
