@@ -64,7 +64,7 @@ void sys_init() {
 	long resY = (double) sys_metrics(SM_CYSCREEN) * resFac;
 	
 	video_set(resX, resY, 0, 2);
-	video_window(NULL, NULL, 0, "Morbius - Die Utopia-Verschwörung");
+	video_window(NULL, NULL, 0, "Morbius - The Utopia Conspiracy");
 	
 	random_seed((sys_seconds % sys_month) * sys_hours - 42);
 	

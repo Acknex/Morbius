@@ -203,6 +203,7 @@ void level_change_set_player_position(ENTITY* ent_pl)
 #define goodItemId skill5
 #define activeItemId skill6
 #define ALLOWBADGATE FLAG1
+#define gateWasClicked FLAG3
 
 
 //skill1: this_id 0
@@ -229,32 +230,41 @@ action dynamicLevel_gate()
 			my->activeItemId = my->badItemId;
 		}
 		
-		
+/*		VECTOR* minvec = vector(my.skill10,my.skill11, -100);
+		VECTOR* maxvec = vector(my.skill12,my.skill13, 100);
+		draw_box3d(minvec,maxvec,vector(0,0,255),100);*/
 		if(player)
 		{
-			if(player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13)
+			if(
+				player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13
+				&& is(my, gateWasClicked)
+			)
 			{
 				dynamicLevel_gate_check();
-				break;
+				//break;
+			}
+			else
+			{
+				if (my.DOUBLE_CLICK_TIME > 0) 
+				{
+					my.DOUBLE_CLICK_TIME -=1 * time_step;
+				}
 			}
 		}
 		
-		if (my.DOUBLE_CLICK_TIME > 0) 
-		{
-			my.DOUBLE_CLICK_TIME -=1 * time_step;
-		}
 		wait(1);
 	}
 }
 
 void dynamicLevel_gate_check()
 {
+	reset(my, gateWasClicked);
+	
 	ITEM* item = ITEM_get(my->activeItemId);
-	int resultId;
 	
 	if (item != NULL)
 	{
-		resultId = ITEM_interaction(item);
+		ITEM_interaction(item);
 	
 		if (ITEM_isLastSequence(item) != 0 && 
 			(
@@ -262,7 +272,6 @@ void dynamicLevel_gate_check()
 				(my->activeItemId == my->goodItemId)
 			)
 		)
-		//if (resultId != ITEM_NONE)
 		{
 			var silent = 0;
 			if(is(me, FLAG2)) silent = 1;
@@ -279,6 +288,8 @@ void dynamicLevel_gate_event()
 		
 	if (event_type == EVENT_CLICK) 
 	{
+		set(my, gateWasClicked);
+
 		if (my.DOUBLE_CLICK_TIME >= 100) 
 		{
 			// Double clicked
