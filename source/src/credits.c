@@ -40,34 +40,34 @@ void credits_ent_remove(ENTITY *ent)
 
 void credits_core()
 {
+	vec_set(sky_color, vector(0, 0, 0));
 	_credits.music = media_play(msCreditsMusic, NULL, 100);
 	if(_credits.music == NULL)
 		error("Failed to play media :(");
 	
 	proc_mode = PROC_LATE;
 	
-	//BMAP *screen = bmap_createblack(bmpCreditsText.width, bmpCreditsText.width, 888);
+	wait(1);
 	
+	_credits.scroll = -screen_size.y;
 	while(1)
 	{
-		var scale = screen_size.x / bmpCreditsText.width;
+		float scale = 1.2;
+		float aspect = screen_size.y / screen_size.x;
+		int x = (screen_size.x - scale * bmpCreditsText.width) / 2;
 		draw_quad(
 			bmpCreditsText,
-			vector(0, 0, 0),
-			vector(0, _credits.scroll, 0),
-			vector(bmpCreditsText.width, bmpCreditsText.width, 0),
-			vector(scale, scale, 0),
+			vector(x, -minv(_credits.scroll, 0), 0),
+			vector(0, maxv(_credits.scroll, 0), 0),
+			vector(bmpCreditsText.width, screen_size.y / scale, 0),
+			vector(scale, scale, 1),
 			COLOR_WHITE,
 			100,
 			0);
 		
-		var speed = 1 + key_space;
+		_credits.scroll = minv(_credits.scroll + 2 * time_step, bmpCreditsText.height);
 		
-		media_tune(_credits.music, 100, 100 * speed, 0);
-		
-		_credits.scroll = clamp(_credits.scroll + 10 * speed * time_step, 0, bmpCreditsText.height - screen_size.y);
-		
-		if((media_playing(_credits.music) == 0) && (_credits.scroll == (bmpCreditsText.height - screen_size.y - 1)))
+		if(_credits.scroll == bmpCreditsText.height)
 		{
 			credits_stop();
 		}
