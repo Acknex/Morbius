@@ -41,7 +41,7 @@ void credits_ent_remove(ENTITY *ent)
 
 void credits_core()
 {
-	vec_set(sky_color, vector(0, 0, 0));
+	vec_set(sky_color, vector(1, 1, 1));
 	_credits.music = media_play(msCreditsMusic, NULL, 100);
 	if(_credits.music == NULL)
 		error("Failed to play media :(");
