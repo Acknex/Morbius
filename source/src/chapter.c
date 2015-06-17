@@ -70,7 +70,8 @@ int CHAPTER_load(STRING* file)
 	var count;
 	var i;
 	
-	AddFontResource("media//Kingthings Trypewriter 2.ttf");
+	var x = AddFontResource("media//Kingthings Trypewriter 2.ttf");
+	error(str_for_num(NULL, x));
 	CHAPTER__bgPanel->bmap = bmap_createblack(64, 64, 888);
 	CHAPTER__bgPanel->size_x = 64;
 	CHAPTER__bgPanel->size_y = 64;
