@@ -126,7 +126,7 @@ void EVENT__evaluate(int triggerId)
 		//office startup
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
-break;
+//break;
 			//fix this shit start
 			error("event.c case 1001: TODO: Zeitungsartikelintrogedöns
 			
