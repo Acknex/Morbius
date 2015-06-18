@@ -71,6 +71,7 @@ int CHAPTER_load(STRING* file)
 	var i;
 	
 	AddFontResource("media//Kingthings Trypewriter 2.ttf");
+	//SendMessage(HWND_BROADCAST, WM_FONTCHANGE, (WPARAM)0, (LPARAM)0);
 	CHAPTER__bgPanel->bmap = bmap_createblack(64, 64, 888);
 	CHAPTER__bgPanel->size_x = 64;
 	CHAPTER__bgPanel->size_y = 64;
@@ -125,6 +126,7 @@ void CHAPTER_close()
 
 	ptr_remove(CHAPTER__bgPanel->bmap);
 	RemoveFontResource("media//Kingthings Trypewriter 2.ttf");
+	//SendMessage(HWND_BROADCAST, WM_FONTCHANGE, (WPARAM)0, (LPARAM)0);
 }
 
 

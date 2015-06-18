@@ -24,7 +24,6 @@
 
 void interactionItem__clicked();
 void interactionItem__eventHandler();
-void interactionItem__morph(int targetId, int morphId);
 ENTITY* interactionItem__find(int id);
 void interactionItem__findSpawnPoint(int id, VECTOR* position, VECTOR* angle, var* border);
 void interactionItem__setNearZone(VECTOR* vec, var border);
@@ -60,7 +59,7 @@ action interactionItem()
 	while (item->wasMorphedTo != -1)
 	{
 		//loop through all morph stages
-		interactionItem__morph(item->id, item->wasMorphedTo);
+		interactionItem_morph(item->id, item->wasMorphedTo);
 		item = ITEM_get(my->itemId);
 	}
 
@@ -133,6 +132,11 @@ action interactionSpawnPnt()
 			interactionItem_spawn(my->itemId, &my->x, &my->pan, my->itemBorder);
 		}
 	}	
+}
+
+void interactionItem_remoteStart()
+{
+	interactionItem();
 }
 
 var interactionItem_isNearPlayer(ENTITY* ent)
@@ -213,7 +217,7 @@ void interactionItem__clicked()
 				if (targetId != ITEM_NONE)
 				{
 					//morph defined target item
-					interactionItem__morph(targetId, resultId);
+					interactionItem_morph(targetId, resultId);
 				}
 				else
 				{
@@ -342,7 +346,7 @@ void interactionItem__eventHandler()
 	
 }
 
-void interactionItem__morph(int targetId, int morphId)
+void interactionItem_morph(int targetId, int morphId)
 {
 	ENTITY* ent;
 	ITEM* item;
@@ -370,6 +374,14 @@ void interactionItem__morph(int targetId, int morphId)
 	if ((item->collectable != 0) && (ITEM_isNowCollectable(item) != 0))
 	{
 		ent->material = mat_item;
+	}
+	else
+	{
+		//stop item flashing when morphing from collectable to non collectable
+		if (ent->material == mat_item)
+		{
+			ent->material = mtl_model;
+		}
 	}
 
 	if (is(ent, itemHover))

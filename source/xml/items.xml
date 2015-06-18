@@ -188,16 +188,20 @@
 	</item>
 	
 	<!--Topf//-->
-	<item id="34" name="Topf" destroyable="yes">
+	<item id="34" name="Topf">
 		<sequence description="Ein Topf." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Topf mit Zuckerrohr//-->
-	<item id="35" name="Topf" destroyable="yes">
+	<item id="35" name="Topf mit Zuckerrohr">
+		<sequence description="Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium." sound="achievement1.wav"/>
+		<sequence description="Wenn ich mich jetzt noch erinnern würde, wie man aus Zuckerrohr Zucker herstellt, dann wäre ich ganz klar im Vorteil." sound="achievement1.wav"/>
+		<sequence description="Ich glaube der muss etwas erhitzt werden, oder so?" sound="achievement1.wav"/>
 	</item>
 	
 	<!--Topf mit Zucker//-->
-	<item id="36" name="Topf" collectable="yes" destroyable="yes" imgfile="sugar_pot.png">
+	<item id="36" name="Topf mit Zucker" collectable="yes" destroyable="yes" imgfile="sugar_pot.png">
+		<sequence description="Ein gelungenes Experiment der Zuckerherstellung aus biologischem Anbau! Garantiert ohne Gluten. Oder doch? Keine Ahnung." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Herd//-->
@@ -205,12 +209,14 @@
 		<sequence description="Ein Standard-Elektroherd." sound="achievement1.wav"/>
 	</item>
 	
-	<!--Griechin//-->
-	<item id="38" name="Griechin">
+	<!--Thermoskanne gezuckert//-->
+	<item id="38" name="Thermoskanne" collectable="yes" destroyable="yes" imgfile="coffee_can.png">
+		<sequence description="Eine Thermoskanne mit gezuckertem Kaffee." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Thermoskanne//-->
-	<item id="39" name="Thermoskanne" collectable="yes" destroyable="yes" imgfile="coffee_can.png">
+	<item id="39" name="Thermoskanne" collectable="yes" imgfile="coffee_can.png">
+		<sequence description="Eine Thermoskanne mit Kaffee." sound="achievement1.wav"/>
 	</item>
 	
 	<!--Münzen//-->
@@ -289,6 +295,23 @@
 		<sequence description="Sieht ja schlimmer als mein Auto aus." sound="achievement1.wav"/>
 		<sequence description="Interessantes Nummernschild... [kicher]" sound="achievement1.wav"/>
 	</item>
+
+	<!--Fake Futter//-->
+	<item id="54" name="Futter">
+		<sequence description="Also dafür habe ich nun wirklich keine Zeit." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Benutzbarer Herd//-->
+	<item id="55" name="Herd">
+		<sequence description="Ah genau, wir kochen das Zuckerrohr zu einer rohen Masse und lassen die Flüssigkeit verdampfen... und was übrig bleibt ist... Zucker!" result="1009" sound="achievement1.wav"/>
+		<sequence description="Ein Standard-Elektroherd." sound="achievement1.wav"/>
+	</item>
+	
+	<!--Griechin//-->
+	<item id="56" name="Griechin">
+		<sequence description="Die Griechin. Eine meiner besten Freundschaften." sound="achievement1.wav"/>
+	</item>
+	
 </items>
 <combinations>
 	<!--Schubladenschlüssel mit Abgeschlossene Schublade//-->
@@ -319,15 +342,18 @@
 	<combination id1="30" id2="23" morphtarget="23" description="Ah ha, eine Geldbörse!" result="32"/>
 
 	<!--Bonzai Zuckerrohr mit Topf//-->
-	<combination id1="33" id2="34" morphtarget="34" result="35"/>
+	<combination id1="33" id2="34" morphtarget="34" description="Jetzt hab ich Zuckerrohr in einen Topf gelegt. Das hast du toll gemacht, Morbius." result="35"/>
 
-	<!--Topf mit Zuckerrohr mit Herd//-->
-	<combination id1="35" id2="37" morphtarget="35" result="36"/>
+	<!--Topf mit Zucker mit Thermoskanne//-->
+	<combination id1="36" id2="39" morphtarget="39" description="Da ist jetzt gezuckerter Thermoskannenkaffee drin." result="38"/>
 
-	<!--Dialog Trigger1//-->
+	<!--Thermoskanne gezuckert mit Griechin//-->
+	<combination id1="38" id2="56" result="1010"/>
+
+	<!--Münze mit Telefonzelle//-->
 	<combination id1="40" id2="19" morphtarget="19" result="41"/>
 
-	<!--Dialog Trigger2//-->
+	<!--Münze mit Telefonzelle benutzt//-->
 	<combination id1="40" id2="41" morphtarget="41" result="42"/>
 
 	<!-- Combination failures//-->

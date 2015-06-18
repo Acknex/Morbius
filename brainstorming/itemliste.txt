@@ -60,9 +60,13 @@ Büro:
 35      Topf mit Zuckerrohr                 x
 36      Topf mit Zucker                 x   x
 37      Herd
-38      Griechin
-39      Thermoskanne                    x   x
+//38      Griechin
+38      Thermoskanne gezuckert          x
+39      Thermoskanne                    x 
 49      Bonzai Zuckerrohr Dummy
+54      Fake Futter
+55      Benutzbarer Herd
+56      Griechin
 
 
 Custom Events

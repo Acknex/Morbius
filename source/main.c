@@ -6,6 +6,7 @@
 #define PRAGMA_LEVEL "level\\ruin.wmp"
 #define PRAGMA_LEVEL "level\\ruin_indoor.wmp"
 #define PRAGMA_LEVEL "level\\office.wmp"
+#define PRAGMA_LEVEL "level\\greek_office.wmp"
 #define PRAGMA_LEVEL "level\\kingmorph.wmp"
 #define PRAGMA_LEVEL "level\\kingmorph_menu.wmp"
 #define PRAGMA_LEVEL "level\\office_credits.wmp"
@@ -26,6 +27,7 @@
 #include "inventory.h"
 #include "camera.h"
 #include "alley.c"
+#include "office.h"
 
 #define DEBUG
 #ifdef DEBUG
@@ -37,4 +39,5 @@ void main() {
 	sys_init(); // system.c
 	wait(1);
 	menu_open(); // menu.c
+//startGame();
 }

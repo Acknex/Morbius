@@ -3,6 +3,7 @@
 #include "inventory.h"
 #include "level_transition.h"
 #include "player.h"
+#include "office.h"
 
 //DO NOT EDIT - START
 int EVENT__triggerId = -1;
@@ -66,8 +67,6 @@ SOUND* fritzCallSnd = "fritz_call.ogg";
 SOUND* galepCallSnd = "galep_call.ogg";
 SOUND* phoneHangupSnd = "phone_hangup.ogg";
 long EVENT__entrylock = 0;
-ENTITY* OFFICE__officeChairEnt = NULL;
-ENTITY* OFFICE__officeStartEnt = NULL;
 
 
 void EVENT__evaluate(int triggerId)
@@ -92,6 +91,13 @@ void EVENT__evaluate(int triggerId)
 		case 32:
 		{
 			interactionItem_spawn(ITEM_ID_GELDBOERSE);
+			break;
+		}
+		
+		//Topf -> Topf mit Zuckerrohr
+		case 35:
+		{
+			interactionItem_morph(37, 55); //Herd -> benutzbarer Herd
 			break;
 		}
 		
@@ -139,23 +145,8 @@ Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weit
 Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.");
 			//fix this shit end
 //break;
-			VECTOR* temp;
-			if (player != NULL)
-			{
-				if (OFFICE__officeChairEnt != NULL)
-				{
-					vec_set(&player->x, &OFFICE__officeChairEnt->x);
-					vec_set(&player->pan, &OFFICE__officeChairEnt->pan);
-					//dirty hackaround
-					player->pan += 90;
-					player->tilt = 10;
-					player->z += 30;
-				}
-				temp = vector(0,80,0);
-				ent_bonerotate(player,"Joint_3_3",temp);
-				ent_bonerotate(player,"Joint_3_4",temp);
-			}
-			
+			morbius_sit();
+				
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog00.xml");
 			//wait(-1.5);
@@ -164,19 +155,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog01.xml");
 			
-			if (player != NULL)
-			{
-				if (OFFICE__officeStartEnt != NULL)
-				{
-					vec_set(&player->x, &OFFICE__officeStartEnt->x);
-					vec_set(&player->pan, &OFFICE__officeStartEnt->pan);
-				}
-				temp = vector(0,-80,0);
-				ent_bonerotate(player,"Joint_3_3",temp);
-				ent_bonerotate(player,"Joint_3_4",temp);
-				//dirty hackaround: fool smartwalk
-				vec_set(player->target_x,player->x);
-			}
+			morbius_stand();
 			break;			
 		}
 		
@@ -211,9 +190,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		//leave alley
 		case 1006:
 		{
-			error ("this is it.");
-			sys_exit("this is it.");
-			//level_change(4, 1); //todo adjust for greek_office
+			level_change(5, 1);
 			break;
 		}
 		
@@ -221,6 +198,46 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		case 1007:
 		{
 			wait_for_dlg("xml\\monolog08.xml");
+			break;
+		}
+
+		//enter greek office
+		case 1008:		
+		{
+			morbius_sit();
+			
+			wait(-1.5);
+			wait_for_dlg("xml\\dialog04_greek1.xml");
+			//fool player - gecko feeding only in first office level
+			if (ITEM_get(6) != NULL)
+			{
+				interactionItem_morph(6, 54); //Futter -> Fake Futter
+			}
+
+			morbius_stand();
+			break;
+		}
+		
+		//Herd einschalten
+		case 1009:
+		{
+			//todo: kochsounds, rauchschwaden?
+			wait (-1.5);
+			interactionItem_morph(35, 36); //Topf mit Zuckerrohr -> Topf mit Zucker
+			
+			break;
+		}
+		
+		//Thermoskanne gezuckert mit Griechin
+		case 1010:
+		{
+			morbius_sit();
+			
+			wait(-1.5);
+			wait_for_dlg("xml\\dialog04_greek2.xml");
+
+			morbius_stand();
+			//TODO: office Tür
 			break;
 		}
 		
@@ -247,17 +264,6 @@ void EVENT__unlock()
 
 	inv_show(inventory);
 	player_may_walk = 1;
-}
-
-action officeChair()
-{
-	OFFICE__officeChairEnt = me;
-}
-
-action officeStart()
-{
-	set(my, INVISIBLE | PASSABLE);
-	OFFICE__officeStartEnt = me;
 }
 
 //skill1: EntityType 6
@@ -341,3 +347,4 @@ action untouchableObject()
 	my->flags2 |= UNTOUCHABLE;
 	set(my, PASSABLE);
 }
+
