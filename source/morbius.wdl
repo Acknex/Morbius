@@ -17,3 +17,13 @@ PATH "sounds\\monolog";
 PATH "sounds\\items";
 
 RESOURCE "samples.wrs";
+
+WINDOW WINSTART
+{
+  TITLE "Utopia - The Morbius Conspiracy";
+  SIZE 359,640;
+  MODE IMAGE;	
+  BG_COLOR RGB(0, 0, 0);
+  BG_PATTERN <morbius.pcx>,OPAQUE;
+  PROGRESS RGB(255, 255, 255), 14, 0, 610, 395, 30;
+}

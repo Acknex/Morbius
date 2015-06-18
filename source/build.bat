@@ -15,16 +15,17 @@ rem options.scr does not allow to ignore certain folders so provoke
 rem file not found for everything in "media" with folder renaming
 
 ren media media_renamed_by_buildscript
-wed -r main.c
-rem wed -p main.c
+wed -r morbius.c
+rem wed -p morbius.c
 ren media_renamed_by_buildscript media
 
 echo.
 echo Copy unresourced files...
-xcopy /y media\*.* main.cd\media\
-xcopy  main.cd\*.xml main.cd\xml\
-del main.cd\*.xml
-del main.exe
+xcopy /y media\*.* morbius.cd\media\
+xcopy  morbius.cd\*.xml morbius.cd\xml\
+copy wdf\acknex.wdf morbius.cd\acknex.wdf
+del morbius.cd\*.xml
+del morbius.exe
 
 echo.
 echo Finished.
