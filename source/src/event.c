@@ -127,7 +127,7 @@ void EVENT__evaluate(int triggerId)
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog05.xml");			
 			
-			level_change(2, 1);
+			level_change(2, 1); //alley
 			break;
 		}
 		
@@ -192,7 +192,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		//leave alley
 		case 1006:
 		{
-			level_change(5, 1);
+			level_change(5, 1); //greek_office
 			break;
 		}
 		

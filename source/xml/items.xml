@@ -193,14 +193,14 @@
 	</item>
 	
 	<!--Topf mit Zuckerrohr//-->
-	<item id="35" name="Topf mit Zuckerrohr">
+	<item id="35" name="Topf mit Zuckerrohr" entfile="cane_pot.mdl">
 		<sequence description="Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium." sound="achievement1.wav"/>
 		<sequence description="Wenn ich mich jetzt noch erinnern würde, wie man aus Zuckerrohr Zucker herstellt, dann wäre ich ganz klar im Vorteil." sound="achievement1.wav"/>
 		<sequence description="Ich glaube der muss etwas erhitzt werden, oder so?" sound="achievement1.wav"/>
 	</item>
 	
 	<!--Topf mit Zucker//-->
-	<item id="36" name="Topf mit Zucker" collectable="yes" destroyable="yes" imgfile="sugar_pot.png">
+	<item id="36" name="Topf mit Zucker" collectable="yes" destroyable="yes" entfile="sugar_pot.mdl" imgfile="sugar_pot.png">
 		<sequence description="Ein gelungenes Experiment der Zuckerherstellung aus biologischem Anbau! Garantiert ohne Gluten. Oder doch? Keine Ahnung." sound="achievement1.wav"/>
 	</item>
 	

@@ -252,6 +252,7 @@
 /*-----------------------------*/
 #define PRAGMA_BIND "business_card.tga"
 #define PRAGMA_BIND "coffee_can.tga"
+#define PRAGMA_BIND "colorlibrary.tga"
 #define PRAGMA_BIND "gecko_yum.tga"
 #define PRAGMA_BIND "sugar_cane.tga"
 
@@ -260,6 +261,7 @@
 /*-----------------------------*/
 #define PRAGMA_BIND "a3_box.mdl"
 #define PRAGMA_BIND "business_card.mdl"
+#define PRAGMA_BIND "cane_pot.mdl"
 #define PRAGMA_BIND "coffee_can.mdl"
 #define PRAGMA_BIND "crowbar.mdl"
 #define PRAGMA_BIND "downtown.mdl"
@@ -276,6 +278,7 @@
 #define PRAGMA_BIND "schublade_offen.mdl"
 #define PRAGMA_BIND "staff.mdl"
 #define PRAGMA_BIND "sugar_cane.mdl"
+#define PRAGMA_BIND "sugar_pot.mdl"
 #define PRAGMA_BIND "topf.mdl"
 #define PRAGMA_BIND "wallet.mdl"
 #define PRAGMA_BIND "wd40.mdl"
