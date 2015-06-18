@@ -209,10 +209,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			OFFICE_morbius_sit();
 			
 			//fool player - gecko feeding only allowed in first office level
-			if (ITEM_get(6) != NULL)
-			{
-				interactionItem_morph(6, 54); //Futter -> Fake Futter
-			}
+			interactionItem_morph(6, 54); //Futter -> Fake Futter
 
 			wait(-1.5);
 			wait_for_dlg("xml\\dialog04_greek1.xml");

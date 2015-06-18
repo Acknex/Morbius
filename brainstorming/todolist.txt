@@ -62,16 +62,21 @@ Projektordner (alles unter "source"):
 
 
 Inventory:
-    - on_resize Event auswerten und Inventory dynamisch positionieren und skalieren
 
 HUD:
-Hätte gerne einen schwarzen Balken überm Inventory, wo die Itembeschreibung steht. Mach ich -> Jonas) <-- hat sich vermutlich mittlerweile erübrigt?
     - über HUD_getFont() kann der aktuelle Font geholt werden. Wird beim resize Event automatisch skaliert. Dazu muss man ihn aber bei einem eigenen resize Event auch neu zuweisen. Beispiel siehe mousemgr.c
     
 Player:
-
+    - die Möglichkeit über Funktionsaufruf den Spieler zu einem bestimmten Punkt laufen zu lassen, auch wenn die Mauseingabe aktuell blockiert ist (player_may_walk = 0)
+    - einfache Gestik Animationen für Gespräch mit Griechin (Arme und Kopf)
 
 Itemmgr:
+
+Musicmgr:
+    - fehlt noch komplett
+    - soll je nach Level eine bestimmte Musik abspielen,a utomatisch einfaden bei Levelstart und ausfaden bei Levelende
+    - Musiklautstärke automatisch runterregeln falls DIalog aktiv (dlgIsDialogActive() - dialogs.h)
+
 
 Level_transition:
 
@@ -80,9 +85,6 @@ Sagen wir, du befindest dich in Level 1 (von 0 beginnend) und möchtest über ei
 Diese muss eine dreistellige Zahl sein und mit 3 beginnen, da es das dritte Level ist. Bspw. kann man als IDs 301, 302, 317 wählen. Um nun von Level 1 das dritte Level über eine Tür zu betreten und wenn du willst, dass der Spieler in Level 3 auch an der richtigen Position
 spawnt, dann musst du in Level 1 einfach in dem entsprechenden "level_gate" (einer Aktion, siehe ruin.wmp) bei "to_id" aka skill2 die korrekte ID, sagen wir 302, eintragen. Das ist gate_id.
 (Bei je 2 level_gates ist also skill1 und skill2 vertauscht, je nachdem welches Level dadurch betreten oder verlassen wird.)
-- Die dunkle Gasse ist testweise mit einfacher Kamera, Morbius und Regionen drin und kann ausgearbeitet werden. <-- aus funktionaler Sicht fertig, ggf. Items zurechtrutschen
-- "Tonnen" im ruins gebaut zu Springen in die anderen Levels müssen irgendwann wieder entfernt werden. jumpsites.wmp anlegen? Keinen Bock...
-- Im Menü kann man Level Transitions triggern -> king morph für Menü am besten separat halten? (War so angedacht, dass man das Level zwei mal hat)
 
 Events:
 
@@ -117,15 +119,11 @@ Die derzeitigen Sounds sind Platzhalter und passen einfach nicht zum Rest.
 
 Spiellogik:
 Mögliche Item Kombinationen für Disco und Gasse (Erweiterung der ID Combinations itemliste.txt) falls noch nicht komplett
-zugehörige Texte (Erweiterung itemtexte.txt) -> nur noch für Disco und Greek_Office
+zugehörige Texte (Erweiterung itemtexte.txt) -> nur noch für Disco
 Übernahme der Logik nach items.xml mit Sprachsamples (Dateinamen der Samples?) 
 
 
 Dialogsystem:
-    - aktuellen Satz abbrechen mit Enter oder Space... (schnelles Durchklicken)
-    - ansprechbare Entities einbauen. Verhalten bei Hovern ähnlich dem itemmgr, aber eben Sprechblasencursor, mit Verriegelugnsfeature (Dialoge können nur einmal geführt werden) und Savefeature mit globaler var (wg. Levelwechsel) -> wird eigentlich nur für CBabe benötigt und wäre damit eine Sonderlösung. Andere Ideen, z.B. ein automatischer Trigger on near (haben wir in der Gasse schon)?
-    - choice Panel + Buttons bei on_resize skalieren <-- eine relativ unschöne (ungenaue) aber schnelle Lösung via scale ist eingebaut
-    Beim Testlauf mit einer unbeteiligten Person hat sich gezeigt, dass die Choices nicht klar genug als solche ersichtlich sind. Vorschläge, wie man das eindeutiger "kommunizieren" kann?
 
 Levels:
 im Office bitte Kamera Code nochmal checken<-- geht nur schief, wenn man aus einem anderen Level springt...  hat evtl. mit dem level_gate Entity Call zu tun? (Levelwechsel am besten nie aus einer Entity Aktion raus oder ME rechtzeitig NULLen)
@@ -133,8 +131,6 @@ im Office bitte Kamera Code nochmal checken<-- geht nur schief, wenn man aus ein
     - Verkehrsrauschen als Ambient Sound im Gassenlevel<-- stattdessen relaxed musik
     - Ruins: Simons Telefon entfernen, Tardis Telefonzelle an besseren Platz parken.
     - Musik einbinden (Ordner Media) - "relaxed" für alley, "thegreekwoman" für greek_office
-    - Musiklautstärke automatisch runterregeln falls DIalog aktiv (dlgIsDialogActive() - dialogs.h)
-    - Greek_Office von Office kopieren und Items anpassen
     - Kingmorph ausarbeiten
     - Endsequenz im Final_Office <-- wie genau soll die aussehen?
 
@@ -151,7 +147,7 @@ Allgemeines:
    - Kanal 21 gehört auf der Bielefeldkarte eingekringelt. (-> Macht Felix)
      - Dialog XML Texte mit Voice Samples gegenchecken und Abweichungen sowie Tippfehler korrigieren. Punkt ans Satzende.
      - animierter Grab- Cursor -> animierter "Notfall" Grab Cursor ist drin. Schaut aber nicht gut aus.
-     - der Door Code (level_gate) triggert nicht mehr beim ersten Anklicken. Das sorgt für verständnisprobleme im Office bei der "Visitenkarten Warnung" da sie erst beim zweiten Klick kommt. Bitte wieder unfixen.
+
    
     
 Credits:

@@ -22,8 +22,8 @@ void startGame()
 	COMBINATION_load("xml\\items.xml"); // combine.h
 	CHAPTER_load("xml\\chapters.xml"); // chapter.h
 	//level_change(0,-1);
-	//level_change(4,-1);
-	level_change(5,-1);
+	level_change(4,-1);
+	//level_change(5,-1);
 	while(!is_level_loaded()) wait(1);
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);

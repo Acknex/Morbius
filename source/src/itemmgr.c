@@ -359,8 +359,8 @@ void interactionItem_morph(int targetId, int morphId)
 
 	if (ent == NULL)
 	{
-		STRING* str = str_printf(NULL,"Entity with item id %d not found!", targetId);
-		error(str);
+		//STRING* str = str_printf(NULL,"Entity with item id %d not found!", targetId);
+		//error(str);
 		return;
 	}
 
