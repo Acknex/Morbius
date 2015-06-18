@@ -206,13 +206,14 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		{
 			morbius_sit();
 			
-			wait(-1.5);
-			wait_for_dlg("xml\\dialog04_greek1.xml");
-			//fool player - gecko feeding only in first office level
+			//fool player - gecko feeding only allowed in first office level
 			if (ITEM_get(6) != NULL)
 			{
 				interactionItem_morph(6, 54); //Futter -> Fake Futter
 			}
+
+			wait(-1.5);
+			wait_for_dlg("xml\\dialog04_greek1.xml");
 
 			morbius_stand();
 			break;
@@ -222,6 +223,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		case 1009:
 		{
 			//todo: kochsounds, rauchschwaden?
+			error("imagine some sound and particles now.");
 			wait (-1.5);
 			interactionItem_morph(35, 36); //Topf mit Zuckerrohr -> Topf mit Zucker
 			
@@ -231,6 +233,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		//Thermoskanne gezuckert mit Griechin
 		case 1010:
 		{
+			wait(-0.5);
 			morbius_sit();
 			
 			wait(-1.5);
