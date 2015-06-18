@@ -309,6 +309,8 @@ MORBIUS: Thermoskannenkaffee nicht gut genug?
 GRIECHIN: Also wirklich, morbius, wie lange kennen wir uns schon? Du weißt doch das ich meinen kaffe mit zucker trinke!
 MORBIUS: Oh... ja... ääh... wart eben einen moment...
 
+"Ich kann jetzt gerade nicht einfach so mal eben abhauen!" (Office Tür)
+
 "Die Griechin. Eine meiner besten Freundschaften."
 
 "Da ist Thermoskannenkaffee drin."

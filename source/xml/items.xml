@@ -312,6 +312,11 @@
 		<sequence description="Die Griechin. Eine meiner besten Freundschaften." sound="achievement1.wav"/>
 	</item>
 	
+	<!--Main Door Blocked//-->
+	<item id="57" name="Main Door blockiert">
+		<sequence description="Ich kann jetzt gerade nicht einfach so mal eben abhauen!" sound="achievement1.wav"/>
+	</item>
+	
 </items>
 <combinations>
 	<!--Schubladenschlüssel mit Abgeschlossene Schublade//-->

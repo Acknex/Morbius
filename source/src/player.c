@@ -17,6 +17,7 @@ ENTITY* ent_flashlight = NULL;
 action point_of_inter()
 {
 	set(my,INVISIBLE | PASSABLE);
+	my->flags2 |= UNTOUCHABLE;
 	my.ENTITY_TYPE = TYPE_POINTEREST;
 }
 
@@ -41,6 +42,8 @@ action flashlight()
 		{
 			reset(me, INVISIBLE);
 			ent_flashlight = me;
+			ent_flashlight.flags2 |= UNTOUCHABLE;
+			
 			/*if(my.x < -16 && my.y > 220)
 			{
 				ent_flashlight = me;

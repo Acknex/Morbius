@@ -4,6 +4,7 @@
 #include "level_transition.h"
 #include "player.h"
 #include "office.h"
+#include "mousemgr.h"
 
 //DO NOT EDIT - START
 int EVENT__triggerId = -1;
@@ -66,6 +67,7 @@ void EVENT__listener_startup()
 SOUND* fritzCallSnd = "fritz_call.ogg";
 SOUND* galepCallSnd = "galep_call.ogg";
 SOUND* phoneHangupSnd = "phone_hangup.ogg";
+SOUND* sugarBoilSnd = "boil.ogg";
 long EVENT__entrylock = 0;
 
 
@@ -144,8 +146,8 @@ Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weit
 			
 Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.");
 			//fix this shit end
-//break;
-			morbius_sit();
+
+			OFFICE_morbius_sit();
 				
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog00.xml");
@@ -155,7 +157,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog01.xml");
 			
-			morbius_stand();
+			OFFICE_morbius_stand();
 			break;			
 		}
 		
@@ -204,7 +206,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		//enter greek office
 		case 1008:		
 		{
-			morbius_sit();
+			OFFICE_morbius_sit();
 			
 			//fool player - gecko feeding only allowed in first office level
 			if (ITEM_get(6) != NULL)
@@ -215,32 +217,45 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			wait(-1.5);
 			wait_for_dlg("xml\\dialog04_greek1.xml");
 
-			morbius_stand();
+			OFFICE_morbius_stand();
 			break;
 		}
 		
 		//Herd einschalten
 		case 1009:
 		{
-			//todo: kochsounds, rauchschwaden?
-			error("imagine some sound and particles now.");
+			mousemgr_set(MOUSE_USE, NULL);
+			mousemgr_hint(NULL);
 			wait (-1.5);
-			interactionItem_morph(35, 36); //Topf mit Zuckerrohr -> Topf mit Zucker
-			
+			OFFICE_startSmoke();	
+			wait_for_snd(sugarBoilSnd);			
+			OFFICE_stopSmoke();	
+			interactionItem_morph(35, 36); //Topf mit Zuckerrohr -> Topf mit Zucker			
+			mousemgr_set(MOUSE_DEFAULT, NULL);
 			break;
 		}
 		
 		//Thermoskanne gezuckert mit Griechin
 		case 1010:
 		{
+			OFFICE_morbius_goToChair();
+			while(!OFFICE_morbius_isNearChair()) wait(1);
 			wait(-0.5);
-			morbius_sit();
+			OFFICE_morbius_sit();
 			
 			wait(-1.5);
 			wait_for_dlg("xml\\dialog04_greek2.xml");
 
-			morbius_stand();
-			//TODO: office Tür
+			OFFICE_morbius_stand();
+			OFFICE_enableLevelGate();
+			break;
+		}
+		
+		//exit greek_office
+		case 1011:
+		{
+			wait_for_dlg("xml\\monolog09.xml");
+			level_change(3, 1); //kingmorph
 			break;
 		}
 		
