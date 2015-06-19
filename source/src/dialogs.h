@@ -48,6 +48,7 @@ void dlgHide();
 void dlgAlign(var fontSize);
 void dlgClickDialog(var _buttonNumber, PANEL* _panel);
 int dlgIsDialogActive();
+STRING* dlgGetCurrentSpeaker();
 void dlg_resize();
 XMLPAR* getDialogItemById(XMLPAR *_myXML, int _id);
 int getDialogItemId(XMLPAR* _XMLItem);

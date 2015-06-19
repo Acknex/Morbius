@@ -7,6 +7,7 @@
 //#include "player.h"
 #include "soundmgr.h"
 
+STRING* dlgCurrentSpeakerStr = "";
 void (*dlg__resizeEv)();
 // ------------------------------------------------------------------------
 // Freigeben des Dialogsystems
@@ -328,6 +329,7 @@ int dlgStart(STRING* _dialogFile)
 		// Solange wir das End-Tag nicht erreicht haben
 		while (str_cmp(strXMLTag,"End") != 1)
 		{
+			str_cpy(dlgCurrentSpeakerStr, "");
 			
 			// Wird bereits ein Sound abgespielt? Dann stoppe ihn
 			if (snd_playing(vDialogSpeechHandle) != 0)
@@ -338,7 +340,6 @@ int dlgStart(STRING* _dialogFile)
 			// Der Spieler sagt etwas
 			if (str_cmp(strXMLTag,"Player") == 1)
 			{
-
 				// Ein Soundfile wird abgespielt
 				pAttrib = XMLATTRIB_getElementByAttribute(pPar, "file");
 				if (pAttrib != NULL)
@@ -368,6 +369,7 @@ int dlgStart(STRING* _dialogFile)
 				{
 					XMLATTRIB_getContent(pAttrib, strXMLTemp);
 					str_cpy((txtSpeaker.pstring)[0],strXMLTemp);
+					str_cpy(dlgCurrentSpeakerStr, strXMLTemp);
 				}
 
 				// Zeige den Dialog an
@@ -445,6 +447,7 @@ int dlgStart(STRING* _dialogFile)
 				{
 					XMLATTRIB_getContent(pAttrib, strXMLTemp);
 					str_cpy((txtSpeaker.pstring)[0],strXMLTemp);
+					str_cpy(dlgCurrentSpeakerStr, strXMLTemp);
 				}
 				set(txtSpeaker,SHOW);
 				set(panDialogBg,SHOW);
@@ -707,6 +710,11 @@ void dlgClickDialog(var _buttonNumber, PANEL* _panel)
 int dlgIsDialogActive()
 {
 	return nIsDialogActive;
+}
+
+STRING* dlgGetCurrentSpeaker()
+{
+	return dlgCurrentSpeakerStr;
 }
 
 void dlg_resize()

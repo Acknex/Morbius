@@ -148,6 +148,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			//fix this shit end
 
 			OFFICE_morbius_sit();
+			OFFICE_morbius_startTalk();
 				
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog00.xml");
@@ -157,6 +158,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog01.xml");
 			
+			OFFICE_morbius_stopTalk();
 			OFFICE_morbius_stand();
 			break;			
 		}
@@ -207,6 +209,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		case 1008:		
 		{
 			OFFICE_morbius_sit();
+			OFFICE_morbius_startTalk();
 			
 			//fool player - gecko feeding only allowed in first office level
 			interactionItem_morph(6, 54); //Futter -> Fake Futter
@@ -214,6 +217,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			wait(-1.5);
 			wait_for_dlg("xml\\dialog04_greek1.xml");
 
+			OFFICE_morbius_stopTalk();
 			OFFICE_morbius_stand();
 			break;
 		}
@@ -239,10 +243,12 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			while(!OFFICE_morbius_isNearChair()) wait(1);
 			wait(-0.5);
 			OFFICE_morbius_sit();
+			OFFICE_morbius_startTalk();
 			
 			wait(-1.5);
 			wait_for_dlg("xml\\dialog04_greek2.xml");
 
+			OFFICE_morbius_stopTalk();
 			OFFICE_morbius_stand();
 			OFFICE_enableLevelGate();
 			break;

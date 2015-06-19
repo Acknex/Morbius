@@ -3,6 +3,7 @@
 #include "level_transition.h"
 #include "event.h"
 #include "items.h"
+#include "dialogs.h"
 
 #define BOIL_PARTICLE_REC 1
 #define BOIL_PARTICLE_AMOUNT 3
@@ -14,6 +15,7 @@ ENTITY* OFFICE__officeStartEnt = NULL;
 ENTITY* OFFICE__officeBoilSmokeEnt = NULL;
 ENTITY* OFFICE__LevelGateEnt = NULL;
 BMAP* OFFICE__smokeBmap = "rauch2.tga";
+var OFFICE__talking = 0;
 
 void OFFICE__partSmokeFade(PARTICLE* p);
 void OFFICE__partSmoke(PARTICLE* p);
@@ -26,13 +28,18 @@ void OFFICE__Level_gate_event();
 action griechin()
 {
 	VECTOR* temp;
+	var dly;
+	var anim;
+	var animSpeed;
 
 	my->tilt = 10;
+	interactionItem_remoteStart();
+
 	//upper legs
 	temp = vector(0,80,0);
 	ent_bonerotate(me,"Joint_3_3",temp);
 	ent_bonerotate(me,"Joint_3_4",temp);
-	//upper arms
+/*	//upper arms
 	temp = vector(0,80,0);
 	ent_bonerotate(me,"Joint_3",temp);
 	ent_bonerotate(me,"Joint_3_2",temp);
@@ -42,8 +49,34 @@ action griechin()
 	//right hand
 	temp = vector(-110,-25,-30);
 	ent_bonerotate(me,"Joint_4_2",temp);
-
-	interactionItem_remoteStart();
+*/
+	while(1)
+	{		
+		if(OFFICE__talking)
+		{
+			dly = random(1) - 2;
+			animSpeed = 2 + random(1);	
+			anim = 0;
+			wait(dly);
+			if (str_cmp(dlgGetCurrentSpeaker(), "Griechin"))
+			{
+				while(OFFICE__talking && anim < 100)
+				{
+					anim += animSpeed * time_step;
+					ent_animate(me, "talk", anim, 0);
+					//upper legs
+					temp = vector(0,80,0);
+					ent_bonerotate(me,"Joint_3_3",temp);
+					ent_bonerotate(me,"Joint_3_4",temp);
+					wait(1);	
+				}
+			}
+		}
+		else
+		{
+			wait(1);
+		}
+	}
 }
 
 action officeChair()
@@ -91,6 +124,44 @@ void OFFICE_morbius_stand()
 		//dirty hackaround: fool smartwalk
 		vec_set(player->target_x,player->x);
 	}
+}
+
+void OFFICE_morbius_startTalk()
+{
+	var dly;
+	var anim;
+	var animSpeed;
+	VECTOR* temp;
+	
+	if (player != NULL)
+	{
+		OFFICE__talking = 1;
+		
+		while(OFFICE__talking)
+		{
+			dly = random(1) - 2;	
+			anim = 0;
+			animSpeed = 2 + random(1);	
+			wait(dly);
+			if (str_cmp(dlgGetCurrentSpeaker(), "Morbius"))
+			{
+				while(OFFICE__talking && anim < 100)
+				{
+					anim += animSpeed * time_step;
+					ent_animate(player, "talk", anim, 0);
+					temp = vector(0,80,0);
+					ent_bonerotate(player,"Joint_3_3",temp);
+					ent_bonerotate(player,"Joint_3_4",temp);
+					wait(1);	
+				}
+			}
+		}
+	}
+}
+
+void OFFICE_morbius_stopTalk()
+{
+	OFFICE__talking = 0;
 }
 
 void OFFICE_morbius_goToChair()
