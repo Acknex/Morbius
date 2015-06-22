@@ -689,6 +689,7 @@ action king_cbabe(void)
 action king_light(void)
 {
 	set(me, PASSABLE | INVISIBLE);
+	my->flags2 |= UNTOUCHABLE;
 	
 	VECTOR clr;
 	

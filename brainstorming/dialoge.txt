@@ -372,7 +372,7 @@ BABEC DISCO
 }
 
 ENTER SCENE
-    "Die lautige, basslastige musik resonierte in meinen Knochen. Die Lichter tanzen durch den raum wie schneeflocken in einem Regenbogen und faszinierten mich fast genau so sehr wie die reizenden frauen die in einer trance durch den raum tanzten und ihre feminine figur zur schau stellten"
+    "Die laute, basslastige musik resonierte in meinen Knochen. Die Lichter tanzen durch den raum wie schneeflocken in einem Regenbogen und faszinierten mich fast genau so sehr wie die reizenden frauen die in einer trance durch den raum tanzten und ihre feminine figur zur schau stellten"
     
 USE CBabe
     -> Dialog 1
@@ -403,6 +403,9 @@ COMBINE: Visitenkarte + Cbabe
 
 "Neunfach gehopftes Acknex Craft Bier. Bitterer Abgang." (A9 Bier)
 "Das ist C-Babe. so eine Zicke." (C-Babe)
+"Das darf doch nicht wahr sein! The Lotties! Meine absolute Lieblingsband!"
+"Das ist jetzt keine gute Idee."
+"Vielleicht sollte ich erst mit C-Babe reden."
 	
 ---------------
 

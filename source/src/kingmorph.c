@@ -40,7 +40,7 @@ void KINGMORPH_morbius_LookAtCbabe()
 	
 	while(progress < 100)
 	{
-		player->pan = lookStart + (lookEnd - lookStart) * progress * 0.01;
+		player->pan = lookStart + ang(lookEnd - lookStart) * progress * 0.01;
 		progress += 15 * time_step;
 		wait(1);
 	}
@@ -209,6 +209,26 @@ action kingmorphCbabe()
 	{
 		ent_animate(me, "duck", anim, ANM_CYCLE);
 		anim = cycle(anim + 3* time_step, 0, 100);
+		wait(1);
+	}
+}
+
+action kingmorphLotti()
+{
+	my->flags2 |= UNTOUCHABLE;
+	while(me) 
+	{
+		ent_animate(me, "Play", 18 * total_ticks, ANM_CYCLE);
+		wait(1);
+	}
+}
+
+action kingmorphLottifant()
+{
+	my->flags2 |= UNTOUCHABLE;
+	while(me) 
+	{
+		ent_animate(me, "Action", 16 * total_ticks, ANM_CYCLE);
 		wait(1);
 	}
 }

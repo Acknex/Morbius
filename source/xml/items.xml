@@ -337,6 +337,17 @@
 		<sequence description="Neunfach gehopftes Acknex Craft Bier. Bitterer Abgang." sound="achievement1.wav"/>
 	</item>
 
+	<!--The Lotties//-->
+	<item id="62" name="The Lotties">
+		<sequence description="Das darf doch nicht wahr sein! The Lotties! Meine absolute Lieblingsband!" sound="achievement1.wav"/>
+	</item>
+
+	<!--Kingmorph Door Blocked//-->
+	<item id="63" name="Main Door blockiert">
+		<sequence description="Das ist jetzt keine gute Idee." sound="achievement1.wav"/>
+		<sequence description="Vielleicht sollte ich erst mit C-Babe reden." sound="achievement1.wav"/>
+	</item>
+
 </items>
 <combinations>
 	<!--Schubladenschlüssel mit Abgeschlossene Schublade//-->

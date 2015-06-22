@@ -285,6 +285,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			EVENT__morbius_startTalk();
 			wait_for_dlg("xml\\dialog05_cbabe.xml");
 			EVENT__morbius_stopTalk();
+			OFFICE_enableLevelGate();//nastily reuse office code for kingmorph
 			break;
 		}
 		
@@ -309,6 +310,13 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		{
 			KINGMORPH_lotteria();
 			wait_for(KINGMORPH_lotteria);
+			break;
+		}
+		
+		//exit kingmorph
+		case 1017:
+		{
+			level_change(6, 1); //final office
 			break;
 		}
 		

@@ -74,6 +74,8 @@ Kingmorph:
 59		Spielautomat Prince of Lotteria
 60		Cbabe
 61		A9 Bier
+62		The Lotties
+63      Kingmorph Door Blocked
 
 Custom Events
 =============
