@@ -296,17 +296,19 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			break;
 		}
 		
-		//Visitenkarte mit Cbabe
+		//Ackmania Automat
 		case 1015:
 		{
-			error("Ackmania");
+			KINGMORPH_ackmania();
+			wait_for(KINGMORPH_ackmania);
 			break;
 		}
 		
-		//Visitenkarte mit Cbabe
+		//Lotteria Automat
 		case 1016:
 		{
-			error("PoL");
+			KINGMORPH_lotteria();
+			wait_for(KINGMORPH_lotteria);
 			break;
 		}
 		
