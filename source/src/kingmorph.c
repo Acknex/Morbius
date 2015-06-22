@@ -52,10 +52,14 @@ action kingmorphDance()
 	}
 }
 
+//skill1: EntityType 1
+//skill2: ItemId -1
+//skill3: ItemBorder 25
 action kingmorphCbabe()
 {
 	var anim = 0;
 	
+	interactionItem_remoteStart();
 	while(1)
 	{
 		ent_animate(me, "duck", anim, ANM_CYCLE);

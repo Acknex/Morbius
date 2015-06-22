@@ -398,9 +398,12 @@ MORBIUS: [seuftz] Tut mir leid. So meinte ich das nicht. Du verstehst, dass ich 
 CBABE: Lass mich jetzt bitte in ruhe...
 
 COMBINE: Visitenkarte + Cbabe
-    "Hier falls ihnen noch was einfällt geben sie mir bitte umgehend bescheid"
+    "Hier ist meine Visitenkarte. falls ihnen noch was einfällt geben sie mir bitte umgehend bescheid"
     (VICTORY CONDITION)
 
+"Neunfach gehopftes Acknex Craft Bier. Bitterer Abgang." (A9 Bier)
+"Das ist C-Babe. so eine Zicke." (C-Babe)
+	
 ---------------
 
 Büro

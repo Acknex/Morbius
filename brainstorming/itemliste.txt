@@ -69,6 +69,11 @@ Büro:
 56      Griechin
 57      Main Door Blocked
 
+Kingmorph:
+58		Spielautomat Ackmania
+59		Spielautomat Prince of Lotteria
+60		Cbabe
+61		A9 Bier
 
 Custom Events
 =============

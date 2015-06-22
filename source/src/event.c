@@ -69,7 +69,7 @@ SOUND* galepCallSnd = "galep_call.ogg";
 SOUND* phoneHangupSnd = "phone_hangup.ogg";
 SOUND* sugarBoilSnd = "boil.ogg";
 long EVENT__entrylock = 0;
-
+var good_ending = 0;
 
 void EVENT__evaluate(int triggerId)
 {
@@ -259,6 +259,42 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		{
 			wait_for_dlg("xml\\monolog09.xml");
 			level_change(3, 1); //kingmorph
+			break;
+		}
+		
+		//kingmorph startup
+		case 1012:
+		{
+			wait_for_dlg("xml\\monolog10.xml");
+			break;
+		}
+		
+		//near cbabe
+		case 1013:
+		{
+			wait_for_dlg("xml\\dialog05_cbabe.xml");
+			break;
+		}
+		
+		//Visitenkarte mit Cbabe
+		case 1014:
+		{
+			good_ending = 1;
+			error("good ending");
+			break;
+		}
+		
+		//Visitenkarte mit Cbabe
+		case 1015:
+		{
+			error("Ackmania");
+			break;
+		}
+		
+		//Visitenkarte mit Cbabe
+		case 1016:
+		{
+			error("PoL");
 			break;
 		}
 		
