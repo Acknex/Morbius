@@ -5,6 +5,7 @@
 #include "player.h"
 #include "office.h"
 #include "mousemgr.h"
+#include "kingmorph.h"
 
 //DO NOT EDIT - START
 int EVENT__triggerId = -1;
@@ -70,6 +71,10 @@ SOUND* phoneHangupSnd = "phone_hangup.ogg";
 SOUND* sugarBoilSnd = "boil.ogg";
 long EVENT__entrylock = 0;
 var good_ending = 0;
+var EVENT__talking = 0;
+
+void EVENT__morbius_startTalk();
+void EVENT__morbius_stopTalk();
 
 void EVENT__evaluate(int triggerId)
 {
@@ -108,7 +113,9 @@ void EVENT__evaluate(int triggerId)
 		{
 			wait_for_dlg("xml\\monolog03.xml");
 			wait_for_snd(fritzCallSnd);			
+			EVENT__morbius_startTalk();
 			wait_for_dlg("xml\\dialog02_fritz.xml");
+			EVENT__morbius_stopTalk();
 			wait_for_snd(phoneHangupSnd);			
 			break;
 		}
@@ -122,7 +129,9 @@ void EVENT__evaluate(int triggerId)
 			inv_remove_item(item.inv,item);
 
 			wait_for_snd(galepCallSnd);			
+			EVENT__morbius_startTalk();
 			wait_for_dlg("xml\\dialog03_galep.xml");
+			EVENT__morbius_stopTalk();
 			wait_for_snd(phoneHangupSnd);			
 			wait(-1.5);
 			wait_for_dlg("xml\\monolog05.xml");			
@@ -272,7 +281,10 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		//near cbabe
 		case 1013:
 		{
+			KINGMORPH_morbius_LookAtCbabe();
+			EVENT__morbius_startTalk();
 			wait_for_dlg("xml\\dialog05_cbabe.xml");
+			EVENT__morbius_stopTalk();
 			break;
 		}
 		
@@ -321,6 +333,40 @@ void EVENT__unlock()
 
 	inv_show(inventory);
 	player_may_walk = 1;
+}
+
+void EVENT__morbius_startTalk()
+{
+	var dly;
+	var anim;
+	var animSpeed;
+	
+	if (player != NULL)
+	{
+		EVENT__talking = 1;
+		
+		while(EVENT__talking)
+		{
+			dly = random(1) - 2;	
+			anim = 0;
+			animSpeed = 2 + random(1);	
+			wait(dly);
+			if (str_cmp(dlgGetCurrentSpeaker(), "Morbius"))
+			{
+				while(EVENT__talking && anim < 100)
+				{
+					anim += animSpeed * time_step;
+					ent_animate(player, "talk", anim, 0);
+					wait(1);	
+				}
+			}
+		}
+	}
+}
+
+void EVENT__morbius_stopTalk()
+{
+	EVENT__talking = 0;
 }
 
 //skill1: EntityType 6

@@ -648,6 +648,7 @@ action king_dancer(void)
 	dancemat.ambient_green = random(255);
 	dancemat.ambient_blue = random(255);
 
+	set(my, PASSABLE);
 	ent_morph(me, "humanoid.mdl");
 	wait(1);
 	c_setminmax(my);

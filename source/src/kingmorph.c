@@ -1,6 +1,36 @@
 #define DANCE_HAND_PERCENT 100
 #define DANCE_FEET_PERCENT 40
 
+ENTITY* KINGMORPH__cbabe = NULL;
+
+void KINGMORPH_morbius_LookAtCbabe()
+{
+	if (KINGMORPH__cbabe == NULL)
+	{
+		return;
+	}
+	
+	VECTOR lookat;
+	ANGLE lookdir;
+	var lookStart;
+	var lookEnd;
+	var progress = 0;
+	
+	vec_set(&lookat, &KINGMORPH__cbabe->x);
+	vec_sub(&lookat, &player->x);
+	vec_to_angle(&lookdir, &lookat);
+	lookStart = player->pan;
+	lookEnd = lookdir.pan;
+	
+	while(progress < 100)
+	{
+		player->pan = lookStart + (lookEnd - lookStart) * progress * 0.01;
+		progress += 15 * time_step;
+		wait(1);
+	}
+	player->pan = lookEnd;
+}
+
 action kingmorphDance()
 {
 	var animHand = 0;
@@ -60,6 +90,7 @@ action kingmorphCbabe()
 	var anim = 0;
 	
 	interactionItem_remoteStart();
+	KINGMORPH__cbabe = me;	
 	while(1)
 	{
 		ent_animate(me, "duck", anim, ANM_CYCLE);
