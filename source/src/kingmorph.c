@@ -48,9 +48,18 @@ action kingmorphDance()
 		vec_add(walk, pos);
 		vec_set(&my->x, walk);
 
-		
-DEBUG_VAR(animFeetR, 20);
-DEBUG_VAR(animHandR, 110);
+		wait(1);
+	}
+}
+
+action kingmorphCbabe()
+{
+	var anim = 0;
+	
+	while(1)
+	{
+		ent_animate(me, "duck", anim, ANM_CYCLE);
+		anim = cycle(anim + 3* time_step, 0, 100);
 		wait(1);
 	}
 }

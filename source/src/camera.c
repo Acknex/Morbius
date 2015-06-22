@@ -3,26 +3,31 @@
 
 	#include "types.h"
 
+	var cameraPaused = 0;
+	
 	void cameraLoop() {
 
 		while(player == NULL) wait(1);
 
 		while(player) {
 			
-			switch(activeCameraType) {
-				case CAMERA_TYPE_FIXED_FOLLOW:
-				case CAMERA_TYPE_MULTIPLE_FOLLOW:
-				moveCameraFixedFollow();
-				break;
-				
-				case CAMERA_TYPE_SPLINE:
-				moveCameraSpline();
-				break;
-				
-				case CAMERA_TYPE_AXIS:
-				moveCameraAxis(0);
-				break;
-			}
+			if (!cameraPaused)
+			{
+				switch(activeCameraType) {
+					case CAMERA_TYPE_FIXED_FOLLOW:
+					case CAMERA_TYPE_MULTIPLE_FOLLOW:
+					moveCameraFixedFollow();
+					break;
+					
+					case CAMERA_TYPE_SPLINE:
+					moveCameraSpline();
+					break;
+					
+					case CAMERA_TYPE_AXIS:
+					moveCameraAxis(0);
+					break;
+				}
+		}
 			wait(1);
 		}
 	}
@@ -105,6 +110,16 @@
 		vec_to_angle(camera.pan, vecCameraTemp);
 	}
 
+	void cameraPause()
+	{
+		cameraPaused = 1;
+	}
+	
+	void cameraResume()
+	{
+		cameraPaused = 0;
+	}
+	
 	void actDynamicCamera() {
 		my.ENTITY_TYPE = TYPE_DYNAMIC_CAMERA;
 		set(me,PASSABLE);

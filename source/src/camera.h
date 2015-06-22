@@ -22,6 +22,9 @@ void moveCameraSpline();
 
 void moveCameraAxis(int axis);
 
+void cameraPause();
+void cameraResume();
+
 // Specified the min / max position of a level (For moveCameraSpline)
 VECTOR vecSplineCamMin;
 VECTOR vecSplineCamMax;
