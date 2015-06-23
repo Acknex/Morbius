@@ -22,6 +22,9 @@
 #define itemRemove FLAG2
 #define itemWasClicked FLAG3
 
+SOUND* ITEMS__collectSnd = "collect.wav";
+
+
 void interactionItem__clicked();
 void interactionItem__eventHandler();
 ENTITY* interactionItem__find(int id);
@@ -224,6 +227,7 @@ void interactionItem__clicked()
 					//create new inventory item with resultId;
 					Item *resultIdItem = inv_create_item(resultId, resultItem->name, "Item description", 0, bmap_create(resultItem->imgfile));
 					inv_add_item(inventory, resultIdItem);
+					SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
 				}			
 			}
 			
@@ -262,6 +266,7 @@ void interactionItem__clicked()
 			{
 				Item *resultIdItem = inv_create_item(resultId, itemToAdd->name, "Item description", 0, bmap_create(itemToAdd->imgfile));
 				inv_add_item(inventory, resultIdItem);
+				SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
 			}
 
 			EVENT_trigger(resultId);
@@ -275,6 +280,7 @@ void interactionItem__clicked()
 				Item *newItem = inv_create_item(item->id, item->name, "Item description", 0, bmap_create(item->imgfile));
 				
 				inv_add_item(inventory, newItem);
+				SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
 				ITEM_collect(item);
 				EVENT_trigger(item->id);
 				set(my, itemRemove);

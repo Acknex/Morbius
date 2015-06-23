@@ -63,7 +63,7 @@ void KINGMORPH_ackmania()
 	}
 	
 	cameraPause();
-	MUSICMGR_fadeOut();
+	MUSICMGR_fadeOut(10);
 	KINGMORPH__lastMouseMode = mouse_mode;
 	mouse_mode = 0;
 	
@@ -114,7 +114,7 @@ void KINGMORPH_lotteria()
 	}
 	
 	cameraPause();
-	MUSICMGR_fadeOut();
+	MUSICMGR_fadeOut(10);
 	KINGMORPH__lastMouseMode = mouse_mode;
 	mouse_mode = 0;
 	
@@ -152,6 +152,7 @@ void KINGMORPH_lotteria()
 
 action kingmorphDance()
 {
+set(my, INVISIBLE); //temp
 	var animHand = 0;
 	var animHandR = 0;
 	var animFeet = 0;

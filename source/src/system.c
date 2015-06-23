@@ -9,6 +9,7 @@
 #include "hud.h"
 #include "dialogs.h"
 #include "chapter.h"
+#include "musicmgr.h"
 
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
@@ -22,9 +23,9 @@ void startGame()
 	COMBINATION_load("xml\\items.xml"); // combine.h
 	CHAPTER_load("xml\\chapters.xml"); // chapter.h
 	//level_change(0,-1);
-	//level_change(4,-1);
+	level_change(4,-1);
 	//level_change(5,-1);
-	level_change(3,-1);
+	//level_change(3,-1);
 	while(!is_level_loaded()) wait(1);
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
@@ -38,6 +39,7 @@ void exitGame()
 	COMBINATION_close();
 	ITEM_close();
 	HUD_close();
+	MUSICMGR_close();
 }
 
 void quitGame()

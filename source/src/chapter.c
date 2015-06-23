@@ -377,6 +377,7 @@ void CHAPTER__clearString(STRING* strTarget, STRING* strSource)
 		ptr_remove(strTarget);
 	}
 	strTarget = str_create(strTemp);	
+	ptr_remove(strTemp);
 }
 
 void CHAPTER__copyLetter(STRING* strTarget, STRING* strSource, var pos)

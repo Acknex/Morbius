@@ -39,6 +39,7 @@ void main() {
 	d3d_antialias = 9;
 	sys_init(); // system.c
 	wait(1);
-	//menu_open(); // menu.c
-startGame();
+	menu_open(); // menu.c
+//startGame();
+//credits_start();
 }

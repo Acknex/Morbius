@@ -3,17 +3,20 @@
 
 #define MUSICMGR_VOLUME 100
 #define MUSICMGR_SILENTFAC 0.3
-#define MUSICMGR_FADESPEED 15
+#define MUSICMGR_FADESPEED 10
 
 TEXT* MUSICMGR__music = 
 {
-	string("Dungeon.OGG", "Dungeon.OGG", "relaxed.ogg", "Sumik_dj_-_wigi.ogg", "", "theGreekWoman.ogg", "");
+	string("Dungeon.OGG", "Dungeon.OGG", "relaxed.ogg", "Sumik_dj_-_wigi.ogg", "Bar.OGG", "theGreekWoman.ogg", "");
 }
 
 var MUSICMGR__volume = MUSICMGR_VOLUME;
 var MUSICMGR__fadeVolume = MUSICMGR_VOLUME;
+var MUSICMGR__targetVolume = MUSICMGR_VOLUME;
+var MUSICMGR__currentVolume = MUSICMGR_VOLUME;
 var MUSICMGR__currentId = -1;
 var MUSICMGR__handle = 0;
+var MUSICMGR__isStopping = 0;
 
 void MUSICMGR_setVolume(var vol)
 {
@@ -24,7 +27,6 @@ void MUSICMGR_play(var id)
 {
 	if ((id < 0) || (id >= MUSICMGR__music->strings) || (id == MUSICMGR__currentId))
 	{
-error("id invalid or not changed");
 		return;
 	}
 	
@@ -33,15 +35,34 @@ error("id invalid or not changed");
 	{
 		if (str_cmpi((MUSICMGR__music->pstring)[id], (MUSICMGR__music->pstring)[MUSICMGR__currentId]))
 		{
-error("song not changed not changed");
 			MUSICMGR__currentId = id;
 			return;
 		}
 	}
 	
 	MUSICMGR__currentId = id;
+	MUSICMGR_stop();
+	wait_for(MUSICMGR_stop);
 
-	var progress = MUSICMGR__volume;
+	//most likely no music file defined
+	if (str_len((MUSICMGR__music->pstring)[id]) < 4)
+	{
+		return;
+	}
+
+	MUSICMGR__currentVolume = 0;
+
+	STRING* song = "#64";
+	str_cpy (song, "media\\");
+	str_cat (song, (MUSICMGR__music->pstring)[id]);
+	MUSICMGR__handle = media_loop(song, NULL, MUSICMGR__currentVolume);
+	ptr_remove(song);
+}
+
+void MUSICMGR_stop()
+{
+	var progress = MUSICMGR__currentVolume;
+	MUSICMGR__isStopping = 1;
 	while(progress > 0)
 	{
 		progress = maxv(0, progress - MUSICMGR_FADESPEED * time_step);
@@ -54,45 +75,12 @@ error("song not changed not changed");
 	if (media_playing(MUSICMGR__handle))
 	{
 		media_stop(MUSICMGR__handle);
-		MUSICMGR__handle = 0;
 	}
-
-	//most likely no music file defined
-	if (str_len((MUSICMGR__music->pstring)[id]) < 4)
-	{
-error("no new music file");
-		return;
-	}
-	STRING* song = "#64";
-	str_cpy (song, "media\\");
-	str_cat (song, (MUSICMGR__music->pstring)[id]);
-	MUSICMGR__handle = media_loop(song, NULL, 0);
-	progress = 0;
-
-	while(progress < MUSICMGR__volume)
-	{
-		progress = minv(MUSICMGR__volume, progress + MUSICMGR_FADESPEED * time_step);
-		if (media_playing(MUSICMGR__handle))
-		{
-			media_tune(MUSICMGR__handle, progress, 0, 0);
-		}
-		wait(1);
-	}	
-	ptr_remove(song);
+	MUSICMGR__isStopping = 0;	
 }
 
-void MUSICMGR_stop()
+void MUSICMGR_close()
 {
-	var progress = MUSICMGR__volume;
-	while(progress > 0)
-	{
-		progress = maxv(0, progress - MUSICMGR_FADESPEED * time_step);
-		if (media_playing(MUSICMGR__handle))
-		{
-			media_tune(MUSICMGR__handle, progress, 0, 0);
-		}
-		wait(1);
-	}
 	if (media_playing(MUSICMGR__handle))
 	{
 		media_stop(MUSICMGR__handle);
@@ -101,54 +89,43 @@ void MUSICMGR_stop()
 
 void MUSICMGR_fadeIn()
 {
-	while(MUSICMGR__fadeVolume < MUSICMGR__volume)
-	{
-		MUSICMGR__fadeVolume = minv(MUSICMGR__volume, MUSICMGR__fadeVolume + MUSICMGR_FADESPEED * time_step);
-		if (media_playing(MUSICMGR__handle))
-		{
-			media_tune(MUSICMGR__handle, MUSICMGR__fadeVolume, 0, 0);
-		}
-		wait(1);
-	}	
+	MUSICMGR__fadeVolume = MUSICMGR__volume;
 }
 
-void MUSICMGR_fadeOut()
+void MUSICMGR_fadeOut(var vol)
 {
-	MUSICMGR__fadeVolume = MUSICMGR__volume;
-	while(MUSICMGR__fadeVolume > 10)
-	{
-		MUSICMGR__fadeVolume = maxv(0, MUSICMGR__fadeVolume - MUSICMGR_FADESPEED * time_step);
-		if (media_playing(MUSICMGR__handle))
-		{
-			media_tune(MUSICMGR__handle, MUSICMGR__fadeVolume, 0, 0);
-		}
-		wait(1);
-	}
+	MUSICMGR__fadeVolume = clamp(vol, 0, 100);
 }
 
 void MUSICMGR__startup()
 {
 	var tuned = 0;
+	var volume;
 	while(1)
 	{
-		if (media_playing(MUSICMGR__handle))
+		if (media_playing(MUSICMGR__handle) && !MUSICMGR__isStopping)
 		{
 			if (SOUNDMGR_isActive() || dlgIsDialogActive())
 			{
-				if (tuned == 0)
-				{
-					tuned = 1;	
-					media_tune(MUSICMGR__handle, MUSICMGR__volume * MUSICMGR_SILENTFAC, 0, 0);
-				}
+				volume = MUSICMGR__volume * MUSICMGR_SILENTFAC;
 			}
 			else
 			{
-				if (tuned == 1)
-				{
-					tuned = 0;
-					media_tune(MUSICMGR__handle, MUSICMGR__volume, 0, 0);
-				}
+				volume = MUSICMGR__volume;
 			}
+			MUSICMGR__targetVolume = minv(MUSICMGR__fadeVolume, volume);
+
+			if (MUSICMGR__currentVolume < MUSICMGR__targetVolume)
+			{
+				MUSICMGR__currentVolume = minv(MUSICMGR__targetVolume, MUSICMGR__currentVolume + MUSICMGR_FADESPEED * time_step);
+				media_tune(MUSICMGR__handle, MUSICMGR__currentVolume, 0, 0);
+			}
+			
+			if (MUSICMGR__currentVolume > MUSICMGR__targetVolume)
+			{
+				MUSICMGR__currentVolume = maxv(MUSICMGR__targetVolume, MUSICMGR__currentVolume - MUSICMGR_FADESPEED * time_step);
+				media_tune(MUSICMGR__handle, MUSICMGR__currentVolume, 0, 0);
+			}			
 		}
 		wait(1);
 	}

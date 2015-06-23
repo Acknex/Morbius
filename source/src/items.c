@@ -12,7 +12,7 @@
 
 LIST* ITEMS__itemList;
 XMLFILE* ITEMS__xml;
-SOUND* ITEMS__collectSnd = "collect.wav";
+//SOUND* ITEMS__collectSnd = "collect.wav";
 
 void ITEM__copyFromXml(ITEM* item, XMLPAR* tag);
 void ITEM__cleanup(ITEM* item);
@@ -127,7 +127,7 @@ var ITEM_isBeingCollected(ITEM* item)
 	
 	if ((item->progress >= LIST_items(item->sequences)) && (item->collectable != 0))
 	{
-		SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
+//		SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
 		return 1;
 	}
 	else
@@ -171,10 +171,10 @@ int ITEM_interaction(ITEM* item)
 				HUD_showDescription(tmpSequence->description);
 		}
 		
-		if (tmpSequence->resultId != ITEM_NONE)
+/*		if (tmpSequence->resultId != ITEM_NONE)
 		{
 			SOUNDMGR_playAtOnce(ITEMS__collectSnd);			
-		}
+		}*/
 
 		//get stuck on last step
 		if (item->progress < LIST_items(item->sequences))

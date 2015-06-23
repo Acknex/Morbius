@@ -327,9 +327,9 @@
 		<sequence result="1016"/>
 	</item>
 
-	<!--C-Babe//-->
-	<item id="60" name="C-Babe">
-		<sequence description="Das ist C-Babe. So eine Zicke." sound="achievement1.wav"/>
+	<!--CBabe//-->
+	<item id="60" name="CBabe">
+		<sequence description="Das ist CBabe. So eine Zicke." sound="achievement1.wav"/>
 	</item>
 
 	<!--A9 Bier//-->
@@ -345,7 +345,7 @@
 	<!--Kingmorph Door Blocked//-->
 	<item id="63" name="Main Door blockiert">
 		<sequence description="Das ist jetzt keine gute Idee." sound="achievement1.wav"/>
-		<sequence description="Vielleicht sollte ich erst mit C-Babe reden." sound="achievement1.wav"/>
+		<sequence description="Vielleicht sollte ich erst mit CBabe reden." sound="achievement1.wav"/>
 	</item>
 
 </items>
