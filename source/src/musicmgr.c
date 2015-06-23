@@ -7,7 +7,7 @@
 
 TEXT* MUSICMGR__music = 
 {
-	string("Dungeon.OGG", "Dungeon.OGG", "relaxed.ogg", "Sumik_dj_-_wigi.ogg", "Bar.OGG", "theGreekWoman.ogg", "");
+	string("media\\Dungeon.OGG", "media\\Dungeon.OGG", "media\\relaxed.ogg", "media\\Sumik_dj_-_wigi.ogg", "media\\Bar.OGG", "media\\theGreekWoman.ogg", "");
 }
 
 var MUSICMGR__volume = MUSICMGR_VOLUME;
@@ -52,11 +52,14 @@ void MUSICMGR_play(var id)
 
 	MUSICMGR__currentVolume = 0;
 
-	STRING* song = "#64";
+	//WED build pretends to be clever, so it would find the files without path
+	//even in non referenced folders... -.-
+	/*STRING* song = "#64";
 	str_cpy (song, "media\\");
 	str_cat (song, (MUSICMGR__music->pstring)[id]);
 	MUSICMGR__handle = media_loop(song, NULL, MUSICMGR__currentVolume);
-	ptr_remove(song);
+	ptr_remove(song);*/
+	MUSICMGR__handle = media_loop((MUSICMGR__music->pstring)[id], NULL, MUSICMGR__currentVolume);
 }
 
 void MUSICMGR_stop()

@@ -15,6 +15,7 @@ rem options.scr does not allow to ignore certain folders so provoke
 rem file not found for everything in "media" with folder renaming
 
 ren media media_renamed_by_buildscript
+timeout /t 1 /nobreak > NUL
 wed -r morbius.c
 rem wed -p morbius.c
 ren media_renamed_by_buildscript media
