@@ -76,6 +76,7 @@ Kingmorph:
 61		A9 Bier
 62		The Lotties
 63      Kingmorph Door Blocked
+64		Spielfigur
 
 Custom Events
 =============

@@ -5,7 +5,7 @@ var iwannaplay = 0;
 
 var gg_arc = 70;
 
-SOUND* snd_dd_song = "Sumik_dj_-_wigi.ogg";
+//SOUND* snd_dd_song = "Sumik_dj_-_wigi.ogg";
 
 ENTITY* ge_morbius = NULL;
 ENTITY* ge_babe = NULL;
@@ -13,7 +13,7 @@ ENTITY* ge_babe = NULL;
 var waitfornextgdp = 0;
 
 TEXT* gdp = {
-	string ("LRUD","UUDD");
+	string ("LRUD","UUDDL","UUDDLRLR");
 }
 
 var sndvol = 100;
@@ -181,9 +181,9 @@ void crosskey_morbius(ENTITY* ent, STRING* str) {
 	crosskey(ent, "dd_cross", str);
 }
 
-action esnd_song () {
+/*action esnd_song () {
 	ent_playloop(my, snd_dd_song, 500);
-}
+}*/
 
 // skill1: CAM_INDEX 0
 // skill2: ArcStart 80
@@ -201,7 +201,7 @@ action dd_intro ()
 		dd_cam_index = 0;		
 		total_fails = 0;
 		isfailed = 0;
-		ent_create(NULL, nullvector, esnd_song);
+		//ent_create(NULL, nullvector, esnd_song);
 	}	
 	
 	while (type != dd_cam_type) {
@@ -955,46 +955,56 @@ action ee_stepcompl ()
 	
 	waitfornextgdp = 0;
 	
-	while (!gg_stepcomplete) {
-		wait(1);
-	}	
-	
-	waitfornextgdp = 1;
-	
-	var p = 0;
-	
-	var firstFrame = 1;
-	
-	snd_dd_nextstep_play ();
-
-	while (p < 100) {
+	while(1)
+	{
+		if (gdp_index < gdp->strings)
+		{
+			while (!gg_stepcomplete) {
+				wait(1);
+			}	
+			
+			waitfornextgdp = 1;
+			
+			var p = 0;
+			
+			var firstFrame = 1;
+			
+			snd_dd_nextstep_play ();
 		
-		VECTOR vCam, vTarget;
-		
-		vec_for_bone(&vCam, my, "Camera");
-		if (firstFrame) {
-			vec_set(camera->x, &vCam);
-			firstFrame = 0;
-		} else {
-			vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
+			while (p < 100) {
+				
+				VECTOR vCam, vTarget;
+				
+				vec_for_bone(&vCam, my, "Camera");
+				if (firstFrame) {
+					vec_set(camera->x, &vCam);
+					firstFrame = 0;
+				} else {
+					vec_lerp(camera->x, camera->x, &vCam, camlerpfac);
+				}
+				
+				sync_babe(my);
+				sync_morbius(my);
+				
+				vec_for_bone(&vTarget, my, "Target");
+				vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
+				
+				ent_animate(my, "", p, 0);
+				p = clamp(p + (DD_FPS / 16) * DD_FAC * time_step, 0, 100);		
+				
+				wait(1);
+			}
+			
+			gdp_next();
+			
+			waitfornextgdp = 0;
+			gg_stepcomplete = 0;
 		}
-		
-		sync_babe(my);
-		sync_morbius(my);
-		
-		vec_for_bone(&vTarget, my, "Target");
-		vec_to_angle(camera.pan,vec_diff(NULL, &vTarget, camera.x));
-		
-		ent_animate(my, "", p, 0);
-		p = clamp(p + (DD_FPS / 16) * DD_FAC * time_step, 0, 100);		
-		
-		wait(1);
+		else
+		{
+			wait(1);
+		}
 	}
-	
-	gdp_next();
-	
-	waitfornextgdp = 0;
-	gg_stepcomplete = 0;
 }
 
 #endif /*dancewed_c*/

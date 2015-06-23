@@ -3,7 +3,10 @@
 
 BMAP *bmpCreditsText = "credits.png";
 BMAP *bmpCreditsLogo = "morbius.png";
-STRING *msCreditsMusic = "media\\credits.ogg";
+STRING *msCreditsMusic = "media\\Silence.OGG";
+var credits_mouse_mode = mouse_mode;
+
+void credits__music();
 
 struct
 {
@@ -16,7 +19,8 @@ struct
 
 void credits_stop()
 {
-	media_stop(_credits.music);
+	if (media_playing(_credits.music))
+		media_stop(_credits.music);
 	_credits.music = 0;
 	
 	on_ent_remove = _credits.on_ent_remove;
@@ -30,6 +34,7 @@ void credits_stop()
 	void fn();
 	fn = creditsConfig.ended;
 	fn();
+	mouse_mode = credits_mouse_mode;
 }
 
 void credits_ent_remove(ENTITY *ent)
@@ -42,9 +47,7 @@ void credits_ent_remove(ENTITY *ent)
 void credits_core()
 {
 	vec_set(sky_color, vector(1, 1, 1));
-	_credits.music = media_play(msCreditsMusic, NULL, 100);
-	if(_credits.music == NULL)
-		error("Failed to play media :(");
+	credits__music();
 	
 	proc_mode = PROC_LATE;
 	
@@ -98,6 +101,8 @@ void credits_core()
 
 void credits_start()
 {
+	credits_mouse_mode = mouse_mode;
+	mouse_mode = 0;
 	memset(&_credits, 0, sizeof(_credits));
 	_credits.on_ent_remove = on_ent_remove;
 	_credits.on_esc = on_esc;
@@ -105,4 +110,12 @@ void credits_start()
 	on_esc = credits_stop;
 	level_load(NULL);
 	ent_create(NULL, vector(0, 0, 0), credits_core);
+}
+
+void credits__music()
+{
+	wait (-3);
+	_credits.music = media_loop(msCreditsMusic, NULL, 100);
+	if(_credits.music == NULL)
+		error("Failed to play media :(");
 }

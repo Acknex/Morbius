@@ -406,6 +406,7 @@ COMBINE: Visitenkarte + Cbabe
 "Das darf doch nicht wahr sein! The Lotties! Meine absolute Lieblingsband!"
 "Das ist jetzt keine gute Idee."
 "Vielleicht sollte ich erst mit C-Babe reden."
+"Eine Spielfigur! Wird augenscheinlich zum Spielen benutzt."
 	
 ---------------
 
