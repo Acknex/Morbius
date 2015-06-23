@@ -148,6 +148,7 @@ void CHAPTER_show(int id)
 	mouse_mode = 0;
 	
 	set(CHAPTER__bgPanel, SHOW);
+	wait(1);
 	set(CHAPTER__headlineText, SHOW);
 	set(CHAPTER__contentText, SHOW);
 	CHAPTER__headlineText->alpha = 100;

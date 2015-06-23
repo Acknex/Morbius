@@ -44,6 +44,11 @@ var SOUNDMGR_isPlaying(SOUND* snd)
 	return 0;
 }
 
+var SOUNDMGR_isActive()
+{
+	return snd_playing(SOUNDMGR__handle);
+}
+
 void SOUNDMGR__fader_startup()
 {
 	var fadeVol;

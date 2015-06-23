@@ -1,6 +1,7 @@
 #include <mtlView.c>
 #include "menu.h"
 #include "math.h"
+#include "musicmgr.h"
 
 #define MENU_BASE_STOP 1
 #define MENU_NUM_STOPS 5
@@ -465,6 +466,8 @@ void menu_regenerate_bitmaps()
 
 void menu_open()
 {
+	MUSICMGR_stop();
+
 	wait(1); // Using graphic functions
 	
 	// Initialize menuData

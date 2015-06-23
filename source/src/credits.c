@@ -1,5 +1,6 @@
 #include "credits.h"
 #include "math.h"
+#include "musicmgr.h"
 
 BMAP *bmpCreditsText = "credits.png";
 BMAP *bmpCreditsLogo = "morbius.png";
@@ -101,6 +102,7 @@ void credits_core()
 
 void credits_start()
 {
+	MUSICMGR_stop();
 	credits_mouse_mode = mouse_mode;
 	mouse_mode = 0;
 	memset(&_credits, 0, sizeof(_credits));

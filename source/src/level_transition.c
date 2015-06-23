@@ -7,9 +7,16 @@
 #include "inventory.h"
 #include "items.h"
 #include "chapter.h"
+#include "musicmgr.h"
 
 void dynamicLevel_gate_check();
 void dynamicLevel_gate_event();
+VECTOR fog_defaults;
+
+void level__startup()
+{
+	vec_set(&fog_defaults, _vec(camera.fog_start, camera.fog_end, fog_color));
+}
 
 var level_change_transition(var in)
 {
@@ -50,10 +57,16 @@ void level_change(var level_id, var gate_id, var silent)
 	input_fetch = 0;
 	
 	SOUNDMGR_stop();
+	if (!silent)
+	{
+		MUSICMGR_stop();
+	}
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
 	vec_set(sky_color,COLOR_BLACK);
-	wait(1);
+	camera.fog_start = fog_defaults.x;
+	camera.fog_end = fog_defaults.y;
+	fog_color = fog_defaults.z;
 	if (!silent)
 	{
 		CHAPTER_show(level_id);
@@ -69,6 +82,7 @@ void level_change(var level_id, var gate_id, var silent)
 	{
 		while(CHAPTER_isVisible()) wait(1);
 	}
+	MUSICMGR_play(level_id);
 	level_loaded = 1;
 	player_may_walk = 1;
 	while(level_change_transition(-1) > 0) wait(1);

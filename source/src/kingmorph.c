@@ -1,4 +1,5 @@
 #include "camera.h"
+#include "musicmgr.h"
 
 #define DANCE_HAND_PERCENT 100
 #define DANCE_FEET_PERCENT 40
@@ -62,6 +63,7 @@ void KINGMORPH_ackmania()
 	}
 	
 	cameraPause();
+	MUSICMGR_fadeOut();
 	KINGMORPH__lastMouseMode = mouse_mode;
 	mouse_mode = 0;
 	
@@ -82,6 +84,7 @@ void KINGMORPH_ackmania()
 	while(key_esc == 0 && key_space == 0 && key_enter == 0 && mouse_left == 0) wait(1);
 	
 	reset(player, INVISIBLE);
+	MUSICMGR_fadeIn();
 	while(progress > 0)
 	{
 		wait(1);
@@ -111,6 +114,7 @@ void KINGMORPH_lotteria()
 	}
 	
 	cameraPause();
+	MUSICMGR_fadeOut();
 	KINGMORPH__lastMouseMode = mouse_mode;
 	mouse_mode = 0;
 	
@@ -131,6 +135,7 @@ void KINGMORPH_lotteria()
 	while(key_esc == 0 && key_space == 0 && key_enter == 0 && mouse_left == 0) wait(1);
 	
 	reset(player, INVISIBLE);
+	MUSICMGR_fadeIn();
 	while(progress > 0)
 	{
 		wait(1);
