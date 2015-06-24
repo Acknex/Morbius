@@ -23,8 +23,8 @@ ren media_renamed_by_buildscript media
 echo.
 echo Copy unresourced files...
 xcopy /y media\*.* morbius.cd\media\
-xcopy  morbius.cd\*.xml morbius.cd\xml\
-copy wdf\acknex.wdf morbius.cd\acknex.wdf
+xcopy /y morbius.cd\*.xml morbius.cd\xml\
+xcopy /y publish\*.* morbius.cd\
 del morbius.cd\*.xml
 del morbius.exe
 

@@ -115,6 +115,9 @@ EXCLUDE_RESOURCE = "WRS;TMP;AVI;MPG;MOV;DLL;C;H;XML;LOG"
 ; additional files to be bound to the game on Publish
 AUTOBIND = "%work%\acknex.wdf" 
 AUTOBIND = "d3dx9_42.dll" 
+AUTOBIND = "%work%\16.ico" 
+AUTOBIND = "%work%\32.ico" 
+AUTOBIND = "%work%\readme.txt" 
 
 ; additional path to be searched for files on Publish
 PATH = "%EXE_DIR%\acknex_plugins" 
