@@ -3,6 +3,7 @@ How to build
 
 1. Make sure environment path contains path to Acknex.exe - otherwise edit build.bat and have 'Ackpath' point to Acknex.exe.
 2. Close engine if still running
+2b. (optional) Update precompiled shaders: start SED with -fxo, exit game, move .fxo files from root folder to "shaders".
 3a. Call build.bat
 3b. (optional) For checking the wrs contents, open build.wmp and run publish with 'create resource' from WED. It will list all files in WRS
 4. Several popups and errors will occur. They are intended. Press space to confirm each.
@@ -27,10 +28,10 @@ Projektordner (alles unter "source"):
     testcode:
         - source code zum Testen, nicht Bestandteil des fertigen Spiels
 	shaders:
-		- enthält alle vorkompilierten Shader. Update: SED mit -fxo starten, Spiel beenden, alle .fxo vom root Ordner nach "shaders" kopieren
+		- enthält alle vorkompilierten Shader. 
 	publish:
 		- enthält alle Dateien, die beim Publishen kopiert werden sollen (z.B. Readme, Icons)
     alle anderen Ordner:
         - landen in der WRS sofern referenziert
-        - keine(!) relativen Pfade verwenden, sondern PATH Statement in der main.wdl
-        - für Code File Pfade kann ein #define PRAGMA_PATH in main.c angelegt werden
+        - keine(!) relativen Pfade verwenden, sondern PATH Statement in der morbius.wdl
+        - für Code File Pfade kann ein #define PRAGMA_PATH in morbius.c angelegt werden
