@@ -6,7 +6,7 @@ How to build
 3a. Call build.bat
 3b. (optional) For checking the wrs contents, open build.wmp and run publish with 'create resource' from WED. It will list all files in WRS
 4. Several popups and errors will occur. They are intended. Press space to confirm each.
-5. Find ready to publish project in 'main.cd'
+5. Find ready to publish project in 'morbius.cd'
 
 
 Adding new files to the project
@@ -26,6 +26,10 @@ Projektordner (alles unter "source"):
         - Source code
     testcode:
         - source code zum Testen, nicht Bestandteil des fertigen Spiels
+	shaders:
+		- enthält alle vorkompilierten Shader. Update: SED mit -fxo starten, Spiel beenden, alle .fxo vom root Ordner nach "shaders" kopieren
+	publish:
+		- enthält alle Dateien, die beim Publishen kopiert werden sollen (z.B. Readme, Icons)
     alle anderen Ordner:
         - landen in der WRS sofern referenziert
         - keine(!) relativen Pfade verwenden, sondern PATH Statement in der main.wdl
