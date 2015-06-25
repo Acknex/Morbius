@@ -6,6 +6,7 @@
 //#include "inventory.h"
 //#include "player.h"
 #include "soundmgr.h"
+#include "mousemgr.h"
 
 STRING* dlgCurrentSpeakerStr = "";
 void (*dlg__resizeEv)();

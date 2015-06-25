@@ -3,6 +3,7 @@
 #include "level_transition.h"
 #include "itemmgr.h"
 #include "inventory.h"
+#include "materials.h"
 
 #define PLAYER_RUN_CLICKSPEED (-0.2)
 #define PLAYER_RUN_THRESHOLD 100.0

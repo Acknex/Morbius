@@ -2,6 +2,7 @@
 #define _INVENTORY_C_
 
 #include "itemmgr.h"
+#include "event.h"
 
 void (*inv__resizeEv)();
 
