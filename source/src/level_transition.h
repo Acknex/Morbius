@@ -8,7 +8,7 @@ var level_loaded = 1;
 
 TEXT* txt_level_wmbs =
 {
-	string("ruin.wmb","ruin_indoor.wmb", "alley.wmb", "kingmorph.wmb", "office.wmb", "greek_office.wmb", "office.wmb");
+	string("ruin.wmb","ruin_indoor.wmb", "alley.wmb", /*"dancefloor.wmb"*/"kingmorph.wmb", "office.wmb", "greek_office.wmb", "office.wmb");
 }
 
 var level_change_transition(var in);

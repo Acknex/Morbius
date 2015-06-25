@@ -1,5 +1,7 @@
 #include "camera.h"
 #include "musicmgr.h"
+#include "itemmgr.h"
+#include "dancewed.h"
 
 #define DANCE_HAND_PERCENT 100
 #define DANCE_FEET_PERCENT 40
@@ -150,9 +152,30 @@ void KINGMORPH_lotteria()
 	cameraResume();
 }
 
+void KINGMORPH_dance()
+{
+	cameraPause();
+	KINGMORPH__lastMouseMode = mouse_mode;
+	mouse_mode = 0;
+	//set(player, INVISIBLE);
+	dd_start();
+	while(dd_running())
+	{
+		wait(1);
+	}
+	//reset(player, INVISIBLE);
+	mouse_mode = KINGMORPH__lastMouseMode;
+	cameraResume();
+}
+
+void on_t_event()
+{
+	KINGMORPH_dance();
+}
+
 action kingmorphDance()
 {
-set(my, INVISIBLE); //temp
+//set(my, INVISIBLE); //temp
 	var animHand = 0;
 	var animHandR = 0;
 	var animFeet = 0;
