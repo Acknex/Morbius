@@ -3,8 +3,12 @@
 #include "itemmgr.h"
 #include "dancewed.h"
 
-#define DANCE_HAND_PERCENT 100
+#define DANCE_HAND_PERCENT 80
 #define DANCE_FEET_PERCENT 40
+#ifndef trigItemId
+	#define trigItemId skill4
+#endif
+
 
 STRING* KINGMORPH__strAckmania = "media\\ackmania_tiny.wmv";
 STRING* KINGMORPH__strLotteria = "media\\lotteria_tiny.wmv";
@@ -13,6 +17,7 @@ ENTITY* KINGMORPH__ackmaniaCam = NULL;
 ENTITY* KINGMORPH__lotteriaCam = NULL;
 ENTITY* KINGMORPH__ackmania = NULL;
 ENTITY* KINGMORPH__lotteria = NULL;
+ENTITY* KINGMORPH__griechin = NULL;
 var KINGMORPH__lastMouseMode;
 var KINGMORPH__ackmaniaHandle = 0;
 var KINGMORPH__lotteriaHandle = 0;
@@ -157,6 +162,11 @@ void KINGMORPH_dance()
 	cameraPause();
 	KINGMORPH__lastMouseMode = mouse_mode;
 	mouse_mode = 0;
+	if (KINGMORPH__griechin != NULL)
+	{
+		set(KINGMORPH__griechin, INVISIBLE);
+	}
+	set(player, INVISIBLE);
 	//set(player, INVISIBLE);
 	dd_start();
 	while(dd_running())
@@ -165,17 +175,20 @@ void KINGMORPH_dance()
 	}
 	//reset(player, INVISIBLE);
 	mouse_mode = KINGMORPH__lastMouseMode;
+	if (KINGMORPH__griechin != NULL)
+	{
+		reset(KINGMORPH__griechin, INVISIBLE);
+	}
+	reset(player, INVISIBLE);
 	cameraResume();
 }
 
-void on_t_event()
-{
-	KINGMORPH_dance();
-}
-
+//skill1: EntityType 1
+//skill2: ItemId -1
+//skill3: ItemBorder 25
+//skill4  triggerItemId -1
 action kingmorphDance()
 {
-//set(my, INVISIBLE); //temp
 	var animHand = 0;
 	var animHandR = 0;
 	var animFeet = 0;
@@ -184,6 +197,17 @@ action kingmorphDance()
 	VECTOR* walk;
 	VECTOR pos;
 
+	KINGMORPH__griechin = me;
+	set(my, INVISIBLE | PASSABLE);
+	while(!inventory || !is_level_loaded()) wait(1); //harghhhh
+	if (inv_item_search(inventory, my->trigItemId) == NULL)
+	{
+		my->flags2 |= UNTOUCHABLE;
+		return;
+	}
+		
+	reset(my, INVISIBLE);
+	interactionItem_remoteStart();	
 	vec_set(&pos, &my->x);
 	
 	while(1)
@@ -204,16 +228,16 @@ action kingmorphDance()
 			animFeet -= DANCE_FEET_PERCENT;
 		}
 
-		if (animHand >= DANCE_FEET_PERCENT / 2)
+		if (animHand >= DANCE_HAND_PERCENT / 2)
 		{
-			animHandR = DANCE_FEET_PERCENT - animHand;
+			animHandR = DANCE_HAND_PERCENT - animHand;
 		}
 		else
 		{
 			animHandR = animHand;
 		}
 		ent_animate(me,"talk", animHandR, ANM_ADD | ANM_CYCLE);
-		animHand = cycle(animHand + 6 * time_step, 0, DANCE_FEET_PERCENT);
+		animHand = cycle(animHand + 6 * time_step, 0, DANCE_HAND_PERCENT);
 
 			
 		walk = vector(animFeetR * 1.5, sinv(total_ticks * 30) * 5, 0);

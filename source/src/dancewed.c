@@ -1,6 +1,7 @@
 #ifndef dancewed_c
 #define dancewed_c
 
+void dd_panel();
 void dd_dance(ENTITY* ent, var duration);
 void dd_exit();
 var camera_arc;
@@ -23,8 +24,8 @@ ENTITY* ge_babe = NULL;
 var waitfornextgdp = 0;
 
 TEXT* gdp = {
-//	string ("LRUD","RUDDL","UUDDLRLR");
-	string ("LRUD", "UU");
+	string ("UDLR","UUDDLRLR", "LLLRRRUUU");
+//	string ("LRUD", "UU");
 }
 
 var sndvol = 100;
@@ -525,6 +526,8 @@ action ee_play ()
 	ge_babe = my;
 	vec_set(&ee_babe_pos, my->x);
 	vec_set(&ee_babe_ang, my->pan);
+	set(my, INVISIBLE);
+	my->flags2 |= UNTOUCHABLE;
 	
 	gg_stepcomplete = 0;
 
@@ -852,6 +855,8 @@ action ee_morbius ()
 	ge_morbius = my;
 	vec_set(&ee_morbius_pos, my->x);
 	vec_set(&ee_morbius_ang, my->pan);
+	set(my, INVISIBLE);
+	my->flags2 |= UNTOUCHABLE;
 	
 	while(1)
 	{
@@ -1002,9 +1007,9 @@ action ee_morbius ()
 			game_started = 0;
 			gdp_index = 0;
 			dd_cam_index = 0;		
-			dd_cam_type = 0;		
-			total_fails = 0;
-			isfailed = 0;
+			dd_cam_type = 0;
+			/*total_fails = 0;
+			isfailed = 0;*/
 			
 		}
 		wait(1);
@@ -1166,7 +1171,8 @@ action ee_stepcompl ()
 	}
 }
 
-#define ddDANCE_HAND_PERCENT 100
+//lazily stolen from kingmorph.c
+#define ddDANCE_HAND_PERCENT 80
 #define ddDANCE_FEET_PERCENT 40
 
 void dd_dance(ENTITY* ent, var duration)
@@ -1198,19 +1204,19 @@ void dd_dance(ENTITY* ent, var duration)
 			animFeet -= ddDANCE_FEET_PERCENT;
 		}
 
-		if (animHand >= ddDANCE_FEET_PERCENT / 2)
+		if (animHand >= ddDANCE_HAND_PERCENT / 2)
 		{
-			animHandR = ddDANCE_FEET_PERCENT - animHand;
+			animHandR = ddDANCE_HAND_PERCENT - animHand;
 		}
 		else
 		{
 			animHandR = animHand;
 		}
 		ent_animate(me,"talk", animHandR, ANM_ADD | ANM_CYCLE);
-		animHand = cycle(animHand + 6 * time_step, 0, ddDANCE_FEET_PERCENT);
+		animHand = cycle(animHand + 6 * time_step, 0, ddDANCE_HAND_PERCENT);
 
 			
-		walk = vector(animFeetR * 0.5/*animFeetR * 1.5*/, sinv(total_ticks * 30) * 5, 0);
+		walk = vector(0/*animFeetR * 1.5*/, sinv(total_ticks * 30) * 5, 0);
 		vec_rotate(walk, &my->pan);
 		vec_add(walk, pos);
 		vec_set(&my->x, walk);
@@ -1218,8 +1224,29 @@ void dd_dance(ENTITY* ent, var duration)
 		duration -= time_step;
 		wait(1);
 	}
+	vec_set(&my->x, &pos);
 }
 
+
+PANEL* dd_instructionPan = {BMAP = "arrows.tga"; flags = FILTER;}
+SOUND* dd_winSnd = "dd_win.ogg";
+SOUND* dd_loseSnd = "dd_lose.ogg";
+void dd_panel()
+{
+	wait (-0.5);
+	set(dd_instructionPan, SHOW);
+	var x = 52;
+	while (x > 0)
+	{
+		dd_instructionPan->scale_y = (screen_size.y / 1200) * 0.9;
+		dd_instructionPan->scale_x = dd_instructionPan->scale_y;
+		dd_instructionPan->pos_x = (screen_size.x - dd_instructionPan->size_x * dd_instructionPan->scale_x) * 0.5;
+		dd_instructionPan->pos_y = (screen_size.y - dd_instructionPan->size_y * dd_instructionPan->scale_y) * 0.5;
+		x = maxv(0, x - time_step);
+		wait(1);
+	}
+	reset(dd_instructionPan, SHOW);
+}
 
 void dd_exit()
 {
@@ -1232,6 +1259,14 @@ void dd_exit()
 	endAngle.tilt = ang(endAngle.tilt);
 	endAngle.roll = ang(endAngle.roll);
 	camera.arc = camera_arc;
+	if (!isfailed)
+	{
+		snd_play(dd_winSnd, sndvol, 0);
+	}
+	else
+	{
+		snd_play(dd_loseSnd, sndvol, 0);
+	}
 	for (i = 0; i < 100; i+= 4 * time_step)
 	{
 		i = clamp(i, 0, 100);
@@ -1240,7 +1275,15 @@ void dd_exit()
 		wait(1);
 	}
 	game_running = 0;
-	error("exit minigame");
+	
+	set(ge_morbius, INVISIBLE);
+	set(ge_babe, INVISIBLE);
+	if (player != NULL)
+	{
+		vec_set(&player->x, &ge_morbius->x);
+		vec_set(&player->pan, &ge_morbius->pan);
+	}
+	//error("exit minigame");
 }
 
 void dd_start()
@@ -1249,6 +1292,7 @@ void dd_start()
 	{
 		return;
 	}
+	dd_panel();
 	camera_arc = camera.arc;
 	vec_set(&camera_pos, &camera->x);	
 	vec_set(&camera_ang, &camera->pan);	
@@ -1262,6 +1306,8 @@ void dd_start()
 
 	game_started = 1;
 	game_running = 1;
+	reset(ge_morbius, INVISIBLE);
+	reset(ge_babe, INVISIBLE);
 }
 
 var dd_running()

@@ -320,6 +320,14 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			break;
 		}
 		
+		//Spielfigur
+		case 1018:
+		{
+			KINGMORPH_dance();
+			wait_for(KINGMORPH_dance);
+			break;
+		}
+		
 		default:
 		{
 			break;

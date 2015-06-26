@@ -62,12 +62,15 @@ void inv_show(Inventory* _inv) {
 		// Show items
 		_inv.itr = _inv.head;
 		int i = 0;
+		var vScale = screen_size.y / 1200;
 		while(_inv.itr != NULL) {
 			if (_inv.itr.panel != NULL)
 			{	
 				set(_inv.itr.panel, SHOW);
 				_inv.itr.panel.pos_x = _inv.panel.pos_x + 1 + (INV_ITEMS_OFFSET_X + (INV_ITEM_GAP * (i%INV_ITEMS_X)) + (INV_ITEM_SIZE*(i%INV_ITEMS_X))) * _inv.itr.panel.scale_x;
 				_inv.itr.panel.pos_y = _inv.panel.pos_y + 1 + (INV_ITEMS_OFFSET_Y + (INV_ITEM_GAP * (integer(i/INV_ITEMS_X))) + (INV_ITEM_SIZE*(integer(i/INV_ITEMS_X)))) * _inv.itr.panel.scale_y;		
+				_inv.itr.panel.scale_x = vScale;
+				_inv.itr.panel.scale_y = vScale;
 			}
 			i+=1;
 			inv_increate_iterator(_inv);
@@ -443,9 +446,9 @@ void inv_resize()
 		var vScale = screen_size.y / 1200;
 		
 		//this is sort of hacky
-		
 		ptr_remove(inventory.panel.bmap);
 		inventory.panel.bmap = bmap_createblack(screen_size.x, inventory.panel.size_y, 24);
+		inventory.panel.size_x = screen_size.x;
 		inventory.panel.scale_y = vScale; //leave original panel y size due to missing height reference
 		inv_set_pos(inventory, 0, screen_size.y - (bmap_height(inventory.panel.bmap) * vScale));	
 		//todo: scale whole inventory - not working due to item positioning

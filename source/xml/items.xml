@@ -348,6 +348,17 @@
 		<sequence description="Vielleicht sollte ich erst mit CBabe reden." sound="achievement1.wav"/>
 	</item>
 
+	<!--Spielfigur//-->
+	<item id="64" name="Spielfigur" collectable="yes" imgfile="pawn.png">
+		<sequence description="Eine Spielfigur!? Benutzt man wohl zum Spielen." sound="achievement1.wav"/>
+	</item>
+
+	<!--Tanzende Griechin//-->
+	<item id="65" name="Griechin">
+		<sequence description="Die Griechin hier in der Disco! Am Tanzen!? Wie frech..." sound="achievement1.wav"/>
+	</item>
+
+
 </items>
 <combinations>
 	<!--Schubladenschlüssel mit Abgeschlossene Schublade//-->
@@ -393,7 +404,10 @@
 	<combination id1="40" id2="41" morphtarget="41" result="42"/>
 
 	<!--Visitenkarte mit Cbabe//-->
-	<combination id1="1" id2="60" description="Hier ist meine Visitenkarte. Falls Ihnen noch was einfällt, geben Sie mir bitte umgehend Bescheid." result="1014"/>
+	<combination id1="1" id2="60" description="Hier ist meine Visitenkarte. Falls dir noch was einfällt, gib mir bitte umgehend Bescheid." result="1014"/>
+
+	<!--Spielfigur mit Tanzende Griechin//-->
+	<combination id1="64" id2="65" result="1018"/>
 
 	<!-- Combination failures//-->
 	<fail description="So wird das nix." sound="comb_fail01.ogg"/>

@@ -398,7 +398,7 @@ MORBIUS: [seuftz] Tut mir leid. So meinte ich das nicht. Du verstehst, dass ich 
 CBABE: Lass mich jetzt bitte in ruhe...
 
 COMBINE: Visitenkarte + Cbabe
-    "Hier ist meine Visitenkarte. falls ihnen noch was einfällt geben sie mir bitte umgehend bescheid"
+    "Hier ist meine Visitenkarte. falls dir noch was einfällt gib mir bitte umgehend bescheid"
     (VICTORY CONDITION)
 
 "Neunfach gehopftes Acknex Craft Bier. Bitterer Abgang." (A9 Bier)
@@ -406,7 +406,8 @@ COMBINE: Visitenkarte + Cbabe
 "Das darf doch nicht wahr sein! The Lotties! Meine absolute Lieblingsband!"
 "Das ist jetzt keine gute Idee."
 "Vielleicht sollte ich erst mit C-Babe reden."
-"Eine Spielfigur! Wird augenscheinlich zum Spielen benutzt."
+"Eine Spielfigur!? Benutzt man wohl zum Spielen."
+"Die Griechin hier in der Disco! Am Tanzen!? Wie frech..."
 	
 ---------------
 
