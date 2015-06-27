@@ -22,6 +22,9 @@ Inventory* inv_create(BMAP* _bg, int width, int height) {
 	} else {
 		inv.panel.bmap = _bg;
 	}
+	//this is sort of hacky
+	var vScale = screen_size.y / 1200;	
+	inv.panel.scale_y = vScale; //leave original panel y size due to missing height reference
 	
 	// Create item description
 	inv.itemDescription = txt_create(1, INV_PANEL_LAYER + 1);

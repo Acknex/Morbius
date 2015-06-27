@@ -350,7 +350,7 @@
 
 	<!--Spielfigur//-->
 	<item id="64" name="Spielfigur" collectable="yes" imgfile="pawn.png">
-		<sequence description="Eine Spielfigur!? Benutzt man wohl zum Spielen." sound="achievement1.wav"/>
+		<sequence description="Eine Spielfigur!? Benutzt man wohl zum Spielen. Die kommt natürlich mit." sound="achievement1.wav"/>
 	</item>
 
 	<!--Tanzende Griechin//-->
