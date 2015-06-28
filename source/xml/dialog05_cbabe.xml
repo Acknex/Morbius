@@ -9,7 +9,7 @@
 	<NPC id="7" file="dlg05_cbabe_07.ogg" name="CBabe">Kannst du bitte aufhören die 4. Wand zu brechen und den Dialog weiterführen?</NPC>
 	<Player id="8" name="Morbius">Sorry! ... Du hast am Utopia Projekt gearbeitet?</Player>
 	<NPC id="9" file="dlg05_cbabe_09.ogg" name="CBabe">Das ist richtig. Warum? Willst du mich auch anheuern? Kostet dich aber extra als Privatperson...</NPC>
-	<Player id="10" name="Morbius">Sorry, kein Interesse. Ich bin viel mehr interessiert an den Herren M. Dayle und Emdayelle.</Player>
+	<Player id="10" name="Morbius">Sorry, kein Interesse. Ich bin viel mehr interessiert an den Herren Emdayelle und M. Dayle.</Player>
 	<NPC id="11" file="dlg05_cbabe_11.ogg" name="CBabe">Guard und Warlock? Wie kommt es?</NPC>
 	<Player id="12" name="Morbius">Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn du GANZ genau weißt dass die beiden ins Gras gebissen haben.</Player>
 	<NPC id="13" file="dlg05_cbabe_13.ogg" name="CBabe">S...sie.. Sie sind TOT?!</NPC>

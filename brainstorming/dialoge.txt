@@ -388,7 +388,7 @@ MORBIUS: Sehr vornehmlich. Ich musste das ganze spiel über schon irgendwelche R
 CBABE: Kannst du bitte aufhören die 4. wand zu brechen und den dialog weiterführen?
 MORBIUS: Sorry! ... Du hast am Utopia Projekt gearbeitet?
 CBABE: Das ist richtig. Warum? Willst du mich auch anheuern? Kostet dich aber extra als privatperson...
-MORBIUS: Sorry, kein interesse. Ich bin viel mehr interessiert an den Herren M. Dayle und Emdayelle.
+MORBIUS: Sorry, kein interesse. Ich bin viel mehr interessiert an den Herren Emdayelle und M. Dayle.
 CBABE: Guard und Warlock? Wie kommt es?
 MORBIUS: Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn du GANZ genau weißt dass die beiden ins Graß gebissen haben.
 CBABE: S...sie.. Sie sind TOT?!
@@ -416,5 +416,47 @@ Büro
 VICTORY
 
 UseLaptop
+
+
+
+[14:22] <xwcg> cbabe war mit zorotto zusammen
+[14:22] <xwcg> wenn du cbabe deine visitenkarte gibts, dann schreibt sie dir ne email mit nem geständniss
+[14:49] <xwcg> zorotto hat die utopia leute umgebracht damit JCL weiter an Zorro arbeitet
+[14:49] <xwcg> Warlock.mdl war der typ der hinter Utopia steckte, Guard.mdl war sein leibwächter
+[14:50] <xwcg> Cbabe.mdl war mit Zorotto zusammen, zorotto hat sie angestiftet Warlock.mdl zu verführen, das hat aber nicht geklappt, also hat zorotto erst guard.mdl getötet um an warlock.mdl dran zu kommen, den hat er dann auch getötet
+[14:51] <xwcg> wird dann am ende erklärt in nem zeitungsartikel
+
+--------
+(bad)
+Ffm / Niederrad - Gestern wurde eine weitere Leiche in einer Seitengasse der Draugstraße gefunden. Wie die Medien einstimmig berichten, handelt es sich hierbei um den erfolgreichen Unternehmer M. Dayle.
+In Zürich unterdessen wurde eine weitere Leiche entdeckt. Es handelt sich hierbei um Herrn Emdayelle, ein Bodyguard der Firma GALEP Security, der Herrn M. Dayle als persönlicher Beschützer zugeteilt war.
+"Zwischen den beiden Mordfällen besteht unweigerlich ein direkter Zusammenhang zu den Z-Morden", so Oberkommmisar Seifrig. "Diesmal haben wir aber eine heiße Spur", so der Kommisar weiter. "Wir konnten an beiden Leichen Fingerabdrücke eines gewissen Mike Morbius finden." Es scheint, als sei der Serientäter gefunden - wenngleich das Motiv noch unbekannt ist.
+
+"Oh Scheiße! Hätte ich CBabe doch nur meine Anschrift hinterlassen..."
+
+--------
+(good)
+Absender: CBabe
+Betreff: Visitenkarte
+
+Zorotto... der Mann der mein Leben zerstörte.
+Steht auf Mantel, Hut und Degen - ein Traum von einem Mann. Als ich ihm zum erste Mal begegnete, habe ich mich sofort unsterblich in ihn verliebt.
+
+Zorotto schmiedete an einer neuartigen "Zorro" Software, um Geld von reich nach arm umzuverteilen. 
+Das Projekt war mitten in der Entwicklung - doch plötzlich warf aus unerfindlichen Gründen der Hauptentwickler JCL das Handtuch.
+
+Schon bald fand Zorotto den Quell allen Übels. Utopia, ein größenwahnsinniges Projekt eines gewissen M. Dayle, der in Fachkreisen auch Warlock genannt wurde, das mit viel Geld aus fragwürdigen Quellen auf den Boden gestampft wurde, hatte JCL schlichtweg mit beträchtlicher Belohnung abgeworben.
+Zorotto musste eingreifen, um das Zorro Projekt zu retten. So kam es, dass ich mich auf seinen teuflischen Plan einließ.
+Ich sollte mich Warlock annähern, ihn verführen und schließlich zur Aufgabe überreden... doch der alte Knacki war so unglaublich stur, dass diese Masche nicht funktionierte.
+Also wollte Zorotto die Dinge kurzerhand auf seine Weise regeln, und stürmte davon - in voller Montur. Was er mit "regeln" meinte, habe ich erst durch unser Gespräch erfahren.
+Ich hätte niemals gedacht, dass er für "Zorro" über Leichen gehen würde. Und es war wohl nicht zum ersten Mal.
+
+In was bin ich da nur reingeraten... 
+
+
+Ffm / Niederrad - Gestern wurde eine weitere Leiche in einer Seitengasse der Draugstraße gefunden. Wie die Medien einstimmig berichten, handelt es sich hierbei um den erfolgreichen Unternehmer M. Dayle.
+In Zürich unterdessen wurde eine weitere Leiche entdeckt. Es handelt sich hierbei um Herrn Emdayelle, ein Bodyguard der Firma GALEP Security, der Herrn M. Dayle als persönlicher Beschützer zugeteilt war.
+"Zwischen den beiden Mordfällen besteht unweigerlich ein direkter Zusammenhang zu den Z-Morden", so Oberkommmisar Seifrig. "Diesmal haben wir aber eine heiße Spur", so der Kommisar weiter. "Dank den Hinweisen eines Mike Morbius und einem Geständnis einer beteiligten Person konnten wir den Tathergang und die Hintergründe rekonstruieren."
+Es scheint nur noch eine Frage der Zeit, bis der Serientäter gefasst wird.
 
     
