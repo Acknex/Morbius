@@ -467,6 +467,7 @@ void menu_regenerate_bitmaps()
 void menu_open()
 {
 	MUSICMGR_stop();
+	if (_menu.active) return;
 
 	wait(1); // Using graphic functions
 	

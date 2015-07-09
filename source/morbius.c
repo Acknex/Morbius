@@ -30,9 +30,11 @@
 #include "office.h"
 #include "kingmorph.h"
 
-#define DEBUG
+//#define DEBUG
 #ifdef DEBUG
 	#include <default.c>
+#else
+	#include "control.c"
 #endif
 
 void main() {

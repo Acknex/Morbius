@@ -10,6 +10,8 @@
 #include "dialogs.h"
 #include "chapter.h"
 #include "musicmgr.h"
+//#include "event.h"
+//#include "menu.h"
 
 void smartwalk_init();
 void level_change(var level_id, var gate_id);
@@ -49,6 +51,14 @@ void quitGame()
 	sys_exit(NULL);
 }
 
+/* crashes in menu
+void openMenu()
+{
+	if (EVENT_isLocked()) return; //this is all timed stuff, not easy to break	
+	menu_open();
+}
+*/
+
 void sys_init() {
 	
 	// rendering
@@ -86,6 +96,8 @@ void sys_init() {
 
 	on_close = quitGame;
 	on_exit = exitGame;
+//	on_esc = openMenu; //fucks up
+	on_esc = quitGame;
 }
 
 #endif
