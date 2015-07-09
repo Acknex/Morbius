@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <Dialog>
 	<Player id="0" file="dlg04_morbius_00.ogg" name="Morbius">Hallo, schön dass du kommen konntest.</Player>
 	<NPC id="1" file="dlg04_greek_01.ogg" name="Griechin">[kichern] Kein Problem. Ist schon ne Weile her seit dem letzten Mal. Wie geht es deinem Keilbeinknochen?</NPC>

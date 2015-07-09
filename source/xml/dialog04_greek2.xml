@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <Dialog>
 	<Player id="0" file="dlg04_morbius_13.ogg" name="Morbius">Hier, hab ich extra für dich gemacht.</Player>
 	<NPC id="1" file="dlg04_greek_14.ogg" name="Griechin">Mein Güte Morbius, du bist ja voller Überraschungen. Als nächstes wirst du mir noch sagen, dass du bei deinem neuen Fall sogar einen Vorschuss bekommen hast!</NPC>

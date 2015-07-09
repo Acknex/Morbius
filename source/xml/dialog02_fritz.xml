@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <Dialog>
 	<NPC id="0" file="dlg02_fritz_00.ogg" name="Fritz">[schnauf] Yop?</NPC>
 	<Choice id="1">

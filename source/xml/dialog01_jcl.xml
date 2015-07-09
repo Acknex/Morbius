@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <Dialog>
 	<Player id="0" file="dlg01_morbius_00.ogg" name="Morbius">Morbius, Institut für Information</Player>
 	<NPC id="1" file="dlg01_jcl_01.ogg" name="JCL">It's a me! J C L-e!</NPC>

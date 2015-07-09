@@ -20,16 +20,18 @@ void startGame()
 	me = NULL;
 	proc_mode = PROC_GLOBAL;
 	ITEM_load("xml\\items.xml"); // items.h
-	COMBINATION_load("xml\\items.xml"); // combine.h
+	COMBINATION_load("xml\\combinations.xml"); // combine.h
 	CHAPTER_load("xml\\chapters.xml"); // chapter.h
-	//level_change(0,-1);
-	level_change(4,-1);
-	//level_change(5,-1);
-	//level_change(3,-1);
+	//level_change(0,-1); //ruin
+	//level_change(2,-1); //alley
+	level_change(4,-1); //office
+	//level_change(5,-1); //greek_office
+	//level_change(3,-1); //kingmorph
 	while(!is_level_loaded()) wait(1);
 	inventory = inv_create(NULL, screen_size.x, 80);
 	inv_show(inventory);
-	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap));	
+	var vScale = screen_size.y / 1200;	
+	inv_set_pos(inventory, 0, screen_size.y - bmap_height(inventory.panel.bmap) * vScale);	
 }
 
 void exitGame()
