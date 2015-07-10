@@ -1,6 +1,6 @@
 #include "player.h"
 #include "camera.h"
-#include "event.h
+#include "event.h"
 #include "dialogs.h"
 #include "soundmgr.h"
 #include "types.h"

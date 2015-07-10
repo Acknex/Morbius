@@ -34,7 +34,7 @@
 #ifdef DEBUG
 	#include <default.c>
 #else
-	#include "control.c"
+	#include "control.c" //downhacked version of default.c
 #endif
 
 void main() {

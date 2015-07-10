@@ -323,6 +323,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		//exit kingmorph
 		case 1017:
 		{
+			KINGMORPH_exit();
 			level_change(6, 1); //final office
 			break;
 		}
@@ -475,4 +476,14 @@ action untouchableObject()
 	my->flags2 |= UNTOUCHABLE;
 	set(my, PASSABLE);
 }
+
+void EVENT_reset()
+{
+	EVENT__entrylock = 0;
+	EVENT__talking = 0;
+	EVENT__triggerId = -1;
+	EVENT__stop = 0;
+	EVENT__locked = 0;
+}
+
 

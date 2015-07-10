@@ -465,9 +465,11 @@ void inv_resize()
 			}
 			inv_increate_iterator(inventory);
 		}
-		inv_hide(inventory);
-		inv_show(inventory);
-		
+		if (inv_is_visible(inventory) == 1) 
+		{
+			inv_hide(inventory);
+			inv_show(inventory);
+		}		
 	}
 }
 

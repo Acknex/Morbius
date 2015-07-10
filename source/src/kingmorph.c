@@ -349,28 +349,14 @@ void KINGMORPH__lerpAng(ANGLE* out, ANGLE* start, ANGLE* end, var percentage)
 	vec_add(out, &diff);
 }
 
-void KINGMORPH__startup()
+void KINGMORPH_exit()
 {
-	on_ent_remove = KINGMORPH__remove;	
-}
-
-void KINGMORPH__remove(ENTITY* ent)
-{
-	if (ent == KINGMORPH__ackmania)
-	{
-		if (KINGMORPH__ackmaniaHandle != 0)
+		if (media_playing(KINGMORPH__ackmaniaHandle))
 		{
 			media_stop(KINGMORPH__ackmaniaHandle);
 		}
-		return;
-	}
-	
-	if (ent == KINGMORPH__lotteria)
-	{
-		if (KINGMORPH__lotteriaHandle != 0)
+		if (media_playing(KINGMORPH__lotteriaHandle))
 		{
 			media_stop(KINGMORPH__lotteriaHandle);
 		}
-		return;
-	}
 }

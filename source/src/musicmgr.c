@@ -49,7 +49,6 @@ void MUSICMGR_play(var id)
 	{
 		return;
 	}
-
 	MUSICMGR__currentVolume = 0;
 
 	//WED build pretends to be clever, so it would find the files without path
@@ -87,6 +86,7 @@ void MUSICMGR_close()
 	if (media_playing(MUSICMGR__handle))
 	{
 		media_stop(MUSICMGR__handle);
+		MUSICMGR__currentId = -1;
 	}	
 }
 

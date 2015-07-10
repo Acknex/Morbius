@@ -4,6 +4,7 @@
 void KINGMORPH_morbius_LookAtCbabe();
 void KINGMORPH_ackmania();
 void KINGMORPH_lotteria();
+void KINGMORPH_exit();
 
 #include "kingmorph.c"
 
