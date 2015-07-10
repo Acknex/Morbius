@@ -18,8 +18,10 @@ struct
 	ENTITY *core;
 } _credits;
 
+var creditsStoppedHack = 0;
 void credits_stop()
 {
+	creditsStoppedHack = 1;
 	if (media_playing(_credits.music))
 		media_stop(_credits.music);
 	_credits.music = 0;
@@ -55,7 +57,7 @@ void credits_core()
 	wait(1);
 	
 	_credits.scroll = -1.1 * screen_size.y;
-	while(1)
+	while(!creditsStoppedHack)
 	{
 		if(_credits.scroll < -0.75 * screen_size.y) {
 			
@@ -74,6 +76,7 @@ void credits_core()
 				100 - alpha,
 				0);
 		}
+
 		if(_credits.scroll >= -screen_size.y) {
 			float scale = 1.2;
 			float aspect = screen_size.y / screen_size.x;
@@ -91,7 +94,7 @@ void credits_core()
 			
 		_credits.scroll = minv(_credits.scroll + 2 * time_step, bmpCreditsText.height);
 		
-		if(_credits.scroll == bmpCreditsText.height)
+		if(_credits.scroll >= bmpCreditsText.height)
 		{
 			credits_stop();
 		}
@@ -102,6 +105,7 @@ void credits_core()
 
 void credits_start()
 {
+	creditsStoppedHack = 0;
 	MUSICMGR_stop();
 	credits_mouse_mode = mouse_mode;
 	mouse_mode = 0;
