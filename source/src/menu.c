@@ -597,8 +597,10 @@ void menu_startup()
 	//strcpy(_menu_stops[2].title, "Load Game");
 	
 	vec_set(_menu_stops[2].position, vector(-407, -1090, 217));
-	vec_set(_menu_stops[2].rotation, vector(242, -26, 0));
-	vec_set(_menu_stops[2].positionText, vector(-485, -1310, 100));
+//	vec_set(_menu_stops[2].rotation, vector(242, -26, 0));
+	vec_set(_menu_stops[2].rotation, vector(212, -26, 0));
+	//vec_set(_menu_stops[2].positionText, vector(-485, -1310, 100));
+	vec_set(_menu_stops[2].positionText, vector(-545, -1180, 100));
 	strcpy(_menu_stops[2].title, "Options");
 	
 	vec_set(_menu_stops[3].position, vector(611, -625, 226));

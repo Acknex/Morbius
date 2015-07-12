@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dialog>
+	<Player id="0" file="dlg01_morbius_00.ogg" name="Morbius">Morbius, Institut für Information</Player>
+	<NPC id="1" file="dlg01_jcl_01.ogg" name="JCL">It's a me! J C L-e!</NPC>
+	<Player id="2" file="dlg01_morbius_02.ogg" name="Morbius">Entschuldigung?</Player>
+	<NPC id="3" file="dlg01_jcl_03.ogg" name="JCL">Ich meine, Guten Tag, Lotter ist mein Name.</NPC>
+	<Choice id="4">
+		<ChoiceItem target="5" returnvalue="2">1 - Guten Tag Herr Lotter, wie kann ich Ihnen helfen?</ChoiceItem>
+		<ChoiceItem target="7" returnvalue="2">2 - Hatten Sie nicht gerade noch einen Italienischen Akzent?</ChoiceItem>	
+	</Choice>
+	<Player id="5" file="dlg01_morbius_04a.ogg" name="Morbius">Guten Tag Herr Lotter, wie kann ich Ihnen helfen?</Player>
+	<Goto id="6" target="9" />
+	<Player id="7" file="dlg01_morbius_04b.ogg" name="Morbius">Hatten Sie nicht gerade noch einen Italienischen Akzent?</Player>
+	<NPC id="8" file="dlg01_jcl_05b.ogg" name="JCL">Ich glaube die Leitung hat eine Störung...</NPC>
+	<NPC id="9" file="dlg01_jcl_06.ogg" name="JCL">Herr Morbius, ich hoffe dass Sie mir helfen können eine Person ausfindig zu machen, Geld ist unwichtig - Hauptsache Sie können mir Ergebnisse liefern!</NPC>
+	<Player id="10" file="dlg01_morbius_07.ogg" name="Morbius">Ein paar mehr Details könnte ich schon gebrauchen...</Player>
+	<NPC id="11" file="dlg01_jcl_08.ogg" name="JCL">Heißt das, Sie nehmen den Job an?</NPC>
+	<Choice id="12">
+		<ChoiceItem target="13" returnvalue="2">1 - Ohne Details kann ich das nicht entscheiden.</ChoiceItem>
+		<ChoiceItem target="16" returnvalue="2">2 - Es scheint mir, dass Sie es eilig haben. Warum nehmen Sie nicht erstmal einen tiefen Atem und fangen von vorne an?</ChoiceItem>	
+		<ChoiceItem target="19" returnvalue="2">3 - Ja</ChoiceItem>	
+	</Choice>
+	<Player id="13" file="dlg01_morbius_09a.ogg" name="Morbius">Ohne Details kann ich das nicht entscheiden.</Player>
+	<NPC id="14" file="dlg01_jcl_10a.ogg" name="JCL">Immerhin sind Sie der Erste, der nicht als Erstes nach einem Vorschuss fragt.</NPC>
+	<Goto id="15" target="21" />
+	<Player id="16" file="dlg01_morbius_09b.ogg" name="Morbius">Es scheint mir, dass Sie es eilig haben, warum nehmen Sie nicht erstmal einen tiefen Atem und fangen von vorne an?</Player>
+	<NPC id="17" file="dlg01_jcl_10b.ogg" name="JCL">[atmet tief durch] Okay... Ja, Sie haben ja Recht.</NPC>
+	<Goto id="18" target="21" />
+	<Player id="19" file="dlg01_morbius_09c.ogg" name="Morbius">Ja</Player>
+	<NPC id="20" file="dlg01_jcl_10c.ogg" name="JCL">Das freut mich zu hören!</NPC>
+	<NPC id="21" file="dlg01_jcl_11.ogg" name="JCL">Folgendes, vor ein paar Monaten wurde meiner Firma ein Auftrag gegeben, ein großer Auftrag. Ich rede hier von Millionen von D-Mark. Wir haben jetzt schon viel Arbeit in das Projekt gesteckt, aber ich kann einfach nicht das Gefühl von mir lassen, dass an dem Kunden etwas Faules dran ist.</NPC>
+	<Player id="22" file="dlg01_morbius_12.ogg" name="Morbius">Faul? Inwiefern?</Player>
+	<NPC id="23" file="dlg01_jcl_13.ogg" name="JCL">Zum einen dreht es sich hierbei um ein Projekt der etwas... expliziteren Art...</NPC>
+	<Player id="24" file="dlg01_morbius_14.ogg" name="Morbius">Expliziteren Art?</Player>
+	<NPC id="25" file="dlg01_jcl_15.ogg" name="JCL">Es handelt sich um ein Computerspiel mit dem Schwerpunkt Sex. Interaktiver Sex.</NPC>
+	<Player id="26" file="dlg01_morbius_16.ogg" name="Morbius">Ich verstehe...</Player>
+	<NPC id="27" file="dlg01_jcl_17.ogg" name="JCL">Auf jeden Fall kommt mir einfach alles suspekt vor! Vom Namen der Firma über die Art und Weise wie sie zahlen.</NPC>
+	<Player id="28" file="dlg01_morbius_18.ogg" name="Morbius">Aber sie zahlen? Dann sehe ich doch kein Problem...</Player>
+	<NPC id="29" file="dlg01_jcl_19.ogg" name="JCL">Ja, aber wie gesagt, wir reden hier von Millionen von D-Mark. Aber statt das Geld zu überweisen, kommt der Kunde jedesmal bei uns im Büro vorbei und bezahlt in bar. Mit dem Geld in einem Koffer. Mit Handschellen.</NPC>
+	<Player id="30" file="dlg01_morbius_20.ogg" name="Morbius">Okay... Ich kann sehen wie man da ein wenig Vorbehalte haben kann. Was genau wollen Sie denn jetzt dass ich tue?</Player>
+	<NPC id="31" file="dlg01_jcl_21.ogg" name="JCL">Es ist ganz einfach, finden Sie mehr über diese Leute heraus. Ob ich denen vertrauen kann oder ob ich hier übers Ohr gezogen werde, oder ob meine Firma demnächst von der Kripo genau unter die Lupe genommen wird wegen etwas, von dem ich nichts wusste und auch nichts zu tun haben möchte.</NPC>
+	<Player id="32" file="dlg01_morbius_22.ogg" name="Morbius">Haben Sie denn einen Namen als Anhaltspunkt?</Player>
+	<NPC id="33" file="dlg01_jcl_23.ogg" name="JCL">Cni K. Colraw heißt der Herr, der mit uns den Kontakt pflegt. Ob es bei denen noch mehr Leute gibt oder nicht, weiß ich leider nicht, das müssen Sie dann selber herausfinden - das ist ja auch Ihr Job, oder?</NPC>
+	<Player id="34" file="dlg01_morbius_24.ogg" name="Morbius">Der Name der Firma wäre noch hilfreich.</Player>
+	<NPC id="35" file="dlg01_jcl_25.ogg" name="JCL">Flight Embassy and Service Ground</NPC>
+	<Player id="36" file="dlg01_morbius_26.ogg" name="Morbius">Haben Sie dazu noch eine Adresse?</Player>
+	<NPC id="37" file="dlg01_jcl_27.ogg" name="JCL">Ist das nicht Ihr Job, Herr Morbius?</NPC>
+	<Player id="38" file="dlg01_morbius_28.ogg" name="Morbius">Wenn Sie die Adresse schon wissen, dann macht es keinen Sinn, dass ich Zeit verschwende, sie herauszufinden.</Player>
+	<NPC id="39" file="dlg01_jcl_29.ogg" name="JCL">Macht Sinn... Moment... Mathias N. Straße 211 in Zürich</NPC>
+	<Player id="40" file="dlg01_morbius_30.ogg" name="Morbius">Alles klar... Leider ist jetzt der Moment, bei dem ich auf einen Vorschuss bestehen muss, für Reisekosten, Ausgaben, etc. Das Ganze geht schließlich über die Stadtgrenzen, sogar die Landesgrenzen hinaus.</Player>
+	<NPC id="41" file="dlg01_jcl_31.ogg" name="JCL">Wie klingen 5000 Mark?</NPC>
+	<Player id="42" file="dlg01_morbius_32.ogg" name="Morbius">Das wird knapp, sollte aber erstmal reichen. Sie zahlen per Überweisung?</Player>
+	<NPC id="43" file="dlg01_jcl_33.ogg" name="JCL">Habe ich bereits getan, auf das Konto aus Ihrer Anzeige.</NPC>
+	<Player id="44" file="dlg01_morbius_34.ogg" name="Morbius">Vielen Dank, Sie müssten dann die Tage noch einmal in mein Büro kommen um die Formalitäten zu unterschreiben. Papierkram, Sie verstehen schon.</Player>
+	<NPC id="45" file="dlg01_jcl_35.ogg" name="JCL">Wenn Sie mir mit dem Vorschuss konkrete Ergebnisse zeigen können, dann können wir über weitere Formalitäten und Finanzierung reden.</NPC>
+	<Player id="46" file="dlg01_morbius_36.ogg" name="Morbius">Ein wenig unorthodox, aber in Anbetracht der Situation und des großzügigen Vorschusses geht das in Ordnung.</Player>
+	<NPC id="47" file="dlg01_jcl_37.ogg" name="JCL">Alles klar Herr Morbius, melden Sie sich sobald Sie näheres erfahren.</NPC>
+	<Player id="48" file="dlg01_morbius_38.ogg" name="Morbius">Werde ich tun, Herr Lotter, einen guten Tag wünsche ich Ihnen noch.</Player>
+	<NPC id="49" file="dlg01_jcl_39.ogg" name="JCL">Danke, Ihnen auch.</NPC>
+	<End id="50" />
+</Dialog>

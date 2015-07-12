@@ -7,7 +7,7 @@
 
 TEXT* MUSICMGR__music = 
 {
-	string("media\\Dungeon.OGG", "media\\Dungeon.OGG", "media\\relaxed.ogg", "media\\Sumik_dj_-_wigi.ogg", "media\\Bar.OGG", "media\\theGreekWoman.ogg", "");
+	string("media\\Dungeon.OGG", "media\\Dungeon.OGG", "media\\relaxed.ogg", "media\\Sumik_dj_-_wigi.ogg", "media\\Bar.OGG", "media\\theGreekWoman.ogg", "media\\Bar.OGG");
 }
 
 var MUSICMGR__volume = MUSICMGR_VOLUME;

@@ -79,6 +79,10 @@ Kingmorph:
 64		Spielfigur
 65		Tanzende Griechin
 
+Final Office:
+66		Laptop (Email)
+67		Zeitung
+
 Custom Events
 =============
 4       Trigger Item Spawn Visitenkarte 1 und Revolver 2

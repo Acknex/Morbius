@@ -31,7 +31,7 @@ void HUD_showDescription(STRING* description)
 {
 	str_cpy((HUD_DescriptionTxt->pstring)[0], description);
 	set(HUD_DescriptionTxt, SHOW);
-	HUD_descriptionTimer = HUD_MINDISPLAYTIME;
+	HUD_descriptionTimer = maxv(HUD_MINDISPLAYTIME, str_len(description));
 	HUD__managedSound = NULL;
 }
 
@@ -40,13 +40,6 @@ void HUD_showDescription(STRING* description, SOUND* snd)
 	HUD_showDescription(description);
 	HUD__managedSound = snd;
 }
-
-/*void HUD_showDescription(STRING* description)
-{
-	str_cpy((HUD_DescriptionTxt->pstring)[0], description);
-	set(HUD_DescriptionTxt, SHOW);
-	HUD_descriptionTimer = HUD_MINDISPLAYTIME;
-}*/
 
 void HUD_hideDescription()
 {

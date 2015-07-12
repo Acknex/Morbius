@@ -7,6 +7,7 @@
 #include "mousemgr.h"
 #include "kingmorph.h"
 #include "panels.h"
+#include "credits.h"
 
 //DO NOT EDIT - START
 int EVENT__triggerId = -1;
@@ -105,7 +106,7 @@ void EVENT__evaluate(int triggerId)
 		//Topf -> Topf mit Zuckerrohr
 		case 35:
 		{
-			interactionItem_morph(37, 55); //Herd -> benutzbarer Herd
+			interactionItem_morph(ITEM_ID_HERD, ITEM_ID_USABLEHERD);
 			break;
 		}
 		
@@ -145,7 +146,7 @@ void EVENT__evaluate(int triggerId)
 		case 1001: //use non existing item id (> 1000) for solely custom functionality
 		{
 //break;
-			//fix this shit start
+			good_ending = 0;
 			OFFICE_morbius_sit();
 			PANELS_showIntroNews();
 			while(PANELS_isVisible())
@@ -161,7 +162,6 @@ Ffm / Bockenheim - In der vergangenen Nacht entdeckte die Frankfurter KriPo weit
 			error("event.c case 1001: TODO: Zeitungsartikelintrogedöns
 			
 Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriPo Frankfurt noch enthalten, da diese angeblich zu brutal sind um sie der öffentlichkeit zu zeigen. Mehr auf seite 4.");*/
-			//fix this shit end
 
 			wait(-1.5);
 			OFFICE_morbius_startTalk();
@@ -228,7 +228,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			OFFICE_morbius_startTalk();
 			
 			//fool player - gecko feeding only allowed in first office level
-			interactionItem_morph(6, 54); //Futter -> Fake Futter
+			interactionItem_morph(ITEM_ID_GECKOFOOD, ITEM_ID_FAKEGECKOFOOD);
 
 			wait(-1.5);
 			wait_for_dlg("xml\\dialog04_greek1.xml");
@@ -247,7 +247,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			OFFICE_startSmoke();	
 			wait_for_snd(sugarBoilSnd);			
 			OFFICE_stopSmoke();	
-			interactionItem_morph(35, 36); //Topf mit Zuckerrohr -> Topf mit Zucker			
+			interactionItem_morph(ITEM_ID_SUGARCANEPOT, ITEM_ID_SUGARPOT);
 			mousemgr_set(MOUSE_DEFAULT, NULL);
 			break;
 		}
@@ -300,7 +300,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		case 1014:
 		{
 			good_ending = 1;
-			error("good ending");
+			//error("good ending");
 			break;
 		}
 		
@@ -336,13 +336,73 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			break;
 		}
 		
+		//final office startup
+		case 1019:
+		{
+			if (!good_ending)
+			{
+				interactionItem_spawn(ITEM_ID_NEWSPAPER);
+				interactionItem_morph(ITEM_ID_EMAILLAPTOP, ITEM_ID_LAPTOP); 
+			}
+			break;
+		}
+		
+		//use email laptop
+		case 1020:
+		{
+			OFFICE_morbius_sit();
+			wait(-1);
+			PANELS_showEmail();
+			while(PANELS_isVisible())
+			{
+				wait(1);
+			}
+			wait(-1);
+			PANELS_showGoodNews();
+			while(PANELS_isVisible())
+			{
+				wait(1);
+			}
+			wait(-1);
+			PANELS_fadeToBlack();
+			while(PANELS_isVisible())
+			{
+				wait(1);
+			}
+			credits_start();
+			EVENT__locked = 0; //hackeldi hackeldei
+			break;
+		}
+		
+		//use newspaper
+		case 1021:
+		{
+			PANELS_showBadNews();
+			while(PANELS_isVisible())
+			{
+				wait(1);
+			}
+			wait(-1);
+			wait_for_dlg("xml\\monolog12.xml");
+			wait(-1);
+			PANELS_fadeToBlack();
+			while(PANELS_isVisible())
+			{
+				wait(1);
+			}
+			credits_start();
+			EVENT__locked = 0; //hackeldi hackeldei
+			break;
+		}
+		
 		default:
 		{
 			break;
 		}
 	}
 	
-	EVENT__unlock();
+	if (EVENT__locked)
+		EVENT__unlock();
 }
 
 void EVENT__lock()
@@ -484,6 +544,5 @@ void EVENT_reset()
 	EVENT__triggerId = -1;
 	EVENT__stop = 0;
 	EVENT__locked = 0;
+	good_ending = 0;
 }
-
-

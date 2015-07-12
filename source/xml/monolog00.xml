@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <Dialog>
-	<Player id="0" file="mlg00_morbius_00.ogg" name="Morbius">Ich hoffe dass mich keiner anheuert DEN Typen zu finden... auch wenn ich Geld brauche, das ist es einfach nicht wert.</Player>
+	<Player id="0" name="Morbius">Ich hoffe dass mich keiner anheuert DEN Typen zu finden... auch wenn ich Geld brauche, das ist es einfach nicht wert.</Player>
 	<Player id="1" file="mlg00_morbius_01.ogg" name="Morbius">[RING RING] Wenn man vom Teufel spricht!</Player>
 	<End id="2" />
 </Dialog>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <Dialog>
-	<Player id="0" file="mlg09_morbius.ogg" name="Morbius">Ich war der Lösung heiß auf der Spur, ich hoffte dass ich jetzt von CBabe erfahren könnte, was des Rätsels Lösung ist.</Player>
+	<Player id="0" name="Morbius">Ich war der Lösung heiß auf der Spur, ich hoffte dass ich jetzt von CBabe erfahren könnte, was des Rätsels Lösung ist.</Player>
 	<End id="1" />
 </Dialog>

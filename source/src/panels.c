@@ -134,6 +134,23 @@ void PANELS_showEmail()
 	}
 }
 
+void PANELS_fadeToBlack()
+{
+	//special hack for transition to credits
+	if (PANELS__active)
+	{
+		return;
+	}
+	
+	PANELS__active = 1;
+	PANELS__fadeInBg();
+	wait_for(PANELS__fadeInBg);
+	wait(1);
+	//and now clean up, credits are visible
+	PANELS_hide();
+	
+}
+
 void PANELS_hide()
 {
 	if (!PANELS__active)
@@ -211,12 +228,12 @@ void PANELS__startup()
 void PANELS__fadeInBg()
 {
 	set(PANELS__bgPanel, SHOW);
-/*	PANELS__bgPanel->alpha = 0;
+	PANELS__bgPanel->alpha = 0;
 	while (PANELS__bgPanel->alpha < 100 && PANELS__active)
 	{
 		wait(1);
 		PANELS__bgPanel->alpha += PANELS_FADESPEED * time_step;
-	}*/
+	}
 	if (PANELS__active)
 	{
 		PANELS__bgPanel->alpha = 100;
@@ -225,11 +242,11 @@ void PANELS__fadeInBg()
 
 void PANELS__fadeOutBg()
 {
-	while (PANELS__bgPanel->alpha > 0 && !PANELS__active)
+/*	while (PANELS__bgPanel->alpha > 0 && !PANELS__active)
 	{
 		wait(1);
 		PANELS__bgPanel->alpha -= PANELS_FADESPEED * time_step;
-	}
+	}*/
 	if (!PANELS__active)
 	{
 		PANELS__bgPanel->alpha = 0;

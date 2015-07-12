@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dialog>
+	<Player id="0" file="dlg04_morbius_00.ogg" name="Morbius">Hallo, schön dass du kommen konntest.</Player>
+	<NPC id="1" file="dlg04_greek_01.ogg" name="Griechin">[kichern] Kein Problem. Ist schon ne Weile her seit dem letzten Mal. Wie geht es deinem Keilbeinknochen?</NPC>
+	<Player id="2" file="dlg04_morbius_02.ogg" name="Morbius">Ich weiß zwar noch immer nicht wo oder was der ist, aber es geht ihm besser!</Player>
+	<NPC id="3" file="dlg04_greek_03.ogg" name="Griechin">Also erzähl mal, was brauchst du von mir?</NPC>
+	<Player id="4" file="dlg04_morbius_04.ogg" name="Morbius">Warum nimmst du immer an, dass ich was von dir will?</Player>
+	<NPC id="5" file="dlg04_greek_05.ogg" name="Griechin">Weil du jedesmal was von mir willst, wenn du mich anrufst.</NPC>
+	<Player id="6" file="dlg04_morbius_06.ogg" name="Morbius">Mag ja sein, aber du musst ja nun trotzdem nicht immer davon ausgehen.</Player>
+	<NPC id="7" file="dlg04_greek_07.ogg" name="Griechin">Also, ja... du brauchst was von mir?</NPC>
+	<Player id="8" file="dlg04_morbius_08.ogg" name="Morbius">... Ja.</Player>
+	<NPC id="9" file="dlg04_greek_09.ogg" name="Griechin">Dann sei doch wenigstens so ein Schatz und füll mir einen Kaffee ein.</NPC>
+	<Player id="10" file="dlg04_morbius_10.ogg" name="Morbius">Thermoskannenkaffee... nicht gut genug?</Player>
+	<NPC id="11" file="dlg04_greek_11.ogg" name="Griechin">Also wirklich, Morbius. Wie lange kennen wir uns schon? Du weißt doch, dass ich meinen Kaffee mit Zucker trinke!</NPC>
+	<Player id="12" file="dlg04_morbius_12.ogg" name="Morbius">Oh... ja... ähm... warte... eben einen Moment...</Player>
+	<End id="13" />
+</Dialog>

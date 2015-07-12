@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<chapters>
+	<chapter id="0" title="Kapitel II" line1="11. August" line2="Zürich" line3="Mathias N. Straße 211"/>
+	<chapter id="1"/>
+	<chapter id="2" title="Kapitel III" line1="13. August" line2="Frankfurt" line3="Draugstraße"/>
+	<chapter id="3" title="Kapitel V" line1="15. August" line2="Frankfurt" line3="Kingmorph Babec Disco"/>
+	<chapter id="4" title="Kapitel I" line1="10. August" line2="Frankfurt" line3="Morbius' Büro"/>
+	<chapter id="5" title="Kapitel IV" line1="14. August" line2="Frankfurt" line3="Morbius' Büro"/>
+	<chapter id="6" title="Kapitel VI" line1="15. August" line2="Frankfurt" line3="Morbius' Büro"/>
+</chapters>
