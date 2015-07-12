@@ -7,9 +7,10 @@
 #define PRAGMA_LEVEL "level\\ruin_indoor.wmp"
 #define PRAGMA_LEVEL "level\\office.wmp"
 #define PRAGMA_LEVEL "level\\greek_office.wmp"
+#define PRAGMA_LEVEL "level\\final_office.wmp"
 #define PRAGMA_LEVEL "level\\kingmorph.wmp"
 #define PRAGMA_LEVEL "level\\kingmorph_menu.wmp"
-#define PRAGMA_LEVEL "level\\office_credits.wmp"
+//#define PRAGMA_LEVEL "level\\office_credits.wmp"
 #define PRAGMA_BIND "samples.wrs"
 
 #include "bindings.h"

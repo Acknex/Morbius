@@ -249,6 +249,19 @@
 #define PRAGMA_BIND "wd40.png"
 
 /*-----------------------------*/
+/* graphics\items */
+/*-----------------------------*/
+#define PRAGMA_BIND "dd_arr_D.tga"
+#define PRAGMA_BIND "dd_arr_L.tga"
+#define PRAGMA_BIND "dd_arr_R.tga"
+#define PRAGMA_BIND "dd_arr_U.tga"
+#define PRAGMA_BIND "dd_cross.tga"
+#define PRAGMA_BIND "dd_m_arr_D.tga"
+#define PRAGMA_BIND "dd_m_arr_L.tga"
+#define PRAGMA_BIND "dd_m_arr_R.tga"
+#define PRAGMA_BIND "dd_m_arr_U.tga"
+
+/*-----------------------------*/
 /* models\items */
 /*-----------------------------*/
 #define PRAGMA_BIND "business_card.tga"
