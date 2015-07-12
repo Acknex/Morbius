@@ -85,4 +85,5 @@ media\Sumik_dj_-_wigi.mp3.txt
 The characters used in this game are property of J. C. Lotter (lotter.org) and
 may not be used or sold without prior permission.
 
+
 //AckCon'15 - vksbm.de/ackcon/

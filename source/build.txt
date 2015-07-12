@@ -3,11 +3,11 @@ How to build
 
 1. Make sure environment path contains path to Acknex.exe - otherwise edit build.bat and have 'Ackpath' point to Acknex.exe.
 2. Close engine if still running
-2b. (optional) Update precompiled shaders: start SED with -fxo, exit game, move .fxo files from root folder to "shaders".
-3a. Call build.bat
-3b. (optional) For checking the wrs contents, open build.wmp and run publish with 'create resource' from WED. It will list all files in WRS
-4. Several popups and errors will occur. They are intended. Press space to confirm each.
-5. Find ready to publish project in 'morbius.cd'
+3. (optional) Update precompiled shaders: start SED with -fxo, exit game, move .fxo files from root folder to "shaders".
+4a. Call build.bat
+4b. (optional) For checking the wrs contents, open build.wmp and run publish with 'create resource' from WED. It will list all files in WRS
+5. Several popups and errors will occur. They are intended. Press space to confirm each.
+6. Find ready to publish project in 'morbius.cd'
 
 
 Adding new files to the project
