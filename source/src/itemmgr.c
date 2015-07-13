@@ -59,6 +59,11 @@ action interactionItem()
 	
 	//restore item state: start
 	ITEM* item = ITEM_get(my->itemId);
+	if (item->wasRemoved != 0)
+	{
+		ptr_remove(me);
+		return;
+	}	
 	while (item->wasMorphedTo != -1)
 	{
 		//loop through all morph stages
