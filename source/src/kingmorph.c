@@ -24,7 +24,6 @@ var KINGMORPH__lotteriaHandle = 0;
 
 void KINGMORPH__lerpVec(VECTOR* out, VECTOR* start, VECTOR* end, var percentage);
 void KINGMORPH__lerpAng(ANGLE* out, ANGLE* start, ANGLE* end, var percentage);
-void KINGMORPH__remove(ENTITY* ent);
 
 
 void KINGMORPH_morbius_LookAtCbabe()

@@ -10,7 +10,7 @@ typedef struct chapter
 } CHAPTER;
 
 
-void CHAPTER_open();
+void CHAPTER_load();
 void CHAPTER_close();
 void CHAPTER_show(int id);
 void CHAPTER_hide();
