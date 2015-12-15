@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <combinations>
 	<!--Schubladenschlüssel mit Abgeschlossene Schublade//-->
-	<combination id1="12" id2="3" morphtarget="3" description="Sesam öffne dich!" result="4"/>
+	<combination id1="12" id2="3" morphtarget="3" description="Sesam öffne dich!" sound="comb_schluessel_schublade.ogg" result="4"/>
 
 	<!--Futter mit Gecko//-->
-	<combination id1="6" id2="5" morphtarget="11" description="Du denkst du fängst dir dein Futter selbst, dabei verdankst du es nur meiner Großzügigkeit.\nAber jetzt lässt du mich wenigstens wieder an meine Schlüssel." result="12"/>
+	<combination id1="6" id2="5" morphtarget="11" description="Du denkst du fängst dir dein Futter selbst, dabei verdankst du es nur meiner Großzügigkeit.\nAber jetzt lässt du mich wenigstens wieder an meine Schlüssel." sound="comb_futter_gecko.ogg" result="12"/>
 
 	<!--Batterien mit Leere Taschenlampe//-->
-	<combination id1="8" id2="7" morphtarget="7" result="16" description="Abracadabra, und schon funktioniert meine Taschenlampe wieder."/>
+	<combination id1="8" id2="7" morphtarget="7" result="16" description="Abracadabra, und schon funktioniert meine Taschenlampe wieder." sound="comb_batterien_taschenlampe.ogg"/>
 
 	<!--Brechstange mit Verrostete Telefonzellentür//-->
-	<combination id1="22" id2="21" morphtarget="18" description="Eine Brechstange ist meist genauso gut wie ein Schlüssel, wenn nicht sogar noch besser!" result="19"/>
+	<combination id1="22" id2="21" morphtarget="18" description="Eine Brechstange ist meist genauso gut wie ein Schlüssel, wenn nicht sogar noch besser!" sound="comb_brechstange_tuer.ogg" result="19"/>
 
 	<!--Wasserverdrängungsspray-40 mit Verrostete Telefonzellentür//-->
-	<combination id1="20" id2="21" morphtarget="18" description="Ein bisschen Wasserverdrängungsspray-40 anwenden und abracadabra....! Sesam öffne dich!" result="19"/>
+	<combination id1="20" id2="21" morphtarget="18" description="Ein bisschen Wasserverdrängungsspray-40 anwenden und abracadabra....! Sesam öffne dich!" sound="comb_wd40_tuer.ogg" result="19"/>
 
 	<!--Stock des Warlocks mit Angelhaken//-->
 	<combination id1="25" id2="26" morphtarget="25" description="Gute Idee Morbius, aber der Haken hält nicht stabil genug." result="29"/>

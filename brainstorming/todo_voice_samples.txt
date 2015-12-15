@@ -1,0 +1,294 @@
+Combinations: "comb_*.ogg" / combinations.xml
+	<!--Stock des Warlocks mit Angelhaken//-->
+	<combination id1="25" id2="26" morphtarget="25" description="Gute Idee Morbius, aber der Haken hält nicht stabil genug." result="29"/>
+
+	<!--Stock mit Angelhaken mit Gaffer Tape//-->
+	<combination id1="29" id2="27" morphtarget="29" description="Perfekt, jetzt hält der Haken auch stabil am Stock." result="30"/>
+
+	<!--Stock mit Angelhaken mit Gulli//-->
+	<combination id1="29" id2="23" description="Ich sollte den Haken erst noch stabiler am Stock befestigen, bevor ich versuche etwas damit anzuheben."/>
+
+	<!--Stock mit getaptem Angelhaken mit Gulli//-->
+	<combination id1="30" id2="23" morphtarget="23" description="Ah ha, eine Geldbörse!" result="32"/>
+
+	<!--Bonzai Zuckerrohr mit Topf//-->
+	<combination id1="33" id2="34" morphtarget="34" description="Jetzt hab ich Zuckerrohr in einen Topf gelegt. Das hast du toll gemacht, Morbius." result="35"/>
+
+	<!--Topf mit Zucker mit Thermoskanne//-->
+	<combination id1="36" id2="39" morphtarget="39" description="Da ist jetzt gezuckerter Thermoskannenkaffee drin." result="38"/>
+
+	<!--Thermoskanne gezuckert mit Griechin//-->
+	<combination id1="38" id2="56" result="1010"/>
+
+	<!--Münze mit Telefonzelle//-->
+	<combination id1="40" id2="19" morphtarget="19" result="41"/>
+
+	<!--Münze mit Telefonzelle benutzt//-->
+	<combination id1="40" id2="41" morphtarget="41" result="42"/>
+
+	<!--Visitenkarte mit Cbabe//-->
+	<combination id1="1" id2="60" description="Hier ist meine Visitenkarte. Falls dir noch was einfällt, gib mir bitte umgehend Bescheid." result="1014"/>
+
+	<!--Spielfigur mit Tanzende Griechin//-->
+	<combination id1="64" id2="65" result="1018"/>
+
+Combination Fails: "fail_*.ogg" / combinations.xml
+	<!-- Combination failures//-->
+	<fail description="So wird das nix."/>
+	<fail description="Sowas klappt doch nur mit Unity."/>
+	<fail description="Das war jetzt irgendwie... kacke."/>
+	<fail description="Vielleicht sollte ich doch nochmal auf MacGyverIt recherchieren."/>
+	<fail description="Was für eine spitzenmäßige... Schnapsidee, Morbius."/>
+
+Items: "itm_*.ogg" / items.xml
+	<!--Schublade//-->
+	<item id="4" name="Schublade" entfile="schublade_offen.mdl">
+		<sequence description="Die Schublade ist offen."/>
+	</item>
+
+	<!--Fernbedienung//-->
+	<item id="9" name="Fernbedienung" imgfile="tv_remote.png">
+		<sequence description="Eine Fernbedienung ohne Batterien. Toll."/>
+	</item>
+
+	<!--Taschenlampe//-->
+	<item id="16" name="Taschenlampe" collectable="yes" imgfile="flashlight_on.png">
+		<sequence description="Eine funktionierende Taschenlampe. Her damit!"/>
+	</item>
+
+	<!--Gulli//-->
+	<item id="23" name="Gulli">
+		<sequence description="Da scheint etwas den Gulli heruntergefallen zu sein."/>
+		<sequence description="Wenn ich bloß etwas hätte, um das da herauszufischen."/>
+	</item>
+
+	<!--Mülltonne//-->
+	<item id="24" name="Mülltonne">
+		<sequence description="Eine Mülltonne. Ein Standardmodell für die Frankfurter Großstadt."/>
+		<sequence description="Ein Angelhaken? Komisch dass jemand sowas hier mitten in der Stadt haben sollte." result="26"/>
+		<sequence description="Da drin wühl ich nicht nochmal rum!"/>
+	</item>
+
+	<!--Stock des Warlocks//-->
+	<item id="25" name="Stock" collectable="yes" imgfile="staff.png">
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein."/>
+	</item>
+
+	<!--Nummernschild//-->
+	<item id="28" name="Proletenkarre">
+		<sequence description="Hmm, das Nummernschild ist mit Gaffer Tape befestigt."/>
+		<sequence description="Ich glaube das Tape kann ich irgendwie verwenden, ist ja nicht so als ob dass jetzt noch auffallen würde wenn ich das entwende." result="27"/>
+		<sequence description="Unerwarteterweise ist das noch immer ein Nummernschild."/>
+	</item>
+
+	<!--Wackliger Stock mit Angelhaken//-->
+	<item id="29" name="Wackliger Stock mit Angelhaken" collectable="yes" imgfile="staff_hook.png">
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein."/>
+	</item>
+
+	<!--Geklebter Stock mit Angelhaken//-->
+	<item id="30" name="Geklebter Stock mit Angelhaken" collectable="yes" imgfile="staff_hook_gaffer.png">
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein."/>
+	</item>
+
+	<!--Versiffte Geldbörse//-->
+	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" entfile="wallet.mdl" imgfile="wallet.png">
+		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl von der Person sein, die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!"/>
+		<sequence description="Ein Rechnungsdurchdruck für die Griechin... für etwas, dass sich 'Motion Capture' nennt... für... 'Utopia'?"/>
+		<sequence description="Warum hast du nur etwas mit diesem Fall zu tun, Griechin?"/>
+	</item>
+
+	<!--Gulli benutzt//-->
+	<item id="32" name="Gulli">
+		<sequence description="Hier ist nichts mehr."/>
+	</item>
+
+	<!--Bonzai Zuckerrohr//-->
+	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes" imgfile="sugar_cane.png">
+		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium."/>
+		<sequence description="Vielleicht kann ich aus diesem Zuckerrohr Zucker herstellen."/>
+	</item>
+
+	<!--Topf//-->
+	<item id="34" name="Topf">
+		<sequence description="Ein Topf."/>
+	</item>
+
+	<!--Topf mit Zuckerrohr//-->
+	<item id="35" name="Topf mit Zuckerrohr" entfile="cane_pot.mdl">
+		<sequence description="Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium."/>
+		<sequence description="Wenn ich mich jetzt noch erinnern würde, wie man aus Zuckerrohr Zucker herstellt, dann wäre ich ganz klar im Vorteil."/>
+		<sequence description="Ich glaube der muss etwas erhitzt werden, oder so?"/>
+	</item>
+
+	<!--Topf mit Zucker//-->
+	<item id="36" name="Topf mit Zucker" collectable="yes" destroyable="yes" entfile="sugar_pot.mdl" imgfile="sugar_pot.png">
+		<sequence description="Ein gelungenes Experiment der Zuckerherstellung aus biologischem Anbau! Garantiert ohne Gluten. Oder doch? Keine Ahnung."/>
+	</item>
+
+	<!--Herd//-->
+	<item id="37" name="Herd">
+		<sequence description="Ein Standard-Elektroherd."/>
+	</item>
+
+	<!--Thermoskanne gezuckert//-->
+	<item id="38" name="Thermoskanne" collectable="yes" destroyable="yes" imgfile="coffee_can.png">
+		<sequence description="Eine Thermoskanne mit gezuckertem Kaffee."/>
+	</item>
+
+	<!--Thermoskanne//-->
+	<item id="39" name="Thermoskanne" collectable="yes" imgfile="coffee_can.png">
+		<sequence description="Eine Thermoskanne mit Kaffee."/>
+	</item>
+
+	<!--Telefonzelle benutzt//-->
+	<item id="41" name="Telefon">
+		<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..."/>
+	</item>
+
+	<!--Telefonzelle zweimal benutzt//-->
+	<item id="42" name="Telefon">
+		<sequence description="Und welche Münzen genau soll ich jetzt bitte nochmal einwerfen?"/>
+	</item>
+
+	<!--Meister des Feuers//-->
+	<item id="44" name="Buch">
+		<sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL."/>
+	</item>
+
+	<!--Downtown//-->
+	<item id="45" name="Buch">
+		<sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius."/>
+	</item>
+
+	<!--Dunkelkammer Door ohne Taschenlampe//-->
+	<item id="48" name="Dunkelkammer">
+		<sequence description="Das ist meine Dunkelkammer. Eigentlich eine Kochnische die ich dazu entfremdet habe."/>
+		<sequence description="Das ist eine DUNKELkammer, ich geh da nicht ohne Licht rein!"/>
+	</item>
+
+	<!--Bonzai Zuckerrohr Dummy//-->
+	<item id="49" name="Bonzai Zuckerrohr">
+		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium."/>
+	</item>
+
+	<!--Toter Warlock//-->
+	<item id="50" name="Leiche">
+		<sequence description="Wer ist dieser Mann? Ich sollte irgendwelche Hinweise finden sollen."/>
+		<sequence description="Nichts an seiner Person, vielleicht finde ich in der Umgebung etwas."/>
+	</item>
+
+	<!--Haustür Draugstraße 4//-->
+	<item id="51" name="Draugstraße 4">
+		<sequence description="Warum sollte ich an der Tür klopfen? Ich weiß, dass Emdayelle tot ist.\nIch habe persönlich von seiner kalten Leiche Kleingeld entwendet."/>
+		<sequence description="Vielleicht sollte ich versuchen, mich nach einer alternativen Zugangsmethode umzuschauen."/>
+	</item>
+
+	<!--Unnützes Auto//-->
+	<item id="52" name="Trabi">
+		<sequence description="Fast so schick wie mein Subaru."/>
+	</item>
+
+	<!--Nummernschild Auto//-->
+	<item id="53" name="Proletenkarre">
+		<sequence description="Sieht ja schlimmer als mein Auto aus."/>
+		<sequence description="Interessantes Nummernschild... [kicher]"/>
+	</item>
+
+	<!--Fake Futter//-->
+	<item id="54" name="Futter">
+		<sequence description="Also dafür habe ich nun wirklich keine Zeit."/>
+	</item>
+
+	<!--Benutzbarer Herd//-->
+	<item id="55" name="Herd">
+		<sequence description="Ah genau, wir kochen das Zuckerrohr zu einer rohen Masse und lassen die Flüssigkeit verdampfen... und was übrig bleibt ist... Zucker!" result="1009"/>
+		<sequence description="Ein Standard-Elektroherd."/>
+	</item>
+
+	<!--Griechin//-->
+	<item id="56" name="Griechin">
+		<sequence description="Die Griechin. Eine meiner besten Freundschaften."/>
+	</item>
+
+	<!--Main Door Blocked//-->
+	<item id="57" name="Main Door blockiert">
+		<sequence description="Ich kann jetzt gerade nicht einfach so mal eben abhauen!"/>
+	</item>
+
+	<!--CBabe//-->
+	<item id="60" name="CBabe">
+		<sequence description="Das ist CBabe. So eine Zicke."/>
+	</item>
+
+	<!--A9 Bier//-->
+	<item id="61" name="A9 Spezialbier">
+		<sequence description="Neunfach gehopftes Acknex Craft Bier. Bitterer Abgang."/>
+	</item>
+
+	<!--The Lotties//-->
+	<item id="62" name="The Lotties">
+		<sequence description="Das darf doch nicht wahr sein! The Lotties! Meine absolute Lieblingsband!"/>
+	</item>
+
+	<!--Kingmorph Door Blocked//-->
+	<item id="63" name="Main Door blockiert">
+		<sequence description="Das ist jetzt keine gute Idee."/>
+		<sequence description="Vielleicht sollte ich erst mit CBabe reden."/>
+	</item>
+
+	<!--Spielfigur//-->
+	<item id="64" name="Spielfigur" collectable="yes" imgfile="pawn.png">
+		<sequence description="Eine Spielfigur!? Benutzt man wohl zum Spielen. Die kommt natürlich mit."/>
+	</item>
+
+	<!--Tanzende Griechin//-->
+	<item id="65" name="Griechin">
+		<sequence description="Die Griechin hier in der Disco! Am Tanzen!? Wie frech..."/>
+	</item>
+
+CBabe Dialog: "dlg05_morbius_*.ogg" / dialog05_cbabe.xml
+	<Player id="0" name="Morbius">Cbabe nehme ich an?</Player>
+	<Player id="2" name="Morbius">Morbius, Privatdetektiv.</Player>
+	<Player id="4" name="Morbius">So läuft das normalerweise mit Detektiven.</Player>
+	<Player id="6" name="Morbius">Sehr vornehmlich. Ich musste das ganze Spiel über schon irgendwelche Rätsel lösen, nur um Leute zum Reden zu bringen.</Player>
+	<Player id="8" name="Morbius">Sorry! ... Du hast am Utopia Projekt gearbeitet?</Player>
+	<Player id="10" name="Morbius">Sorry, kein Interesse. Ich bin viel mehr interessiert an den Herren Emdayelle und M. Dayle.</Player>
+	<Player id="12" name="Morbius">Jetzt tu nicht so unschuldig. Wie kannst du nur so ruhig bleiben wenn du GANZ genau weißt dass die beiden ins Gras gebissen haben.</Player>
+	<Player id="14" name="Morbius">Ach komm, alle Spuren führen zu dir, jetzt tu nicht so, als ob du nichts davon weißt!</Player>
+	<Player id="16" name="Morbius">[seufz] Tut mir leid. So meinte ich das nicht. Du verstehst, dass ich Antworten brauche.</Player>
+
+Monolog00: "mlg00_morbius_x.ogg" / monolog00.xml
+	<Player id="0" file="mlg00_morbius_00.ogg" name="Morbius">Ich hoffe dass mich keiner anheuert DEN Typen zu finden... auch wenn ich Geld brauche, das ist es einfach nicht wert.</Player>
+	<Player id="1" file="mlg00_morbius_01.ogg" name="Morbius">[RING RING] Wenn man vom Teufel spricht!</Player> <-- MIT EXISTIERENDEM RINGTONE MIXEN!!
+
+Monolog03: "mlg03_morbius_x.ogg" / monolog03.xml
+	<Player id="0" name="Morbius">War klar, das Telefonbuch wurde entwendet. Scheint so als ob ich meinem Kumpel Fritz die Aufgabe der Informationssuche aufdrücken muss.</Player>
+	<Player id="1" name="Morbius">Okay Fritz, ich hoffe du bist deine Gage immernoch wert...</Player>
+
+Monolog04: "mlg04_morbius_x.ogg" / monolog04.xml
+	<Player id="0" name="Morbius">Meine letzte Münze, lass es gelten Morbius!</Player>
+
+Monolog05: "mlg05_morbius_x.ogg" / monolog05.xml
+	<Player id="0" name="Morbius">Dieser Fall wurde immer ungewöhnlicher, das mulmige Gefühl in meinem Bauch wurde immer stärker und ich konnte es nicht mehr ignorieren. Worauf habe ich mich hier bloß eingelassen? Und warum hat der Z Mörder ein Opfer in Zürich? Fragen über Fragen häuften sich, und die Spur blieb nicht kalt - im Gegensatz zu meinem Büro, weil ich meine Gasrechnung diesen Monat nicht bezahlt hatte.</Player>
+	
+Monolog06: "mlg06_morbius_x.ogg" / monolog06.xml
+	<Player id="0" name="Morbius">Hier wohnt der Herr Emdayelle also. Verdient man als Bodyguard nicht viel Geld? Warum wohnt er dann in dieser abgerannten Gegend?</Player>
+
+Monolog07: "mlg07_morbius_x.ogg" / monolog07.xml
+	<Player id="0" name="Morbius">Hier sollte es definitiv einen Hintereinga- ist das eine Leiche?! Schon wieder?! Was ist bloß mit diesem Fall los?</Player>
+
+Monolog08: "mlg08_morbius_x.ogg" / monolog08.xml
+	<Player id="0" name="Morbius">Der Fall spitzte sich weiter zu. Jetzt war auch noch einer meiner besten Freunde in der ganzen Situation verzwickt. Verzwickt war zwar gut, aber eigentlich meinte ich damit nicht sie und meine Fälle, sondern eher sie und mich. Es wurde Zeit, sie zu der Situation zu befragen...</Player>
+	
+Monolog09: "mlg09_morbius_x.ogg" / monolog09.xml
+	<Player id="0" name="Morbius">Ich war der Lösung heiß auf der Spur, ich hoffte dass ich jetzt von CBabe erfahren könnte, was des Rätsels Lösung ist.</Player>
+
+Monolog10: "mlg10_morbius_x.ogg" / monolog10.xml
+	<Player id="0" name="Morbius">Die laute, basslastige Musik resonierte in meinen Knochen. Die Lichter tanzen durch den Raum wie Schneeflocken in einem Regenbogen und faszinierten mich fast genau so sehr wie die reizenden Frauen, die in einer Trance durch den Raum tanzten und ihre feminine Figur zur Schau stellten.</Player>
+
+Monolog11: "mlg11_morbius_x.ogg" / monolog11.xml
+	<Player id="0" name="Morbius">Michael Morbius und die Kammer der Dunkelheit. [kichern]</Player> <-- EXISTIERT SCHON BEI DEN ITEMS: itm_dunkelkammer01.ogg
+
+Monolog12: "mlg12_morbius_x.ogg" / monolog12.xml
+	<Player id="0" name="Morbius">Scheiße! Wusste ich doch, die Visitenkarte wäre wichtig gewesen... vielleicht hätte CBabe mir helfen können.</Player>

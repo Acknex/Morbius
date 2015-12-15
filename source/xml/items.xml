@@ -2,21 +2,21 @@
 <items>
 	<!--Visitenkarte//-->
 	<item id="1" name="Visitenkarte" collectable="yes" destroyable="yes" entfile="business_card.mdl" imgfile="business_card.png">
-		<sequence description="Die Visitenkarte wird bestimmt noch wichtig sein."/>
+		<sequence description="Die Visitenkarte wird bestimmt noch wichtig sein." sound="itm_visitenkarte01.ogg"/>
 	</item>
 
 	<!--Revolver//-->
 	<item id="2" name="Revolver" collectable="yes" entfile="revolver.mdl" imgfile="revolver.png">
-		<sequence description="Revolver, das braucht man so."/>
-		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt."/>
+		<sequence description="Revolver, das braucht man so." sound="itm_revolver01.ogg"/>
+		<sequence description="Ich habe zwar keine Munition mehr für den Revolver, aber um jemanden einzuschüchtern ist er perfekt." sound="itm_revolver02.ogg"/>
 	</item>
 
 	<!--Abgeschlossene Schublade//-->
 	<item id="3" name="Schublade">
-		<sequence description="Verdammt, die Schublade ist abgeschlossen."/>
-		<sequence description="Die Schublade ist immernoch abgeschlossen."/>
-		<sequence description="Wenn ich nichts versuche, dann bleibt die Schublade auch weiterhin abgeschlossen."/>
-		<sequence description="Vielleicht sollte ich den Schlüssel finden mit dem ich diese ABGESCHLOSSENE Schublade öffnen kann."/>
+		<sequence description="Verdammt, die Schublade ist abgeschlossen." sound="itm_schublade_zu01.ogg" />
+		<sequence description="Die Schublade ist immernoch abgeschlossen." sound="itm_schublade_zu02.ogg"/>
+		<sequence description="Wenn ich nichts versuche, dann bleibt die Schublade auch weiterhin abgeschlossen." sound="itm_schublade_zu03.ogg"/>
+		<sequence description="Vielleicht sollte ich den Schlüssel finden mit dem ich diese ABGESCHLOSSENE Schublade öffnen kann." sound="itm_schublade_zu04.ogg"/>
 	</item>
 
 	<!--Schublade//-->
@@ -26,20 +26,20 @@
 
 	<!--Gecko//-->
 	<item id="5" name="Gecko">
-		<sequence description="Das ist mein Gecko, er war eine Sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen Kunden gepfändet habe."/>
-		<sequence description="Schau mich nicht so verzweifelt an du Reptil."/>
+		<sequence description="Das ist mein Gecko, er war eine Sicherheitsleistung die ich vor zwei jahren bei einem zahlungsunfähigen Kunden gepfändet habe." sound="itm_gecko01.ogg"/>
+		<sequence description="Schau mich nicht so verzweifelt an du Reptil." sound="itm_gecko02.ogg"/>
 	</item>
 
 	<!--Futter//-->
 	<item id="6" name="Futter" collectable="yes" destroyable="yes" imgfile="gecko_food.png">
-		<sequence description="DA habe ich also mein Reptilfutter gelassen. Macht irgendwie Sinn, in der Küche."/>
+		<sequence description="DA habe ich also mein Reptilfutter gelassen. Macht irgendwie Sinn, in der Küche." sound="itm_reptilfutter01.ogg"/>
 	</item>
 
 	<!--Leere Taschenlampe//-->
 	<item id="7" name="Taschenlampe" collectable="yes" imgfile="flashlight.png">
-		<sequence description="Aha, meine Taschenlampe! Wichtig für allerlei Detektivarbeiten bei Nacht und Dunkelheit."/>
-		<sequence description="Verdammt... die Batterien sind leer."/>
-		<sequence description="Die Taschenlampe braucht neue Batterien."/>
+		<sequence description="Aha, meine Taschenlampe! Wichtig für allerlei Detektivarbeiten bei Nacht und Dunkelheit." sound="itm_taschenlampe01.ogg"/>
+		<sequence description="Verdammt... die Batterien sind leer." sound="itm_taschenlampe02.ogg"/>
+		<sequence description="Die Taschenlampe braucht neue Batterien." sound="itm_taschenlampe03.ogg"/>
 	</item>
 
 	<!--Batterien//-->
@@ -48,8 +48,8 @@
 
 	<!--Fernbedienung//-->
 	<item id="9" name="Fernbedienung" imgfile="tv_remote.png">
-		<sequence description="Eine Fernbedienung, den dazugehörigen Fernseher musste ich verramschen, um mir die Taschenlampe zu kaufen."/>
-		<sequence description="Schau mal einer an, wer hätte da gedacht, da sind Batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können." result="8"/>
+		<sequence description="Eine Fernbedienung, den dazugehörigen Fernseher musste ich verramschen, um mir die Taschenlampe zu kaufen." sound="itm_fernbedienung01.ogg"/>
+		<sequence description="Schau mal einer an, wer hätte da gedacht, da sind Batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können." sound="itm_fernbedienung02.ogg" result="8"/>
 		<sequence description="Eine Fernbedienung ohne Batterien. Toll."/>
 	</item>
 
@@ -60,29 +60,29 @@
 
 	<!--Beschützter Schubladenschlüssel//-->
 	<item id="11" name="Schubladenschlüssel">
-		<sequence description="Wie sind meine Schlüssel nur da drin gelandet?"/>
-		<sequence description="Mein Gecko wird mich nicht an die Schlüssel lassen."/>
-		<sequence description="Irgendwie muss ich meinen Gecko ablenken um an die Schlüssel zu kommen."/>
+		<sequence description="Wie sind meine Schlüssel nur da drin gelandet?" sound="itm_schluessel_unzugaenglich01.ogg"/>
+		<sequence description="Mein Gecko wird mich nicht an die Schlüssel lassen." sound="itm_schluessel_unzugaenglich02.ogg"/>
+		<sequence description="Irgendwie muss ich meinen Gecko ablenken um an die Schlüssel zu kommen." sound="itm_schluessel_unzugaenglich03.ogg"/>
 	</item>
 
 	<!--Schubladenschlüssel//-->
 	<item id="12" name="Schubladenschlüssel" collectable="yes" destroyable="yes" imgfile="key.png">
-		<sequence description="Mein Schreibtischschubladenschlüssel!"/>
+		<sequence description="Mein Schreibtischschubladenschlüssel!" sound="itm_schluessel01.ogg"/>
 	</item>
 
 	<!--Regal//-->
 	<item id="13" name="Schwedisches Regal">
-		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown."/>
+		<sequence description="Mein Bücherregal, leider momentan noch recht leer, aber meine Lieblingskrimis sind da immer drin: Meister des Feuers und Downtown." sound="itm_regal01.ogg"/>
 	</item>
 
 	<!--Rosa Telefon//-->
 	<item id="14" name="Rosa Telefon">
-		<sequence description="Das ist mein patentiertes rosa Designertelefon."/>
+		<sequence description="Das ist mein patentiertes rosa Designertelefon." sound="itm_rosatelefon01.ogg"/>
 	</item>
 
 	<!--A3 Box//-->
 	<item id="15" name="Gamestudio Packung">
-		<sequence description="A4, das erste Programm das ich mir für meinen Laptop gekauft habe."/>
+		<sequence description="A4, das erste Programm das ich mir für meinen Laptop gekauft habe." sound="itm_a401.ogg"/>
 	</item>
 
 	<!--Taschenlampe//-->
@@ -92,13 +92,13 @@
 
 	<!--Toter Guard//-->
 	<item id="17" name="Leiche">
-		<sequence description="Ist das... eine Leiche?!"/>
-		<sequence description="Armer Kerl, wen hast du bloß verärgert, um so zu enden?"/>
-		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weiß die Firma weiter, ich sollte die mal anrufen."/>
-		<sequence description="Also ich glaube nicht dass ich so eine Leiche anfassen werde."/>
-		<sequence description="[stöhn] Na gut... Manchmal muss auch ein professioneller Detektiv in der Not etwas unethisches tun...\nHmm... in der linken Hosentasche ist nichts."/>
-		<sequence description="ÜÜüääähh... in der rechten Hosentasche sind ein paar Münzen, gottseidank muss ich nicht noch weiter suchen." result="40"/>
-		<sequence description="Der hat nichts mehr."/>
+		<sequence description="Ist das... eine Leiche?!" sound="itm_guardmdl01.ogg"/>
+		<sequence description="Armer Kerl, wen hast du bloß verärgert, um so zu enden?" sound="itm_guardmdl02.ogg"/>
+		<sequence description="GALEP Security... hmm war er ein Bodyguard? Vielleicht weiß die Firma weiter, ich sollte die mal anrufen." sound="itm_guardmdl03.ogg"/>
+		<sequence description="Also ich glaube nicht dass ich so eine Leiche anfassen werde." sound="itm_guardmdl04.ogg"/>
+		<sequence description="[stöhn] Na gut... Manchmal muss auch ein professioneller Detektiv in der Not etwas unethisches tun...\nHmm... in der linken Hosentasche ist nichts." sound="itm_guardmdl05.ogg"/>
+		<sequence description="ÜÜüääähh... in der rechten Hosentasche sind ein paar Münzen, gottseidank muss ich nicht noch weiter suchen." sound="itm_guardmdl06.ogg" result="40"/>
+		<sequence description="Der hat nichts mehr." sound="itm_guardmdl07.ogg"/>
 	</item>
 
 	<!--Unzugängliche Telefonzelle//-->
@@ -235,7 +235,7 @@
 
 	<!--Dunkelkammer//-->
 	<item id="43" name="Dunkelkammer" entfile="cube.mdl">
-		<sequence description="Michael Morbius und die Kammer der Dunkelheit... hrhrhr."/>
+		<sequence description="Michael Morbius und die Kammer der Dunkelheit... hrhrhr." sound="itm_dunkelkammer01.ogg"/>
 	</item>
 
 	<!--Meister des Feuers//-->
@@ -250,15 +250,15 @@
 
 	<!--Main Door ohne Visitenkarte//-->
 	<item id="46" name="Main Door ohne Visitenkarte">
-		<sequence description="Irgendwas habe ich vergessen. Ohne Visitenkarte verlasse ich ungerne das Büro."/>
-		<sequence description="Ich möchte echt nicht ohne Visitenkarte gehen..."/>
-		<sequence description="Na gut, ich sollte mich auf den Weg machen. Hoffentlich bereue ich es nicht, meine Visitenkarte zu vergessen."/>
+		<sequence description="Irgendwas habe ich vergessen. Ohne Visitenkarte verlasse ich ungerne das Büro." sound="scene01_end_prompt01.ogg"/>
+		<sequence description="Ich möchte echt nicht ohne Visitenkarte gehen..." sound="scene01_end_prompt02.ogg"/>
+		<sequence description="Na gut, ich sollte mich auf den Weg machen. Hoffentlich bereue ich es nicht, meine Visitenkarte zu vergessen." sound="scene01_end_fail.ogg"/>
 		<sequence/>
 	</item>
 
 	<!--Main Door mit Visitenkarte//-->
 	<item id="47" name="Main Door mit Visitenkarte">
-		<sequence description="Alles dabei! Dann mal auf nach Zürich!"/>
+		<sequence description="Alles dabei! Dann mal auf nach Zürich!" sound="scene01_end_proper.ogg"/>
 		<sequence/>
 	</item>
 
