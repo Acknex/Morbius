@@ -27,7 +27,7 @@
 					moveCameraAxis(0);
 					break;
 				}
-		}
+			}
 			wait(1);
 		}
 	}

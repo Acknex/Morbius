@@ -369,6 +369,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			{
 				wait(1);
 			}
+			on_esc = NULL;
 			credits_start();
 			EVENT__locked = 0; //hackeldi hackeldei
 			break;
@@ -390,6 +391,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			{
 				wait(1);
 			}
+			on_esc = NULL;
 			credits_start();
 			EVENT__locked = 0; //hackeldi hackeldei
 			break;

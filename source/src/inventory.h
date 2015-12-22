@@ -88,7 +88,7 @@ int inv_is_visible(Inventory* _inv);
  * Centers an inventory on screen
  * \param	Inventory*	Inventory that should be centered
  */
-void inv_center(Inventory* _inv);
+//void inv_center(Inventory* _inv);
 
 /**
  * An inventory is set to a certain position on screen

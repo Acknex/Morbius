@@ -30,6 +30,7 @@ void startGame()
 	level_change(4,-1); //office
 	//level_change(5,-1); //greek_office
 	//level_change(3,-1); //kingmorph
+	//level_change(6,-1); //final_office
 	while(!is_level_loaded()) wait(1);
 	if (inventory == NULL) //create new inventory
 	{

@@ -122,6 +122,6 @@ void credits__music()
 {
 	wait (-3);
 	_credits.music = media_loop(msCreditsMusic, NULL, 100);
-	if(_credits.music == NULL)
-		error("Failed to play media :(");
+	//if(_credits.music == NULL)
+		//error("Failed to play media :(");
 }

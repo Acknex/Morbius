@@ -11,9 +11,9 @@ var options_show = 0;
 STRING *msDiscoMusic = "media\\Sumik_dj_-_wigi.ogg";
 //STRING *msAckmaniaVideo = "media\\ackmania_tiny.wmv";
 //STRING *msPrinceOfLotteriaVideo = "media\\lotteria_tiny.wmv";
-BMAP *bmpMenuLogo = "graphics\\textures\\logo.png";
+BMAP *bmpMenuLogo = "logo.png";
 FONT *fontCalibri48 = "Calibri#48b";
-SOUND *sndMenuClick = "sounds\\menu-click.wav";
+SOUND *sndMenuClick = "menu-click.wav";
 
 typedef struct {
 	VECTOR position;
@@ -116,6 +116,10 @@ void menu_ent_remove(ENTITY *ent)
 void menu_core()
 {
 	_menu.music = media_loop(msDiscoMusic, NULL, 100);
+	if (_menu.music == NULL)
+	{
+		error("Music playback failed. Please install Ogg driver OggDS0995.exe");
+	}
 	
 	var idleTime = 0;
 	var logoAlpha = 100;
@@ -490,7 +494,7 @@ void menu_open()
 	on_cul = menu_nav_next;
 	
 	
-	level_load("level\\kingmorph_menu.wmb");
+	level_load("kingmorph_menu.wmb");
 
 	_menu.isIdle = 1;
 	_menu.core = ent_create(NULL, vector(0,0,0), menu_core);
@@ -504,7 +508,7 @@ void menu_open()
 	int i;
 	for(i = MENU_BASE_STOP; i < MENU_NUM_STOPS; i++)
 	{
-		ENTITY *menuItem = ent_create("graphics\\textures\\stub.png", _menu_stops[i].positionText, _menu_item_init);
+		ENTITY *menuItem = ent_create("stub.png", _menu_stops[i].positionText, _menu_item_init);
 		ent_clone(menuItem);
 		
 		vec_fill(menuItem.scale_x, 0.03);
@@ -533,13 +537,13 @@ void menu_open()
 		vec_add(left, _menu_stops[i].positionText);
 		vec_add(right, _menu_stops[i].positionText);
 		
-		ENTITY *navLeft = ent_create("graphics\\textures\\navigate-left.png", left, _menu_item_init);
+		ENTITY *navLeft = ent_create("navigate-left.png", left, _menu_item_init);
 		vec_fill(navLeft.scale_x, 0.3);
 		vec_set(navLeft.pan, menuItem.pan);
 		navLeft.event = menu_nav_next;
 		navLeft.skill1 = i;
 		
-		ENTITY *navRight = ent_create("graphics\\textures\\navigate-right.png", right, _menu_item_init);
+		ENTITY *navRight = ent_create("navigate-right.png", right, _menu_item_init);
 		vec_fill(navRight.scale_x, 0.3);
 		vec_set(navRight.pan, menuItem.pan);
 		navRight.event = menu_nav_prev;
@@ -551,6 +555,7 @@ void menu_trigger_start()
 {
 	if(menuConfig.startGame != NULL)
 	{
+menu_close(); //HACK, required for whatever reason
 		void fn();
 		fn = menuConfig.startGame;
 		fn();

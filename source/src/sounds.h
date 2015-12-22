@@ -12,7 +12,7 @@ void snPauseMusic();
 void snStopMusic();
 int snIsMusicPlayed();
 void snSetMusicVolume(int _vol);
-void levelRegionMusic();
+//void levelRegionMusic();
 
 #include "sounds.c"
 #endif /*SOUNDS_H*/

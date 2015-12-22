@@ -63,6 +63,7 @@ void level_change(var level_id, var gate_id, var silent)
 	}
 	while(level_change_transition(1) < 100) wait(1);
 	level_load((txt_level_wmbs.pstring)[level_id]);
+	player = NULL;
 	vec_set(sky_color,COLOR_BLACK);
 	camera.fog_start = fog_defaults.x;
 	camera.fog_end = fog_defaults.y;
@@ -71,11 +72,9 @@ void level_change(var level_id, var gate_id, var silent)
 	{
 		CHAPTER_show(level_id);
 	}
-	if(!isCameraInitialized())
-	{
-		cameraInit();
-		cameraLoop();
-	}
+	cameraInit();
+	cameraLoop();
+
 	if(!smd_level) smd_level = smartwalkdata_create();
 	smartwalkdata_fill(smd_level);
 	if (!silent)
@@ -130,7 +129,7 @@ void level_gate_event() {
 		}
 	}
 	
-	if (event_type == EVENT_CLICK) {
+	if (event_type == EVENT_CLICK && input_fetch != 0) {
 		if (my.DOUBLE_CLICK_TIME >= 100) {
 			// Double clicked
 			player_may_walk = 0;
@@ -178,19 +177,23 @@ action level_gate()
 	
 	while(1)
 	{
-		if(player)
+		if (input_fetch != 0)
 		{
-			if(player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13)
+			if(player)
 			{
-				var silent = 0;
-				if(is(me, FLAG2)) silent = 1;
-				level_change(integer(my.skill2*0.01),my.skill2, silent);
-				break;
+				if(player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13)
+				{
+					var silent = 0;
+					if(is(me, FLAG2)) silent = 1;
+					level_change(integer(my.skill2*0.01),my.skill2, silent);
+					break;
+				}
 			}
-		}
-		
-		if (my.DOUBLE_CLICK_TIME > 0) {
-			my.DOUBLE_CLICK_TIME -=1 * time_step;
+			
+			if (my.DOUBLE_CLICK_TIME > 0) 
+			{
+				my.DOUBLE_CLICK_TIME -=1 * time_step;
+			}
 		}
 		wait(1);
 	}
@@ -236,37 +239,39 @@ action dynamicLevel_gate()
 		
 	while(1)
 	{
-		if (inv_item_search(inventory, my->triggerItemId) != NULL)
+		if (input_fetch != 0)
 		{
-			my->activeItemId = my->goodItemId;
-		}
-		else
-		{
-			my->activeItemId = my->badItemId;
-		}
-		
-/*		VECTOR* minvec = vector(my.skill10,my.skill11, -100);
-		VECTOR* maxvec = vector(my.skill12,my.skill13, 100);
-		draw_box3d(minvec,maxvec,vector(0,0,255),100);*/
-		if(player)
-		{
-			if(
-				player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13
-				&& is(my, gateWasClicked)
-			)
+			if (inv_item_search(inventory, my->triggerItemId) != NULL)
 			{
-				dynamicLevel_gate_check();
-				//break;
+				my->activeItemId = my->goodItemId;
 			}
 			else
 			{
-				if (my.DOUBLE_CLICK_TIME > 0) 
+				my->activeItemId = my->badItemId;
+			}
+			
+	/*		VECTOR* minvec = vector(my.skill10,my.skill11, -100);
+			VECTOR* maxvec = vector(my.skill12,my.skill13, 100);
+			draw_box3d(minvec,maxvec,vector(0,0,255),100);*/
+			if(player)
+			{
+				if(
+					player.x > my.skill10 && player.y > my.skill11 && player.x < my.skill12 && player.y < my.skill13
+					&& is(my, gateWasClicked)
+				)
 				{
-					my.DOUBLE_CLICK_TIME -=1 * time_step;
+					dynamicLevel_gate_check();
+					//break;
+				}
+				else
+				{
+					if (my.DOUBLE_CLICK_TIME > 0) 
+					{
+						my.DOUBLE_CLICK_TIME -=1 * time_step;
+					}
 				}
 			}
-		}
-		
+		}		
 		wait(1);
 	}
 }
@@ -301,7 +306,7 @@ void dynamicLevel_gate_event()
 	if (dlgIsDialogActive() != 0 || EVENT_isLocked() != 0)
 		return;
 		
-	if (event_type == EVENT_CLICK) 
+	if (event_type == EVENT_CLICK && input_fetch != 0) 
 	{
 		set(my, gateWasClicked);
 
