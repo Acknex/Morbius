@@ -243,7 +243,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		{
 			mousemgr_set(MOUSE_USE, NULL);
 			mousemgr_hint(NULL);
-			wait (-3.5);
+			wait (-8.5);
 			OFFICE_startSmoke();	
 			wait_for_snd(sugarBoilSnd);			
 			OFFICE_stopSmoke();	
@@ -352,6 +352,8 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		{
 			OFFICE_morbius_sit();
 			wait(-1);
+			mousemgr_set(MOUSE_DEFAULT, NULL);
+			mousemgr_hint(NULL);
 			PANELS_showEmail();
 			while(PANELS_isVisible())
 			{
@@ -380,6 +382,8 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		//use newspaper
 		case 1021:
 		{
+			mousemgr_set(MOUSE_DEFAULT, NULL);
+			mousemgr_hint(NULL);
 			PANELS_showBadNews();
 			while(PANELS_isVisible())
 			{

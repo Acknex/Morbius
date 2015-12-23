@@ -1,4 +1,4 @@
-/***
+﻿/***
  *                       _     _
  *      /\/\   ___  _ __| |__ (_)_   _ ___
  *     /    \ / _ \| '__| '_ \| | | | / __|
@@ -12,7 +12,7 @@
  *     \/   |_| |_|\___|  \___/ \__\___/| .__/|_|\__,_| \____/\___/|_| |_|___/ .__/|_|_|  \__,_|\___|\__, |
  *                                      |_|                                  |_|                     |___/
  *
- *                                                                 v1.0 first very-long-after-party release
+ *                                                              v1.1 re-voiced x-mas director's cut release
  */
 
 Mike Morbius is facing a brand new detective adventure taking place in the LOTTERVERSE of Frankfurt/M.
@@ -31,6 +31,14 @@ For listening to the ingame music please install the OGG driver OggDS0995.exe in
 
 
 CAN YOU GET THIS TO A GOOD END?
+
+
+New in v1.1
+-----------
+Fixes for some rare but annoying bugs that could occur with bad timing
+All and everything is now voice sampled!
+
+(: HAPPY HOLIDAY :)
 
 
 Copyright (c) 2015 - AckCon'15 Team, as follows:
