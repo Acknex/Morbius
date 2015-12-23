@@ -243,7 +243,7 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 		{
 			mousemgr_set(MOUSE_USE, NULL);
 			mousemgr_hint(NULL);
-			wait (-1.5);
+			wait (-3.5);
 			OFFICE_startSmoke();	
 			wait_for_snd(sugarBoilSnd);			
 			OFFICE_stopSmoke();	
@@ -369,6 +369,8 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			{
 				wait(1);
 			}
+			mousemgr_set(MOUSE_DEFAULT, NULL);
+			mousemgr_hint(NULL);
 			on_esc = NULL;
 			credits_start();
 			EVENT__locked = 0; //hackeldi hackeldei
@@ -391,6 +393,8 @@ Die Umstände, unter welchen die Opfer zu tode gekommen sind, werden von der KriP
 			{
 				wait(1);
 			}
+			mousemgr_set(MOUSE_DEFAULT, NULL);
+			mousemgr_hint(NULL);
 			on_esc = NULL;
 			credits_start();
 			EVENT__locked = 0; //hackeldi hackeldei

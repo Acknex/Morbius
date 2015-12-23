@@ -21,7 +21,7 @@
 
 	<!--Schublade//-->
 	<item id="4" name="Schublade" entfile="schublade_offen.mdl">
-		<sequence description="Die Schublade ist offen."/>
+		<sequence description="Die Schublade ist offen." sound="itm_schublade_offen01.ogg"/>
 	</item>
 
 	<!--Gecko//-->
@@ -50,12 +50,12 @@
 	<item id="9" name="Fernbedienung" imgfile="tv_remote.png">
 		<sequence description="Eine Fernbedienung, den dazugehörigen Fernseher musste ich verramschen, um mir die Taschenlampe zu kaufen." sound="itm_fernbedienung01.ogg"/>
 		<sequence description="Schau mal einer an, wer hätte da gedacht, da sind Batterien in der Fernbedienung. Die werde ich bestimmt gebrauchen können." sound="itm_fernbedienung02.ogg" result="8"/>
-		<sequence description="Eine Fernbedienung ohne Batterien. Toll."/>
+		<sequence description="Eine Fernbedienung ohne Batterien. Toll." sound="itm_fernbedienung03.ogg"/>
 	</item>
 
 	<!--Laptop//-->
 	<item id="10" name="Laptop" entfile="laptop.mdl">
-		<sequence description="Mein Laptop, digital soll angeblich die Zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen Platz."/>
+		<sequence description="Mein Laptop, digital soll angeblich die Zukunft sein. Für den ganzen Papierkram hab ich hier sowieso keinen Platz." sound="itm_laptop01.ogg"/>
 	</item>
 
 	<!--Beschützter Schubladenschlüssel//-->
@@ -87,7 +87,7 @@
 
 	<!--Taschenlampe//-->
 	<item id="16" name="Taschenlampe" collectable="yes" imgfile="flashlight_on.png">
-		<sequence description="Eine funktionierende Taschenlampe. Her damit!"/>
+		<sequence description="Eine funktionierende Taschenlampe. Her damit!" sound="itm_taschenlampe_working01.ogg"/>
 	</item>
 
 	<!--Toter Guard//-->
@@ -107,41 +107,41 @@
 
 	<!--Telefonzelle//-->
 	<item id="19" name="Telefon">
-		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können."/>
+		<sequence description="Okay Morbius, du hast einen Fehler in deinem Plan: Ohne Münzen wirst du ganz schlecht ein Münztelefon benutzen können." sound="itm_telefonzelle01.ogg"/>
 	</item>
 
 	<!--Wasserverdrängungsspray-40//-->
 	<item id="20" name="Wasserverdrängungsspray-40" collectable="yes" imgfile="wd40.png">
-		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen."/>
+		<sequence description="Wasserverdrängungsspray-40, der alltägliche Helfer für alles. Wird mir bestimmt gelegen kommen." sound="itm_wd4001.ogg"/>
 	</item>
 
 	<!--Verrostete Telefonzellentür//-->
 	<item id="21" name="Verrostete Telefonzellentür" destroyable="yes">
-		<sequence description="Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach."/>
-		<sequence description="Irgendwie sollte sich diese Tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist."/>
+		<sequence description="Verdammt die Tür ist verrostet, mit meinen Händen krieg' ich die nicht auf. Denk nach Morbius, denk nach." sound="itm_verrostetuer01.ogg"/>
+		<sequence description="Irgendwie sollte sich diese Tür doch öffnen lassen, ich muss schnellstmöglich herausfinden wer diese GALEP Security ist." sound="itm_verrostetuer02.ogg"/>
 	</item>
 
 	<!--Brechstange//-->
 	<item id="22" name="Brechstange" collectable="yes" imgfile="crowbar.png">
-		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde."/>
+		<sequence description="Eine Brechstange! Kein Wunder, dass ich in dieser abgestandenen Schabracke sowas finde." sound="itm_brechstange01.ogg"/>
 	</item>
 
 	<!--Gulli//-->
 	<item id="23" name="Gulli">
-		<sequence description="Da scheint etwas den Gulli heruntergefallen zu sein."/>
-		<sequence description="Wenn ich bloß etwas hätte, um das da herauszufischen."/>
+		<sequence description="Da scheint etwas den Gulli heruntergefallen zu sein." sound="itm_gulli01.ogg"/>
+		<sequence description="Wenn ich bloß etwas hätte, um das da herauszufischen." sound="itm_gulli02.ogg"/>
 	</item>
 
 	<!--Mülltonne//-->
 	<item id="24" name="Mülltonne">
-		<sequence description="Eine Mülltonne. Ein Standardmodell für die Frankfurter Großstadt."/>
-		<sequence description="Ein Angelhaken? Komisch dass jemand sowas hier mitten in der Stadt haben sollte." result="26"/>
-		<sequence description="Da drin wühl ich nicht nochmal rum!"/>
+		<sequence description="Eine Mülltonne. Ein Standardmodell für die Frankfurter Großstadt." sound="itm_muelltonne01.ogg"/>
+		<sequence description="Ein Angelhaken? Komisch dass jemand sowas hier mitten in der Stadt haben sollte." sound="itm_muelltonne02.ogg" result="26"/>
+		<sequence description="Da drin wühl ich nicht nochmal rum!" sound="itm_muelltonne03.ogg"/>
 	</item>
 
 	<!--Stock des Warlocks//-->
 	<item id="25" name="Stock" collectable="yes" imgfile="staff.png">
-		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein."/>
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="itm_stock01.ogg"/>
 	</item>
 
 	<!--Angelhaken//-->
@@ -154,69 +154,69 @@
 
 	<!--Nummernschild//-->
 	<item id="28" name="Proletenkarre">
-		<sequence description="Hmm, das Nummernschild ist mit Gaffer Tape befestigt."/>
-		<sequence description="Ich glaube das Tape kann ich irgendwie verwenden, ist ja nicht so als ob dass jetzt noch auffallen würde wenn ich das entwende." result="27"/>
-		<sequence description="Unerwarteterweise ist das noch immer ein Nummernschild."/>
+		<sequence description="Hmm, das Nummernschild ist mit Gaffer Tape befestigt." sound="itm_nummernschild01.ogg"/>
+		<sequence description="Ich glaube das Tape kann ich irgendwie verwenden, ist ja nicht so als ob dass jetzt noch auffallen würde wenn ich das entwende." sound="itm_nummernschild02.ogg" result="27"/>
+		<sequence description="Unerwarteterweise ist das noch immer ein Nummernschild." sound="itm_nummernschild03.ogg"/>
 	</item>
 
 	<!--Wackliger Stock mit Angelhaken//-->
 	<item id="29" name="Wackliger Stock mit Angelhaken" collectable="yes" imgfile="staff_hook.png">
-		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein."/>
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="itm_stock01.ogg"/>
 	</item>
 
 	<!--Geklebter Stock mit Angelhaken//-->
 	<item id="30" name="Geklebter Stock mit Angelhaken" collectable="yes" imgfile="staff_hook_gaffer.png">
-		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein."/>
+		<sequence description="Ein Stock? Gehört der zu dem Typen? Könnte auf jeden Fall hilfreich sein." sound="itm_stock01.ogg"/>
 	</item>
 
 	<!--Versiffte Geldbörse//-->
 	<item id="31" name="Versiffte Geldbörse" collectable="yes" destroyable="yes" entfile="wallet.mdl" imgfile="wallet.png">
-		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl von der Person sein, die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!"/>
-		<sequence description="Ein Rechnungsdurchdruck für die Griechin... für etwas, dass sich 'Motion Capture' nennt... für... 'Utopia'?"/>
-		<sequence description="Warum hast du nur etwas mit diesem Fall zu tun, Griechin?"/>
+		<sequence description="Was haben wir hier? Honorar für Personenschutz - das muss wohl von der Person sein, die Emdayelle beschützen sollte - \nund... nein, das kann nicht sein... was hast DU mit IHM zu tun?\nWarum bist du in dieser Sache involviert?!" sound="itm_geldboerse01.ogg"/>
+		<sequence description="Ein Rechnungsdurchdruck für die Griechin... für etwas, dass sich 'Motion Capture' nennt... für... 'Utopia'?" sound="itm_geldboerse02.ogg"/>
+		<sequence description="Warum hast du nur etwas mit diesem Fall zu tun, Griechin?" sound="itm_geldboerse03.ogg"/>
 	</item>
 
 	<!--Gulli benutzt//-->
 	<item id="32" name="Gulli">
-		<sequence description="Hier ist nichts mehr."/>
+		<sequence description="Hier ist nichts mehr." sound="itm_gulli_empty01.ogg"/>
 	</item>
 
 	<!--Bonzai Zuckerrohr//-->
 	<item id="33" name="Bonzai Zuckerrohr" collectable="yes" destroyable="yes" imgfile="sugar_cane.png">
-		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium."/>
-		<sequence description="Vielleicht kann ich aus diesem Zuckerrohr Zucker herstellen."/>
+		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium." sound="itm_zuckerrohr01.ogg"/>
+		<sequence description="Vielleicht kann ich aus diesem Zuckerrohr Zucker herstellen." sound="itm_zuckerrohr02.ogg"/>
 	</item>
 
 	<!--Topf//-->
 	<item id="34" name="Topf">
-		<sequence description="Ein Topf."/>
+		<sequence description="Ein Topf." sound="itm_topf01.ogg"/>
 	</item>
 
 	<!--Topf mit Zuckerrohr//-->
 	<item id="35" name="Topf mit Zuckerrohr" entfile="cane_pot.mdl">
-		<sequence description="Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium."/>
-		<sequence description="Wenn ich mich jetzt noch erinnern würde, wie man aus Zuckerrohr Zucker herstellt, dann wäre ich ganz klar im Vorteil."/>
-		<sequence description="Ich glaube der muss etwas erhitzt werden, oder so?"/>
+		<sequence description="Ein Topf mit dem Bonzai Zuckerrohr aus meinem Gecko-Terrarium." sound="itm_topfzucker01.ogg"/>
+		<sequence description="Wenn ich mich jetzt noch erinnern würde, wie man aus Zuckerrohr Zucker herstellt, dann wäre ich ganz klar im Vorteil." sound="itm_topfzucker02.ogg"/>
+		<sequence description="Ich glaube der muss etwas erhitzt werden, oder so?" sound="itm_topfzucker03.ogg"/>
 	</item>
 
 	<!--Topf mit Zucker//-->
 	<item id="36" name="Topf mit Zucker" collectable="yes" destroyable="yes" entfile="sugar_pot.mdl" imgfile="sugar_pot.png">
-		<sequence description="Ein gelungenes Experiment der Zuckerherstellung aus biologischem Anbau! Garantiert ohne Gluten. Oder doch? Keine Ahnung."/>
+		<sequence description="Ein gelungenes Experiment der Zuckerherstellung aus biologischem Anbau! Garantiert ohne Gluten. Oder doch? Keine Ahnung." sound="itm_rohrzucker01.ogg"/>
 	</item>
 
 	<!--Herd//-->
 	<item id="37" name="Herd">
-		<sequence description="Ein Standard-Elektroherd."/>
+		<sequence description="Ein Standard-Elektroherd." sound="itm_herd01.ogg"/>
 	</item>
 
 	<!--Thermoskanne gezuckert//-->
 	<item id="38" name="Thermoskanne" collectable="yes" destroyable="yes" imgfile="coffee_can.png">
-		<sequence description="Eine Thermoskanne mit gezuckertem Kaffee."/>
+		<sequence description="Eine Thermoskanne mit gezuckertem Kaffee." sound="itm_kaffeezucker01.ogg"/>
 	</item>
 
 	<!--Thermoskanne//-->
 	<item id="39" name="Thermoskanne" collectable="yes" imgfile="coffee_can.png">
-		<sequence description="Eine Thermoskanne mit Kaffee."/>
+		<sequence description="Eine Thermoskanne mit Kaffee." sound="itm_kaffee01.ogg"/>
 	</item>
 
 	<!--Münzen//-->
@@ -225,12 +225,12 @@
 
 	<!--Telefonzelle benutzt//-->
 	<item id="41" name="Telefon">
-		<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..."/>
+		<sequence description="Hmmm... irgendetwas wollte ich doch hier noch tun..." sound="itm_telefonzelle_done01.ogg"/>
 	</item>
 
 	<!--Telefonzelle zweimal benutzt//-->
 	<item id="42" name="Telefon">
-		<sequence description="Und welche Münzen genau soll ich jetzt bitte nochmal einwerfen?"/>
+		<sequence description="Und welche Münzen genau soll ich jetzt bitte nochmal einwerfen?" sound="itm_telefonzelle_done_twice01.ogg"/>
 	</item>
 
 	<!--Dunkelkammer//-->
@@ -240,12 +240,12 @@
 
 	<!--Meister des Feuers//-->
 	<item id="44" name="Buch">
-		<sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL."/>
+		<sequence description="Meister des Feuers - Die ultimative Inspirationsquelle, geschrieben von meinem Lieblingsautor JCL." sound="itm_buch_meisterdesfeuers01.ogg"/>
 	</item>
 
 	<!--Downtown//-->
 	<item id="45" name="Buch">
-		<sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius."/>
+		<sequence description="Downtown - Ein Buch über meinen Lieblingsdetektiv Mike Morbius." sound="itm_buch_downtown01.ogg"/>
 	</item>
 
 	<!--Main Door ohne Visitenkarte//-->
@@ -264,57 +264,57 @@
 
 	<!--Dunkelkammer Door ohne Taschenlampe//-->
 	<item id="48" name="Dunkelkammer">
-		<sequence description="Das ist meine Dunkelkammer. Eigentlich eine Kochnische die ich dazu entfremdet habe."/>
-		<sequence description="Das ist eine DUNKELkammer, ich geh da nicht ohne Licht rein!"/>
+		<sequence description="Das ist meine Dunkelkammer. Eigentlich eine Kochnische die ich dazu entfremdet habe." sound="itm_dunkelkammer_hint01.ogg"/>
+		<sequence description="Das ist eine DUNKELkammer, ich geh da nicht ohne Licht rein!" sound="itm_dunkelkammer_hint02.ogg"/>
 	</item>
 
 	<!--Bonzai Zuckerrohr Dummy//-->
 	<item id="49" name="Bonzai Zuckerrohr">
-		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium."/>
+		<sequence description="Ein Bonzai-Zuckerrohr, der kam kostenlos mit dem Reptilterrarium." sound="itm_zuckerrohr_dummy01.ogg"/>
 	</item>
 
 	<!--Toter Warlock//-->
 	<item id="50" name="Leiche">
-		<sequence description="Wer ist dieser Mann? Ich sollte irgendwelche Hinweise finden sollen."/>
-		<sequence description="Nichts an seiner Person, vielleicht finde ich in der Umgebung etwas."/>
+		<sequence description="Wer ist dieser Mann? Ich sollte irgendwelche Hinweise finden sollen." sound="itm_warlock01.ogg"/>
+		<sequence description="Nichts an seiner Person, vielleicht finde ich in der Umgebung etwas." sound="itm_warlock02.ogg"/>
 	</item>
 
 	<!--Haustür Draugstraße 4//-->
 	<item id="51" name="Draugstraße 4">
-		<sequence description="Warum sollte ich an der Tür klopfen? Ich weiß, dass Emdayelle tot ist.\nIch habe persönlich von seiner kalten Leiche Kleingeld entwendet."/>
-		<sequence description="Vielleicht sollte ich versuchen, mich nach einer alternativen Zugangsmethode umzuschauen."/>
+		<sequence description="Warum sollte ich an der Tür klopfen? Ich weiß, dass Emdayelle tot ist.\nIch habe persönlich von seiner kalten Leiche Kleingeld entwendet." sound="itm_draugstrasse01.ogg"/>
+		<sequence description="Vielleicht sollte ich versuchen, mich nach einer alternativen Zugangsmethode umzuschauen." sound="itm_draugstrasse02.ogg"/>
 	</item>
 
 	<!--Unnützes Auto//-->
 	<item id="52" name="Trabi">
-		<sequence description="Fast so schick wie mein Subaru."/>
+		<sequence description="Fast so schick wie mein Subaru." sound="itm_trabi01.ogg"/>
 	</item>
 
 	<!--Nummernschild Auto//-->
 	<item id="53" name="Proletenkarre">
-		<sequence description="Sieht ja schlimmer als mein Auto aus."/>
-		<sequence description="Interessantes Nummernschild... [kicher]"/>
+		<sequence description="Sieht ja schlimmer als mein Auto aus." sound="itm_prolokarre01.ogg"/>
+		<sequence description="Interessantes Nummernschild... [kicher]" sound="itm_prolokarre02.ogg"/>
 	</item>
 
 	<!--Fake Futter//-->
 	<item id="54" name="Futter">
-		<sequence description="Also dafür habe ich nun wirklich keine Zeit."/>
+		<sequence description="Also dafür habe ich nun wirklich keine Zeit." sound="itm_fakefutter01.ogg"/>
 	</item>
 
 	<!--Benutzbarer Herd//-->
 	<item id="55" name="Herd">
-		<sequence description="Ah genau, wir kochen das Zuckerrohr zu einer rohen Masse und lassen die Flüssigkeit verdampfen... und was übrig bleibt ist... Zucker!" result="1009"/>
-		<sequence description="Ein Standard-Elektroherd."/>
+		<sequence description="Ah genau, wir kochen das Zuckerrohr zu einer rohen Masse und lassen die Flüssigkeit verdampfen... und was übrig bleibt ist... Zucker!" sound="itm_zuckerherd01.ogg" result="1009"/>
+		<sequence description="Ein Standard-Elektroherd." sound="itm_zuckerherd02.ogg"/>
 	</item>
 
 	<!--Griechin//-->
 	<item id="56" name="Griechin">
-		<sequence description="Die Griechin. Eine meiner besten Freundschaften."/>
+		<sequence description="Die Griechin. Eine meiner besten Freundschaften." sound="itm_griechin01.ogg"/>
 	</item>
 
 	<!--Main Door Blocked//-->
 	<item id="57" name="Main Door blockiert">
-		<sequence description="Ich kann jetzt gerade nicht einfach so mal eben abhauen!"/>
+		<sequence description="Ich kann jetzt gerade nicht einfach so mal eben abhauen!" sound="itm_door_blocked01.ogg"/>
 	</item>
 
 	<!--Spielautomat Ackmania//-->
@@ -329,33 +329,33 @@
 
 	<!--CBabe//-->
 	<item id="60" name="CBabe">
-		<sequence description="Das ist CBabe. So eine Zicke."/>
+		<sequence description="Das ist CBabe. So eine Zicke." sound="itm_cbabe01.ogg"/>
 	</item>
 
 	<!--A9 Bier//-->
 	<item id="61" name="A9 Spezialbier">
-		<sequence description="Neunfach gehopftes Acknex Craft Bier. Bitterer Abgang."/>
+		<sequence description="Neunfach gehopftes Acknex Craft Bier. Bitterer Abgang." sound="itm_a9bier01.ogg"/>
 	</item>
 
 	<!--The Lotties//-->
 	<item id="62" name="The Lotties">
-		<sequence description="Das darf doch nicht wahr sein! The Lotties! Meine absolute Lieblingsband!"/>
+		<sequence description="Das darf doch nicht wahr sein! The Lotties! Meine absolute Lieblingsband!" sound="itm_lotties01.ogg"/>
 	</item>
 
 	<!--Kingmorph Door Blocked//-->
 	<item id="63" name="Main Door blockiert">
-		<sequence description="Das ist jetzt keine gute Idee."/>
-		<sequence description="Vielleicht sollte ich erst mit CBabe reden."/>
+		<sequence description="Das ist jetzt keine gute Idee." sound="itm_discodoor_blocked01.ogg"/>
+		<sequence description="Vielleicht sollte ich erst mit CBabe reden." sound="itm_discodoor_blocked02.ogg"/>
 	</item>
 
 	<!--Spielfigur//-->
 	<item id="64" name="Spielfigur" collectable="yes" imgfile="pawn.png">
-		<sequence description="Eine Spielfigur!? Benutzt man wohl zum Spielen. Die kommt natürlich mit."/>
+		<sequence description="Eine Spielfigur!? Benutzt man wohl zum Spielen. Die kommt natürlich mit." sound="itm_spielfigur01.ogg"/>
 	</item>
 
 	<!--Tanzende Griechin//-->
 	<item id="65" name="Griechin">
-		<sequence description="Die Griechin hier in der Disco! Am Tanzen!? Wie frech..."/>
+		<sequence description="Die Griechin hier in der Disco! Am Tanzen!? Wie frech..." sound="itm_dancegriechin01.ogg"/>
 	</item>
 
 	<!--Email Laptop//-->

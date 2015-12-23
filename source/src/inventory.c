@@ -185,6 +185,7 @@ void inv_remove_item(Inventory* _inv, Item* _item) {
 		}
 		inv_increate_iterator(_inv);
 	}
+	//sys_free(_item); makes inventory go crashy crashy -.-
 }
 
 Item* inv_create_item(int _id, STRING* _name, STRING* _descr, int _value) {
